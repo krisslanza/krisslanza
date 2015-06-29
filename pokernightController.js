@@ -8,7 +8,7 @@
 /********************************/
 
 /* pseudo-constants */
-var gameDelay = 100;
+var gameDelay = 1000;
 
 /********************************/		
 /***** Game Flow Functions  *****/
@@ -44,7 +44,7 @@ function makeAIDecision () {
 /* implements the AI's chosen action */
 function implementAIAction () {
 	swapCards(currentTurn);
-	dullPlayerHand(currentTurn);
+	//dullPlayerHand(currentTurn);
 	
 	/* update speech */
 	
