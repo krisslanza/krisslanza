@@ -25,7 +25,13 @@ function playersTurn () {
 function makeAIDecision () {	
 	/* determine the AI's decision */
 	determineAIAction(currentTurn);
-	// DULL THE CARDS THEY ARE TRADING IN
+	
+	/* dull the cards they are trading in */
+	for (var i = 0; i < playerTradeIns[currentTurn].length; i++) {
+		if (playerTradeIns[currentTurn][i]) {
+			dullCard(currentTurn, i);
+		}
+	}
 	
 	/* update speech */
 	/* determine how many cards are being swapped */
@@ -45,6 +51,9 @@ function makeAIDecision () {
 function implementAIAction () {
 	swapCards(currentTurn);
 	//dullPlayerHand(currentTurn);
+	
+	/* refresh the hand */
+	hidePlayerHand(currentTurn);
 	
 	/* update speech */
 	

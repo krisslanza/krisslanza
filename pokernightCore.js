@@ -197,7 +197,7 @@ function startNewRound () {
 	/* set visual state */
 	showPlayerHand(0);
 	for (var i = 1; i < players; i++) {
-		dullPlayerHand(i);
+		hidePlayerHand(i);
 	}
 }
 
@@ -357,6 +357,7 @@ function dullPlayerHand (player) {
 function hidePlayerHand (player) {
 	for (var i = 0; i < cardsPerHand; i++) {
 		playerCardCells[player][i].src = imageSource + "unknown.jpg";
+		fillCard(player, i);
 	}
 }
 
