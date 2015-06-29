@@ -11,6 +11,9 @@
 var imageSource = "images/";
 var playerSources = ["player/", "", "", "", ""];
 
+/* HTML sources */
+var playerDocuments = [null, null, null, null, null];
+
 /* colours */
 var currentColour = "#85C5F5"; 	/* indicates current turn */
 var clearColour = "#FFFFFF";	/* indicates neutral */
@@ -35,6 +38,16 @@ var playerImages = [null,
 					document.getElementById("player3image"),
 					document.getElementById("player4image"),
 					document.getElementById("player5image")];
+					
+/* human player clothing cells */
+var humanPlayerClothingLabel = document.getElementById("player1clothing");
+var humanPlayerClothing = [document.getElementById("player1clothing1"),
+						   document.getElementById("player1clothing2"),
+					       document.getElementById("player1clothing3"),
+					       document.getElementById("player1clothing4"),
+					       document.getElementById("player1clothing5"),
+					       document.getElementById("player1clothing6"),
+					       document.getElementById("player1clothing7")];
 
 /* player names */
 var playerNames = ["_undefined", "_undefined", "_undefined", "_undefined", "_undefined"];
@@ -129,7 +142,7 @@ var playerTradeIns = [[false, false, false, false, false],
 /* game state */
 var currentTurn = 0;
 var playerStartingClothing = [8, 9, 9, 9, 9];
-var playerClothing = [1, 9, 9, 9, 9];
+var playerClothing = [8, 9, 9, 9, 9];
 var playerInGame = [true, true, true, true, true];
 var gameOver = false;
 
@@ -145,7 +158,7 @@ function initialSetup () {
 	
 	/* load opponent behaviours */
 	loadBehaviours();
-	for (var i = 1; i < players; i++) {
+	for (var i = 0; i < players; i++) {
 		loadBasicSettings(i);
 	}
 	
@@ -672,6 +685,21 @@ function stripPlayer(player) {
 	
 	if (player == 0) {
 		/* human player */
+		
+		/* shift all of the clothing images */
+		var firstClothing = humanPlayerClothing[0].src;
+		for (var i = 0; i < playerStartingClothing[0] - 2; i++) {
+			humanPlayerClothing[i].src = humanPlayerClothing[i+1].src;
+		}
+		humanPlayerClothing[playerStartingClothing[0]-2].src = firstClothing;
+		
+		/* dull the lost clothing */
+		for (var i = playerStartingClothing[0]; i > playerClothing[0] && i > 1; i--) {
+			humanPlayerClothing[i-2].style.opacity = 0;
+		}
+		
+		var clothingName = playerDocuments[0].getElementById("clothingName"+playerClothing[0]).innerHTML;
+		humanPlayerClothingLabel.innerHTML = "Your Clothing</br>Bet: <b>"+clothingName+"</b>";
 	} else {
 		/* AI player */
 		/* ALL OF THIS IS HARDCODED AND IT SHOULDNT BE */

@@ -25,16 +25,15 @@ function loadBehaviours () {
 
 /* tries to load the basic settings of all players */
 function loadBasicSettings (player) {
-	console.log(player);
 	var playerFile = document.getElementById("opponent"+player);
-	var playerDocument = playerFile.contentDocument || playerFile.contentWindow.document;
+	playerDocuments[player] = playerFile.contentDocument;
 	
-	if (playerDocument.readyState == 'complete') {
-		console.log(playerDocument.readyState);
+	if (playerDocuments[player].readyState == 'complete') {
+		console.log(playerDocuments[player].readyState);
 		console.log(playerFile);
-		console.log(playerDocument);
-		console.log(playerDocument.getElementById("name").innerHTML);
-		playerNames[player] = playerDocument.getElementById('name').innerHTML;
+		console.log(playerDocuments[player]);
+		console.log(playerDocuments[player].getElementById("name").innerHTML);
+		playerNames[player] = playerDocuments[player].getElementById('name').innerHTML;
 		
 		playerLabels[player].innerHTML = playerNames[player];
 		if (player > 0) {
