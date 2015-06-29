@@ -6,7 +6,7 @@ html, body {
 }
 
 iframe {
-	//display: none;
+	display: none;
 }
 
 #layoutTable {
