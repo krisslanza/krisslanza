@@ -29,6 +29,7 @@ function loadBasicSettings (player) {
 	var playerDocument = playerFile.contentDocument || playerFile.contentWindow.document;
 	
 	if (playerDocument.readyState == 'complete') {
+		console.log(playerDocument.readyState);
 		console.log(playerFile);
 		console.log(playerDocument);
 		console.log(playerDocument.getElementById("name").innerHTML);
@@ -40,7 +41,7 @@ function loadBasicSettings (player) {
 		}
 	} else {
 		/* wait for the data to be loaded */
-		window.setTimeout(function() {loadBasicSettings(player)}, gameDelay);
+		
 	}
 }
 
