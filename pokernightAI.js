@@ -25,6 +25,7 @@ function loadBehaviours () {
 
 /* tries to load the basic settings of all players */
 function loadBasicSettings (player) {
+	console.log(player);
 	var playerFile = document.getElementById("opponent"+player);
 	var playerDocument = playerFile.contentDocument || playerFile.contentWindow.document;
 	
@@ -41,7 +42,7 @@ function loadBasicSettings (player) {
 		}
 	} else {
 		/* wait for the data to be loaded */
-		
+		window.setTimeout(function() {loadBasicSettings(player)}, 1000);
 	}
 }
 
