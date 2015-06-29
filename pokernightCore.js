@@ -145,7 +145,7 @@ function initialSetup () {
 	
 	/* load opponent behaviours */
 	loadBehaviours();
-	for (var i = 0; i < players; i++) {
+	for (var i = 1; i < players; i++) {
 		loadBasicSettings(i);
 	}
 	
