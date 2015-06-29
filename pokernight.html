@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+	<link rel="stylesheet" type="text/css" href="pokernight.css">
+</head>
+<body onload="initialSetup()">
+	<table id="layoutTable">
+	
+		<!-- Introduction Screen -->
+		<tr><td>
+		<table class="mainTable" id="introScreen" hidden>
+			<tr>
+				<td class= "textArea" colspan="4"><p class="banner">Welcome to Strip Poker Night at the Inventory!</p></td>
+			</tr>
+		</table>
+		</td></tr>
+		
+		<!-- Main Game Screen -->
+		<tr><td>
+		<table class="mainTable" id="gameScreen">
+			<tr>
+				<td class="textArea" colspan="4"><p class="banner" id="gameBanner">Welcome to Strip Poker Night at the Inventory!</p></td>
+			</tr>
+			<tr>
+				<td class="textArea speechBubble"><p id="player2speech">Hi, I'm Elizabeth.</p></td>
+				<td class="textArea speechBubble"><p id="player3speech">Hi, I'm Lilith.</p></td>
+				<td class="textArea speechBubble"><p id="player4speech">Hi, I'm Zoey.</p></td>
+				<td class="textArea speechBubble"><p id="player5speech">Hi, I'm Laura... and this is Sam.</p></td>
+			</tr>
+			<tr>
+				<td><img class="girlImage" id="player2image"></td>
+				<td><img class="girlImage" id="player3image"></td>
+				<td><img class="girlImage" id="player4image"></td>
+				<td><img class="girlImage" id="player5image"></td>
+			</tr>
+			<tr>
+				<td>
+					<table class="girlStatusArea">
+					<tr><td colspan="5"><p class="playerLabel textArea" id="player2label"></p></td></tr>
+					<tr>
+						<td><img class="smallCardImage" id="player2card1" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player2card2" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player2card3" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player2card4" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player2card5" src="images/unknown.jpg"></td>
+					</tr>
+					</table>
+				</td>
+				<td>
+					<table class="girlStatusArea">
+					<tr><td colspan="5"><p class="playerLabel textArea" id="player3label"></p></td></tr>
+					<tr>
+						<td><img class="smallCardImage" id="player3card1" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player3card2" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player3card3" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player3card4" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player3card5" src="images/unknown.jpg"></td>
+					</tr>
+					</table>
+				</td>
+				<td>
+					<table class="girlStatusArea">
+					<tr><td colspan="5"><p class="playerLabel textArea" id="player4label"></p></td></tr>
+					<tr>
+						<td><img class="smallCardImage" id="player4card1" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player4card2" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player4card3" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player4card4" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player4card5" src="images/unknown.jpg"></td>
+					</tr>
+					</table>
+				</td>
+				<td>
+					<table class="girlStatusArea">
+					<tr><td colspan="5"><p class="playerLabel textArea" id="player5label"></p></td></tr>
+					<tr>
+						<td><img class="smallCardImage" id="player5card1" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player5card2" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player5card3" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player5card4" src="images/unknown.jpg"></td>
+						<td><img class="smallCardImage" id="player5card5" src="images/unknown.jpg"></td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			
+			<!-- Player 1 Area -->
+			<tr><td colspan="4" class="player1area">
+				<table class="player1table">
+				<tr><td>
+					<table align="left">
+						<tr>
+							<td><img class="clothingImage" id="player1clothing7" src="images/boxers.jpg"></td>
+							<td colspan="4"><p class="textArea playerClothingLabel" id="player1clothing">Your Clothing</br>Bet: <b>Shoes</b></p></td>
+							<td rowspan="2"><img class="largeClothingImage" id="player1clothing1" src="images/shoes.jpg"></td>
+						</tr>
+						<tr>
+							<td><img class="clothingImage" id="player1clothing6" src="images/undershirt.jpg"></td>
+							<td><img class="clothingImage" id="player1clothing5" src="images/pants.jpg"></td>
+							<td><img class="clothingImage" id="player1clothing4" src="images/shirt.jpg"></td>
+							<td><img class="clothingImage" id="player1clothing3" src="images/belt.jpg"></td>
+							<td><img class="clothingImage" id="player1clothing2" src="images/socks.jpg"></td>
+						</tr>
+					</table>
+				</td><td>
+					<table align="right">
+						<tr>
+							<td><input type="image" class="largeCardImage" id="player1card1" src="images/unknown.jpg" onclick="selectCard(0)"/></td>
+							<td><input type="image" class="largeCardImage" id="player1card2" src="images/unknown.jpg" onclick="selectCard(1)"/></td>
+							<td><input type="image" class="largeCardImage" id="player1card3" src="images/unknown.jpg" onclick="selectCard(2)"/></td>
+							<td><input type="image" class="largeCardImage" id="player1card4" src="images/unknown.jpg" onclick="selectCard(3)"/></td>
+							<td><input type="image" class="largeCardImage" id="player1card5" src="images/unknown.jpg" onclick="selectCard(4)"/></td>
+							<td width="15px"></td>
+							<td>
+								<table align="left">
+									<tr>
+										<td colspan="5"><p class="textArea playerLabel" id="player1label">You</p></td>
+									</tr>
+									<tr>
+										<td><button class="playerButton" id="continueButton" onclick="pressedContinue();"></button></td>
+										<td><img class="playerGenderImage" src="images/male.jpg"></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td></tr>
+				</table>
+			</td></tr>
+		</table>
+		</td></tr>
+		
+	</table>
+	
+	<script src="pokerNightCore.js"></script>
+	<script src="pokerNightController.js"></script>
+	<script src="pokerNightAI.js"></script>
+	<div id="behaviourDiv"></div>
+</body>
+</html>

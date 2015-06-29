@@ -1,0 +1,26 @@
+Each opponent requires an image set and an HTML speech and behaviour file.
+
+All images should be ".jpg" named as outlined below. The HTML file should be "behaviour.html".
+
+
+Each state of dress is referred to as a 'stage', with the number of the stage being the number of articles of clothing removed. Each expression within a stage is called a 'state'.
+
+The required states for each stage are as follows:
+- calm	
+- nervous
+- happy
+- angry
+- sad
+- embrassed
+- horny
+These requirements might change later on, but for now it is required.
+
+The images for a stage must all begin with the name and number of the stage followed by the name of the state the character is in. Therefore, the required images for each stage are:
+
+stage1calm.jpg
+stage1nervous.jpg
+stage1happy.jpg
+stage1angry.jpg
+stage1sad.jpg
+stage1embrassed.jpg
+stage1horny.jpg

@@ -1,0 +1,187 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #F5F5F5;
+}
+
+iframe {
+	//display: none;
+}
+
+#layoutTable {
+	width: 100%;
+	min-width: 935px;
+	height: 100%;
+	display: table;
+}
+
+#layoutTable > .mainTable {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.mainTable {
+	table-layout: fixed;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+
+.mainTable td {
+	text-align: center;
+}
+
+.mainTable p {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.banner {
+	font-size: 24px;
+}
+
+.speechBubble {
+	height: 85px;
+	font-size: 20px;
+}
+
+.textArea {
+	background-color: #FFFFFF;
+	border: 2px solid black;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.textArea p {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.girlStatusArea {
+	margin: 0 auto;
+}
+
+.playerTurn {
+	width: 30px;
+	height: 22px;
+	font-weight: bold;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background-color: #E5E5E5;
+}
+
+.playerScore {
+	width: 30px;
+	height: 22px;
+	font-weight: bold;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.girlImage {
+	width: 100%;
+	max-height: 600px;
+}
+
+.playerLabel {
+	height: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.smallCardImage {
+	width: 35px;
+	height: 45px;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+.largeCardImage {
+	width: 65px;
+	height: 90px;
+	border: 2px solid black;
+	border-radius: 10px;
+	margin-left: 5px;
+}
+
+.player1area {
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+.player1table {
+	width: 100%;
+}
+
+.smallLabel {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-weight: bold;
+	text-align: right;
+}
+
+.smallInlineLabel {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.playerButton {
+	width: 45px;
+	height: 28px;
+	background-color: #85C5F5;
+	border: 2px solid black;
+	border-radius: 10px;
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 14px;
+	margin-right: 0px;
+}
+
+#continueButton {
+	width: 100px;
+	height: 64px;
+	font-size: 22px;
+}
+
+.humanPlayerLabel {
+	width: 60px;
+	height: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 8px;
+	padding-right: 8px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.playerGenderImage {
+	width: 60px;
+	height: 60px;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+.playerClothingLabel {
+	height: 40px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	word-wrap: break-word;
+}
+
+.clothingImage {
+	width: 40px;
+	height: 40px;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+.largeClothingImage {
+	width: 70px;
+	height: 90px;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
