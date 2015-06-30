@@ -39,7 +39,7 @@ function loadBehaviours () {
 	
 	$.ajax({
         type: "GET",
-		url: "opponent/lilith/behaviour.xml",
+		url: "opponents/lilith/behaviour.xml",
 		dataType: "xml",
 		success: function(xml) {
 			console.log("Hello");

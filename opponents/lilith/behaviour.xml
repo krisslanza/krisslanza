@@ -1,8 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  This file contains the dialogue and image IDs for Lilith,
  allowing her to be a more immersive opponent to play against.
  -->
-<?xml version="1.0" encoding="UTF-8"?>
 <opponent>
 	<!-- Basic Information -->
 	<name>Lilith</name>
