@@ -1,0 +1,15 @@
+<!--
+ This file contains the dialogue and image IDs for Lilith,
+ allowing her to be a more immersive opponent to play against.
+ -->
+<?xml version="1.0" encoding="UTF-8"?>
+<opponent>
+	<!-- Basic Information -->
+	<name>Lilith</name>
+	<gender>female</gender>
+	<sexuality>bisexual</sexuality>
+	
+	<!-- Game Start Information -->
+	<startImage>start</startImage>
+	<startDialogue>Hey, I'm Lilith. You ready to play some strip poker?</startDialogue>
+</opponent>

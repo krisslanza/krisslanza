@@ -41,7 +41,7 @@ function makeAIDecision () {
 			swap++;
 		}
 	}
-	playerSpeech[currentTurn].innerHTML = "I will exchange "+swap+" cards."; //HARDCODED
+	playerDialogue[currentTurn].innerHTML = "I will exchange "+swap+" cards."; //HARDCODED
 	
 	/* wait and implement AI action */
 	window.setTimeout(implementAIAction, gameDelay);
@@ -78,7 +78,7 @@ function advanceTurn () {
 			pressedContinue();
 		} else {
 			/* update speech */
-			playerSpeech[currentTurn].innerHTML = "How long do I have to keep going?"; //HARDCODED
+			playerDialogue[currentTurn].innerHTML = "How long do I have to keep going?"; //HARDCODED
 			
 			advanceTurn();
 		}

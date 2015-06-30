@@ -11,9 +11,6 @@
 var imageSource = "images/";
 var playerSources = ["player/", "", "", "", ""];
 
-/* HTML sources */
-var playerDocuments = [null, null, null, null, null];
-
 /* colours */
 var currentColour = "#85C5F5"; 	/* indicates current turn */
 var clearColour = "#FFFFFF";	/* indicates neutral */
@@ -26,11 +23,11 @@ var disabledColour = "#A5A5A5";	/* indicates disabled button */
 var gameBanner = document.getElementById("gameBanner");
 
 /* player speech cells */
-var playerSpeech = [null,
-					document.getElementById("player2speech"),
-					document.getElementById("player3speech"),
-					document.getElementById("player4speech"),
-					document.getElementById("player5speech")];
+var playerDialogue = [null,
+					  document.getElementById("player2dialogue"),
+					  document.getElementById("player3dialogue"),
+					  document.getElementById("player4dialogue"),
+					  document.getElementById("player5dialogue")];
 					
 /* player image cells */
 var playerImages = [null,
@@ -112,6 +109,16 @@ var FULL_HOUSE		= 7;
 var FOUR_OF_A_KIND	= 8;
 var STRAIGHT_FLUSH	= 9;
 var ROYAL_FLUSH 	= 10;
+
+/********************************/	
+/*****  Opponent Variables  *****/
+/********************************/
+
+/* HTML sources */
+var playerDocuments = [null, null, null, null, null];
+
+/* chosen clothing paths */
+var playerClothingPaths = [1, 1, 1, 1, 1];
 
 /********************************/	
 /***** Game State Variables *****/
@@ -708,11 +715,11 @@ function stripPlayer(player) {
 		playerImages[player].src = playerSources[player] + "stage" + stage + "calm.jpg";
 		
 		if (playerClothing[player] > 1) {
-			playerSpeech[player].innerHTML = "There goes another article of clothing..."; //HARDCODED
+			playerDialogue[player].innerHTML = "There goes another article of clothing..."; //HARDCODED
 		} else if (playerClothing[player] == 1) {
-			playerSpeech[player].innerHTML = "I guess I'm naked..."; //HARDCODED
+			playerDialogue[player].innerHTML = "I guess I'm naked..."; //HARDCODED
 		} else {
-			playerSpeech[player].innerHTML = "Like this?"; //HARDCODED
+			playerDialogue[player].innerHTML = "Like this?"; //HARDCODED
 		}
 	}
 	
