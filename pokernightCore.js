@@ -23,22 +23,22 @@ var disabledColour = "#A5A5A5";	/* indicates disabled button */
 var gameBanner = document.getElementById("gameBanner");
 
 /* player speech cells */
-var playerDialogue = [null,
+var playerDialogueCells = [null,
 					  document.getElementById("player2dialogue"),
 					  document.getElementById("player3dialogue"),
 					  document.getElementById("player4dialogue"),
 					  document.getElementById("player5dialogue")];
 					
 /* player image cells */
-var playerImages = [null,
+var playerImageCells = [null,
 					document.getElementById("player2image"),
 					document.getElementById("player3image"),
 					document.getElementById("player4image"),
 					document.getElementById("player5image")];
 					
 /* human player clothing cells */
-var humanPlayerClothingLabel = document.getElementById("player1clothing");
-var humanPlayerClothing = [document.getElementById("player1clothing1"),
+var humanplayerCurrentClothingLabel = document.getElementById("player1clothing");
+var humanplayerCurrentClothing = [document.getElementById("player1clothing1"),
 						   document.getElementById("player1clothing2"),
 					       document.getElementById("player1clothing3"),
 					       document.getElementById("player1clothing4"),
@@ -47,7 +47,7 @@ var humanPlayerClothing = [document.getElementById("player1clothing1"),
 					       document.getElementById("player1clothing7")];
 
 /* player names */
-var playerNames = ["_undefined", "_undefined", "_undefined", "_undefined", "_undefined"];
+
 
 /* player name labels */
 var playerLabels = [document.getElementById("player1label"),
@@ -149,7 +149,7 @@ var playerTradeIns = [[false, false, false, false, false],
 /* game state */
 var currentTurn = 0;
 var playerStartingClothing = [8, 9, 9, 9, 9];
-var playerClothing = [8, 9, 9, 9, 9];
+var playerCurrentClothing = [8, 9, 9, 9, 9];
 var playerInGame = [true, true, true, true, true];
 var gameOver = false;
 
@@ -166,21 +166,46 @@ function initialSetup () {
 	/* load opponent behaviours */
 	loadBehaviours();
 	for (var i = 0; i < players; i++) {
-		loadBasicSettings(i);
+		if (i != 2) {loadBasicSettings(i)};
 	}
+	loadBehaviour(2); //HARDCODED, REMOVE THIS
 	
 	/* set up the game */
 	composeDeck();
 	
 	/* WAIT FOR CONTENT TO LOAD */
-	
+	waitForContent ();
+}
+
+/* waits for all content to load before starting the game */
+function waitForContent () {
+	var loaded = 0;
+	for (var i = 0; i <= 1; i++) {
+		if (playerLoaded[2] == true) { loaded++; }
+	}
+	console.log(loaded);
+	if (loaded == 2) {
+		startGame();
+	} else {
+		window.setTimeout(waitForContent, 100);
+	}
+}
+
+/* quickly sets up the visuals and starts the game */
+function startGame () {
 	/* set up the visuals */
 	continueButton.innerHTML = "Deal";
+	updatePlayerVisual(2);
+	updateBehaviour(2, "won_female_ai_strips", ["~name~"], ["Zoey"]);
+	updatePlayerVisual(2);
 	
 	/* setup initial button states */
 	enableButton(continueButton);
 	
-	//displayCards();
+	console.log(playerClothing[2]);
+	for (var i = 0; i < playerClothing[2].length; i++) {
+		console.log(playerClothing[2][i]);
+	}
 }
 
 /* does all the calling for a new round */
@@ -686,8 +711,8 @@ function determineHand (player) {
 function stripPlayer(player) {
 	console.log("Player "+player+" is being stripped.");
 	
-	playerClothing[player]--;
-	if (playerClothing[player] == 0) {
+	playerCurrentClothing[player]--;
+	if (playerCurrentClothing[player] == 0) {
 		playerInGame[player] = false;
 	}
 	
@@ -695,31 +720,31 @@ function stripPlayer(player) {
 		/* human player */
 		
 		/* shift all of the clothing images */
-		var firstClothing = humanPlayerClothing[0].src;
+		var firstClothing = humanplayerCurrentClothing[0].src;
 		for (var i = 0; i < playerStartingClothing[0] - 2; i++) {
-			humanPlayerClothing[i].src = humanPlayerClothing[i+1].src;
+			humanplayerCurrentClothing[i].src = humanplayerCurrentClothing[i+1].src;
 		}
-		humanPlayerClothing[playerStartingClothing[0]-2].src = firstClothing;
+		humanplayerCurrentClothing[playerStartingClothing[0]-2].src = firstClothing;
 		
 		/* dull the lost clothing */
-		for (var i = playerStartingClothing[0]; i > playerClothing[0] && i > 1; i--) {
-			humanPlayerClothing[i-2].style.opacity = 0;
+		for (var i = playerStartingClothing[0]; i > playerCurrentClothing[0] && i > 1; i--) {
+			humanplayerCurrentClothing[i-2].style.opacity = 0;
 		}
 		
-		var clothingName = playerDocuments[0].getElementById("clothingName"+playerClothing[0]).innerHTML;
-		humanPlayerClothingLabel.innerHTML = "Your Clothing</br>Bet: <b>"+clothingName+"</b>";
+		var clothingName = playerDocuments[0].getElementById("clothingName"+playerCurrentClothing[0]).innerHTML;
+		humanplayerCurrentClothingLabel.innerHTML = "Your Clothing</br>Bet: <b>"+clothingName+"</b>";
 	} else {
 		/* AI player */
 		/* ALL OF THIS IS HARDCODED AND IT SHOULDNT BE */
-		var stage = playerStartingClothing[player] - playerClothing[player];
-		playerImages[player].src = playerSources[player] + "stage" + stage + "calm.jpg";
+		var stage = playerStartingClothing[player] - playerCurrentClothing[player];
+		playerImageCells[player].src = playerSources[player] + "stage" + stage + "calm.jpg";
 		
-		if (playerClothing[player] > 1) {
-			playerDialogue[player].innerHTML = "There goes another article of clothing..."; //HARDCODED
-		} else if (playerClothing[player] == 1) {
-			playerDialogue[player].innerHTML = "I guess I'm naked..."; //HARDCODED
+		if (playerCurrentClothing[player] > 1) {
+			playerDialogueCells[player].innerHTML = "There goes another article of clothing..."; //HARDCODED
+		} else if (playerCurrentClothing[player] == 1) {
+			playerDialogueCells[player].innerHTML = "I guess I'm naked..."; //HARDCODED
 		} else {
-			playerDialogue[player].innerHTML = "Like this?"; //HARDCODED
+			playerDialogueCells[player].innerHTML = "Like this?"; //HARDCODED
 		}
 	}
 	

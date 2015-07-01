@@ -1,15 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- This file contains the dialogue and image IDs for Lilith,
+ This file contains unique opponent information for Lilith,
  allowing her to be a more immersive opponent to play against.
  -->
 <opponent>
 	<!-- Basic Information -->
-	<name>Lilith</name>
-	<gender>female</gender>
-	<sexuality>bisexual</sexuality>
+	<name>Lilith</name>	 <!-- what's their name? -->
+	<gender>female</gender>  <!-- what's their gender? -->
 	
 	<!-- Game Start Information -->
-	<startImage>start</startImage>
+	<startImage>start.jpg</startImage>
 	<startDialogue>Hey, I'm Lilith. You ready to play some strip poker?</startDialogue>
+	
+	<!-- Clothing -->
+	<clothing>  <!-- what are they wearing? multiple entries allowed -->
+		<item>panties</item>
+		<item>tank top</item>
+		<item>pants</item>
+		<item>shirt</item>
+		<item>belt</item>
+		<item>gloves</item>
+		<item>jacket</item>
+		<item>boots</item>
+	</clothing>
+	
+	<!-- Dialogue and Expression -->
+	<behaviour>	 <!-- this is where all of the character's dialogue goes -->
+		<stage>	 <!-- first stage, fully dressed character -->
+			<state>
+				<case>goodHand</case>  <!-- the character has a good hand after the exchange -->
+				<dialogue>I've got a good hand.</dialogue>
+				<image>stage1happy.jpg</image>
+			</state>
+			<state>
+				<case>okayHand</case>  <!-- the character has an okay hand after the exchange -->
+				<dialogue>I've got an okay hand.</dialogue>
+				<image>stage1calm.jpg</image>
+			</state>
+			<state>
+				<case>badHand</case>  <!-- the character has a bad hand after the exchange -->
+				<dialogue>I've got a bad hand.</dialogue>
+				<image>stage1sad.jpg</image>
+			</state>
+			<state>
+				<case>won_female_ai_strips</case>  <!-- a female AI is going to strip -->
+				<dialogue>Time for ~name~ to strip!</dialogue>
+				<image>stage1happy.jpg</image>
+			</state>
+			<state>
+				<case>wonMaleHuman</case>  <!-- the human male player is going to strip -->
+				<dialogue>I've got a good hand.</dialogue>
+				<image>stage1happy.jpg</image>
+			</state>
+		</stage>
+		
+		<div id="step1">
+			<div id="removedClothing">clothingItem8</div>
+			<div id="dialogue">First loss... I guess I'll take off my boots, that's not so bad.</div>
+		</div>
+		<div id="step1"></div>
+	</behaviour>
 </opponent>
