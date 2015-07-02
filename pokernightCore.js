@@ -39,12 +39,12 @@ var playerImageCells = [null,
 /* human player clothing cells */
 var humanPlayerClothingCellsLabel = document.getElementById("player1clothing");
 var humanPlayerClothingCells = [document.getElementById("player1clothing1"),
-						   document.getElementById("player1clothing2"),
-					       document.getElementById("player1clothing3"),
-					       document.getElementById("player1clothing4"),
-					       document.getElementById("player1clothing5"),
-					       document.getElementById("player1clothing6"),
-					       document.getElementById("player1clothing7")];
+								document.getElementById("player1clothing2"),
+								document.getElementById("player1clothing3"),
+								document.getElementById("player1clothing4"),
+								document.getElementById("player1clothing5"),
+								document.getElementById("player1clothing6"),
+								document.getElementById("player1clothing7")];
 
 /* player names */
 
