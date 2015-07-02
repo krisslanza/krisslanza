@@ -5,26 +5,31 @@
  -->
 <opponent>
 	<!-- Basic Information -->
-	<name>Lilith</name>	 <!-- what's their name? -->
+	<name>Elizabeth</name>	 <!-- what's their name? -->
 	<gender>female</gender>  <!-- what's their gender? -->
 	
 	<!-- Game Start Information -->
 	<startImage>start.jpg</startImage>
-	<startDialogue>Hey, I'm Lilith. You ready to play some strip poker?</startDialogue>
+	<startDialogue>Hello, I'm Elizabeth. I suppose we'll be playing strip poker together tonight.</startDialogue>
 	
 	<!-- Clothing -->
 	<clothing>  <!-- these need to be in reverse order of removal -->
 		<item>panties</item>
-		<item>tank top</item>
-		<item>pants</item>
-		<item>shirt</item>
-		<item>belt</item>
-		<item>boots</item>
-		<item>gloves</item>
+		<item>corset</item>
+		<item>choker</item>
+		<item>stockings</item>
+		<item>slip</item>
+		<item>skirt</item>
 		<item>jacket</item>
+		<item>boots</item>
 	</clothing>
 	
 	<!-- Dialogue and Expression -->
+	<!-- each case may have any number of states, one will be chosen at random -->
+	<!-- ~name~ is the name of the AI or player, if applicable -->
+	<!-- ~clothing~ is the lower-case name of the clothing they have to remove, if applicable -->
+	<!-- ~Clothing~ is the upper-case name of the clothing they have to remove, if applicable -->
+	
 	<behaviour>	 <!-- this is where all of the character's dialogue goes -->
 		<stage>	 <!-- first stage, fully dressed -->
 			<case>

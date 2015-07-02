@@ -10,6 +10,9 @@
 /* pseudo-constants */
 var gameDelay = 1000;
 
+/* slight saved state */
+var lowestPlayer = 0;
+
 /********************************/		
 /***** Game Flow Functions  *****/
 /********************************/
@@ -41,7 +44,9 @@ function makeAIDecision () {
 			swap++;
 		}
 	}
-	playerDialogueCells[currentTurn].innerHTML = "I will exchange "+swap+" cards."; //HARDCODED
+	
+	/* this is hardcoded, but should be fine */
+	playerDialogueCells[currentTurn].innerHTML = "I will exchange "+swap+" cards.";
 	
 	/* wait and implement AI action */
 	window.setTimeout(implementAIAction, gameDelay);
@@ -50,13 +55,19 @@ function makeAIDecision () {
 /* implements the AI's chosen action */
 function implementAIAction () {
 	swapCards(currentTurn);
-	//dullPlayerHand(currentTurn);
 	
 	/* refresh the hand */
 	hidePlayerHand(currentTurn);
 	
-	/* update speech */
-	
+	/* update behaviour */
+	determineHand(currentTurn);
+	if (playerHandStrengths[currentTurn] == HIGH_CARD) {
+		updateBehaviour(currentTurn, "bad_hand", [], []);
+	} else if (playerHandStrengths[currentTurn] <= TWO_PAIR) {
+		updateBehaviour(currentTurn, "okay_hand", [], []);
+	} else {
+		updateBehaviour(currentTurn, "good_hand", [], []);
+	}
 	
 	/* wait and then advance the turn */
 	window.setTimeout(advanceTurn, gameDelay);
@@ -130,7 +141,31 @@ function pressedContinue () {
 		console.log("-----------------------------------");
 		console.log("|            New Round            |");
 		console.log("-----------------------------------");
-		startNewRound();
+		
+		/* set starting card state */
+		for (var i = 0; i < players; i ++) {
+			if (playerInGame[i]) {
+				dealNewHand(i);
+			} else {
+				collectPlayerHand(i);
+			}
+		}
+			
+		/* reset some information */
+		for (var i = 0; i < players; i++) {
+			for (var j = 0; j < players; j++) {
+				playerTradeIns[i][j] = false;
+			}
+		}
+		
+		/* set visual state */
+		showPlayerHand(0);
+		for (var i = 1; i < players; i++) {
+			hidePlayerHand(i);
+		}
+		
+		/* update behaviour */
+		updateAllBehaviours(0, "start_of_round", [], []);
 		
 		/* allow each of the AIs to take their actions */
 		enablePlayerActions();
@@ -155,19 +190,89 @@ function pressedContinue () {
 		disableButton(continueButton);
 		continueButton.innerHTML = "Continue";
 		
-		endRound();
+		/* revealing cards at the end of a round */
+		for (var i = 0; i < players; i++) {
+			determineHand(i);
+			showPlayerHand(i);
+		}
+		
+		/* determine the lowest hand */
+		lowestPlayer = determineLowestHand();
+		console.log("Player "+lowestPlayer+" is the loser.");
+		
+		if (lowestPlayer == -1) {
+			console.log("Absolute tie");
+			/* reset the round */
+			continueButton.innerHTML = "Deal";
+			enableButton(continueButton);
+		}
+		
+		/* highlight the loser */
+		for (var i = 0; i < players; i++) {
+			if (lowestPlayer == i) {
+				playerLabels[i].style.backgroundColor = loserColour;
+			} else {
+				playerLabels[i].style.backgroundColor = clearColour;
+			}
+		}
+		
+		/* update behaviour */
+		if (playerClothing[lowestPlayer].length > 0) {
+			/* the player is stripping */
+			var removedClothing = playerClothing[lowestPlayer][playerClothing[lowestPlayer].length - 1];
+			var capRemovedClothing = capitalizeFirstLetter(removedClothing);
+			
+			if (lowestPlayer != 0) {
+				if (playerGenders[lowestPlayer] == "male") {
+					updateAllBehaviours(lowestPlayer, "male_ai_will_strip", ["~name~", "~clothing~", "~Clothing~"], [playerNames[lowestPlayer], removedClothing, capRemovedClothing]);
+				} else if (playerGenders[lowestPlayer] == "female") {
+					updateAllBehaviours(lowestPlayer, "female_ai_will_strip", ["~name~", "~clothing~", "~Clothing~"], [playerNames[lowestPlayer], removedClothing, capRemovedClothing]);
+				}
+				updateBehaviour(lowestPlayer, "lost", ["~clothing~", "~Clothing~"], [removedClothing, capRemovedClothing]);
+			} else {
+				if (playerGenders[lowestPlayer] == "male") {
+					updateAllBehaviours(lowestPlayer, "male_human_will_strip", ["~name~", "~clothing~", "~Clothing~"], [playerNames[lowestPlayer], removedClothing, capRemovedClothing]);
+				} else if (playerGenders[lowestPlayer] == "female") {
+					updateAllBehaviours(lowestPlayer, "female_human_will_strip", ["~name~", "~clothing~", "~Clothing~"], [playerNames[lowestPlayer], removedClothing, capRemovedClothing]);
+				}
+			}
+		} else {
+			/* the player is forfeiting */
+		}
 		
 		/* reset the round */
 		if (!gameOver) {
-			continueButton.innerHTML = "Deal";
+			continueButton.innerHTML = "Strip";
 			enableButton(continueButton);
 		} else {
 			continueButton.innerHTML = "Play Again?";
 			enableButton(continueButton);	
 		}
-	} else if (context == "Continue") {
+	} else if (context == "Strip") {
 		/* continuing at the end of a round (stripping or status updates) */
+		disableButton(continueButton);
 		
+		/* strip the player with the lowest hand */
+		stripPlayer(lowestPlayer);
+		
+		/* check to see how many players are still in the game */
+		var inGame = 0;
+		var lastPlayer = 0;
+		for (var i = 0; i < players; i++) {
+			if (playerInGame[i]) {
+				inGame++;
+				lastPlayer = i;
+			}
+		}
+		
+		/* if there is only one player left, end the game */
+		if (inGame == 1) {
+			gameBanner.innerHTML = "Game Over! "+playerNames[lastPlayer]+" won Strip Poker Night at the Inventory!";
+			gameOver = true;
+		} else {
+			continueButton.innerHTML = "Deal";
+			enableButton(continueButton);
+		}
 	}
 }
 

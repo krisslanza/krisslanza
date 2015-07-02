@@ -5,23 +5,23 @@
  -->
 <opponent>
 	<!-- Basic Information -->
-	<name>Lilith</name>	 <!-- what's their name? -->
+	<name>Zoey</name>	 <!-- what's their name? -->
 	<gender>female</gender>  <!-- what's their gender? -->
 	
 	<!-- Game Start Information -->
 	<startImage>start.jpg</startImage>
-	<startDialogue>Hey, I'm Lilith. You ready to play some strip poker?</startDialogue>
+	<startDialogue>Hi there, I'm Zoey, and <i>you</i> will be stripping for me this evening!</startDialogue>
 	
 	<!-- Clothing -->
 	<clothing>  <!-- these need to be in reverse order of removal -->
 		<item>panties</item>
+		<item>bra</item>
 		<item>tank top</item>
 		<item>pants</item>
-		<item>shirt</item>
 		<item>belt</item>
+		<item>sweater</item>
+		<item>socks</item>
 		<item>boots</item>
-		<item>gloves</item>
-		<item>jacket</item>
 	</clothing>
 	
 	<!-- Dialogue and Expression -->

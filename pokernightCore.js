@@ -37,8 +37,8 @@ var playerImageCells = [null,
 					document.getElementById("player5image")];
 					
 /* human player clothing cells */
-var humanplayerCurrentClothingLabel = document.getElementById("player1clothing");
-var humanplayerCurrentClothing = [document.getElementById("player1clothing1"),
+var humanPlayerClothingCellsLabel = document.getElementById("player1clothing");
+var humanPlayerClothingCells = [document.getElementById("player1clothing1"),
 						   document.getElementById("player1clothing2"),
 					       document.getElementById("player1clothing3"),
 					       document.getElementById("player1clothing4"),
@@ -148,8 +148,6 @@ var playerTradeIns = [[false, false, false, false, false],
 
 /* game state */
 var currentTurn = 0;
-var playerStartingClothing = [8, 9, 9, 9, 9];
-var playerCurrentClothing = [8, 9, 9, 9, 9];
 var playerInGame = [true, true, true, true, true];
 var gameOver = false;
 
@@ -164,12 +162,10 @@ function initialSetup () {
 	playerSources = ["player/male/", "opponents/elizabeth/", "opponents/lilith/", "opponents/zoey/", "opponents/laura/"];
 	
 	/* load opponent behaviours */
-	loadBehaviours();
 	for (var i = 0; i < players; i++) {
-		if (i != 2) {loadBasicSettings(i)};
+		loadBehaviour(i);
 	}
-	loadBehaviour(2); //HARDCODED, REMOVE THIS
-	
+
 	/* set up the game */
 	composeDeck();
 	
@@ -180,14 +176,16 @@ function initialSetup () {
 /* waits for all content to load before starting the game */
 function waitForContent () {
 	var loaded = 0;
-	for (var i = 0; i <= 1; i++) {
-		if (playerLoaded[2] == true) { loaded++; }
+	for (var i = 0; i < players; i++) {
+		if (playerLoaded[i]) {
+			loaded++;
+		}
 	}
-	console.log(loaded);
-	if (loaded == 2) {
+
+	if (loaded == players) {
 		startGame();
 	} else {
-		window.setTimeout(waitForContent, 100);
+		window.setTimeout(waitForContent, 1);
 	}
 }
 
@@ -195,86 +193,10 @@ function waitForContent () {
 function startGame () {
 	/* set up the visuals */
 	continueButton.innerHTML = "Deal";
-	updatePlayerVisual(2);
-	updateBehaviour(2, "won_female_ai_strips", ["~name~"], ["Zoey"]);
-	updatePlayerVisual(2);
+	updateAllPlayerVisuals();
 	
 	/* setup initial button states */
 	enableButton(continueButton);
-	
-	console.log(playerClothing[2]);
-	for (var i = 0; i < playerClothing[2].length; i++) {
-		console.log(playerClothing[2][i]);
-	}
-}
-
-/* does all the calling for a new round */
-function startNewRound () {
-	/* set starting card state */
-	for (var i = 0; i < players; i ++) {
-		if (playerInGame[i]) {
-			dealNewHand(i);
-		} else {
-			collectPlayerHand(i);
-		}
-	}
-		
-	/* reset some information */
-	for (var i = 0; i < players; i++) {
-		for (var j = 0; j < players; j++) {
-			playerTradeIns[i][j] = false;
-		}
-	}
-	
-	/* set visual state */
-	showPlayerHand(0);
-	for (var i = 1; i < players; i++) {
-		hidePlayerHand(i);
-	}
-}
-
-/* does all the calling for the end of a round */
-function endRound () {
-	/* revealing cards at the end of a round */
-	for (var i = 0; i < players; i++) {
-		determineHand(i);
-		showPlayerHand(i);
-	}
-	
-	/* determine the lowest hand */
-	var lowestPlayer = determineLowestHand();
-	console.log("Player "+lowestPlayer+" is the loser.");
-	
-	/* highlight the loser */
-	for (var i = 0; i < players; i++) {
-		if (lowestPlayer == i) {
-			playerLabels[i].style.backgroundColor = loserColour;
-		} else {
-			playerLabels[i].style.backgroundColor = clearColour;
-		}
-	}
-	
-	/* allow for a pause before stripping any player, continue button */
-	
-	
-	/* strip the player with the lowest hand */
-	stripPlayer(lowestPlayer);
-	
-	/* check to see how many players are still in the game */
-	var inGame = 0;
-	var lastPlayer = 0;
-	for (var i = 0; i < players; i++) {
-		if (playerInGame[i]) {
-			inGame++;
-			lastPlayer = i;
-		}
-	}
-	
-	/* if there is only one player left, end the game */
-	if (inGame == 1) {
-		gameBanner.innerHTML = "Game Over! "+playerNames[lastPlayer]+" won Strip Poker Night at the Inventory!";
-		gameOver = true;
-	}
 }
 
 /********************************/		
@@ -308,6 +230,20 @@ function disablePlayerActions () {
 }
 
 /********************************/		
+/*****  Utility Functions   *****/
+/********************************/
+
+/* returns a random number in a range */
+function getRandomNumber (min, max) {
+	return Math.floor(Math.random() * (max - min) + min);
+}
+
+/* capitalizes the first letter of the given string */
+function capitalizeFirstLetter (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+/********************************/		
 /*****    Card Functions    *****/
 /********************************/
 
@@ -327,11 +263,6 @@ function composeDeck () {
 			inDeck.push(suit + j);
 		}
 	}
-}
-
-/* returns a random number in a range */
-function getRandomNumber (min, max) {
-	return Math.floor(Math.random() * (max - min) + min);
 }
 
 /* returns the numeric value of the card */
@@ -709,46 +640,71 @@ function determineHand (player) {
 
 /* removes an article of clothing from the selected player */
 function stripPlayer(player) {
-	console.log("Player "+player+" is being stripped.");
-	
-	playerCurrentClothing[player]--;
-	if (playerCurrentClothing[player] == 0) {
-		playerInGame[player] = false;
-	}
-	
-	if (player == 0) {
-		/* human player */
+	if (playerClothing[player].length > 0) {
+		/* player still has something they can remove */
+		var removedClothing = playerClothing[player].pop();
+		var capRemovedClothing = capitalizeFirstLetter(removedClothing);
+		//console.log("Player "+player+" has to remove their "+removedClothing);
 		
-		/* shift all of the clothing images */
-		var firstClothing = humanplayerCurrentClothing[0].src;
-		for (var i = 0; i < playerStartingClothing[0] - 2; i++) {
-			humanplayerCurrentClothing[i].src = humanplayerCurrentClothing[i+1].src;
-		}
-		humanplayerCurrentClothing[playerStartingClothing[0]-2].src = firstClothing;
-		
-		/* dull the lost clothing */
-		for (var i = playerStartingClothing[0]; i > playerCurrentClothing[0] && i > 1; i--) {
-			humanplayerCurrentClothing[i-2].style.opacity = 0;
-		}
-		
-		var clothingName = playerDocuments[0].getElementById("clothingName"+playerCurrentClothing[0]).innerHTML;
-		humanplayerCurrentClothingLabel.innerHTML = "Your Clothing</br>Bet: <b>"+clothingName+"</b>";
-	} else {
-		/* AI player */
-		/* ALL OF THIS IS HARDCODED AND IT SHOULDNT BE */
-		var stage = playerStartingClothing[player] - playerCurrentClothing[player];
-		playerImageCells[player].src = playerSources[player] + "stage" + stage + "calm.jpg";
-		
-		if (playerCurrentClothing[player] > 1) {
-			playerDialogueCells[player].innerHTML = "There goes another article of clothing..."; //HARDCODED
-		} else if (playerCurrentClothing[player] == 1) {
-			playerDialogueCells[player].innerHTML = "I guess I'm naked..."; //HARDCODED
+		/* actually strip and update the player */
+		if (player == 0) {
+			/* human player */
+			
+			/* shift all of the clothing images */
+			var firstClothingImage = humanPlayerClothingCells[player].src;
+			for (var i = 0; i < playerStartingClothing[player]-1; i++) {
+				humanPlayerClothingCells[i].src = humanPlayerClothingCells[i+1].src;
+			}
+			humanPlayerClothingCells[playerStartingClothing[player]-1].src = firstClothingImage;
+			
+			/* dull the lost clothing */
+			for (var i = playerStartingClothing[0]; i > playerClothing[player].length && i > 1; i--) {
+				humanPlayerClothingCells[i-1].style.opacity = 0;
+			}
+			
+			var clothingName = capitalizeFirstLetter(playerClothing[player][playerClothing[player].length - 1]);
+			humanPlayerClothingCellsLabel.innerHTML = "Your Clothing</br>Bet: <b>"+clothingName+"</b>";
+			
+			/* update behaviour */
+			if (playerGenders[player] == "male") {
+				updateAllBehaviours(player, "male_human_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+			} else if (playerGenders[player] == "female") {
+				updateAllBehaviours(player, "female_human_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+			}
 		} else {
-			playerDialogueCells[player].innerHTML = "Like this?"; //HARDCODED
+			/* AI player */
+			
+			/* update behaviour */
+			if (playerGenders[player] == "male") {
+				updateAllBehaviours(player, "male_ai_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+			} else if (playerGenders[player] == "female") {
+				updateAllBehaviours(player, "female_ai_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+			}
+			updateBehaviour(player, "stripped", ["~clothing~", "~Clothing~"], [removedClothing, capRemovedClothing]);
 		}
+		
+		var genderNoun = null;
+		if (playerGenders[player] == "male") {
+			genderNoun = "his";
+		} else if (playerGenders[player] == "female") {
+			genderNoun = "her";
+		} else {
+			genderNoun = "their";
+		}
+		
+		gameBanner.innerHTML = playerNames[player]+" has removed "+genderNoun+" "+removedClothing+"!";
+	} else if (playerClothing[player].length == 0) {
+		/* player has nothing left to remove */
+		playerForfiets[player] = true;
+		playerInGame[player] = false;
+		
+		var stage = playerStartingClothing[player] - playerClothing[player].length;
+		playerImageCells[player].src = playerSources[player] + "stage" + stage + "calm.jpg";
+		playerDialogueCells[player].innerHTML = "Like this?"; //HARDCODED
+	} else {
+		/* this function shouldn't have been called on this player */
+		console.log("Error: Invalid call to stripPlayer("+player+")");
 	}
-	
-	console.log("Player "+player+" has been stripped.");
 }
 
 
