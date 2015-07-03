@@ -48,15 +48,20 @@ var maleClothing = [["player/male/shirt.jpg", "player/male/undershirt.jpg"],
 					["player/male/shoes.jpg", "player/male/socks.jpg", "player/male/belt.jpg"],
 					[]];
 					
-var maleClothingNames = [["Shirt", "Undershirt"],
-						["Pants", "Boxers"],
-						["Shoes", "Socks", "Belt"],
-						[]];
-					
-var femaleClothing = [[],
-					  [],
-					  [],
+var maleClothingNames = [["shirt", "undershirt"],
+						 ["pants", "boxers"],
+						 ["shoes", "socks", "belt"],
+						 []];
+					 
+var femaleClothing = [["player/female/tanktop.jpg", "player/female/bra.jpg"],
+					  ["player/female/pants.jpg", "player/female/panties.jpg"],
+					  ["player/female/boots.jpg", "player/female/socks.jpg", "player/female/belt.jpg"],
 					  []];
+
+var femaleClothingNames = [["tank top", "bra"],
+						   ["pants", "panties"],
+						   ["shoes", "socks", "belt"],
+						   []];
 					  
 var selectedClothing = [[false, false, false, false, false, false],
 						[false, false, false, false, false, false],
@@ -93,9 +98,9 @@ function loadClothing () {
 							[true, true, false, false, false, false],
 							[true, true, true, false, false, false],
 							[false, false, false, false, false, false]];
-		clothingLayer = [[0, 0, 0, 0, 0, 0],
-						 [0, 0, 0, 0, 0, 0],
-						 [0, 0, 0, 0, 0, 0],
+		clothingLayer = [[12, 2, 0, 0, 0, 0],
+						 [11, 1, 0, 0, 0, 0],
+						 [72, 71, 51, 0, 0, 0],
 						 [0, 0, 0, 0, 0, 0]];
 		
 		clothingSet = femaleClothing;
@@ -113,9 +118,10 @@ function loadClothing () {
 				} else {
 					clothingImages[i][j].style.opacity = 0.4;
 				}
+				clothingImages[i][j].disabled = false;
 			} else {
 				clothingImages[i][j].style.opacity = 0;
-				clothingImages[i][j].disabled = 'disabled';
+				clothingImages[i][j].disabled = true;
 			}
 		}
 	}
@@ -123,6 +129,7 @@ function loadClothing () {
 
 /* the player clicked on a clothing button */
 function takeClothing (x, y) {
+	console.log(x+" "+y);
 	if (selectedClothing[x][y]) {
 		selectedClothing[x][y] = false;
 		clothingImages[x][y].style.opacity = 0.4;
@@ -180,6 +187,12 @@ function advanceIntro () {
 	}
 	
 	wearClothing(clothes[0]);
+	
+	if (playerGenders[0] == "male") {
+		playerGenderCell.src = "images/male.jpg";
+	} else {
+		playerGenderCell.src = "images/female.jpg";
+	}
 	
 	$('#introScreen').hide();
 	$('#gameScreen').show();

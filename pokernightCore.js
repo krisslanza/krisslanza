@@ -97,6 +97,8 @@ var playerButtons = [document.getElementById("player1card1"),
 					 document.getElementById("player1card3"),
 					 document.getElementById("player1card4"),
 					 document.getElementById("player1card5")];
+					 
+var playerGenderCell = document.getElementById("playerGenderID");
 						
 /* main button */
 var continueButton = document.getElementById("continueButton");
