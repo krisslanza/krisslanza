@@ -8,7 +8,7 @@
 /********************************/
 
 /* pseudo-constants */
-var gameDelay = 10;
+var gameDelay = 500;
 
 /* slight saved state */
 var lowestPlayer = 0;
