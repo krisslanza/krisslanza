@@ -51,7 +51,8 @@ var humanPlayerClothingCells = [document.getElementById("player1clothing1"),
 								document.getElementById("player1clothing4"),
 								document.getElementById("player1clothing5"),
 								document.getElementById("player1clothing6"),
-								document.getElementById("player1clothing7")];
+								document.getElementById("player1clothing7"),
+								document.getElementById("player1clothing8")];
 
 /* player names */
 
@@ -165,11 +166,14 @@ var gameOver = false;
 
 /* initial setup of the game */
 function initialSetup () {
+	/* intro screen setup */
+	changeGender(1); /* trigger loading the clothing options */
+	
 	/* hardcoded opponents, for now */
 	playerSources = ["player/male/", "opponents/elizabeth/", "opponents/lilith/", "opponents/zoey/", "opponents/laura/"];
 	
 	/* load opponent behaviours */
-	for (var i = 0; i < players; i++) {
+	for (var i = 1; i < players; i++) {
 		loadBehaviour(i);
 	}
 
@@ -183,13 +187,13 @@ function initialSetup () {
 /* waits for all content to load before starting the game */
 function waitForContent () {
 	var loaded = 0;
-	for (var i = 0; i < players; i++) {
+	for (var i = 1; i < players; i++) {
 		if (playerLoaded[i]) {
 			loaded++;
 		}
 	}
 
-	if (loaded == players) {
+	if (loaded == players-1) {
 		startGame();
 	} else {
 		window.setTimeout(waitForContent, 1);

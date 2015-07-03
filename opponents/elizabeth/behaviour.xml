@@ -89,7 +89,7 @@
 			<case>
 				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
 				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
+					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
 					<picture>start.jpg</picture>
 				</state>
 			</case>
@@ -200,7 +200,7 @@
 			<case>
 				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
 				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
+					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
 					<picture>stage1calm.jpg</picture>
 				</state>
 			</case>
@@ -311,7 +311,7 @@
 			<case>
 				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
 				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
+					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
 					<picture>stage2calm.jpg</picture>
 				</state>
 			</case>
@@ -401,7 +401,7 @@
 			<case>
 				<tag>male_ai_will_strip</tag> <!-- a male AI is going to strip -->
 				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
+					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
 					<picture>stage3calm.jpg</picture>
 				</state>
 			</case>
@@ -422,7 +422,7 @@
 			<case>
 				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
 				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
+					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
 					<picture>stage3calm.jpg</picture>
 				</state>
 			</case>

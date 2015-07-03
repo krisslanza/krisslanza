@@ -36,8 +36,98 @@ iframe {
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-.banner {
+#titleBanner {
+	height: 80px;
 	font-size: 24px;
+	vertical-align: middle;
+}
+
+.bannerTitleImage {
+	width: 95%;
+	margin-top: 10px;
+}
+
+.mainIntroArea {
+	margin: 0 auto;
+}
+
+.introLabel {
+	font-size: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#playerNameField {
+	width: 160px;
+	height: 60px;
+	border: 2px solid black;
+	border-radius: 5px;
+	font-size: 22px;
+	text-align: center;
+}
+
+.introLabel {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 10px;
+	font-size: 18px;
+}
+
+.introClothingLabel {
+	width: 50px;
+	height: 50px;
+}
+
+.introClothingImage {
+	display: block;
+	width: 50px;
+	height: 50px;
+	border: 2px solid black;
+	border-radius: 10px;
+	background-color: white;
+}
+
+#warningLabel {
+	height: 20px;
+	margin: 0 0;
+}
+
+#introAdvanceButton {
+	width: 160px;
+	height: 50px;
+	background-color: #85C5F5;
+	border: 2px solid black;
+	border-radius: 10px;
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 20px;
+	margin-right: 0px;
+}
+
+.introScreenNewsBar {
+	height: 80px;
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+.versionText {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 10px;
+}
+
+.newsText {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 10px;
+	font-size: 14px;
+	text-align: left;
+}
+
+#gameBanner {
+	font-size: 24px;
+	vertical-align: middle;
 }
 
 .speechBubble {

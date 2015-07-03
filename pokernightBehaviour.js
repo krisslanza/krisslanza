@@ -4,6 +4,12 @@
  ************************************************************/
 
 /********************************/	
+/*****  Constant Settings   *****/
+/********************************/
+ 
+var buttonFlashSpeed = 500;
+ 
+/********************************/	
 /*****  Behaviour Settings  *****/
 /********************************/
 
@@ -69,14 +75,28 @@ function loadBehaviour (player) {
 	});
 }
 
+/* makes the dialogue advance button flash */
+function flashAdvanceButton (player) {
+	if (playerDialogue[player].length > playerState[player]+1) {
+		if (advanceButtons[player].style.opacity < 1) {
+			advanceButtons[player].style.opacity = 1;
+		} else {
+			advanceButtons[player].style.opacity = 0.4;
+		}
+		window.setTimeout(function(){flashAdvanceButton(player);}, buttonFlashSpeed);
+	}
+}
+
 /* loads the visual state of the chosen player */
 function updatePlayerVisual (player) {
 	playerLabels[player].innerHTML = playerNames[player];
 	playerImageCells[player].src = playerSources[player] + playerImages[player][playerState[player]];
 	playerDialogueCells[player].innerHTML = playerDialogue[player][playerState[player]];
 	
-	if (playerDialogue[player].length > 1) {
+	console.log(playerDialogue[player].length + " "+(playerState[player]));
+	if (playerDialogue[player].length > playerState[player]+1) {
 		advanceButtons[player].style.display = "block";
+		window.setTimeout(function(){flashAdvanceButton(player);}, buttonFlashSpeed);
 	} else {
 		advanceButtons[player].style.display = "none";
 	}
