@@ -128,6 +128,20 @@ function selectCard (card) {
 	}
 }
 
+/* the player advanced the state of an AI */
+function advanceState (player) {
+	playerState[player] += 1;
+	
+	//console.log(playerState[player]);
+	if (playerDialogue[player].length > playerState[player]) {
+		updatePlayerVisual(player);
+		
+		if (playerDialogue[player].length >= playerState[player] - 1) {
+			advanceButtons[player].style.display = "none";
+		}
+	}
+}
+
 /* the player clicked the continue button */
 function pressedContinue () {
 	var context = continueButton.innerHTML;

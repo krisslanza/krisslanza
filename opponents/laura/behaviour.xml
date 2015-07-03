@@ -9,8 +9,10 @@
 	<gender>female</gender>  <!-- what's their gender? -->
 	
 	<!-- Game Start Information -->
-	<startImage>start.jpg</startImage>
-	<startDialogue>Hi, I'm Laura (<span style="color:#DD77DD"><i>and I'm Sam!</i></span>). She's a little drunk... (<span style="color:#DD77DD"><i>Let's see some titties!</i></span>)</startDialogue>
+	<start>
+		<state picture="start.jpg">Hi, I'm Laura and this is Sam. She's a little drunk...</state>
+		<state picture="start.jpg">(Sam)<br/><span style="color:#DD77DD">Let's see some titties!</span></state>
+	</start>
 	
 	<!-- Clothing -->
 	<clothing>  <!-- these need to be in reverse order of removal -->
@@ -25,7 +27,7 @@
 	</clothing>
 	
 	<!-- Dialogue and Expression -->
-	<!-- each case may have any number of states, one will be chosen at random -->
+	<!-- each case may have any number of states, each will be shown in sequence -->
 	<!-- ~name~ is the name of the AI or player, if applicable -->
 	<!-- ~clothing~ is the lower-case name of the clothing they have to remove, if applicable -->
 	<!-- ~Clothing~ is the upper-case name of the clothing they have to remove, if applicable -->

@@ -41,6 +41,7 @@ iframe {
 }
 
 .speechBubble {
+	position: relative;
 	height: 100px;
 	font-size: 18px;
 	padding-left: 5px;
@@ -57,6 +58,15 @@ iframe {
 .textArea p {
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+.advanceButton {
+	display: none;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	right: 5px;
+	bottom: 5px;
 }
 
 .girlStatusArea {

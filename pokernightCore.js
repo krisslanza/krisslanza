@@ -36,6 +36,13 @@ var playerImageCells = [null,
 					document.getElementById("player4image"),
 					document.getElementById("player5image")];
 					
+/* player advance buttons */
+var advanceButtons = [null,
+					  document.getElementById("advanceButton2"),
+					  document.getElementById("advanceButton3"),
+					  document.getElementById("advanceButton4"),
+					  document.getElementById("advanceButton5")];
+					
 /* human player clothing cells */
 var humanPlayerClothingCellsLabel = document.getElementById("player1clothing");
 var humanPlayerClothingCells = [document.getElementById("player1clothing1"),

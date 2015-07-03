@@ -9,8 +9,9 @@
 	<gender>female</gender>  <!-- what's their gender? -->
 	
 	<!-- Game Start Information -->
-	<startImage>start.jpg</startImage>
-	<startDialogue>Hey, I'm Lilith. You ready to play some strip poker?</startDialogue>
+	<start>
+		<state picture="start.jpg">Hey, I'm Lilith. You ready to play some strip poker?</state>
+	</start>
 	
 	<!-- Clothing -->
 	<clothing>  <!-- these need to be in reverse order of removal -->

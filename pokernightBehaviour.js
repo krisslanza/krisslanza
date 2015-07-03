@@ -19,6 +19,7 @@ var playerForfeits = [false, false, false, false, false];
 
 var playerImages = [[], [], [], [], []];
 var playerDialogue = [[], [], [], [], []];
+var playerState = [0, 0, 0, 0, 0];
 
 /* deep variables */
 var playerXML = [[], [], [], [], []];
@@ -26,6 +27,22 @@ var playerXML = [[], [], [], [], []];
 /********************************/	
 /***** Behaviour Functions  *****/
 /********************************/
+
+/* parse the dialogue states of a player, given the case object */
+function parseDialogue (player, caseObject) {
+	image = [];
+	dialogue = [];
+	
+	caseObject.find('state').each(function () {
+		image.push($(this).attr('picture'));
+		dialogue.push($(this).html());
+	});
+	
+	if (image != []) {
+		playerImages[player] = image;
+		playerDialogue[player] = dialogue;
+	}
+}
 
 /* parses the loaded XML of the chosen behaviour */
 function loadBehaviour (player) {
@@ -43,10 +60,8 @@ function loadBehaviour (player) {
 				playerClothing[player].push($(this).text());
 			});
 			
-			playerImages[player] = $(xml).find('startImage').text();
-			playerDialogue[player] = $(xml).find('startDialogue').html();
-			console.log(playerDialogue[player]);
-			console.log($(xml).find('startDialogue').text());
+			parseDialogue(player, $(xml).find('start'));
+			playerState[player] = 0;
 			
 			playerXML[player] = xml;
 			playerLoaded[player] = true;
@@ -57,8 +72,14 @@ function loadBehaviour (player) {
 /* loads the visual state of the chosen player */
 function updatePlayerVisual (player) {
 	playerLabels[player].innerHTML = playerNames[player];
-	playerImageCells[player].src = playerSources[player] + playerImages[player];
-	playerDialogueCells[player].innerHTML = playerDialogue[player];
+	playerImageCells[player].src = playerSources[player] + playerImages[player][playerState[player]];
+	playerDialogueCells[player].innerHTML = playerDialogue[player][playerState[player]];
+	
+	if (playerDialogue[player].length > 1) {
+		advanceButtons[player].style.display = "block";
+	} else {
+		advanceButtons[player].style.display = "none";
+	}
 }
 
 /* loads the visual state for all players */
@@ -96,16 +117,17 @@ function updateBehaviour (player, tag, replace, content) {
 		}
 	});
 	
-	playerDialogue[player] = dialogue;
+	playerDialogue[player] = [dialogue];
 	console.log("Player IMAGE: "+image);
 	if (image != "") {
-		playerImages[player] = image;
+		playerImages[player] = [image];
 	}
 	
 	if (dialogue == "" && tag != "blank") {
 		console.log("Couldn't find "+tag+" dialogue for Player "+player+" Stage "+stage);
 	}
 	
+	playerState[player] = 0;
 	updatePlayerVisual(player);
 }
 
