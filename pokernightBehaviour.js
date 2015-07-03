@@ -15,7 +15,7 @@ var playerGenders = [null, null, null, null, null];
 
 var playerStartingClothing = [0, 0, 0, 0, 0];
 var playerClothing = [[], [], [], [], []];
-var playerForfiets = [false, false, false, false, false];
+var playerForfeits = [false, false, false, false, false];
 
 var playerImages = [[], [], [], [], []];
 var playerDialogue = [[], [], [], [], []];
@@ -44,7 +44,9 @@ function loadBehaviour (player) {
 			});
 			
 			playerImages[player] = $(xml).find('startImage').text();
-			playerDialogue[player] = $(xml).find('startDialogue').text();
+			playerDialogue[player] = $(xml).find('startDialogue').html();
+			console.log(playerDialogue[player]);
+			console.log($(xml).find('startDialogue').text());
 			
 			playerXML[player] = xml;
 			playerLoaded[player] = true;
@@ -73,6 +75,10 @@ function updateBehaviour (player, tag, replace, content) {
 	console.log("Updating behaviour of Player "+player);
 	
 	var stage = (playerStartingClothing[player] - playerClothing[player].length + 1);
+	if (playerForfeits[player] == true) {
+		stage += 1;
+	}
+	
 	$(playerXML[player]).find('behaviour').find('stage').eq(stage-1).find('case').each(function () {
 		if ($(this).find('tag').text() == tag) {
 			/* roll a die to determine which dialogue to take */

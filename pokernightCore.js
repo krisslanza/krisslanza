@@ -658,19 +658,32 @@ function stripPlayer(player) {
 			humanPlayerClothingCells[playerStartingClothing[player]-1].src = firstClothingImage;
 			
 			/* dull the lost clothing */
-			for (var i = playerStartingClothing[0]; i > playerClothing[player].length && i > 1; i--) {
+			for (var i = playerStartingClothing[0]; i > playerClothing[player].length; i--) {
 				humanPlayerClothingCells[i-1].style.opacity = 0;
 			}
 			
-			var clothingName = capitalizeFirstLetter(playerClothing[player][playerClothing[player].length - 1]);
-			humanPlayerClothingCellsLabel.innerHTML = "Your Clothing</br>Bet: <b>"+clothingName+"</b>";
-			
-			/* update behaviour */
-			if (playerGenders[player] == "male") {
-				updateAllBehaviours(player, "male_human_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
-			} else if (playerGenders[player] == "female") {
-				updateAllBehaviours(player, "female_human_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+			if (playerClothing[player].length > 0) {
+				var clothingName = capitalizeFirstLetter(playerClothing[player][playerClothing[player].length - 1]);
+				humanPlayerClothingCellsLabel.innerHTML = "Your Clothing</br>Bet: <b>"+clothingName+"</b>";
+				
+				/* update behaviour */
+				if (playerGenders[player] == "male") {
+					updateAllBehaviours(player, "male_human_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+				} else if (playerGenders[player] == "female") {
+					updateAllBehaviours(player, "female_human_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+				}
+			} else {
+				humanPlayerClothingCellsLabel.innerHTML = "You're Naked</br>Bet: <b>A Forfeit</b>";
+				
+				/* update behaviour */
+				if (playerGenders[player] == "male") {
+					updateAllBehaviours(player, "male_human_stripped_naked", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+				} else if (playerGenders[player] == "female") {
+					updateAllBehaviours(player, "female_human_stripped_naked", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+				}
 			}
+			
+			
 		} else {
 			/* AI player */
 			
@@ -695,12 +708,24 @@ function stripPlayer(player) {
 		gameBanner.innerHTML = playerNames[player]+" has removed "+genderNoun+" "+removedClothing+"!";
 	} else if (playerClothing[player].length == 0) {
 		/* player has nothing left to remove */
-		playerForfiets[player] = true;
+		playerForfeits[player] = true;
 		playerInGame[player] = false;
 		
-		var stage = playerStartingClothing[player] - playerClothing[player].length;
-		playerImageCells[player].src = playerSources[player] + "stage" + stage + "calm.jpg";
-		playerDialogueCells[player].innerHTML = "Like this?"; //HARDCODED
+		/* update behaviour */
+		if (player == 0) {
+			if (playerGenders[player] == "male") {
+				updateAllBehaviours(player, "male_human_forfeit", ["~name~"], [playerNames[player]]);
+			} else if (playerGenders[player] == "female") {
+				updateAllBehaviours(player, "female_human_forfeit", ["~name~"], [playerNames[player]]);
+			}
+		} else {
+			if (playerGenders[player] == "male") {
+				updateAllBehaviours(player, "male_ai_forfeit", ["~name~"], [playerNames[player]]);
+			} else if (playerGenders[player] == "female") {
+				updateAllBehaviours(player, "male_ai_forfeit", ["~name~"], [playerNames[player]]);
+			}
+			updateBehaviour(player, "forfeiting", [], []);
+		}
 	} else {
 		/* this function shouldn't have been called on this player */
 		console.log("Error: Invalid call to stripPlayer("+player+")");

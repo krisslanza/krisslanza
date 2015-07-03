@@ -17,9 +17,9 @@
 		<item>panties</item>
 		<item>corset</item>
 		<item>choker</item>
-		<item>stockings</item>
 		<item>slip</item>
 		<item>skirt</item>
+		<item>stockings</item>
 		<item>jacket</item>
 		<item>boots</item>
 	</clothing>
@@ -114,9 +114,23 @@
 				</state>
 			</case>
 			<case>
+				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
+					<picture>start.jpg</picture>
+				</state>
+			</case>
+			<case>
 				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
 				<state>
 					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
+					<picture>start.jpg</picture>
+				</state>
+			</case>
+			<case>
+				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
 					<picture>start.jpg</picture>
 				</state>
 			</case>
@@ -211,9 +225,23 @@
 				</state>
 			</case>
 			<case>
+				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
+					<picture>stage1calm.jpg</picture>
+				</state>
+			</case>
+			<case>
 				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
 				<state>
 					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
+					<picture>stage1calm.jpg</picture>
+				</state>
+			</case>
+			<case>
+				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
 					<picture>stage1calm.jpg</picture>
 				</state>
 			</case>
@@ -308,9 +336,23 @@
 				</state>
 			</case>
 			<case>
+				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
+					<picture>stage2calm.jpg</picture>
+				</state>
+			</case>
+			<case>
 				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
 				<state>
 					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
+					<picture>stage2calm.jpg</picture>
+				</state>
+			</case>
+			<case>
+				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
 					<picture>stage2calm.jpg</picture>
 				</state>
 			</case>
@@ -405,9 +447,23 @@
 				</state>
 			</case>
 			<case>
+				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
+					<picture>stage3calm.jpg</picture>
+				</state>
+			</case>
+			<case>
 				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
 				<state>
 					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
+					<picture>stage3calm.jpg</picture>
+				</state>
+			</case>
+			<case>
+				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
 					<picture>stage3calm.jpg</picture>
 				</state>
 			</case>
@@ -502,9 +558,23 @@
 				</state>
 			</case>
 			<case>
+				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
+					<picture>stage4calm.jpg</picture>
+				</state>
+			</case>
+			<case>
 				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
 				<state>
 					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
+					<picture>stage4calm.jpg</picture>
+				</state>
+			</case>
+			<case>
+				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
 					<picture>stage4calm.jpg</picture>
 				</state>
 			</case>
@@ -599,9 +669,23 @@
 				</state>
 			</case>
 			<case>
+				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
+					<picture>stage5calm.jpg</picture>
+				</state>
+			</case>
+			<case>
 				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
 				<state>
 					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
+					<picture>stage5calm.jpg</picture>
+				</state>
+			</case>
+			<case>
+				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
 					<picture>stage5calm.jpg</picture>
 				</state>
 			</case>
@@ -696,9 +780,23 @@
 				</state>
 			</case>
 			<case>
+				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
+					<picture>stage6calm.jpg</picture>
+				</state>
+			</case>
+			<case>
 				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
 				<state>
 					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
+					<picture>stage6calm.jpg</picture>
+				</state>
+			</case>
+			<case>
+				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
 					<picture>stage6calm.jpg</picture>
 				</state>
 			</case>
@@ -793,9 +891,23 @@
 				</state>
 			</case>
 			<case>
+				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
+					<picture>stage7calm.jpg</picture>
+				</state>
+			</case>
+			<case>
 				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
 				<state>
 					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
+					<picture>stage7calm.jpg</picture>
+				</state>
+			</case>
+			<case>
+				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
 					<picture>stage7calm.jpg</picture>
 				</state>
 			</case>
@@ -890,18 +1002,32 @@
 				</state>
 			</case>
 			<case>
+				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
+					<picture>stage8calm.jpg</picture>
+				</state>
+			</case>
+			<case>
 				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
 				<state>
 					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
 					<picture>stage8calm.jpg</picture>
 				</state>
 			</case>
+			<case>
+				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
+					<picture>stage8calm.jpg</picture>
+				</state>
+			</case>
 		</stage>
 		<stage> <!-- tenth stage, forfeit-->
 			<case>
-				<tag>stripped</tag>  <!-- this player just removed an article of clothing, from the previous stage -->
+				<tag>forfeiting</tag>  <!-- this player just removed an article of clothing, from the previous stage -->
 				<state>
-					<dialogue>I miss my ~clothing~ already...</dialogue>
+					<dialogue>Do I really have to do this?</dialogue>
 					<picture>stage9calm.jpg</picture>
 				</state>
 			</case>
@@ -987,9 +1113,23 @@
 				</state>
 			</case>
 			<case>
+				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
+					<picture>stage9calm.jpg</picture>
+				</state>
+			</case>
+			<case>
 				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
 				<state>
 					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
+					<picture>stage9calm.jpg</picture>
+				</state>
+			</case>
+			<case>
+				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
+				<state>
+					<dialogue>You look pretty good naked, ~name~!</dialogue>
 					<picture>stage9calm.jpg</picture>
 				</state>
 			</case>

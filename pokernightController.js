@@ -8,7 +8,7 @@
 /********************************/
 
 /* pseudo-constants */
-var gameDelay = 1000;
+var gameDelay = 10;
 
 /* slight saved state */
 var lowestPlayer = 0;
@@ -241,13 +241,8 @@ function pressedContinue () {
 		}
 		
 		/* reset the round */
-		if (!gameOver) {
-			continueButton.innerHTML = "Strip";
-			enableButton(continueButton);
-		} else {
-			continueButton.innerHTML = "Play Again?";
-			enableButton(continueButton);	
-		}
+		continueButton.innerHTML = "Strip";
+		enableButton(continueButton);
 	} else if (context == "Strip") {
 		/* continuing at the end of a round (stripping or status updates) */
 		disableButton(continueButton);
@@ -269,6 +264,8 @@ function pressedContinue () {
 		if (inGame == 1) {
 			gameBanner.innerHTML = "Game Over! "+playerNames[lastPlayer]+" won Strip Poker Night at the Inventory!";
 			gameOver = true;
+			continueButton.innerHTML = "Play Again?";
+			enableButton(continueButton);
 		} else {
 			continueButton.innerHTML = "Deal";
 			enableButton(continueButton);
