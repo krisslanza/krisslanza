@@ -165,9 +165,16 @@ function changeGender (gender) {
 
 /* the player advanced the state of an AI */
 function advanceIntro () {
-	playerNames[0] = nameField.value;
+	if (nameField.value != "") {
+		playerNames[0] = nameField.value;
+	} else if (playerGenders[0] == "male") {
+		playerNames[0] = "Mister";
+	} else {
+		playerNames[0] = "Missy";
+	}
 	playerLabels[0].innerHTML = playerNames[0];
 	
+	/* count clothing */
 	var clothes = [0, 0, 0, 0, 0];
 	for (var i = 0; i < clothingImages.length; i++) {
 		for (var j = 0; j < clothingImages[i].length; j++) {

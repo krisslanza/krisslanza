@@ -35,13 +35,20 @@ var playerXML = [[], [], [], [], []];
 /********************************/
 
 /* parse the dialogue states of a player, given the case object */
-function parseDialogue (player, caseObject) {
-	image = [];
-	dialogue = [];
+function parseDialogue (player, caseObject, replace, content) {
+	var image = [];
+	var dialogue = [];
 	
 	caseObject.find('state').each(function () {
 		image.push($(this).attr('picture'));
 		dialogue.push($(this).html());
+		
+		if (replace && content) {
+			for (var i = 0; i < replace.length; i++) {
+				dialogue[dialogue.length-1] = dialogue[dialogue.length-1].replace(replace[i], content[i]);
+				console.log(dialogue[dialogue.length-1]);
+			}
+		}
 	});
 	
 	if (image != []) {
@@ -93,7 +100,8 @@ function updatePlayerVisual (player) {
 	playerImageCells[player].src = playerSources[player] + playerImages[player][playerState[player]];
 	playerDialogueCells[player].innerHTML = playerDialogue[player][playerState[player]];
 	
-	console.log(playerDialogue[player].length + " "+(playerState[player]));
+	//console.log(playerDialogue[player].length + " "+(playerState[player]));
+	/* determine whether or not to display the advance dialogue button */
 	if (playerDialogue[player].length > playerState[player]+1) {
 		advanceButtons[player].style.display = "block";
 		window.setTimeout(function(){flashAdvanceButton(player);}, buttonFlashSpeed);
@@ -111,39 +119,23 @@ function updateAllPlayerVisuals () {
 
 /* updates the behaviour of the given player based on the provided tag */
 function updateBehaviour (player, tag, replace, content) {
-	var dialogue = "";
-	var image = "";
-	console.log("Updating behaviour of Player "+player);
+	console.log("Updating behaviour of Player "+player+" with "+tag);
 	
 	var stage = (playerStartingClothing[player] - playerClothing[player].length + 1);
 	if (playerForfeits[player] == true) {
 		stage += 1;
 	}
 	
+	var found = false;
 	$(playerXML[player]).find('behaviour').find('stage').eq(stage-1).find('case').each(function () {
-		if ($(this).find('tag').text() == tag) {
-			/* roll a die to determine which dialogue to take */
-			var random = (getRandomNumber(1, $(this).find('state').size()) - 1);
-			
-			dialogue = $(this).find('state').eq(random).find('dialogue').text();
-			image = $(this).find('state').eq(random).find('picture').text();
-			console.log(image);
-			console.log(dialogue);
-			
-			for (var i = 0; i < replace.length; i++) {
-				dialogue = dialogue.replace(replace[i], content[i]);
-				console.log(dialogue);
-			}
+		if ($(this).attr('tag') == tag) {
+			parseDialogue(player, $(this), replace, content);
+			found = true;
 		}
 	});
 	
-	playerDialogue[player] = [dialogue];
-	console.log("Player IMAGE: "+image);
-	if (image != "") {
-		playerImages[player] = [image];
-	}
-	
-	if (dialogue == "" && tag != "blank") {
+	if (!found && tag != "blank") {
+		playerDialogue[player] = [""];
 		console.log("Couldn't find "+tag+" dialogue for Player "+player+" Stage "+stage);
 	}
 	

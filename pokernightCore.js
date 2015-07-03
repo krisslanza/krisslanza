@@ -701,12 +701,21 @@ function stripPlayer(player) {
 			/* AI player */
 			
 			/* update behaviour */
-			if (playerGenders[player] == "male") {
-				updateAllBehaviours(player, "male_ai_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
-			} else if (playerGenders[player] == "female") {
-				updateAllBehaviours(player, "female_ai_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+			if (playerClothing[player].length > 0) {
+				if (playerGenders[player] == "male") {
+					updateAllBehaviours(player, "male_ai_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+				} else if (playerGenders[player] == "female") {
+					updateAllBehaviours(player, "female_ai_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+				}
+				updateBehaviour(player, "stripped", ["~clothing~", "~Clothing~"], [removedClothing, capRemovedClothing]);
+			} else {
+				if (playerGenders[player] == "male") {
+					updateAllBehaviours(player, "male_ai_stripped_naked", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+				} else if (playerGenders[player] == "female") {
+					updateAllBehaviours(player, "female_ai_stripped_naked", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
+				}
+				updateBehaviour(player, "stripped", ["~clothing~", "~Clothing~"], [removedClothing, capRemovedClothing]);
 			}
-			updateBehaviour(player, "stripped", ["~clothing~", "~Clothing~"], [removedClothing, capRemovedClothing]);
 		}
 		
 		var genderNoun = null;

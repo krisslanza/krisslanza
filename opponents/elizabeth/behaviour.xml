@@ -32,1108 +32,972 @@
 	<!-- ~Clothing~ is the upper-case name of the clothing they have to remove, if applicable -->
 	
 	<behaviour>	 <!-- this is where all of the character's dialogue goes -->
-		<stage>	 <!-- first stage, fully dressed -->
-			<case>
-				<tag>good_hand</tag> <!-- the character has a good hand after the exchange -->
-				<state> 
-					<dialogue>I've got a good hand.</dialogue>
-					<picture>start.jpg</picture>
-				</state>
-				<state>
-					<dialogue>Bet you can't beat this hand!</dialogue>
-					<picture>start.jpg</picture>
+	
+	
+		<!-- start stage, fully dressed -->
+		<stage>	 
+		
+			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
+				<state picture="start.jpg">
+					I've got a good hand.
 				</state>
 			</case>
-			<case>
-				<tag>okay_hand</tag> <!-- the character has an okay hand after the exchange -->
-				<state> 
-					<dialogue>I've got an okay hand.</dialogue>
-					<picture>start.jpg</picture>
+			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
+				<state picture="start.jpg">
+					I've got an okay hand.
 				</state>
 			</case>
-			<case>
-				<tag>bad_hand</tag> <!-- the character has a bad hand after the exchange -->
-				<state>
-					<dialogue>I've got a bad hand.</dialogue>
-					<picture>start.jpg</picture>
+			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
+				<state picture="start.jpg">
+					I've got a bad hand.
 				</state>
 			</case>
-			<case>
-				<tag>lost</tag>  <!-- this player lost the hand -->
-				<state>
-					<dialogue>No, I don't want to take off my ~clothing~!</dialogue>
-					<picture>start.jpg</picture>
+			
+			<case tag="lost"> <!-- this player lost the hand -->
+				<state picture="start.jpg">
+					No, I don't want to take off my ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_will_strip</tag> <!-- a male AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>start.jpg</picture>
+			
+			<case tag="male_ai_will_strip"> <!-- a male AI is going to strip -->
+				<state picture="start.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_will_strip</tag> <!-- a female AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>start.jpg</picture>
+			<case tag="male_ai_stripped"> <!-- a male AI has stripped -->
+				<state picture="start.jpg">
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_will_strip</tag>  <!-- the human male player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>start.jpg</picture>
+			<case tag="male_ai_stripped_naked"> <!-- a male AI has stripped naked -->
+				<state picture="start.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>start.jpg</picture>
+			
+			<case tag="female_ai_will_strip"> <!-- a female AI is going to strip -->
+				<state picture="start.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_stripped</tag>  <!-- a male AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>start.jpg</picture>
+			<case tag="female_ai_stripped"> <!-- a female AI has stripped -->
+				<state picture="start.jpg">
+					~name~ looks better without her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_stripped</tag>  <!-- a female AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>start.jpg</picture>
+			<case tag="female_ai_stripped_naked"> <!-- a female AI has stripped naked -->
+				<state picture="start.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped</tag>  <!-- the human male player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>start.jpg</picture>
+			
+			<case tag="male_human_will_strip">  <!-- the human male player is going to strip -->
+				<state picture="start.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>start.jpg</picture>
+			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
+				<state picture="start.jpg">
+					name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>start.jpg</picture>
+			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
+				<state picture="start.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>start.jpg</picture>
+			
+			<case tag="female_human_will_strip"> <!-- the human female player is going to strip -->
+				<state picture="start.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
+			<case tag="female_human_stripped"> <!-- the human female player has stripped -->
+				<state picture="start.jpg">
+					~name~ looks better without her ~clothing~!
+				</state>
+			</case>
+			<case tag="female_human_stripped_naked"> <!-- the human female player has stripped naked -->
+				<state picture="start.jpg">
+					You look pretty good naked, ~name~!
+				</state>
+			</case>
+			
 		</stage>
-		<stage> <!-- second stage, missing one article of clothing -->
-			<case>
-				<tag>stripped</tag>  <!-- this player just removed an article of clothing, from the previous stage -->
-				<state>
-					<dialogue>I miss my ~clothing~ already...</dialogue>
-					<picture>stage1calm.jpg</picture>
+		
+		
+		<!-- first stage, missing one article of clothing -->
+		<stage>	 
+		
+			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
+				<state picture="stage1calm.jpg">
+					I've got a good hand.
 				</state>
 			</case>
-			<case>
-				<tag>good_hand</tag> <!-- the character has a good hand after the exchange -->
-				<state> 
-					<dialogue>I've got a good hand.</dialogue>
-					<picture>stage1calm.jpg</picture>
-				</state>
-				<state>
-					<dialogue>Bet you can't beat this hand!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
+				<state picture="stage1calm.jpg">
+					I've got an okay hand.
 				</state>
 			</case>
-			<case>
-				<tag>okay_hand</tag> <!-- the character has an okay hand after the exchange -->
-				<state> 
-					<dialogue>I've got an okay hand.</dialogue>
-					<picture>stage1calm.jpg</picture>
+			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
+				<state picture="stage1calm.jpg">
+					I've got a bad hand.
 				</state>
 			</case>
-			<case>
-				<tag>bad_hand</tag> <!-- the character has a bad hand after the exchange -->
-				<state>
-					<dialogue>I've got a bad hand.</dialogue>
-					<picture>stage1calm.jpg</picture>
+			
+			<case tag="stripped"> <!-- this player lost the hand -->
+				<state picture="stage1calm.jpg">
+					I miss my ~clothing~ already...
 				</state>
 			</case>
-			<case>
-				<tag>lost</tag>  <!-- this player lost the hand -->
-				<state>
-					<dialogue>No, I don't want to take off my ~clothing~!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			<case tag="lost"> <!-- this player lost the hand -->
+				<state picture="stage1calm.jpg">
+					No, I don't want to take off my ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_will_strip</tag> <!-- a male AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			
+			<case tag="male_ai_will_strip"> <!-- a male AI is going to strip -->
+				<state picture="stage1calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_will_strip</tag> <!-- a female AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			<case tag="male_ai_stripped"> <!-- a male AI has stripped -->
+				<state picture="stage1calm.jpg">
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_will_strip</tag>  <!-- the human male player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			<case tag="male_ai_stripped_naked"> <!-- a male AI has stripped naked -->
+				<state picture="stage1calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			
+			<case tag="female_ai_will_strip"> <!-- a female AI is going to strip -->
+				<state picture="stage1calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_stripped</tag>  <!-- a male AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			<case tag="female_ai_stripped"> <!-- a female AI has stripped -->
+				<state picture="stage1calm.jpg">
+					~name~ looks better without her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_stripped</tag>  <!-- a female AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			<case tag="female_ai_stripped_naked"> <!-- a female AI has stripped naked -->
+				<state picture="stage1calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped</tag>  <!-- the human male player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			
+			<case tag="male_human_will_strip">  <!-- the human male player is going to strip -->
+				<state picture="stage1calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
+				<state picture="stage1calm.jpg">
+					name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
+				<state picture="stage1calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage1calm.jpg</picture>
+			
+			<case tag="female_human_will_strip"> <!-- the human female player is going to strip -->
+				<state picture="stage1calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
+			<case tag="female_human_stripped"> <!-- the human female player has stripped -->
+				<state picture="stage1calm.jpg">
+					~name~ looks better without her ~clothing~!
+				</state>
+			</case>
+			<case tag="female_human_stripped_naked"> <!-- the human female player has stripped naked -->
+				<state picture="stage1calm.jpg">
+					You look pretty good naked, ~name~!
+				</state>
+			</case>
+			
 		</stage>
-		<stage> <!-- third stage, missing two articles of clothing -->
-			<case>
-				<tag>stripped</tag>  <!-- this player just removed an article of clothing, from the previous stage -->
-				<state>
-					<dialogue>I miss my ~clothing~ already...</dialogue>
-					<picture>stage2calm.jpg</picture>
+		
+		
+		<!-- second stage, missing two articles of clothing -->
+		<stage>	 
+		
+			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
+				<state picture="stage2calm.jpg">
+					I've got a good hand.
 				</state>
 			</case>
-			<case>
-				<tag>good_hand</tag> <!-- the character has a good hand after the exchange -->
-				<state> 
-					<dialogue>I've got a good hand.</dialogue>
-					<picture>stage2calm.jpg</picture>
-				</state>
-				<state>
-					<dialogue>Bet you can't beat this hand!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
+				<state picture="stage2calm.jpg">
+					I've got an okay hand.
 				</state>
 			</case>
-			<case>
-				<tag>okay_hand</tag> <!-- the character has an okay hand after the exchange -->
-				<state> 
-					<dialogue>I've got an okay hand.</dialogue>
-					<picture>stage2calm.jpg</picture>
+			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
+				<state picture="stage2calm.jpg">
+					I've got a bad hand.
 				</state>
 			</case>
-			<case>
-				<tag>bad_hand</tag> <!-- the character has a bad hand after the exchange -->
-				<state>
-					<dialogue>I've got a bad hand.</dialogue>
-					<picture>stage2calm.jpg</picture>
+			
+			<case tag="stripped"> <!-- this player lost the hand -->
+				<state picture="stage2calm.jpg">
+					I miss my ~clothing~ already...
 				</state>
 			</case>
-			<case>
-				<tag>lost</tag>  <!-- this player lost the hand -->
-				<state>
-					<dialogue>No, I don't want to take off my ~clothing~!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			<case tag="lost"> <!-- this player lost the hand -->
+				<state picture="stage2calm.jpg">
+					No, I don't want to take off my ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_will_strip</tag> <!-- a male AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			
+			<case tag="male_ai_will_strip"> <!-- a male AI is going to strip -->
+				<state picture="stage2calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_will_strip</tag> <!-- a female AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			<case tag="male_ai_stripped"> <!-- a male AI has stripped -->
+				<state picture="stage2calm.jpg">
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_will_strip</tag>  <!-- the human male player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			<case tag="male_ai_stripped_naked"> <!-- a male AI has stripped naked -->
+				<state picture="stage2calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			
+			<case tag="female_ai_will_strip"> <!-- a female AI is going to strip -->
+				<state picture="stage2calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_stripped</tag>  <!-- a male AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			<case tag="female_ai_stripped"> <!-- a female AI has stripped -->
+				<state picture="stage2calm.jpg">
+					~name~ looks better without her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_stripped</tag>  <!-- a female AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			<case tag="female_ai_stripped_naked"> <!-- a female AI has stripped naked -->
+				<state picture="stage2calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped</tag>  <!-- the human male player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			
+			<case tag="male_human_will_strip">  <!-- the human male player is going to strip -->
+				<state picture="stage2calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
+				<state picture="stage2calm.jpg">
+					name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
+				<state picture="stage2calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage2calm.jpg</picture>
+			
+			<case tag="female_human_will_strip"> <!-- the human female player is going to strip -->
+				<state picture="stage2calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
+			<case tag="female_human_stripped"> <!-- the human female player has stripped -->
+				<state picture="stage2calm.jpg">
+					~name~ looks better without her ~clothing~!
+				</state>
+			</case>
+			<case tag="female_human_stripped_naked"> <!-- the human female player has stripped naked -->
+				<state picture="stage2calm.jpg">
+					You look pretty good naked, ~name~!
+				</state>
+			</case>
+			
 		</stage>
-		<stage> <!-- fourth stage, missing three articles of clothing -->
-			<case>
-				<tag>stripped</tag>  <!-- this player just removed an article of clothing, from the previous stage -->
-				<state>
-					<dialogue>I miss my ~clothing~ already...</dialogue>
-					<picture>stage3calm.jpg</picture>
+		
+		
+		<!-- third stage, missing three articles of clothing -->
+		<stage>	 
+		
+			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
+				<state picture="stage3calm.jpg">
+					I've got a good hand.
 				</state>
 			</case>
-			<case>
-				<tag>good_hand</tag> <!-- the character has a good hand after the exchange -->
-				<state> 
-					<dialogue>I've got a good hand.</dialogue>
-					<picture>stage3calm.jpg</picture>
-				</state>
-				<state>
-					<dialogue>Bet you can't beat this hand!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
+				<state picture="stage3calm.jpg">
+					I've got an okay hand.
 				</state>
 			</case>
-			<case>
-				<tag>okay_hand</tag> <!-- the character has an okay hand after the exchange -->
-				<state> 
-					<dialogue>I've got an okay hand.</dialogue>
-					<picture>stage3calm.jpg</picture>
+			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
+				<state picture="stage3calm.jpg">
+					I've got a bad hand.
 				</state>
 			</case>
-			<case>
-				<tag>bad_hand</tag> <!-- the character has a bad hand after the exchange -->
-				<state>
-					<dialogue>I've got a bad hand.</dialogue>
-					<picture>stage3calm.jpg</picture>
+			
+			<case tag="stripped"> <!-- this player lost the hand -->
+				<state picture="stage3calm.jpg">
+					I miss my ~clothing~ already...
 				</state>
 			</case>
-			<case>
-				<tag>lost</tag>  <!-- this player lost the hand -->
-				<state>
-					<dialogue>No, I don't want to take off my ~clothing~!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			<case tag="lost"> <!-- this player lost the hand -->
+				<state picture="stage3calm.jpg">
+					No, I don't want to take off my ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_will_strip</tag> <!-- a male AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			
+			<case tag="male_ai_will_strip"> <!-- a male AI is going to strip -->
+				<state picture="stage3calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_will_strip</tag> <!-- a female AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			<case tag="male_ai_stripped"> <!-- a male AI has stripped -->
+				<state picture="stage3calm.jpg">
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_will_strip</tag>  <!-- the human male player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			<case tag="male_ai_stripped_naked"> <!-- a male AI has stripped naked -->
+				<state picture="stage3calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			
+			<case tag="female_ai_will_strip"> <!-- a female AI is going to strip -->
+				<state picture="stage3calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_stripped</tag>  <!-- a male AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			<case tag="female_ai_stripped"> <!-- a female AI has stripped -->
+				<state picture="stage3calm.jpg">
+					~name~ looks better without her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_stripped</tag>  <!-- a female AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			<case tag="female_ai_stripped_naked"> <!-- a female AI has stripped naked -->
+				<state picture="stage3calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped</tag>  <!-- the human male player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			
+			<case tag="male_human_will_strip">  <!-- the human male player is going to strip -->
+				<state picture="stage3calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
+				<state picture="stage3calm.jpg">
+					name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
+				<state picture="stage3calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage3calm.jpg</picture>
+			
+			<case tag="female_human_will_strip"> <!-- the human female player is going to strip -->
+				<state picture="stage3calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
+			<case tag="female_human_stripped"> <!-- the human female player has stripped -->
+				<state picture="stage3calm.jpg">
+					~name~ looks better without her ~clothing~!
+				</state>
+			</case>
+			<case tag="female_human_stripped_naked"> <!-- the human female player has stripped naked -->
+				<state picture="stage3calm.jpg">
+					You look pretty good naked, ~name~!
+				</state>
+			</case>
+			
 		</stage>
-		<stage> <!-- fifth stage, missing four articles of clothing -->
-			<case>
-				<tag>stripped</tag>  <!-- this player just removed an article of clothing, from the previous stage -->
-				<state>
-					<dialogue>I miss my ~clothing~ already...</dialogue>
-					<picture>stage4calm.jpg</picture>
+		
+		
+		<!-- fourth stage, missing four articles of clothing -->
+		<stage>	 
+		
+			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
+				<state picture="stage4calm.jpg">
+					I've got a good hand.
 				</state>
 			</case>
-			<case>
-				<tag>good_hand</tag> <!-- the character has a good hand after the exchange -->
-				<state> 
-					<dialogue>I've got a good hand.</dialogue>
-					<picture>stage4calm.jpg</picture>
-				</state>
-				<state>
-					<dialogue>Bet you can't beat this hand!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
+				<state picture="stage4calm.jpg">
+					I've got an okay hand.
 				</state>
 			</case>
-			<case>
-				<tag>okay_hand</tag> <!-- the character has an okay hand after the exchange -->
-				<state> 
-					<dialogue>I've got an okay hand.</dialogue>
-					<picture>stage4calm.jpg</picture>
+			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
+				<state picture="stage4calm.jpg">
+					I've got a bad hand.
 				</state>
 			</case>
-			<case>
-				<tag>bad_hand</tag> <!-- the character has a bad hand after the exchange -->
-				<state>
-					<dialogue>I've got a bad hand.</dialogue>
-					<picture>stage4calm.jpg</picture>
+			
+			<case tag="stripped"> <!-- this player lost the hand -->
+				<state picture="stage4calm.jpg">
+					I miss my ~clothing~ already...
 				</state>
 			</case>
-			<case>
-				<tag>lost</tag>  <!-- this player lost the hand -->
-				<state>
-					<dialogue>No, I don't want to take off my ~clothing~!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			<case tag="lost"> <!-- this player lost the hand -->
+				<state picture="stage4calm.jpg">
+					No, I don't want to take off my ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_will_strip</tag> <!-- a male AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			
+			<case tag="male_ai_will_strip"> <!-- a male AI is going to strip -->
+				<state picture="stage4calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_will_strip</tag> <!-- a female AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			<case tag="male_ai_stripped"> <!-- a male AI has stripped -->
+				<state picture="stage4calm.jpg">
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_will_strip</tag>  <!-- the human male player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			<case tag="male_ai_stripped_naked"> <!-- a male AI has stripped naked -->
+				<state picture="stage4calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			
+			<case tag="female_ai_will_strip"> <!-- a female AI is going to strip -->
+				<state picture="stage4calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_stripped</tag>  <!-- a male AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			<case tag="female_ai_stripped"> <!-- a female AI has stripped -->
+				<state picture="stage4calm.jpg">
+					~name~ looks better without her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_stripped</tag>  <!-- a female AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			<case tag="female_ai_stripped_naked"> <!-- a female AI has stripped naked -->
+				<state picture="stage4calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped</tag>  <!-- the human male player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			
+			<case tag="male_human_will_strip">  <!-- the human male player is going to strip -->
+				<state picture="stage4calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
+				<state picture="stage4calm.jpg">
+					name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
+				<state picture="stage4calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage4calm.jpg</picture>
+			
+			<case tag="female_human_will_strip"> <!-- the human female player is going to strip -->
+				<state picture="stage4calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
+			<case tag="female_human_stripped"> <!-- the human female player has stripped -->
+				<state picture="stage4calm.jpg">
+					~name~ looks better without her ~clothing~!
+				</state>
+			</case>
+			<case tag="female_human_stripped_naked"> <!-- the human female player has stripped naked -->
+				<state picture="stage4calm.jpg">
+					You look pretty good naked, ~name~!
+				</state>
+			</case>
+			
 		</stage>
-		<stage> <!-- sixth stage, missing five articles of clothing -->
-			<case>
-				<tag>stripped</tag>  <!-- this player just removed an article of clothing, from the previous stage -->
-				<state>
-					<dialogue>I miss my ~clothing~ already...</dialogue>
-					<picture>stage5calm.jpg</picture>
+		
+		
+		<!-- fifth stage, missing five articles of clothing -->
+		<stage>	 
+		
+			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
+				<state picture="stage5calm.jpg">
+					I've got a good hand.
 				</state>
 			</case>
-			<case>
-				<tag>good_hand</tag> <!-- the character has a good hand after the exchange -->
-				<state> 
-					<dialogue>I've got a good hand.</dialogue>
-					<picture>stage5calm.jpg</picture>
-				</state>
-				<state>
-					<dialogue>Bet you can't beat this hand!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
+				<state picture="stage5calm.jpg">
+					I've got an okay hand.
 				</state>
 			</case>
-			<case>
-				<tag>okay_hand</tag> <!-- the character has an okay hand after the exchange -->
-				<state> 
-					<dialogue>I've got an okay hand.</dialogue>
-					<picture>stage5calm.jpg</picture>
+			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
+				<state picture="stage5calm.jpg">
+					I've got a bad hand.
 				</state>
 			</case>
-			<case>
-				<tag>bad_hand</tag> <!-- the character has a bad hand after the exchange -->
-				<state>
-					<dialogue>I've got a bad hand.</dialogue>
-					<picture>stage5calm.jpg</picture>
+			
+			<case tag="stripped"> <!-- this player lost the hand -->
+				<state picture="stage5calm.jpg">
+					I miss my ~clothing~ already...
 				</state>
 			</case>
-			<case>
-				<tag>lost</tag>  <!-- this player lost the hand -->
-				<state>
-					<dialogue>No, I don't want to take off my ~clothing~!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			<case tag="lost"> <!-- this player lost the hand -->
+				<state picture="stage5calm.jpg">
+					No, I don't want to take off my ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_will_strip</tag> <!-- a male AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			
+			<case tag="male_ai_will_strip"> <!-- a male AI is going to strip -->
+				<state picture="stage5calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_will_strip</tag> <!-- a female AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			<case tag="male_ai_stripped"> <!-- a male AI has stripped -->
+				<state picture="stage5calm.jpg">
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_will_strip</tag>  <!-- the human male player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			<case tag="male_ai_stripped_naked"> <!-- a male AI has stripped naked -->
+				<state picture="stage5calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			
+			<case tag="female_ai_will_strip"> <!-- a female AI is going to strip -->
+				<state picture="stage5calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_stripped</tag>  <!-- a male AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			<case tag="female_ai_stripped"> <!-- a female AI has stripped -->
+				<state picture="stage5calm.jpg">
+					~name~ looks better without her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_stripped</tag>  <!-- a female AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			<case tag="female_ai_stripped_naked"> <!-- a female AI has stripped naked -->
+				<state picture="stage5calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped</tag>  <!-- the human male player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			
+			<case tag="male_human_will_strip">  <!-- the human male player is going to strip -->
+				<state picture="stage5calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
+				<state picture="stage5calm.jpg">
+					name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
+				<state picture="stage5calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage5calm.jpg</picture>
+			
+			<case tag="female_human_will_strip"> <!-- the human female player is going to strip -->
+				<state picture="stage5calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
+			<case tag="female_human_stripped"> <!-- the human female player has stripped -->
+				<state picture="stage5calm.jpg">
+					~name~ looks better without her ~clothing~!
+				</state>
+			</case>
+			<case tag="female_human_stripped_naked"> <!-- the human female player has stripped naked -->
+				<state picture="stage5calm.jpg">
+					You look pretty good naked, ~name~!
+				</state>
+			</case>
+			
 		</stage>
-		<stage> <!-- seventh stage, missing six articles of clothing -->
-			<case>
-				<tag>stripped</tag>  <!-- this player just removed an article of clothing, from the previous stage -->
-				<state>
-					<dialogue>I miss my ~clothing~ already...</dialogue>
-					<picture>stage6calm.jpg</picture>
+		
+		
+		<!-- sixth stage, missing six articles of clothing -->
+		<stage>	 
+		
+			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
+				<state picture="stage6calm.jpg">
+					I've got a good hand.
 				</state>
 			</case>
-			<case>
-				<tag>good_hand</tag> <!-- the character has a good hand after the exchange -->
-				<state> 
-					<dialogue>I've got a good hand.</dialogue>
-					<picture>stage6calm.jpg</picture>
-				</state>
-				<state>
-					<dialogue>Bet you can't beat this hand!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
+				<state picture="stage6calm.jpg">
+					I've got an okay hand.
 				</state>
 			</case>
-			<case>
-				<tag>okay_hand</tag> <!-- the character has an okay hand after the exchange -->
-				<state> 
-					<dialogue>I've got an okay hand.</dialogue>
-					<picture>stage6calm.jpg</picture>
+			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
+				<state picture="stage6calm.jpg">
+					I've got a bad hand.
 				</state>
 			</case>
-			<case>
-				<tag>bad_hand</tag> <!-- the character has a bad hand after the exchange -->
-				<state>
-					<dialogue>I've got a bad hand.</dialogue>
-					<picture>stage6calm.jpg</picture>
+			
+			<case tag="stripped"> <!-- this player lost the hand -->
+				<state picture="stage6calm.jpg">
+					I miss my ~clothing~ already...
 				</state>
 			</case>
-			<case>
-				<tag>lost</tag>  <!-- this player lost the hand -->
-				<state>
-					<dialogue>No, I don't want to take off my ~clothing~!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			<case tag="lost"> <!-- this player lost the hand -->
+				<state picture="stage6calm.jpg">
+					No, I don't want to take off my ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_will_strip</tag> <!-- a male AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			
+			<case tag="male_ai_will_strip"> <!-- a male AI is going to strip -->
+				<state picture="stage6calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_will_strip</tag> <!-- a female AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			<case tag="male_ai_stripped"> <!-- a male AI has stripped -->
+				<state picture="stage6calm.jpg">
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_will_strip</tag>  <!-- the human male player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			<case tag="male_ai_stripped_naked"> <!-- a male AI has stripped naked -->
+				<state picture="stage6calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			
+			<case tag="female_ai_will_strip"> <!-- a female AI is going to strip -->
+				<state picture="stage6calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_stripped</tag>  <!-- a male AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			<case tag="female_ai_stripped"> <!-- a female AI has stripped -->
+				<state picture="stage6calm.jpg">
+					~name~ looks better without her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_stripped</tag>  <!-- a female AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			<case tag="female_ai_stripped_naked"> <!-- a female AI has stripped naked -->
+				<state picture="stage6calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped</tag>  <!-- the human male player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			
+			<case tag="male_human_will_strip">  <!-- the human male player is going to strip -->
+				<state picture="stage6calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
+				<state picture="stage6calm.jpg">
+					name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
+				<state picture="stage6calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage6calm.jpg</picture>
+			
+			<case tag="female_human_will_strip"> <!-- the human female player is going to strip -->
+				<state picture="stage6calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
+			<case tag="female_human_stripped"> <!-- the human female player has stripped -->
+				<state picture="stage6calm.jpg">
+					~name~ looks better without her ~clothing~!
+				</state>
+			</case>
+			<case tag="female_human_stripped_naked"> <!-- the human female player has stripped naked -->
+				<state picture="stage6calm.jpg">
+					You look pretty good naked, ~name~!
+				</state>
+			</case>
+			
 		</stage>
-		<stage> <!-- eighth stage, missing seven articles of clothing -->
-			<case>
-				<tag>stripped</tag>  <!-- this player just removed an article of clothing, from the previous stage -->
-				<state>
-					<dialogue>I miss my ~clothing~ already...</dialogue>
-					<picture>stage7calm.jpg</picture>
+		
+		
+		<!-- seventh stage, missing seven articles of clothing -->
+		<stage>	 
+		
+			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
+				<state picture="stage7calm.jpg">
+					I've got a good hand.
 				</state>
 			</case>
-			<case>
-				<tag>good_hand</tag> <!-- the character has a good hand after the exchange -->
-				<state> 
-					<dialogue>I've got a good hand.</dialogue>
-					<picture>stage7calm.jpg</picture>
-				</state>
-				<state>
-					<dialogue>Bet you can't beat this hand!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
+				<state picture="stage7calm.jpg">
+					I've got an okay hand.
 				</state>
 			</case>
-			<case>
-				<tag>okay_hand</tag> <!-- the character has an okay hand after the exchange -->
-				<state> 
-					<dialogue>I've got an okay hand.</dialogue>
-					<picture>stage7calm.jpg</picture>
+			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
+				<state picture="stage7calm.jpg">
+					I've got a bad hand.
 				</state>
 			</case>
-			<case>
-				<tag>bad_hand</tag> <!-- the character has a bad hand after the exchange -->
-				<state>
-					<dialogue>I've got a bad hand.</dialogue>
-					<picture>stage7calm.jpg</picture>
+			
+			<case tag="stripped"> <!-- this player lost the hand -->
+				<state picture="stage7calm.jpg">
+					I miss my ~clothing~ already...
 				</state>
 			</case>
-			<case>
-				<tag>lost</tag>  <!-- this player lost the hand -->
-				<state>
-					<dialogue>No, I don't want to take off my ~clothing~!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			<case tag="lost"> <!-- this player lost the hand -->
+				<state picture="stage7calm.jpg">
+					No, I don't want to take off my ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_will_strip</tag> <!-- a male AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			
+			<case tag="male_ai_will_strip"> <!-- a male AI is going to strip -->
+				<state picture="stage7calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_will_strip</tag> <!-- a female AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			<case tag="male_ai_stripped"> <!-- a male AI has stripped -->
+				<state picture="stage7calm.jpg">
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_will_strip</tag>  <!-- the human male player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			<case tag="male_ai_stripped_naked"> <!-- a male AI has stripped naked -->
+				<state picture="stage7calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			
+			<case tag="female_ai_will_strip"> <!-- a female AI is going to strip -->
+				<state picture="stage7calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_stripped</tag>  <!-- a male AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			<case tag="female_ai_stripped"> <!-- a female AI has stripped -->
+				<state picture="stage7calm.jpg">
+					~name~ looks better without her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_stripped</tag>  <!-- a female AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			<case tag="female_ai_stripped_naked"> <!-- a female AI has stripped naked -->
+				<state picture="stage7calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped</tag>  <!-- the human male player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			
+			<case tag="male_human_will_strip">  <!-- the human male player is going to strip -->
+				<state picture="stage7calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
+				<state picture="stage7calm.jpg">
+					name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
+				<state picture="stage7calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage7calm.jpg</picture>
+			
+			<case tag="female_human_will_strip"> <!-- the human female player is going to strip -->
+				<state picture="stage7calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
+			<case tag="female_human_stripped"> <!-- the human female player has stripped -->
+				<state picture="stage7calm.jpg">
+					~name~ looks better without her ~clothing~!
+				</state>
+			</case>
+			<case tag="female_human_stripped_naked"> <!-- the human female player has stripped naked -->
+				<state picture="stage7calm.jpg">
+					You look pretty good naked, ~name~!
+				</state>
+			</case>
+			
 		</stage>
-		<stage> <!-- ninth stage, completely naked -->
-			<case>
-				<tag>stripped</tag>  <!-- this player just removed an article of clothing, from the previous stage -->
-				<state>
-					<dialogue>I miss my ~clothing~ already...</dialogue>
-					<picture>stage8calm.jpg</picture>
+		
+		
+		<!-- eighth stage, completely naked -->
+		<stage>	 
+		
+			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
+				<state picture="stage8calm.jpg">
+					I've got a good hand.
 				</state>
 			</case>
-			<case>
-				<tag>good_hand</tag> <!-- the character has a good hand after the exchange -->
-				<state> 
-					<dialogue>I've got a good hand.</dialogue>
-					<picture>stage8calm.jpg</picture>
-				</state>
-				<state>
-					<dialogue>Bet you can't beat this hand!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
+				<state picture="stage8calm.jpg">
+					I've got an okay hand.
 				</state>
 			</case>
-			<case>
-				<tag>okay_hand</tag> <!-- the character has an okay hand after the exchange -->
-				<state> 
-					<dialogue>I've got an okay hand.</dialogue>
-					<picture>stage8calm.jpg</picture>
+			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
+				<state picture="stage8calm.jpg">
+					I've got a bad hand.
 				</state>
 			</case>
-			<case>
-				<tag>bad_hand</tag> <!-- the character has a bad hand after the exchange -->
-				<state>
-					<dialogue>I've got a bad hand.</dialogue>
-					<picture>stage8calm.jpg</picture>
+			
+			<case tag="stripped"> <!-- this player lost the hand -->
+				<state picture="stage8calm.jpg">
+					I miss my ~clothing~ already...
 				</state>
 			</case>
-			<case>
-				<tag>lost</tag>  <!-- this player lost the hand -->
-				<state>
-					<dialogue>No, I don't want to take off my ~clothing~!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			<case tag="lost"> <!-- this player lost the hand -->
+				<state picture="stage8calm.jpg">
+					No, I don't want to take off my ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_will_strip</tag> <!-- a male AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			
+			<case tag="male_ai_will_strip"> <!-- a male AI is going to strip -->
+				<state picture="stage8calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_will_strip</tag> <!-- a female AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			<case tag="male_ai_stripped"> <!-- a male AI has stripped -->
+				<state picture="stage8calm.jpg">
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_will_strip</tag>  <!-- the human male player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			<case tag="male_ai_stripped_naked"> <!-- a male AI has stripped naked -->
+				<state picture="stage8calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			
+			<case tag="female_ai_will_strip"> <!-- a female AI is going to strip -->
+				<state picture="stage8calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_stripped</tag>  <!-- a male AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			<case tag="female_ai_stripped"> <!-- a female AI has stripped -->
+				<state picture="stage8calm.jpg">
+					~name~ looks better without her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_stripped</tag>  <!-- a female AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			<case tag="female_ai_stripped_naked"> <!-- a female AI has stripped naked -->
+				<state picture="stage8calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped</tag>  <!-- the human male player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			
+			<case tag="male_human_will_strip">  <!-- the human male player is going to strip -->
+				<state picture="stage8calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
+				<state picture="stage8calm.jpg">
+					name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
+				<state picture="stage8calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage8calm.jpg</picture>
+			
+			<case tag="female_human_will_strip"> <!-- the human female player is going to strip -->
+				<state picture="stage8calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
+			<case tag="female_human_stripped"> <!-- the human female player has stripped -->
+				<state picture="stage8calm.jpg">
+					~name~ looks better without her ~clothing~!
+				</state>
+			</case>
+			<case tag="female_human_stripped_naked"> <!-- the human female player has stripped naked -->
+				<state picture="stage8calm.jpg">
+					You look pretty good naked, ~name~!
+				</state>
+			</case>
+			
 		</stage>
-		<stage> <!-- tenth stage, forfeit-->
-			<case>
-				<tag>forfeiting</tag>  <!-- this player just removed an article of clothing, from the previous stage -->
-				<state>
-					<dialogue>Do I really have to do this?</dialogue>
-					<picture>stage9calm.jpg</picture>
+		
+		
+		<!-- ninth stage, forfeit-->
+		<stage>	 
+		
+			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
+				<state picture="stage9calm.jpg">
+					I've got a good hand.
 				</state>
 			</case>
-			<case>
-				<tag>good_hand</tag> <!-- the character has a good hand after the exchange -->
-				<state> 
-					<dialogue>I've got a good hand.</dialogue>
-					<picture>stage9calm.jpg</picture>
-				</state>
-				<state>
-					<dialogue>Bet you can't beat this hand!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
+				<state picture="stage9calm.jpg">
+					I've got an okay hand.
 				</state>
 			</case>
-			<case>
-				<tag>okay_hand</tag> <!-- the character has an okay hand after the exchange -->
-				<state> 
-					<dialogue>I've got an okay hand.</dialogue>
-					<picture>stage9calm.jpg</picture>
+			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
+				<state picture="stage9calm.jpg">
+					I've got a bad hand.
 				</state>
 			</case>
-			<case>
-				<tag>bad_hand</tag> <!-- the character has a bad hand after the exchange -->
-				<state>
-					<dialogue>I've got a bad hand.</dialogue>
-					<picture>stage9calm.jpg</picture>
+			
+			<case tag="stripped"> <!-- this player lost the hand -->
+				<state picture="stage9calm.jpg">
+					I miss my ~clothing~ already...
 				</state>
 			</case>
-			<case>
-				<tag>lost</tag>  <!-- this player lost the hand -->
-				<state>
-					<dialogue>No, I don't want to take off my ~clothing~!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			<case tag="lost"> <!-- this player lost the hand -->
+				<state picture="stage9calm.jpg">
+					No, I don't want to take off my ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_will_strip</tag> <!-- a male AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			
+			<case tag="male_ai_will_strip"> <!-- a male AI is going to strip -->
+				<state picture="stage9calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_will_strip</tag> <!-- a female AI is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off her ~clothing~!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			<case tag="male_ai_stripped"> <!-- a male AI has stripped -->
+				<state picture="stage9calm.jpg">
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_will_strip</tag>  <!-- the human male player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			<case tag="male_ai_stripped_naked"> <!-- a male AI has stripped naked -->
+				<state picture="stage9calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_will_strip</tag>  <!-- the human female player is going to strip -->
-				<state>
-					<dialogue>Time for ~name~ to strip off his ~clothing~!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			
+			<case tag="female_ai_will_strip"> <!-- a female AI is going to strip -->
+				<state picture="stage9calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_ai_stripped</tag>  <!-- a male AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			<case tag="female_ai_stripped"> <!-- a female AI has stripped -->
+				<state picture="stage9calm.jpg">
+					~name~ looks better without her ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_ai_stripped</tag>  <!-- a female AI has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			<case tag="female_ai_stripped_naked"> <!-- a female AI has stripped naked -->
+				<state picture="stage9calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped</tag>  <!-- the human male player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without his ~clothing~!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			
+			<case tag="male_human_will_strip">  <!-- the human male player is going to strip -->
+				<state picture="stage9calm.jpg">
+					Time for ~name~ to strip off his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>male_human_stripped_naked</tag>  <!-- the human male player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
+				<state picture="stage9calm.jpg">
+					name~ looks better without his ~clothing~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped</tag>  <!-- the human female player has stripped -->
-				<state>
-					<dialogue>~name~ looks better without her ~clothing~!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
+				<state picture="stage9calm.jpg">
+					You look pretty good naked, ~name~!
 				</state>
 			</case>
-			<case>
-				<tag>female_human_stripped_naked</tag>  <!-- the human female player has stripped naked -->
-				<state>
-					<dialogue>You look pretty good naked, ~name~!</dialogue>
-					<picture>stage9calm.jpg</picture>
+			
+			<case tag="female_human_will_strip"> <!-- the human female player is going to strip -->
+				<state picture="stage9calm.jpg">
+					Time for ~name~ to strip off her ~clothing~!
 				</state>
 			</case>
+			<case tag="female_human_stripped"> <!-- the human female player has stripped -->
+				<state picture="stage9calm.jpg">
+					~name~ looks better without her ~clothing~!
+				</state>
+			</case>
+			<case tag="female_human_stripped_naked"> <!-- the human female player has stripped naked -->
+				<state picture="stage9calm.jpg">
+					You look pretty good naked, ~name~!
+				</state>
+			</case>
+			
 		</stage>
+		
+		
 	</behaviour>
 </opponent>
