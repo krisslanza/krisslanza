@@ -55,7 +55,10 @@
 			
 			<case tag="lost"> <!-- this player lost the hand -->
 				<state picture="stage0loss.jpg">
-					No, I don't want to take off my ~clothing~!
+					I guess I lost, huh?
+				</state>
+				<state picture="stage0loss2.jpg">
+					I guess I'll just take off my ~clothing~...
 				</state>
 			</case>
 			
