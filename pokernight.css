@@ -36,6 +36,19 @@ iframe {
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
+.textArea {
+	background-color: #FFFFFF;
+	border: 2px solid black;
+	border-radius: 10px;
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.textArea p {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
 #titleBanner {
 	height: 80px;
 	font-size: 24px;
@@ -125,8 +138,19 @@ iframe {
 	text-align: left;
 }
 
+#selectBanner {
+	height: 50px;
+	font-size: 26px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	vertical-align: middle;
+}
+
+
+
 #gameBanner {
-	font-size: 24px;
+	height: 50px;
+	font-size: 26px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	vertical-align: middle;
 }
 
@@ -136,18 +160,6 @@ iframe {
 	font-size: 18px;
 	padding-left: 5px;
 	padding-right: 5px;
-}
-
-.textArea {
-	background-color: #FFFFFF;
-	border: 2px solid black;
-	border-radius: 10px;
-	text-align: center;
-}
-
-.textArea p {
-	margin-top: 5px;
-	margin-bottom: 5px;
 }
 
 .advanceButton {

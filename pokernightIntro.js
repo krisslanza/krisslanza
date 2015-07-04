@@ -8,7 +8,6 @@
 /********************************/	
 
 var introScreen = document.getElementById("introScreen");
-
 var gameScreen = document.getElementById("gameScreen");
 
 var warningLabel = document.getElementById("warningLabel");
@@ -73,6 +72,9 @@ var clothingLayer = [[0, 0, 0, 0, 0, 0],
 					 [0, 0, 0, 0, 0, 0],
 					 [0, 0, 0, 0, 0, 0]];
 
+var singleListings = document.getElementById('opponentListings');
+var groupListings = document.getElementById('groupListings');
+					 
 /********************************/	
 /*****  Clothing Functions  *****/
 /********************************/	
@@ -140,8 +142,14 @@ function takeClothing (x, y) {
 }
 				
 /********************************/	
-/*****  Interact Functions  *****/
+/*****   Intro Functions    *****/
 /********************************/	
+
+/* loads the intro screen content */
+function loadIntroScreen() {
+	playerGenders[0] = "male";
+	loadClothing();
+}
 
 /* the player clicked on a gender button */
 function changeGender (gender) {
@@ -243,6 +251,72 @@ function wearClothing (clothes) {
 		humanPlayerClothingCells[c].style.opacity = 0;
 	}
 }
+
+/********************************/	
+/*****   Select Functions   *****/
+/********************************/	
+
+/* loads the select screen content */
+function loadSelectScreen () {
+	$.ajax({
+        type: "GET",
+		url: "opponents/opponent.xml",
+		dataType: "text",
+		success: function(xml) {
+			var number = 0;
+			
+			$singles = $(xml).find('singles');
+			singleListings.innerHTML += "<tr>";
+			$singles.find('opponent').each(function () {
+				console.log($(this).text());
+				var folder = $(this).attr('folder');
+				var headshot = $(this).attr('headshot');
+				var picture = $(this).attr('picture');
+				var gender = $(this).attr('gender');
+				var name = $(this).text();
+				
+				var genderImage = "images/female.jpg";
+				if (gender == "male") {
+					genderImage = "images/male.jpg";
+				}
+				
+				singleListings.innerHTML += 
+					"<td><button class='opponentCard'>"+
+						"<table class='opponentCardInner'>"+
+						"<tr><td><img class='smallHeadshot' id='card"+number+"' src=opponents/"+(folder+headshot)+"/></td></tr>"+
+						"<tr><td><p class='opponentNameLabel' id='card"+number+"name'>"+name+"</p></td></tr>";
+						"</table>"+
+					"</button></td>";
+				
+				number++;
+			});
+			singleListings.innerHTML += "</tr>";
+			
+			$groups = $(xml).find('groups');
+			$groups.find('group').each(function () {
+				console.log($(this));
+				
+				$(this).find('opponent').each(function () {
+					console.log($(this).text());
+				});
+			});
+		}
+	});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

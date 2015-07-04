@@ -169,7 +169,8 @@ var gameOver = false;
 /* initial setup of the game */
 function initialSetup () {
 	/* intro screen setup */
-	changeGender(1); /* trigger loading the clothing options */
+	loadIntroScreen();
+	//loadSelectScreen();
 	
 	/* hardcoded opponents, for now */
 	playerSources = ["player/male/", "opponents/elizabeth/", "opponents/lilith/", "opponents/zoey/", "opponents/laura/"];
