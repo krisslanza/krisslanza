@@ -54,7 +54,7 @@
 			</case>
 			
 			<case tag="lost"> <!-- this player lost the hand -->
-				<state picture="stage0happy.jpg">
+				<state picture="stage0loss.jpg">
 					No, I don't want to take off my ~clothing~!
 				</state>
 			</case>
@@ -98,7 +98,7 @@
 			</case>
 			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
 				<state picture="stage0happy.jpg">
-					name~ looks better without his ~clothing~!
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
 			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
@@ -195,7 +195,7 @@
 			</case>
 			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
 				<state picture="stage1happy.jpg">
-					name~ looks better without his ~clothing~!
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
 			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
@@ -292,7 +292,7 @@
 			</case>
 			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
 				<state picture="stage2happy.jpg">
-					name~ looks better without his ~clothing~!
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
 			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
@@ -389,7 +389,7 @@
 			</case>
 			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
 				<state picture="stage3happy.jpg">
-					name~ looks better without his ~clothing~!
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
 			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
@@ -486,7 +486,7 @@
 			</case>
 			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
 				<state picture="stage4happy.jpg">
-					name~ looks better without his ~clothing~!
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
 			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
@@ -583,7 +583,7 @@
 			</case>
 			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
 				<state picture="stage5happy.jpg">
-					name~ looks better without his ~clothing~!
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
 			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
@@ -680,7 +680,7 @@
 			</case>
 			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
 				<state picture="stage6happy.jpg">
-					name~ looks better without his ~clothing~!
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
 			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
@@ -777,7 +777,7 @@
 			</case>
 			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
 				<state picture="stage7happy.jpg">
-					name~ looks better without his ~clothing~!
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
 			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
@@ -874,7 +874,7 @@
 			</case>
 			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
 				<state picture="stage8happy.jpg">
-					name~ looks better without his ~clothing~!
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
 			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
@@ -971,7 +971,7 @@
 			</case>
 			<case tag="male_human_stripped"> <!-- the human male player has stripped -->
 				<state picture="stage9happy.jpg">
-					name~ looks better without his ~clothing~!
+					~name~ looks better without his ~clothing~!
 				</state>
 			</case>
 			<case tag="male_human_stripped_naked"> <!-- the human male player has stripped naked -->
