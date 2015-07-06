@@ -7,7 +7,7 @@
 /*****  Constant Settings   *****/
 /********************************/
  
-var buttonFlashSpeed = 500;
+var FLASH_SPEED = 500;
  
 /********************************/	
 /*****  Behaviour Settings  *****/
@@ -90,29 +90,28 @@ function flashAdvanceButton (player) {
 		} else {
 			advanceButtons[player].style.opacity = 0.4;
 		}
-		window.setTimeout(function(){flashAdvanceButton(player);}, buttonFlashSpeed);
+		window.setTimeout(function(){flashAdvanceButton(player);}, FLASH_SPEED);
 	}
 }
 
 /* loads the visual state of the chosen player */
 function updatePlayerVisual (player) {
-	playerLabels[player].innerHTML = playerNames[player];
-	playerImageCells[player].src = playerSources[player] + playerImages[player][playerState[player]];
-	playerDialogueCells[player].innerHTML = playerDialogue[player][playerState[player]];
+	nameLabels[player].innerHTML = playerNames[player];
+	imageCells[player].src = playerSources[player] + playerImages[player][playerState[player]];
+	dialogueCells[player].innerHTML = playerDialogue[player][playerState[player]];
 	
-	//console.log(playerDialogue[player].length + " "+(playerState[player]));
 	/* determine whether or not to display the advance dialogue button */
 	if (playerDialogue[player].length > playerState[player]+1) {
 		advanceButtons[player].style.display = "block";
-		window.setTimeout(function(){flashAdvanceButton(player);}, buttonFlashSpeed);
+		window.setTimeout(function(){flashAdvanceButton(player);}, FLASH_SPEED);
 	} else {
 		advanceButtons[player].style.display = "none";
 	}
 }
 
-/* loads the visual state for all players */
+/* loads the visual state for all PLAYERS */
 function updateAllPlayerVisuals () {
-	for (var i = 1; i < players; i++) {
+	for (var i = 1; i < PLAYERS; i++) {
 		updatePlayerVisual(i);
 	}
 }
@@ -143,9 +142,9 @@ function updateBehaviour (player, tag, replace, content) {
 	updatePlayerVisual(player);
 }
 
-/* updates the behaviour of all players (except the provided player) based on the provided tag */
+/* updates the behaviour of all PLAYERS (except the provided player) based on the provided tag */
 function updateAllBehaviours (player, tag, replace, content) {
-	for (i = 1; i < players; i++) {
+	for (i = 1; i < PLAYERS; i++) {
 		if (i != player) {
 			updateBehaviour(i, tag, replace, content);
 		}

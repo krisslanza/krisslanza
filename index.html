@@ -1,254 +1,341 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-	<link rel="stylesheet" type="text/css" href="pokernight.css">
+	<!-- Style -->
+	<link rel="stylesheet" type="text/css" href="spni.css">
 </head>
 <body onload="initialSetup()">
-	<table id="layoutTable">
+
+<!-- Layout Table -->
+<table class="layout-table" id="intro-screen">
+	<tr><td>
 	
-		<!-- Introduction Screen -->
+	
+	<!-- Title Screen -->
+	<table class="screen-table">
+	
+		<!-- Title Banner -->
 		<tr><td>
-		<table class="mainTable" id="introScreen" >
+			<div class="bordered banner">
+				<img id="title-banner" src="images/title.png">
+			</div>
+		</td></tr>
+
+		<!-- Main Intro Area -->
+		<tr><td>
+			<table class="centred">
 			<tr>
-				<td class="textArea" id="titleBanner" colspan="4">
-					<img class="bannerTitleImage" src="images/title.png">
-				</td>
-			</tr>
-			<tr>
-				<td><img class="girlImage" src="images/title1image.jpg"></td>
-				<td colspan="2">
-					<!-- Name and Gender Selection -->
-					<table class="mainIntroArea">
-						<tr><td>
-							<table class="mainIntroArea">
-							<tr>
-								<td><p class="introLabel">What's your name?</p></td>
-							</tr>
-							<tr>
-								<td><input type="text" id="playerNameField"/></td>
-							</tr>
-							</table>
-						</td><td>
-							<table class="mainIntroArea" style="margin-left:50px;">
-							<tr>
-								<td colspan="2"><p class="introLabel">What's your gender?</p></td>
-							</tr>
-							<tr>
-								<td><input type="image" class="playerGenderImage" id="maleButton" src="images/male.jpg" onclick="changeGender(1)"></td>
-								<td><input type="image" class="playerGenderImage" id="femaleButton" src="images/female.jpg" onclick="changeGender(2)" style="opacity:0.4;"></td>
-							</tr>
-							</table>
-						</td></tr>
-					</table>
-					
-					<!-- Clothing Selection -->
-					<table style="width: 100%; text-align:center">
-						<tr><td>
-						<table style="width: 100%; text-align:center">
-							<tr>
-								<td colspan="8"><p class="introLabel">What are you wearing? (Maximum: 8, Minimum: 2)</p></td>
-							</tr>
-						</table>
-						</td></tr><tr><td>
-						<table>
-							<tr>
-								<td class="introClothingLabel"><p class="introLabel">Upper Body</p></td>
-								<td><input type="image" onclick="takeClothing(0, 0)" class="introClothingImage" id="introClothing11"></td>
-								<td><input type="image" onclick="takeClothing(0, 1)" class="introClothingImage" id="introClothing12"></td>
-								<td><input type="image" onclick="takeClothing(0, 2)" class="introClothingImage" id="introClothing13"></td>
-								<td><input type="image" onclick="takeClothing(0, 3)" class="introClothingImage" id="introClothing14"></td>
-								<td><input type="image" onclick="takeClothing(0, 4)" class="introClothingImage" id="introClothing15"></td>
-								<td><input type="image" onclick="takeClothing(0, 5)" class="introClothingImage" id="introClothing16"></td>
-							</tr>
-							<tr>
-								<td class="introClothingLabel"><p class="introLabel">Lower Body</p></td>
-								<td><input type="image" onclick="takeClothing(1, 0)" class="introClothingImage" id="introClothing21"></td>
-								<td><input type="image" onclick="takeClothing(1, 1)" class="introClothingImage" id="introClothing22"></td>
-								<td><input type="image" onclick="takeClothing(1, 2)" class="introClothingImage" id="introClothing23"></td>
-								<td><input type="image" onclick="takeClothing(1, 3)" class="introClothingImage" id="introClothing24"></td>
-								<td><input type="image" onclick="takeClothing(1, 4)" class="introClothingImage" id="introClothing25"></td>
-								<td><input type="image" onclick="takeClothing(1, 5)" class="introClothingImage" id="introClothing26"></td>
-							</tr>
-							<tr>
-								<td class="introClothingLabel"><p class="introLabel">Other</p></td>
-								<td><input type="image" onclick="takeClothing(2, 0)" class="introClothingImage" id="introClothing31"></td>
-								<td><input type="image" onclick="takeClothing(2, 1)" class="introClothingImage" id="introClothing32"></td>
-								<td><input type="image" onclick="takeClothing(2, 2)" class="introClothingImage" id="introClothing33"></td>
-								<td><input type="image" onclick="takeClothing(2, 3)" class="introClothingImage" id="introClothing34"></td>
-								<td><input type="image" onclick="takeClothing(2, 4)" class="introClothingImage" id="introClothing35"></td>
-								<td><input type="image" onclick="takeClothing(2, 5)" class="introClothingImage" id="introClothing36"></td>
-							</tr>
-							<tr>
-								<td class="introClothingLabel"><p class="introLabel">Other</p></td>
-								<td><input type="image" onclick="takeClothing(3, 0)" class="introClothingImage" id="introClothing41"></td>
-								<td><input type="image" onclick="takeClothing(3, 1)" class="introClothingImage" id="introClothing42"></td>
-								<td><input type="image" onclick="takeClothing(3, 2)" class="introClothingImage" id="introClothing43"></td>
-								<td><input type="image" onclick="takeClothing(3, 3)" class="introClothingImage" id="introClothing44"></td>
-								<td><input type="image" onclick="takeClothing(3, 4)" class="introClothingImage" id="introClothing45"></td>
-								<td><input type="image" onclick="takeClothing(3, 5)" class="introClothingImage" id="introClothing46"></td>
-							</tr>
-						</table>
-						</td></tr>
-					</table>
-					
-					<!-- Start Button -->
-					<table class="mainIntroArea" style="margin-top: 10px;">
-						<tr>
-							<td><p id="warningLabel" style="color:red"></p></td>
-						</tr>
-						<tr>
-							<td><button id="introAdvanceButton" onclick="advanceIntro()">Start Game</button></td>
-						</tr>
-					</table>
-				</td>
-				<td><img class="girlImage" src="images/title2image.jpg"></td>
-			</tr>
 			
-			<!-- News -->
-			<tr><td colspan="4" class="introScreenNewsBar">
-				<table>
-				<tr><td>
-					<table style="width:130px">
-						<tr><td><p class="versionText">Current Version</p></td></tr>
-						<tr><td><p class="versionText"><b>alpha21</b></p></td></tr>
-					</table>
-				</td><td>
-					<table>
-						<tr><td><p class="newsText">- Working introduction screen!</p></td></tr>
-						<tr><td><p class="newsText">- You can play as a woman now!</p></td></tr>
-						<tr><td><p class="newsText">- The dialogue advance button now flashes to make it more noticable.</p></td></tr>
-						<tr><td><p class="newsText">- New XML dialogue structure.</p></td></tr>
-					</table>
-				</td></tr>
+			<!-- Left Title Image -->
+			<td class="title-image-area"><img class="title-opponent-image" src="images/title1image.jpg"></td>
+			
+			<td colspan="2">
+			
+				<!-- Name and Gender Selection -->
+				<table class="centred">
+					<tr><td>
+						<table class="centred">
+						<tr>
+							<td><p class="intro-label">What's your name?</p></td>
+						</tr>
+						<tr>
+							<td><input type="text" id="player-name-field"/></td>
+						</tr>
+						</table>
+					</td><td>
+						<table class="centred" style="margin-left:50px;">
+						<tr>
+							<td colspan="2"><p class="intro-label">What's your gender?</p></td>
+						</tr>
+						<tr>
+							<td><input type="image" class="intro-gender-image" id="male-button" src="images/male.jpg" onclick="changePlayerGender('male')"></td>
+							<td><input type="image" class="intro-gender-image" id="female-button" src="images/female.jpg" onclick="changePlayerGender('female')" style="opacity:0.4;"></td>
+						</tr>
+						</table>
+					</td></tr>
 				</table>
-			</td></tr>
-		</table>
+				
+				<!-- Clothing Selection -->
+				<table id="title-clothing-area">
+					<tr>
+						<td colspan="8"><p class="intro-label">What are you wearing? (Maximum: 8, Minimum: 2)</p></td>
+					</tr>
+					<tr><td>
+						<div id="title-clothing-div">
+							<table class="bordered" id="title-clothing-table">
+								
+							</table>
+						</div>
+					</td></tr>
+				</table>
+				
+				<!-- Warning Label -->
+				<table class="centred" style="margin-top: 10px;">
+					<tr>
+						<td><p class="default-font" id="warning-label"></p></td>
+					</tr>
+				</table>
+				
+				<!-- Start Button -->
+				<table class="centred" style="margin-top: 10px;">
+					<tr>
+						<td><button class="centred" id="title-advance-button" onclick="advanceTitle()">Start Game</button></td>
+					</tr>
+				</table>
+			</td>
+			
+			<!-- Right Title Image -->
+			<td class="title-image-area"><img class="title-opponent-image" src="images/title2image.jpg"></td>
+			
+			</tr>
+			</table>
 		</td></tr>
 		
-		<!-- Main Game Screen -->
+		<!-- News -->
 		<tr><td>
-		<table class="mainTable" id="gameScreen" hidden>
-			<tr>
-				<td class="textArea" colspan="4"><p id="gameBanner">Welcome to Strip Poker Night at the Inventory!</p></td>
-			</tr>
-			<tr>
-				<td class="textArea speechBubble"><p id="player2dialogue"></p><input type="image" class="advanceButton" id="advanceButton2" src="images/advance.jpg" onclick="advanceState(1)"/></td>
-				<td class="textArea speechBubble"><p id="player3dialogue"></p><input type="image" class="advanceButton" id="advanceButton3" src="images/advance.jpg" onclick="advanceState(2)"/></td>
-				<td class="textArea speechBubble"><p id="player4dialogue"></p><input type="image" class="advanceButton" id="advanceButton4" src="images/advance.jpg" onclick="advanceState(3)"/></td>
-				<td class="textArea speechBubble"><p id="player5dialogue"></p><input type="image" class="advanceButton" id="advanceButton5" src="images/advance.jpg" onclick="advanceState(4)"/></td>
-			</tr>
-			<tr>
-				<td><img class="girlImage" id="player2image"></td>
-				<td><img class="girlImage" id="player3image"></td>
-				<td><img class="girlImage" id="player4image"></td>
-				<td><img class="girlImage" id="player5image"></td>
-			</tr>
-			<tr>
-				<td>
-					<table class="girlStatusArea">
-					<tr><td colspan="5"><p class="playerLabel textArea" id="player2label"></p></td></tr>
-					<tr>
-						<td><img class="smallCardImage" id="player2card1" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player2card2" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player2card3" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player2card4" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player2card5" src="images/unknown.jpg"></td>
-					</tr>
-					</table>
-				</td>
-				<td>
-					<table class="girlStatusArea">
-					<tr><td colspan="5"><p class="playerLabel textArea" id="player3label"></p></td></tr>
-					<tr>
-						<td><img class="smallCardImage" id="player3card1" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player3card2" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player3card3" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player3card4" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player3card5" src="images/unknown.jpg"></td>
-					</tr>
-					</table>
-				</td>
-				<td>
-					<table class="girlStatusArea">
-					<tr><td colspan="5"><p class="playerLabel textArea" id="player4label"></p></td></tr>
-					<tr>
-						<td><img class="smallCardImage" id="player4card1" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player4card2" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player4card3" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player4card4" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player4card5" src="images/unknown.jpg"></td>
-					</tr>
-					</table>
-				</td>
-				<td>
-					<table class="girlStatusArea">
-					<tr><td colspan="5"><p class="playerLabel textArea" id="player5label"></p></td></tr>
-					<tr>
-						<td><img class="smallCardImage" id="player5card1" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player5card2" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player5card3" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player5card4" src="images/unknown.jpg"></td>
-						<td><img class="smallCardImage" id="player5card5" src="images/unknown.jpg"></td>
-					</tr>
-					</table>
-				</td>
-			</tr>
-			
-			<!-- Player 1 Area -->
-			<tr><td colspan="4" class="player1area">
-				<table class="player1table">
-				<tr><td>
-					<table align="left">
-						<tr>
-							<td><img class="clothingImage" id="player1clothing8" src=""></td>
-							<td colspan="4"><p class="textArea playerClothingLabel" id="player1clothing">Your Clothing</br>Bet: <b>Shoes</b></p></td>
-							<td><img class="clothingImage" id="player1clothing1" src=""></td>
-						</tr>
-						<tr>
-							<td><img class="clothingImage" id="player1clothing7" src=""></td>
-							<td><img class="clothingImage" id="player1clothing6" src=""></td>
-							<td><img class="clothingImage" id="player1clothing5" src=""></td>
-							<td><img class="clothingImage" id="player1clothing4" src=""></td>
-							<td><img class="clothingImage" id="player1clothing3" src=""></td>
-							<td><img class="clothingImage" id="player1clothing2" src=""></td>
-						</tr>
-					</table>
-				</td><td>
-					<table align="right">
-						<tr>
-							<td><input type="image" class="largeCardImage" id="player1card1" src="images/unknown.jpg" onclick="selectCard(0)"/></td>
-							<td><input type="image" class="largeCardImage" id="player1card2" src="images/unknown.jpg" onclick="selectCard(1)"/></td>
-							<td><input type="image" class="largeCardImage" id="player1card3" src="images/unknown.jpg" onclick="selectCard(2)"/></td>
-							<td><input type="image" class="largeCardImage" id="player1card4" src="images/unknown.jpg" onclick="selectCard(3)"/></td>
-							<td><input type="image" class="largeCardImage" id="player1card5" src="images/unknown.jpg" onclick="selectCard(4)"/></td>
-							<td width="15px"></td>
-							<td>
-								<table align="left">
-									<tr>
-										<td colspan="5"><p class="textArea playerLabel" id="player1label">You</p></td>
-									</tr>
-									<tr>
-										<td><button class="playerButton" id="continueButton" onclick="pressedContinue();"></button></td>
-										<td><img class="playerGenderImage" id="playerGenderID" src="images/male.jpg"></td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</td></tr>
+			<table class="bordered" id="title-screen-news-bar">
+			<tr><td>
+				<table style="width:130px">
+					<tr><td><p class="version-text">Current Version</p></td></tr>
+					<tr><td><p class="version-text"><b>alpha24</b></p></td></tr>
+				</table>
+			</td><td>
+				<table>
+					<tr><td><p class="news-text default-font">- Major refactor (had to happen sooner or later).</p></td></tr>
+					<tr><td><p class="news-text default-font">- Completely rewrote all HTML and CSS.</p></td></tr>
+					<tr><td><p class="news-text default-font">- The clothing you see above is now stored in an XML file. It is very easy to add new clothing now.</p></td></tr>
 				</table>
 			</td></tr>
-		</table>
+			</table>
+		</td></tr>
+	</table>
+	<!-- End of Introduction Screen -->
+
+	
+	</td></tr>
+</table>
+<!-- End of Layout Table -->
+<!-- Layout Table -->
+<table class="layout-table" id="game-screen" hidden>
+	<tr><td>
+	
+	
+	<!-- Main Game Screen -->
+	<table class="screen-table">
+		
+		<!-- Small Banner -->
+		<tr><td>
+			<div class="bordered banner">
+				<p id="game-banner">Welcome to Strip Poker Night at the Inventory!</p>
+			</div>
+		</td></tr>
+		
+		<!-- Main Area -->
+		<tr><td id="game-main-area">
+			<table class="screen-table">
+			
+				<!-- Dialogue Bubbles -->
+				<tr>
+					<td class="dialogue-bubble-area">
+						<div class="dialogue-bubble dialogue-centre">
+							<div class="dialogue-area">
+								<span class="dialogue" id="game-dialogue-1"></span>
+							</div>
+							<input type="image" class="advance-button" id="advance-button-1" src="images/advance.jpg" onclick="advanceState(1)"/>
+						</div>
+					</td>
+					<td class="dialogue-bubble-area">
+						<div class="dialogue-bubble dialogue-centre">
+							<div class="dialogue-area">
+								<span class="dialogue" id="game-dialogue-2"></span>
+							</div>
+							<input type="image" class="advance-button" id="advance-button-2" src="images/advance.jpg" onclick="advanceState(2)"/>
+						</div>
+					</td>
+					<td class="dialogue-bubble-area">
+						<div class="dialogue-bubble dialogue-centre">
+							<div class="dialogue-area">
+								<span class="dialogue" id="game-dialogue-3"></span>
+							</div>
+							<input type="image" class="advance-button" id="advance-button-3" src="images/advance.jpg" onclick="advanceState(3)"/>
+						</div>
+					</td>
+					<td class="dialogue-bubble-area">
+						<div class="dialogue-bubble dialogue-left">
+							<div class="dialogue-area">
+								<span class="dialogue" id="game-dialogue-4"></span>
+							</div>
+							<input type="image" class="advance-button" id="advance-button-4" src="images/advance.jpg" onclick="advanceState(4)"/>
+						</div>
+					</td>
+				</tr>
+				
+				<!-- Opponent Visuals -->
+				<tr>
+					<td>
+						<div class="opponent-image-area">
+							<img class="opponent-image" id="player-image-1" src="opponents/elizabeth/stage0happy.jpg"/>
+						</div>
+					</td>
+					<td>
+						<div class="opponent-image-area">
+							<img class="opponent-image" id="player-image-2" src="opponents/lilith/stage0happy.jpg"/>
+						</div>
+					</td>
+					<td>
+						<div class="opponent-image-area">
+							<img class="opponent-image" id="player-image-3" src="opponents/zoey/stage0happy.jpg"/>
+						</div>
+					</td>	
+					<td>
+						<div class="opponent-image-area">
+							<img class="opponent-image" id="player-image-4" src="opponents/laura/stage0happy.jpg"/>
+						</div>
+					</td>
+				</tr>
+				
+				<!-- Opponent Areas -->
+				<tr><td>
+					<table class="opponent-area">
+					<tr><td>
+						<div class="opponent-name-label" id="player-name-label-1">Opponent 1</div>
+					</td></tr>
+					<tr><td>
+						<table class="opponent-card-area">
+						<tr>
+							<td><img class="smallCardImage" id="player-1-card-1" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-1-card-2" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-1-card-3" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-1-card-4" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-1-card-5" src="images/blankcard.jpg"></td>
+						</tr>
+						</table>
+					</td></tr>
+					</table>
+				</td><td>
+					<table class="opponent-area">
+					<tr><td>
+						<div class="opponent-name-label" id="player-name-label-2">Opponent 2</div>
+					</td></tr>
+					<tr><td>
+						<table class="opponent-card-area">
+						<tr>
+							<td><img class="smallCardImage" id="player-2-card-1" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-2-card-2" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-2-card-3" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-2-card-4" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-2-card-5" src="images/blankcard.jpg"></td>
+						</tr>
+						</table>
+					</td></tr>
+					</table>
+				</td><td>
+					<table class="opponent-area">
+					<tr><td>
+						<div class="opponent-name-label" id="player-name-label-3">Opponent 3</div>
+					</td></tr>
+					<tr><td>
+						<table class="opponent-card-area">
+						<tr>
+							<td><img class="smallCardImage" id="player-3-card-1" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-3-card-2" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-3-card-3" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-3-card-4" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-3-card-5" src="images/blankcard.jpg"></td>
+						</tr>
+						</table>
+					</td></tr>
+					</table>
+				</td><td>
+					<table class="opponent-area">
+					<tr><td>
+						<div class="opponent-name-label" id="player-name-label-4">Opponent 4</div>
+					</td></tr>
+					<tr><td>
+						<table class="opponent-card-area">
+						<tr>
+							<td><img class="smallCardImage" id="player-4-card-1" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-4-card-2" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-4-card-3" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-4-card-4" src="images/blankcard.jpg"></td>
+							<td><img class="smallCardImage" id="player-4-card-5" src="images/blankcard.jpg"></td>
+						</tr>
+						</table>
+					</td></tr>
+					</table>
+				</td>
+				</tr>
+				
+			</table>
+		</td></tr>
+		
+		<!-- Player Area -->
+		<tr><td>
+			<table id="game-player-area">
+			<tr>
+				<td class="player-clothing-area">
+					<table>
+					<tr>
+						<td></td>
+						<td rowspan='2'><img class="small-clothing-image" id="player-0-clothing-8" src="images/blankcard.jpg"></td>
+						<td colspan='4'><div class="player-name-label" id="player-name-label-0">Player</div></td>
+						<td rowspan='2'><img class="small-clothing-image" id="player-0-clothing-1" src="images/blankcard.jpg"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan='4'><div class="player-clothing-label" id="game-clothing-label">Your Bet: <b>Unknown</b></p></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><img class="small-clothing-image" id="player-0-clothing-7" src="images/blankcard.jpg"></td>
+						<td><img class="small-clothing-image" id="player-0-clothing-6" src="images/blankcard.jpg"></td>
+						<td><img class="small-clothing-image" id="player-0-clothing-5" src="images/blankcard.jpg"></td>
+						<td><img class="small-clothing-image" id="player-0-clothing-4" src="images/blankcard.jpg"></td>
+						<td><img class="small-clothing-image" id="player-0-clothing-3" src="images/blankcard.jpg"></td>
+						<td><img class="small-clothing-image" id="player-0-clothing-2" src="images/blankcard.jpg"></td>
+					</tr>
+					</table>
+				</td>
+				<td id="deck-area">
+					<img class="deck-image" src="images/unknown.jpg">
+					<button id="main-button" onclick="pressedMainButton()">Deal</button>	
+				</td>
+				<td id="player-0-card-area">
+					<table>
+					<tr>
+						<td><input type="image" class="large-card-image" id="player-0-card-1" src="images/blankcard.jpg" onclick="selectCard(0)"/></td>
+						<td><input type="image" class="large-card-image" id="player-0-card-2" src="images/blankcard.jpg" onclick="selectCard(1)"/></td>
+						<td><input type="image" class="large-card-image" id="player-0-card-3" src="images/blankcard.jpg" onclick="selectCard(2)"/></td>
+						<td><input type="image" class="large-card-image" id="player-0-card-4" src="images/blankcard.jpg" onclick="selectCard(3)"/></td>
+						<td><input type="image" class="large-card-image" id="player-0-card-5" src="images/blankcard.jpg" onclick="selectCard(4)"/></td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			</table>
 		</td></tr>
 		
 	</table>
+	<!-- End of Main Game Screen -->
 	
-	<script src="jquery-1.11.3.js"></script>
-	<script src="pokernightCore.js"></script>
-	<script src="pokernightController.js"></script>
-	<script src="pokernightAI.js"></script>
-	<script src="pokernightBehaviour.js"></script>
-	<script src="pokernightIntro.js"></script>
-	<div id="behaviourDiv"></div>
+	
+	
+	</td></tr>
+</table>
+<!-- End of Layout Table -->
+	
+	
+	
+<!-- JavaScript -->
+<script src="jquery-1.11.3.js"></script>
+
+<script src="spniCore.js"></script>
+<script src="spniTitle.js"></script>
+<script src="spniFlow.js"></script>
+<script src="spniStrip.js"></script>
+<script src="spniPoker.js"></script>
+<script src="spniAI.js"></script>
+<script src="spniBehaviour.js"></script>
+
 </body>
 </html>

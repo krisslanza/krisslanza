@@ -14,14 +14,67 @@ var gameDelay = 500;
 var lowestPlayer = 0;
 
 /********************************/		
+/***** Interact UI Elements *****/
+/********************************/
+
+/* player advance buttons */
+var advanceButtons = [null,
+					  document.getElementById("advance-button-1"),
+					  document.getElementById("advance-button-2"),
+					  document.getElementById("advance-button-3"),
+					  document.getElementById("advance-button-4")];
+
+/* player card buttons */
+var cardButtons = [document.getElementById("player-0-card-1"),
+				   document.getElementById("player-0-card-2"),
+				   document.getElementById("player-0-card-3"),
+				   document.getElementById("player-0-card-4"),
+				   document.getElementById("player-0-card-5")];
+
+/* main button */
+var mainButton = document.getElementById("main-button");
+
+
+
+/********************************/		
+/*****   Button Functions   *****/
+/********************************/
+
+/* enables and highlights a button */
+function enableButton (button) {
+	button.disabled = false;
+	button.style.backgroundColor = enabledColour;
+}
+
+/* disables and dulls a button */
+function disableButton (button) {
+	button.disabled = true;
+	button.style.backgroundColor = disabledColour;
+}
+
+/* enables all player action buttons */
+function enablePlayerActions () {
+	for (i = 0; i < 5; i++) {
+		enableButton(cardButtons[i]);
+	}
+}
+
+/* disables all player interaction buttons */
+function disablePlayerActions () {
+	for (i = 0; i < 5; i++) {
+		disableButton(cardButtons[i]);
+	}
+}
+
+/********************************/		
 /***** Game Flow Functions  *****/
 /********************************/
 
 /* sets up the UI for the player's turn */
 function playersTurn () {
 	/* allow the player to swap their cards */
-	continueButton.innerHTML = "Exchange";
-	enableButton(continueButton);
+	mainButton.innerHTML = "Exchange";
+	enableButton(mainButton);
 }
 
 /* determines what the AI's action will be */
@@ -30,8 +83,8 @@ function makeAIDecision () {
 	determineAIAction(currentTurn);
 	
 	/* dull the cards they are trading in */
-	for (var i = 0; i < playerTradeIns[currentTurn].length; i++) {
-		if (playerTradeIns[currentTurn][i]) {
+	for (var i = 0; i < tradeIns[currentTurn].length; i++) {
+		if (tradeIns[currentTurn][i]) {
 			dullCard(currentTurn, i);
 		}
 	}
@@ -39,14 +92,14 @@ function makeAIDecision () {
 	/* update speech */
 	/* determine how many cards are being swapped */
 	var swap = 0;
-	for (var i = 0; i < cardsPerHand; i++) {
-		if (playerTradeIns[currentTurn][i]) {
+	for (var i = 0; i < CARDS_IN_HAND; i++) {
+		if (tradeIns[currentTurn][i]) {
 			swap++;
 		}
 	}
 	
 	/* this is hardcoded, but should be fine */
-	playerDialogueCells[currentTurn].innerHTML = "I will exchange "+swap+" cards.";
+	dialogueCells[currentTurn].innerHTML = "I will exchange "+swap+" cards.";
 	
 	/* wait and implement AI action */
 	window.setTimeout(implementAIAction, gameDelay);
@@ -57,13 +110,13 @@ function implementAIAction () {
 	swapCards(currentTurn);
 	
 	/* refresh the hand */
-	hidePlayerHand(currentTurn);
+	hideHand(currentTurn);
 	
 	/* update behaviour */
 	determineHand(currentTurn);
-	if (playerHandStrengths[currentTurn] == HIGH_CARD) {
+	if (handStrengths[currentTurn] == HIGH_CARD) {
 		updateBehaviour(currentTurn, "bad_hand", [], []);
-	} else if (playerHandStrengths[currentTurn] <= TWO_PAIR) {
+	} else if (handStrengths[currentTurn] <= TWO_PAIR) {
 		updateBehaviour(currentTurn, "okay_hand", [], []);
 	} else {
 		updateBehaviour(currentTurn, "good_hand", [], []);
@@ -76,7 +129,7 @@ function implementAIAction () {
 /* advances the turn or ends the round */
 function advanceTurn () {
 	currentTurn++;
-	if (currentTurn >= players) {
+	if (currentTurn >= PLAYERS) {
 		currentTurn = 0;
 	}
 	
@@ -85,11 +138,11 @@ function advanceTurn () {
 		/* skip their turn */
 		if (currentTurn == 0) {
 			/* skip the exchange phase */
-			continueButton.innerHTML = "Reveal";
-			pressedContinue();
+			mainButton.innerHTML = "Reveal";
+			pressedMainButton();
 		} else {
 			/* update speech */
-			playerDialogueCells[currentTurn].innerHTML = "How long do I have to keep going?"; //HARDCODED
+			dialogueCells[currentTurn].innerHTML = "How long do I have to keep going?"; //HARDCODED
 			
 			advanceTurn();
 		}
@@ -97,11 +150,11 @@ function advanceTurn () {
 	}
 	
 	/* highlight the player who's turn it is */
-	for (var i = 0; i < players; i++) {
+	for (var i = 0; i < PLAYERS; i++) {
 		if (currentTurn == i) {
-			playerLabels[i].style.backgroundColor = currentColour;
+			nameLabels[i].style.backgroundColor = currentColour;
 		} else {
-			playerLabels[i].style.backgroundColor = clearColour;
+			nameLabels[i].style.backgroundColor = clearColour;
 		}
 	}
 	
@@ -119,9 +172,9 @@ function advanceTurn () {
 
 /* the player selected one of their cards */
 function selectCard (card) {
-	playerTradeIns[0][card] = !playerTradeIns[0][card];
+	tradeIns[0][card] = !tradeIns[0][card];
 	
-	if (playerTradeIns[0][card]) {
+	if (tradeIns[0][card]) {
 		dullCard(0, card);
 	} else {
 		fillCard(0, card);
@@ -135,13 +188,13 @@ function advanceState (player) {
 }
 
 /* the player clicked the continue button */
-function pressedContinue () {
-	var context = continueButton.innerHTML;
+function pressedMainButton () {
+	var context = mainButton.innerHTML;
 	
 	if (context == "Deal") {
 		/* disable button to prevent multi-calling */
-		disableButton(continueButton);
-		continueButton.innerHTML = "Exchange";
+		disableButton(mainButton);
+		mainButton.innerHTML = "Exchange";
 		
 		/* starting a new round */
 		console.log("-----------------------------------");
@@ -149,25 +202,25 @@ function pressedContinue () {
 		console.log("-----------------------------------");
 		
 		/* set starting card state */
-		for (var i = 0; i < players; i ++) {
+		for (var i = 0; i < PLAYERS; i ++) {
 			if (playerInGame[i]) {
-				dealNewHand(i);
+				dealHand(i);
 			} else {
 				collectPlayerHand(i);
 			}
 		}
 			
 		/* reset some information */
-		for (var i = 0; i < players; i++) {
-			for (var j = 0; j < players; j++) {
-				playerTradeIns[i][j] = false;
+		for (var i = 0; i < PLAYERS; i++) {
+			for (var j = 0; j < PLAYERS; j++) {
+				tradeIns[i][j] = false;
 			}
 		}
 		
 		/* set visual state */
-		showPlayerHand(0);
-		for (var i = 1; i < players; i++) {
-			hidePlayerHand(i);
+		showHand(0);
+		for (var i = 1; i < PLAYERS; i++) {
+			hideHand(i);
 		}
 		
 		/* update behaviour */
@@ -180,26 +233,26 @@ function pressedContinue () {
 		
 	} else if (context == "Exchange") {
 		/* disable button to prevent multi-calling */
-		disableButton(continueButton);
+		disableButton(mainButton);
 		disablePlayerActions();
 		
 		/* exchange player cards */
 		swapCards(0);
-		showPlayerHand(0);
+		showHand(0);
 		
 		/* swap the player's cards */
-		continueButton.innerHTML = "Reveal";
-		enableButton(continueButton);
+		mainButton.innerHTML = "Reveal";
+		enableButton(mainButton);
 		
 	} else if (context == "Reveal") {
 		/* disable button to prevent multi-calling */
-		disableButton(continueButton);
-		continueButton.innerHTML = "Continue";
+		disableButton(mainButton);
+		mainButton.innerHTML = "Continue";
 		
 		/* revealing cards at the end of a round */
-		for (var i = 0; i < players; i++) {
+		for (var i = 0; i < PLAYERS; i++) {
 			determineHand(i);
-			showPlayerHand(i);
+			showHand(i);
 		}
 		
 		/* determine the lowest hand */
@@ -209,16 +262,16 @@ function pressedContinue () {
 		if (lowestPlayer == -1) {
 			console.log("Absolute tie");
 			/* reset the round */
-			continueButton.innerHTML = "Deal";
-			enableButton(continueButton);
+			mainButton.innerHTML = "Deal";
+			enableButton(mainButton);
 		}
 		
 		/* highlight the loser */
-		for (var i = 0; i < players; i++) {
+		for (var i = 0; i < PLAYERS; i++) {
 			if (lowestPlayer == i) {
-				playerLabels[i].style.backgroundColor = loserColour;
+				nameLabels[i].style.backgroundColor = loserColour;
 			} else {
-				playerLabels[i].style.backgroundColor = clearColour;
+				nameLabels[i].style.backgroundColor = clearColour;
 			}
 		}
 		
@@ -247,11 +300,11 @@ function pressedContinue () {
 		}
 		
 		/* reset the round */
-		continueButton.innerHTML = "Strip";
-		enableButton(continueButton);
+		mainButton.innerHTML = "Strip";
+		enableButton(mainButton);
 	} else if (context == "Strip") {
 		/* continuing at the end of a round (stripping or status updates) */
-		disableButton(continueButton);
+		disableButton(mainButton);
 		
 		/* strip the player with the lowest hand */
 		stripPlayer(lowestPlayer);
@@ -259,7 +312,7 @@ function pressedContinue () {
 		/* check to see how many players are still in the game */
 		var inGame = 0;
 		var lastPlayer = 0;
-		for (var i = 0; i < players; i++) {
+		for (var i = 0; i < PLAYERS; i++) {
 			if (playerInGame[i]) {
 				inGame++;
 				lastPlayer = i;
@@ -270,16 +323,11 @@ function pressedContinue () {
 		if (inGame == 1) {
 			gameBanner.innerHTML = "Game Over! "+playerNames[lastPlayer]+" won Strip Poker Night at the Inventory!";
 			gameOver = true;
-			continueButton.innerHTML = "Play Again?";
-			enableButton(continueButton);
+			mainButton.innerHTML = "Play Again?";
+			enableButton(mainButton);
 		} else {
-			continueButton.innerHTML = "Deal";
-			enableButton(continueButton);
+			mainButton.innerHTML = "Deal";
+			enableButton(mainButton);
 		}
 	}
 }
-
-
-
-
-

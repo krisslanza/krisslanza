@@ -925,9 +925,9 @@
 				</state>
 			</case>
 			
-			<case tag="stripped"> <!-- this player lost the hand -->
+			<case tag="forfeiting"> <!-- this player lost the hand -->
 				<state picture="stage9calm.jpg">
-					I miss my ~clothing~ already...
+					I guess I have to...
 				</state>
 			</case>
 			<case tag="lost"> <!-- this player lost the hand -->

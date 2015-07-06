@@ -1,0 +1,491 @@
+/************************************************************
+ This file contains all of the CSS that is shared by the
+ various game screens and elements.
+ ************************************************************/
+
+html, body {
+	width: 100%;
+	height: 100%;
+	
+	margin: 0px;
+	padding: 0px;
+	
+	background-color: #F5F5F5;
+}
+
+/***********************/
+/* General CSS Classes */
+/***********************/
+
+.centred {
+	margin: 0px auto;
+}
+
+.bordered {
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 5px;
+}
+
+.default-font {
+	font-size: 16px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	text-align: center;
+}
+
+/************************************************************/
+/* These classes used by multiple screens.                  */
+/************************************************************/
+ 
+.layout-table {
+	width: 100%;
+	height: 100%;
+	min-width: 800px;
+	min-height: 600px;
+	
+	margin: 0px;
+	padding: 0px;
+	
+	vertical-align: middle;
+	border-collapse: collapse;
+}
+
+.screen-table {
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+	max-width: 1200px;
+	
+	margin: 0px auto;
+	padding: 0px;
+	
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.banner {
+	text-align: center;
+	
+	font-size: 24px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.dialogue-bubble-area {
+	height: 116px;
+}
+
+/* the body of the dialogue bubble */
+.dialogue-bubble {
+	height: 80px;
+
+	position: relative;
+	padding: 1em;
+	
+	border: 2px solid black;
+	border-radius: 10px;
+	background: white;
+	
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+/* the setup for the bottom triangle */
+.dialogue-bubble:before, .dialogue-bubble:after {
+	width: 0;
+	height: 0;
+	
+	content: "";
+	position: absolute;
+	
+	border-style: solid;
+	border-color: transparent;
+	border-bottom: 0;
+}
+
+/* the stroke of the bottom triangle */
+.dialogue-bubble:before {
+	border-top-color: black;
+	border-width: 16px;
+}
+
+/* the fill of the bottom triangle */
+.dialogue-bubble:after {
+	border-top-color: white;
+	border-width: 15px;
+}
+
+/* the stroke of the bottom triangle, positioned on the left */
+.dialogue-left:before {
+	bottom: -17px;
+	left: 30px;
+}
+
+/* the fill of the bottom triangle, positioned on the left */
+.dialogue-left:after {
+	bottom: -15px;
+	left: 31px;
+}
+
+/* the stroke of the bottom triangle, positioned in the centre */
+.dialogue-centre:before {
+	bottom: -17px;
+	left: 50%;
+	margin-left: -16px;
+}
+
+/* the fill of the bottom triangle, positioned in the centre */
+.dialogue-centre:after {
+	bottom: -15px;
+	left: 50%;
+	margin-left: -15px;
+}
+
+/* the stroke of the bottom triangle, positioned on the right */
+.dialogue-right:before {
+	bottom: -17px;
+	right: 30px;
+}
+
+/* the fill of the bottom triangle, positioned on the right */
+.dialogue-right:after {
+	bottom: -15px;
+	right: 31px;
+}
+
+.dialogue-area {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.dialogue {
+	display: table-cell;
+	
+	text-align: center;
+	vertical-align: middle;
+	
+	font-size: 18px;
+}
+
+.advance-button {
+	display: none;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	right: 5px;
+	bottom: 5px;
+}
+
+/************************************************************/
+/* These classes are for the intro screen.                  */
+/************************************************************/
+
+#title-banner {
+	width: 95%;
+	height: auto;
+	margin-top: 10px;
+	
+	font-size: 24px;
+	
+	vertical-align: middle;
+}
+
+.title-image-area {
+	width: 20%;
+}
+
+.title-opponent-image {
+	display: block;
+	
+	max-width: 100%;
+	max-height: 60vh;
+	
+	margin: 0px auto;
+}
+
+.intro-label {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	
+	text-align: center;
+	font-size: 18px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#player-name-field {
+	width: 200px;
+	height: 60px;
+	border: 2px solid black;
+	border-radius: 5px;
+	font-size: 22px;
+	text-align: center;
+}
+
+.intro-gender-image {
+	display: block;
+	width: 60px;
+	height: 60px;
+	
+	margin: 0 auto;
+	border: 2px solid black;
+	border-radius: 5px;
+}
+
+#title-clothing-area {
+	width: 100%;
+	height: 40vh;
+	
+}
+
+#title-clothing-div {
+	width: 100%;
+	height: 40vh;
+	overflow: auto;
+	margin-left: 8px;
+	padding-right: 20px;
+}
+
+#title-clothing-table {
+	width: 100%;
+	height: 40vh;
+}
+
+.title-clothing-label {
+	height: 20px;
+	background-color: #F5F5F5;
+}
+
+.title-clothing-image {
+	display: block;
+	float: left;
+	width: 80px;
+	height: 80px;
+	margin: 0px 2px;
+	opacity: 0.4;
+}
+
+#warning-label {
+	height: 20px;
+	margin: 0px 0px;
+	margin-bottom: 10px;
+	padding: 0px 0px;
+	color: red;
+}
+
+#title-advance-button {
+	width: 160px;
+	height: 50px;
+	background-color: #85C5F5;
+	border: 2px solid black;
+	border-radius: 10px;
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 20px;
+	margin-right: 0px;
+}
+
+#title-screen-news-bar {
+	width: 100%;
+	height: 80px;
+}
+
+.version-text {
+	width: 100%;
+
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
+	
+	text-align: center;
+	font-size: 16px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.news-text {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 10px;
+	font-size: 14px;
+	text-align: left;
+}
+
+/************************************************************/
+/* These classes are for the main game screen.              */
+/************************************************************/
+
+#game-banner {
+	height: 35px;
+	margin: 5px 0px 0px 0px;
+}
+
+#game-main-area {
+	max-height: 100%;
+}
+
+.opponent-image-area {
+	width: auto;
+	max-width: 25vw;
+	height: auto;
+	max-height: 60vh;
+}
+
+.opponent-image {
+	display: block;
+	
+	max-width: 100%;
+	max-height: 60vh;
+	
+	margin: 0px auto;
+}
+
+.opponent-area {
+	width: auto;
+	
+	margin: 0px auto;
+	padding: 0px;
+	
+	border-collapse: collapse;
+}
+
+.opponent-name-label {
+	height: 20px;
+	
+	padding-bottom: 2px;
+	
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	
+	border: 2px solid black;
+	border-radius: 10px;
+	background: white;
+}
+
+.opponent-card-area {
+	width: auto;
+	height: 50px;
+	
+	margin: 0px auto;
+	
+	border-collapse: collapse;
+}
+
+.smallCardImage {
+	width: 35px;
+	height: 45px;
+	
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+#game-player-area {
+	width: 100%;
+	height: 120px;
+	
+	border: 2px solid black;
+	border-radius: 10px;
+	background: #E6E6E6;
+}
+
+.player-clothing-area {
+	width: 44%;
+}
+
+.player-clothing-area table {
+	margin: 0px auto;
+	border-collapse: collapse;
+}
+
+.player-name-label {
+	height: 20px;
+	
+	padding-bottom: 2px;
+	
+	text-align: center;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	
+	border: 2px solid black;
+	border-radius: 10px;
+	background: white;
+}
+
+.player-clothing-label {
+	height: 16px;
+	
+	padding-bottom: 2px;
+	
+	text-align: center;
+	font-size: 14px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	
+	border: 2px solid black;
+	border-radius: 8px;
+	background: white;
+}
+
+.small-clothing-image {
+	width: 40px;
+	height: 40px;
+	
+	margin: 2px 1px;
+	
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+#deck-area {
+	position: relative;
+	width: 12%;
+}
+
+.deck-image {
+	display: block;
+	width: 75px;
+	height: 100px;
+	
+	margin: 0px auto;
+	
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+#main-button {
+	position: absolute;
+	width: auto;
+	height: 50px;
+	width: 100%;
+	
+	top: 26%;
+	left: 0px;
+	
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 22px;
+	
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+#player-0-card-area {
+	width: 44%;
+}
+
+#player-0-card-area table {
+	margin: 0px auto;
+}
+
+.large-card-image {
+	width: 65px;
+	height: 90px;
+	border: 2px solid black;
+	border-radius: 10px;
+	margin-left: 5px;
+}
+
+/************************************************************/
+/* These classes are for testing purposes only.             */
+/************************************************************/
+
+.obvious {
+	border: 2px solid black;
+	background: orange;
+}

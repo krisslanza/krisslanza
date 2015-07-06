@@ -13,7 +13,7 @@ function determineAIAction (player) {
 	determineHand(player);
 	
 	/* collect the ranks and suits of the cards */
-	var hand = playerCards[player];
+	var hand = cards[player];
 	var cardRanks = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	var cardSuits = [0, 0, 0, 0];
 	
@@ -26,15 +26,15 @@ function determineAIAction (player) {
 	}
 	
 	/* if the current hand is good enough, then take a pre-determined action */
-	if (playerHandStrengths[player] >= STRAIGHT) {
+	if (handStrengths[player] >= STRAIGHT) {
 		/* give up nothing */
-		playerTradeIns[player] = [false, false, false, false, false];
-		//console.log("Hand is really good, will trade in nothing. "+playerTradeIns[player]);
+		tradeIns[player] = [false, false, false, false, false];
+		//console.log("Hand is really good, will trade in nothing. "+tradeIns[player]);
 		return;
 	}
 	
 	/* if the current hand is good enough, then take a pre-determined action */
-	if (playerHandStrengths[player] == THREE_OF_A_KIND) {
+	if (handStrengths[player] == THREE_OF_A_KIND) {
 		/* give up the odd cards out */
 		var sameValue = 0;
 		for (var i = 0; i < cardRanks.length; i++) {
@@ -44,18 +44,18 @@ function determineAIAction (player) {
 			}
 		}
 		
-		playerTradeIns[player] = [false, false, false, false, false];
+		tradeIns[player] = [false, false, false, false, false];
 		for (var i = 0; i < hand.length; i++) {
 			if (getCardValue(hand[i]) != sameValue) {
-				playerTradeIns[player][i] = true;
+				tradeIns[player][i] = true;
 			}
 		}
-		//console.log("Hand is good, will trade in two cards. "+playerTradeIns[player]);
+		//console.log("Hand is good, will trade in two cards. "+tradeIns[player]);
 		return;
 	}
 	
 	/* if the current hand is good enough, then take a pre-determined action */
-	if (playerHandStrengths[player] == TWO_PAIR) {
+	if (handStrengths[player] == TWO_PAIR) {
 		/* give up the odd card out */
 		var sameValue = [0, 0];
 		for (var i = 0; i < cardRanks.length; i++) {
@@ -69,13 +69,13 @@ function determineAIAction (player) {
 			}
 		}
 		
-		playerTradeIns[player] = [false, false, false, false, false];
+		tradeIns[player] = [false, false, false, false, false];
 		for (var i = 0; i < hand.length; i++) {
 			if (getCardValue(hand[i]) != sameValue[0] && getCardValue(hand[i]) != sameValue[1]) {
-				playerTradeIns[player][i] = true;
+				tradeIns[player][i] = true;
 			}
 		}
-		//console.log("Hand is good, will trade in one card. "+playerTradeIns[player]);
+		//console.log("Hand is good, will trade in one card. "+tradeIns[player]);
 		return;
 	}
 	
@@ -154,12 +154,12 @@ function determineAIAction (player) {
 	}
 	
 	/* now, take each remaining hand into special consideration */
-	if (playerHandStrengths[player] == PAIR) {
+	if (handStrengths[player] == PAIR) {
 		/* if you are one away from a flush, give up the pair for it */
 		if (one_from_flush > 0) {
-			playerTradeIns[player] = [false, false, false, false, false];
-			playerTradeIns[player][one_from_flush] = true;
-			//console.log("Hand is okay, going for a flush, trading in one card. "+playerTradeIns[player]);
+			tradeIns[player] = [false, false, false, false, false];
+			tradeIns[player][one_from_flush] = true;
+			//console.log("Hand is okay, going for a flush, trading in one card. "+tradeIns[player]);
 			return;
 		}
 		
@@ -172,31 +172,31 @@ function determineAIAction (player) {
 			}
 		}
 		
-		playerTradeIns[player] = [false, false, false, false, false];
+		tradeIns[player] = [false, false, false, false, false];
 		for (var i = 0; i < hand.length; i++) {
 			if (getCardValue(hand[i]) != sameValue) {
-				playerTradeIns[player][i] = true;
+				tradeIns[player][i] = true;
 			}
 		}
-		//console.log("Hand is okay, trading in three cards. "+playerTradeIns[player]);
+		//console.log("Hand is okay, trading in three cards. "+tradeIns[player]);
 		return;
 	}
 	
 	/* now, take each remaining hand into special consideration */
-	if (playerHandStrengths[player] == HIGH_CARD) {
+	if (handStrengths[player] == HIGH_CARD) {
 		/* if you are one away from a flush, go for it */
 		if (one_from_flush > 0) {
-			playerTradeIns[player] = [false, false, false, false, false];
-			playerTradeIns[player][one_from_flush] = true;
-			//console.log("Hand is bad, going for a flush, trading in one card. "+playerTradeIns[player]);
+			tradeIns[player] = [false, false, false, false, false];
+			tradeIns[player][one_from_flush] = true;
+			//console.log("Hand is bad, going for a flush, trading in one card. "+tradeIns[player]);
 			return;
 		}
 		
 		/* if you are one away from a straight, go for it */
 		if (one_from_straight > 0) {
-			playerTradeIns[player] = [false, false, false, false, false];
-			playerTradeIns[player][one_from_straight] = true;
-			//console.log("Hand is bad, going for a straight, trading in one card. "+playerTradeIns[player]);
+			tradeIns[player] = [false, false, false, false, false];
+			tradeIns[player][one_from_straight] = true;
+			//console.log("Hand is bad, going for a straight, trading in one card. "+tradeIns[player]);
 			return;
 		}
 		
@@ -213,19 +213,19 @@ function determineAIAction (player) {
 			}
 		}
 		
-		playerTradeIns[player] = [false, false, false, false, false];
+		tradeIns[player] = [false, false, false, false, false];
 		for (var i = 0; i < hand.length; i++) {
 			if (getCardValue(hand[i]) != highCard) {
-				playerTradeIns[player][i] = true;
+				tradeIns[player][i] = true;
 			}
 		}
-		//console.log("Hand is bad, trading in four cards. "+playerTradeIns[player]);
+		//console.log("Hand is bad, trading in four cards. "+tradeIns[player]);
 		return;
 	}
 	
 	/* end of function, otherwise just trade in everything */
-	playerTradeIns[player] = [true, true, true, true, true];
-	//console.log("Hand is horrid, trading in everything. "+playerTradeIns[player]);
+	tradeIns[player] = [true, true, true, true, true];
+	//console.log("Hand is horrid, trading in everything. "+tradeIns[player]);
 	return;
 }
 
