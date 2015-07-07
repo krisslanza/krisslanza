@@ -3,15 +3,19 @@
  the title screen of the game.
  ************************************************************/
 
+ 
 /***********************************/
 /********** File Settings **********/
 /***********************************/
 
+
 var playerClothingFile = "player/player.xml";
+ 
  
 /******************************************/
 /********** UI Element Variables **********/
 /******************************************/
+
 
 var nameField = document.getElementById("player-name-field");
 
@@ -243,8 +247,8 @@ function wearClothing () {
 	
 	/* wear any critical clothing on the lower body */
 	for (var i = 0; i < clothingChoices.length; i++) {
-		if (selectedClothing[i] && clothingChoices[i].type == CRITICAL_ARTICLE && clothingChoices[i].position == LOWER_ARTICLE) {
-			playerClothing[HUMAN_PLAYER].push(clothingChoices[i].lower);
+		if (selectedClothing[i] && clothingChoices[i].type == IMPORTANT_ARTICLE && clothingChoices[i].position == LOWER_ARTICLE) {
+			playerClothing[HUMAN_PLAYER].push(clothingChoices[i]);
 			imageList.push(clothingChoices[i].image);
 			playerStartingClothing[HUMAN_PLAYER]++;
 		}
@@ -252,8 +256,8 @@ function wearClothing () {
 	
 	/* wear any critical clothing on the upper body */
 	for (var i = 0; i < clothingChoices.length; i++) {
-		if (selectedClothing[i] && clothingChoices[i].type == CRITICAL_ARTICLE && clothingChoices[i].position == UPPER_ARTICLE) {
-			playerClothing[HUMAN_PLAYER].push(clothingChoices[i].lower);
+		if (selectedClothing[i] && clothingChoices[i].type == IMPORTANT_ARTICLE && clothingChoices[i].position == UPPER_ARTICLE) {
+			playerClothing[HUMAN_PLAYER].push(clothingChoices[i]);
 			imageList.push(clothingChoices[i].image);
 			playerStartingClothing[HUMAN_PLAYER]++;
 		}
@@ -262,7 +266,7 @@ function wearClothing () {
 	/* wear any major clothing on the lower body */
 	for (var i = 0; i < clothingChoices.length; i++) {
 		if (selectedClothing[i] && clothingChoices[i].type == MAJOR_ARTICLE && clothingChoices[i].position == LOWER_ARTICLE) {
-			playerClothing[HUMAN_PLAYER].push(clothingChoices[i].lower);
+			playerClothing[HUMAN_PLAYER].push(clothingChoices[i]);
 			imageList.push(clothingChoices[i].image);
 			playerStartingClothing[HUMAN_PLAYER]++;
 		}
@@ -271,7 +275,7 @@ function wearClothing () {
 	/* wear any major clothing on the upper body */
 	for (var i = 0; i < clothingChoices.length; i++) {
 		if (selectedClothing[i] && clothingChoices[i].type == MAJOR_ARTICLE && clothingChoices[i].position == UPPER_ARTICLE) {
-			playerClothing[HUMAN_PLAYER].push(clothingChoices[i].lower);
+			playerClothing[HUMAN_PLAYER].push(clothingChoices[i]);
 			imageList.push(clothingChoices[i].image);
 			playerStartingClothing[HUMAN_PLAYER]++;
 		}
@@ -280,7 +284,7 @@ function wearClothing () {
 	/* wear any minor clothing on the lower body */
 	for (var i = 0; i < clothingChoices.length; i++) {
 		if (selectedClothing[i] && clothingChoices[i].type == MINOR_ARTICLE && clothingChoices[i].position == LOWER_ARTICLE) {
-			playerClothing[HUMAN_PLAYER].push(clothingChoices[i].lower);
+			playerClothing[HUMAN_PLAYER].push(clothingChoices[i]);
 			imageList.push(clothingChoices[i].image);
 			playerStartingClothing[HUMAN_PLAYER]++;
 		}
@@ -289,16 +293,16 @@ function wearClothing () {
 	/* wear any minor clothing on the upper body */
 	for (var i = 0; i < clothingChoices.length; i++) {
 		if (selectedClothing[i] && clothingChoices[i].type == MINOR_ARTICLE && clothingChoices[i].position == UPPER_ARTICLE) {
-			playerClothing[HUMAN_PLAYER].push(clothingChoices[i].lower);
+			playerClothing[HUMAN_PLAYER].push(clothingChoices[i]);
 			imageList.push(clothingChoices[i].image);
 			playerStartingClothing[HUMAN_PLAYER]++;
 		}
 	}
 	
-	/* wear any accessories */
+	/* wear any other clothing */
 	for (var i = 0; i < clothingChoices.length; i++) {
-		if (selectedClothing[i] && clothingChoices[i].type == EXTRA_ARTICLE) {
-			playerClothing[HUMAN_PLAYER].push(clothingChoices[i].lower);
+		if (selectedClothing[i] && clothingChoices[i].position == OTHER_ARTICLE) {
+			playerClothing[HUMAN_PLAYER].push(clothingChoices[i]);
 			imageList.push(clothingChoices[i].image);
 			playerStartingClothing[HUMAN_PLAYER]++;
 		}
@@ -306,7 +310,7 @@ function wearClothing () {
 	
 	/* update the visuals */
 	console.log(playerClothing[HUMAN_PLAYER]);
-	var clothingName = capitalizeFirstLetter(playerClothing[HUMAN_PLAYER][playerClothing[HUMAN_PLAYER].length - 1]);
+	var clothingName = playerClothing[HUMAN_PLAYER][playerClothing[HUMAN_PLAYER].length - 1].proper;
 	clothingCellsLabel.innerHTML = "Your Bet: <b>"+clothingName+"</b>";
 	
 	imageList.reverse();

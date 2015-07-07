@@ -34,6 +34,13 @@ var dialogueCells = [null,
 					  document.getElementById("game-dialogue-2"),
 					  document.getElementById("game-dialogue-3"),
 					  document.getElementById("game-dialogue-4")];
+
+/* player dialogue bubbles */
+var dialogueBubbles = [null,
+					   document.getElementById("game-bubble-1"),
+					   document.getElementById("game-bubble-2"),
+					   document.getElementById("game-bubble-3"),
+					   document.getElementById("game-bubble-4")];
 					
 /* player image cells */
 var imageCells = [null,
@@ -92,10 +99,10 @@ var playerInGame = [true, true, true, true, true];
 var gameOver = false;
 
 
-
 /********************************/		
 /*****   Setup Functions    *****/
 /********************************/
+
 
 /**************************************************
  * Loads the initial content of the game, whatever
@@ -120,7 +127,7 @@ function loadMainGame () {
 	for (var i = 1; i < PLAYERS; i++) {
 		loadBehaviour(i);
 	}
-
+	
 	/* set up the game */
 	composeDeck();
 	
@@ -161,116 +168,4 @@ function startGame () {
 /* returns a random number in a range */
 function getRandomNumber (min, max) {
 	return Math.floor(Math.random() * (max - min) + min);
-}
-
-/* capitalizes the first letter of the given string */
-function capitalizeFirstLetter (string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-/********************************/		
-/*****   Strip Functions    *****/
-/********************************/
-
-/* removes an article of clothing from the selected player */
-function stripPlayer(player) {
-	if (playerClothing[player].length > 0) {
-		/* player still has something they can remove */
-		var removedClothing = playerClothing[player].pop();
-		var capRemovedClothing = capitalizeFirstLetter(removedClothing);
-		//console.log("Player "+player+" has to remove their "+removedClothing);
-		
-		/* actually strip and update the player */
-		if (player == 0) {
-			/* human player */
-			
-			/* shift all of the clothing images */
-			var firstClothingImage = clothingCells[player].src;
-			for (var i = 0; i < playerStartingClothing[player]-1; i++) {
-				clothingCells[i].src = clothingCells[i+1].src;
-			}
-			clothingCells[playerStartingClothing[player]-1].src = firstClothingImage;
-			
-			/* dull the lost clothing */
-			for (var i = playerStartingClothing[0]; i > playerClothing[player].length; i--) {
-				clothingCells[i-1].style.opacity = 0;
-			}
-			
-			if (playerClothing[player].length > 0) {
-				var clothingName = capitalizeFirstLetter(playerClothing[player][playerClothing[player].length - 1]);
-				clothingCellsLabel.innerHTML = "Your Bet: <b>"+clothingName+"</b>";
-				
-				/* update behaviour */
-				if (playerGenders[player] == "male") {
-					updateAllBehaviours(player, "male_human_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
-				} else if (playerGenders[player] == "female") {
-					updateAllBehaviours(player, "female_human_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
-				}
-			} else {
-				clothingCellsLabel.innerHTML = "Bet: <b>A Forfeit</b>";
-				
-				/* update behaviour */
-				if (playerGenders[player] == "male") {
-					updateAllBehaviours(player, "male_human_stripped_naked", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
-				} else if (playerGenders[player] == "female") {
-					updateAllBehaviours(player, "female_human_stripped_naked", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
-				}
-			}
-			
-			
-		} else {
-			/* AI player */
-			
-			/* update behaviour */
-			if (playerClothing[player].length > 0) {
-				if (playerGenders[player] == "male") {
-					updateAllBehaviours(player, "male_ai_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
-				} else if (playerGenders[player] == "female") {
-					updateAllBehaviours(player, "female_ai_stripped", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
-				}
-				updateBehaviour(player, "stripped", ["~clothing~", "~Clothing~"], [removedClothing, capRemovedClothing]);
-			} else {
-				if (playerGenders[player] == "male") {
-					updateAllBehaviours(player, "male_ai_stripped_naked", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
-				} else if (playerGenders[player] == "female") {
-					updateAllBehaviours(player, "female_ai_stripped_naked", ["~name~", "~clothing~", "~Clothing~"], [playerNames[player], removedClothing, capRemovedClothing]);
-				}
-				updateBehaviour(player, "stripped", ["~clothing~", "~Clothing~"], [removedClothing, capRemovedClothing]);
-			}
-		}
-		
-		var genderNoun = null;
-		if (playerGenders[player] == "male") {
-			genderNoun = "his";
-		} else if (playerGenders[player] == "female") {
-			genderNoun = "her";
-		} else {
-			genderNoun = "their";
-		}
-		
-		gameBanner.innerHTML = playerNames[player]+" has removed "+genderNoun+" "+removedClothing+"!";
-	} else if (playerClothing[player].length == 0) {
-		/* player has nothing left to remove */
-		playerForfeits[player] = true;
-		playerInGame[player] = false;
-		
-		/* update behaviour */
-		if (player == 0) {
-			if (playerGenders[player] == "male") {
-				updateAllBehaviours(player, "male_human_forfeit", ["~name~"], [playerNames[player]]);
-			} else if (playerGenders[player] == "female") {
-				updateAllBehaviours(player, "female_human_forfeit", ["~name~"], [playerNames[player]]);
-			}
-		} else {
-			if (playerGenders[player] == "male") {
-				updateAllBehaviours(player, "male_ai_forfeit", ["~name~"], [playerNames[player]]);
-			} else if (playerGenders[player] == "female") {
-				updateAllBehaviours(player, "female_ai_forfeit", ["~name~"], [playerNames[player]]);
-			}
-			updateBehaviour(player, "forfeiting", [], []);
-		}
-	} else {
-		/* this function shouldn't have been called on this player */
-		console.log("Error: Invalid call to stripPlayer("+player+")");
-	}
 }

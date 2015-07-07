@@ -39,7 +39,7 @@
 							<td><p class="intro-label">What's your name?</p></td>
 						</tr>
 						<tr>
-							<td><input type="text" id="player-name-field"/></td>
+							<td><input type="text" class="bordered" id="player-name-field"/></td>
 						</tr>
 						</table>
 					</td><td>
@@ -48,8 +48,8 @@
 							<td colspan="2"><p class="intro-label">What's your gender?</p></td>
 						</tr>
 						<tr>
-							<td><input type="image" class="intro-gender-image" id="male-button" src="images/male.jpg" onclick="changePlayerGender('male')"></td>
-							<td><input type="image" class="intro-gender-image" id="female-button" src="images/female.jpg" onclick="changePlayerGender('female')" style="opacity:0.4;"></td>
+							<td><input type="image" class="bordered intro-gender-image" id="male-button" src="images/male.jpg" onclick="changePlayerGender('male')"></td>
+							<td><input type="image" class="bordered intro-gender-image" id="female-button" src="images/female.jpg" onclick="changePlayerGender('female')" style="opacity:0.4;"></td>
 						</tr>
 						</table>
 					</td></tr>
@@ -79,7 +79,7 @@
 				<!-- Start Button -->
 				<table class="centred" style="margin-top: 10px;">
 					<tr>
-						<td><button class="centred" id="title-advance-button" onclick="advanceTitle()">Start Game</button></td>
+						<td><button class="centred bordered" id="title-advance-button" onclick="advanceTitle()">Start Game</button></td>
 					</tr>
 				</table>
 			</td>
@@ -94,16 +94,15 @@
 		<!-- News -->
 		<tr><td>
 			<table class="bordered" id="title-screen-news-bar">
-			<tr><td>
-				<table style="width:130px">
+			<tr><td style="width:15%;">
+				<table style="width:100%;">
 					<tr><td><p class="version-text">Current Version</p></td></tr>
-					<tr><td><p class="version-text"><b>alpha24</b></p></td></tr>
+					<tr><td><p class="version-text"><b>alpha25</b></p></td></tr>
 				</table>
-			</td><td>
-				<table>
-					<tr><td><p class="news-text default-font">- Major refactor (had to happen sooner or later).</p></td></tr>
-					<tr><td><p class="news-text default-font">- Completely rewrote all HTML and CSS.</p></td></tr>
-					<tr><td><p class="news-text default-font">- The clothing you see above is now stored in an XML file. It is very easy to add new clothing now.</p></td></tr>
+			</td><td style="width:85%;">
+				<table style="float:left;">
+					<tr><td><p class="news-text default-font">- All planned dialogue triggers are in place.</p></td></tr>
+					<tr><td><p class="news-text default-font">- New default dialogue.</p></td></tr>
 				</table>
 			</td></tr>
 			</table>
@@ -137,7 +136,7 @@
 				<!-- Dialogue Bubbles -->
 				<tr>
 					<td class="dialogue-bubble-area">
-						<div class="dialogue-bubble dialogue-centre">
+						<div class="bordered dialogue-bubble dialogue-centre" id="game-bubble-1">
 							<div class="dialogue-area">
 								<span class="dialogue" id="game-dialogue-1"></span>
 							</div>
@@ -145,7 +144,7 @@
 						</div>
 					</td>
 					<td class="dialogue-bubble-area">
-						<div class="dialogue-bubble dialogue-centre">
+						<div class="bordered dialogue-bubble dialogue-centre" id="game-bubble-2">
 							<div class="dialogue-area">
 								<span class="dialogue" id="game-dialogue-2"></span>
 							</div>
@@ -153,7 +152,7 @@
 						</div>
 					</td>
 					<td class="dialogue-bubble-area">
-						<div class="dialogue-bubble dialogue-centre">
+						<div class="bordered dialogue-bubble dialogue-centre" id="game-bubble-3">
 							<div class="dialogue-area">
 								<span class="dialogue" id="game-dialogue-3"></span>
 							</div>
@@ -161,7 +160,7 @@
 						</div>
 					</td>
 					<td class="dialogue-bubble-area">
-						<div class="dialogue-bubble dialogue-left">
+						<div class="bordered dialogue-bubble dialogue-left" id="game-bubble-4">
 							<div class="dialogue-area">
 								<span class="dialogue" id="game-dialogue-4"></span>
 							</div>
@@ -198,16 +197,16 @@
 				<tr><td>
 					<table class="opponent-area">
 					<tr><td>
-						<div class="opponent-name-label" id="player-name-label-1">Opponent 1</div>
+						<div class="bordered opponent-name-label" id="player-name-label-1">Opponent 1</div>
 					</td></tr>
 					<tr><td>
 						<table class="opponent-card-area">
 						<tr>
-							<td><img class="smallCardImage" id="player-1-card-1" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-1-card-2" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-1-card-3" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-1-card-4" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-1-card-5" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-1-card-1" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-1-card-2" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-1-card-3" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-1-card-4" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-1-card-5" src="images/blankcard.jpg"></td>
 						</tr>
 						</table>
 					</td></tr>
@@ -215,16 +214,16 @@
 				</td><td>
 					<table class="opponent-area">
 					<tr><td>
-						<div class="opponent-name-label" id="player-name-label-2">Opponent 2</div>
+						<div class="bordered opponent-name-label" id="player-name-label-2">Opponent 2</div>
 					</td></tr>
 					<tr><td>
 						<table class="opponent-card-area">
 						<tr>
-							<td><img class="smallCardImage" id="player-2-card-1" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-2-card-2" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-2-card-3" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-2-card-4" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-2-card-5" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-2-card-1" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-2-card-2" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-2-card-3" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-2-card-4" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-2-card-5" src="images/blankcard.jpg"></td>
 						</tr>
 						</table>
 					</td></tr>
@@ -232,16 +231,16 @@
 				</td><td>
 					<table class="opponent-area">
 					<tr><td>
-						<div class="opponent-name-label" id="player-name-label-3">Opponent 3</div>
+						<div class="bordered opponent-name-label" id="player-name-label-3">Opponent 3</div>
 					</td></tr>
 					<tr><td>
 						<table class="opponent-card-area">
 						<tr>
-							<td><img class="smallCardImage" id="player-3-card-1" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-3-card-2" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-3-card-3" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-3-card-4" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-3-card-5" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-3-card-1" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-3-card-2" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-3-card-3" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-3-card-4" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-3-card-5" src="images/blankcard.jpg"></td>
 						</tr>
 						</table>
 					</td></tr>
@@ -249,16 +248,16 @@
 				</td><td>
 					<table class="opponent-area">
 					<tr><td>
-						<div class="opponent-name-label" id="player-name-label-4">Opponent 4</div>
+						<div class="bordered opponent-name-label" id="player-name-label-4">Opponent 4</div>
 					</td></tr>
 					<tr><td>
 						<table class="opponent-card-area">
 						<tr>
-							<td><img class="smallCardImage" id="player-4-card-1" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-4-card-2" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-4-card-3" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-4-card-4" src="images/blankcard.jpg"></td>
-							<td><img class="smallCardImage" id="player-4-card-5" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-4-card-1" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-4-card-2" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-4-card-3" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-4-card-4" src="images/blankcard.jpg"></td>
+							<td><img class="bordered smallCardImage" id="player-4-card-5" src="images/blankcard.jpg"></td>
 						</tr>
 						</table>
 					</td></tr>
@@ -271,43 +270,43 @@
 		
 		<!-- Player Area -->
 		<tr><td>
-			<table id="game-player-area">
+			<table class="bordered" id="game-player-area">
 			<tr>
 				<td class="player-clothing-area">
 					<table>
 					<tr>
 						<td></td>
-						<td rowspan='2'><img class="small-clothing-image" id="player-0-clothing-8" src="images/blankcard.jpg"></td>
-						<td colspan='4'><div class="player-name-label" id="player-name-label-0">Player</div></td>
-						<td rowspan='2'><img class="small-clothing-image" id="player-0-clothing-1" src="images/blankcard.jpg"></td>
+						<td rowspan='2'><img class="bordered small-clothing-image" id="player-0-clothing-8" src="images/blankcard.jpg"></td>
+						<td colspan='4'><div class="bordered player-name-label" id="player-name-label-0">Player</div></td>
+						<td rowspan='2'><img class="bordered small-clothing-image" id="player-0-clothing-1" src="images/blankcard.jpg"></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td colspan='4'><div class="player-clothing-label" id="game-clothing-label">Your Bet: <b>Unknown</b></p></td>
+						<td colspan='4'><div class="bordered player-clothing-label" id="game-clothing-label">Your Bet: <b>Unknown</b></p></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td><img class="small-clothing-image" id="player-0-clothing-7" src="images/blankcard.jpg"></td>
-						<td><img class="small-clothing-image" id="player-0-clothing-6" src="images/blankcard.jpg"></td>
-						<td><img class="small-clothing-image" id="player-0-clothing-5" src="images/blankcard.jpg"></td>
-						<td><img class="small-clothing-image" id="player-0-clothing-4" src="images/blankcard.jpg"></td>
-						<td><img class="small-clothing-image" id="player-0-clothing-3" src="images/blankcard.jpg"></td>
-						<td><img class="small-clothing-image" id="player-0-clothing-2" src="images/blankcard.jpg"></td>
+						<td><img class="bordered small-clothing-image" id="player-0-clothing-7" src="images/blankcard.jpg"></td>
+						<td><img class="bordered small-clothing-image" id="player-0-clothing-6" src="images/blankcard.jpg"></td>
+						<td><img class="bordered small-clothing-image" id="player-0-clothing-5" src="images/blankcard.jpg"></td>
+						<td><img class="bordered small-clothing-image" id="player-0-clothing-4" src="images/blankcard.jpg"></td>
+						<td><img class="bordered small-clothing-image" id="player-0-clothing-3" src="images/blankcard.jpg"></td>
+						<td><img class="bordered small-clothing-image" id="player-0-clothing-2" src="images/blankcard.jpg"></td>
 					</tr>
 					</table>
 				</td>
 				<td id="deck-area">
-					<img class="deck-image" src="images/unknown.jpg">
-					<button id="main-button" onclick="pressedMainButton()">Deal</button>	
+					<img class="bordered deck-image" src="images/unknown.jpg">
+					<button class="bordered" id="main-button" onclick="pressedMainButton()">Deal</button>	
 				</td>
 				<td id="player-0-card-area">
 					<table>
 					<tr>
-						<td><input type="image" class="large-card-image" id="player-0-card-1" src="images/blankcard.jpg" onclick="selectCard(0)"/></td>
-						<td><input type="image" class="large-card-image" id="player-0-card-2" src="images/blankcard.jpg" onclick="selectCard(1)"/></td>
-						<td><input type="image" class="large-card-image" id="player-0-card-3" src="images/blankcard.jpg" onclick="selectCard(2)"/></td>
-						<td><input type="image" class="large-card-image" id="player-0-card-4" src="images/blankcard.jpg" onclick="selectCard(3)"/></td>
-						<td><input type="image" class="large-card-image" id="player-0-card-5" src="images/blankcard.jpg" onclick="selectCard(4)"/></td>
+						<td><input type="image" class="bordered large-card-image" id="player-0-card-1" src="images/blankcard.jpg" onclick="selectCard(0)"/></td>
+						<td><input type="image" class="bordered large-card-image" id="player-0-card-2" src="images/blankcard.jpg" onclick="selectCard(1)"/></td>
+						<td><input type="image" class="bordered large-card-image" id="player-0-card-3" src="images/blankcard.jpg" onclick="selectCard(2)"/></td>
+						<td><input type="image" class="bordered large-card-image" id="player-0-card-4" src="images/blankcard.jpg" onclick="selectCard(3)"/></td>
+						<td><input type="image" class="bordered large-card-image" id="player-0-card-5" src="images/blankcard.jpg" onclick="selectCard(4)"/></td>
 					</tr>
 					</table>
 				</td>

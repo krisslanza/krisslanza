@@ -153,7 +153,11 @@ function dullHand (player) {
 /* hides a player's hand */
 function hideHand (player) {
 	for (var i = 0; i < CARDS_IN_HAND; i++) {
-		cardCells[player][i].src = imageSource + "unknown.jpg";
+		if (playerInGame[player]) {
+			cardCells[player][i].src = imageSource + "unknown.jpg";
+		} else {
+			cardCells[player][i].src = imageSource + "blankcard.jpg";
+		}
 		fillCard(player, i);
 	}
 }
@@ -164,9 +168,9 @@ function collectPlayerHand (player) {
 	for (var i = 0; i < CARDS_IN_HAND; i++) {
 		if (cards[player][i] != "unknown" && cards[player][i] != "blankcard") {
 			outDeck.push(cards[player][i]);
-			cards[player][i] = "blankcard";
-			cards[player][i].src = imageSource + "blankcard.jpg";
 		}
+		cards[player][i] = "blankcard";
+		cards[player][i].src = imageSource + "blankcard.jpg";
 	}
 }
 

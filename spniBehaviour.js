@@ -7,7 +7,19 @@
 /*****  Constant Settings   *****/
 /********************************/
  
+var MALE = "male";
+var FEMALE = "female"; 
+
 var FLASH_SPEED = 500;
+
+/***********************************/
+/********* Replaceable Tags ********/
+/***********************************/
+
+var NAME = "~name~";
+var PROPER_CLOTHING = "~Clothing~";
+var LOWERCASE_CLOTHING = "~clothing~";
+
  
 /********************************/	
 /*****  Behaviour Settings  *****/
@@ -17,6 +29,7 @@ var FLASH_SPEED = 500;
 var playerLoaded = [false, false, false, false, false];
 
 var playerNames = [null, null, null, null, null];
+var playerLabels = [null, null, null, null, null];
 var playerGenders = [null, null, null, null, null];
 
 var playerStartingClothing = [0, 0, 0, 0, 0];
@@ -25,6 +38,7 @@ var playerForfeits = [false, false, false, false, false];
 
 var playerImages = [[], [], [], [], []];
 var playerDialogue = [[], [], [], [], []];
+var playerDirection = [[], [], [], [], []];
 var playerState = [0, 0, 0, 0, 0];
 
 /* deep variables */
@@ -38,22 +52,27 @@ var playerXML = [[], [], [], [], []];
 function parseDialogue (player, caseObject, replace, content) {
 	var image = [];
 	var dialogue = [];
+	var direction = [];
 	
 	caseObject.find('state').each(function () {
-		image.push($(this).attr('picture'));
+		image.push($(this).attr('img'));
+		console.log($(this).attr('img'));
 		dialogue.push($(this).html());
+		direction.push($(this).attr('direction'));
 		
 		if (replace && content) {
 			for (var i = 0; i < replace.length; i++) {
 				dialogue[dialogue.length-1] = dialogue[dialogue.length-1].replace(replace[i], content[i]);
-				console.log(dialogue[dialogue.length-1]);
 			}
 		}
 	});
 	
 	if (image != []) {
 		playerImages[player] = image;
-		playerDialogue[player] = dialogue;
+	}
+	playerDialogue[player] = dialogue;
+	if (direction != []) {
+		playerDirection[player] = direction;
 	}
 }
 
@@ -64,19 +83,17 @@ function loadBehaviour (player) {
 		url: playerSources[player] + "behaviour.xml",
 		dataType: "text",
 		success: function(xml) {
+			playerXML[player] = xml;
+			
 			playerNames[player] = $(xml).find('name').text();
+			playerLabels[player] = $(xml).find('label').text();
 			playerGenders[player] = $(xml).find('gender').text();
 			
-			$clothing = $(xml).find('clothing');
-			$clothing.find('item').each(function () {
-				playerStartingClothing[player]++;
-				playerClothing[player].push($(this).text());
-			});
+			loadOpponentWardrobe(player);
 			
 			parseDialogue(player, $(xml).find('start'));
 			playerState[player] = 0;
 			
-			playerXML[player] = xml;
 			playerLoaded[player] = true;
 		}
 	});
@@ -96,9 +113,14 @@ function flashAdvanceButton (player) {
 
 /* loads the visual state of the chosen player */
 function updatePlayerVisual (player) {
-	nameLabels[player].innerHTML = playerNames[player];
+	nameLabels[player].innerHTML = playerLabels[player];
 	imageCells[player].src = playerSources[player] + playerImages[player][playerState[player]];
 	dialogueCells[player].innerHTML = playerDialogue[player][playerState[player]];
+	
+	/* direct dialogue bubble */
+	if (playerDirection[player][playerState[player]]) {
+		dialogueBubbles[player].className = "bordered dialogue-bubble dialogue-"+playerDirection[player][playerState[player]];
+	}
 	
 	/* determine whether or not to display the advance dialogue button */
 	if (playerDialogue[player].length > playerState[player]+1) {
@@ -152,3 +174,44 @@ function updateAllBehaviours (player, tag, replace, content) {
 	
 	updateAllPlayerVisuals();
 }
+
+
+/******************************************/	
+/********* XML Parsing Functions **********/
+/******************************************/
+
+
+/**************************************************
+ * Parses and loads the wardrobe section of an 
+ * opponent's XML file.
+ **************************************************/
+function loadOpponentWardrobe (player) {
+	/* grab the relevant XML file, assuming its already been loaded */
+	var xml = playerXML[player];
+	
+	/* find and grab the wardrobe tag */
+	$wardrobe = $(xml).find('wardrobe');
+	
+	/* find and create all of their clothing */
+	$wardrobe.find('clothing').each(function () {
+		var properName = $(this).attr('proper-name');
+		var lowercase = $(this).attr('lowercase');
+		var type = $(this).attr('type');
+		var position = $(this).attr('position');
+		
+		var clothing = newClothing(properName, lowercase, null, type, position);
+		
+		playerClothing[player].push(clothing);
+		playerStartingClothing[player]++;
+	});
+
+}
+
+
+
+
+
+
+
+
+

@@ -142,7 +142,7 @@ function advanceTurn () {
 			pressedMainButton();
 		} else {
 			/* update speech */
-			dialogueCells[currentTurn].innerHTML = "How long do I have to keep going?"; //HARDCODED
+			updateBehaviour(currentTurn, "forfeiting", [], []);
 			
 			advanceTurn();
 		}
@@ -227,7 +227,9 @@ function pressedMainButton () {
 		updateAllBehaviours(0, "start_of_round", [], []);
 		
 		/* allow each of the AIs to take their actions */
-		enablePlayerActions();
+		if (playerInGame[HUMAN_PLAYER]) {
+			enablePlayerActions();
+		}
 		currentTurn = 0;
 		advanceTurn();
 		
@@ -276,28 +278,7 @@ function pressedMainButton () {
 		}
 		
 		/* update behaviour */
-		if (playerClothing[lowestPlayer].length > 0) {
-			/* the player is stripping */
-			var removedClothing = playerClothing[lowestPlayer][playerClothing[lowestPlayer].length - 1];
-			var capRemovedClothing = capitalizeFirstLetter(removedClothing);
-			
-			if (lowestPlayer != 0) {
-				if (playerGenders[lowestPlayer] == "male") {
-					updateAllBehaviours(lowestPlayer, "male_ai_will_strip", ["~name~", "~clothing~", "~Clothing~"], [playerNames[lowestPlayer], removedClothing, capRemovedClothing]);
-				} else if (playerGenders[lowestPlayer] == "female") {
-					updateAllBehaviours(lowestPlayer, "female_ai_will_strip", ["~name~", "~clothing~", "~Clothing~"], [playerNames[lowestPlayer], removedClothing, capRemovedClothing]);
-				}
-				updateBehaviour(lowestPlayer, "lost", ["~clothing~", "~Clothing~"], [removedClothing, capRemovedClothing]);
-			} else {
-				if (playerGenders[lowestPlayer] == "male") {
-					updateAllBehaviours(lowestPlayer, "male_human_will_strip", ["~name~", "~clothing~", "~Clothing~"], [playerNames[lowestPlayer], removedClothing, capRemovedClothing]);
-				} else if (playerGenders[lowestPlayer] == "female") {
-					updateAllBehaviours(lowestPlayer, "female_human_will_strip", ["~name~", "~clothing~", "~Clothing~"], [playerNames[lowestPlayer], removedClothing, capRemovedClothing]);
-				}
-			}
-		} else {
-			/* the player is forfeiting */
-		}
+		prepareToStripPlayer(lowestPlayer);
 		
 		/* reset the round */
 		mainButton.innerHTML = "Strip";
@@ -323,7 +304,8 @@ function pressedMainButton () {
 		if (inGame == 1) {
 			gameBanner.innerHTML = "Game Over! "+playerNames[lastPlayer]+" won Strip Poker Night at the Inventory!";
 			gameOver = true;
-			mainButton.innerHTML = "Play Again?";
+			mainButton.innerHTML = "Restart?";
+			//mainButton.onclick = function () { location.reload(); };
 			enableButton(mainButton);
 		} else {
 			mainButton.innerHTML = "Deal";
