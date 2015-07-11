@@ -476,8 +476,8 @@ function advanceGameDialogue (slot) {
         $gameBubbles[slot-1].removeClass();
 		$gameBubbles[slot-1].addClass("bordered dialogue-bubble dialogue-"+players[slot].state[players[slot].current].direction);
 	} else {
-		$gameBubbles[player-1].removeClass();
-		$gameBubbles[player-1].addClass("bordered dialogue-bubble dialogue-centre");
+		$gameBubbles[slot-1].removeClass();
+		$gameBubbles[slot-1].addClass("bordered dialogue-bubble dialogue-centre");
 	}
     
     /* update image */

@@ -261,7 +261,7 @@
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
-				<state img="stage1calm.jpg">
+				<state img="stage1happy.jpg">
 					I've got an okay hand.
 				</state>
 			</case>
@@ -273,12 +273,12 @@
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
-				<state img="stage1calm.jpg">
+				<state img="stage1happy.jpg">
 					I miss my ~clothing~ already...
 				</state>
 			</case>
 			<case tag="must_strip"> <!-- this player lost the hand -->
-				<state img="stage1calm.jpg">
+				<state img="stage1happy.jpg">
 					I guess I'll just take off my ~clothing~...
 				</state>
 			</case>
@@ -468,7 +468,7 @@
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
-				<state img="stage2calm.jpg">
+				<state img="stage2happy.jpg">
 					I've got an okay hand.
 				</state>
 			</case>
@@ -480,12 +480,12 @@
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
-				<state img="stage2calm.jpg">
+				<state img="stage2happy.jpg">
 					I miss my ~clothing~ already...
 				</state>
 			</case>
 			<case tag="must_strip"> <!-- this player lost the hand -->
-				<state img="stage2calm.jpg">
+				<state img="stage2happy.jpg">
 					I guess I'll just take off my ~clothing~...
 				</state>
 			</case>
