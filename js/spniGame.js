@@ -56,7 +56,7 @@ $cardButtons = [$("#player-0-card-1"),
  **********************************************************************/
 
 /* pseudo constants */
-var GAME_DELAY = 50;
+var GAME_DELAY = 750;
 var GAME_OVER_DELAY = 1000;
  
 /* colours */
