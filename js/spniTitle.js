@@ -78,7 +78,6 @@ function loadClothing () {
 				} else {
                     loadedClothing += "Other";
                 }
-				console.log(position);
 				
                 /* close the clothing label */
 				loadedClothing += 
@@ -193,7 +192,7 @@ function validateTitleScreen () {
 			clothingCount[3]++;
 		}
 	}
-	console.log(clothingCount);
+
 	/* ensure the player is wearing enough clothing */
 	if (clothingCount[0] < 1) {
 		$warningLabel.html("You must wear at least 1 article of clothing on your upper body.");
