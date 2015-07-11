@@ -38,12 +38,12 @@ var GOOD_HAND = "good_hand";
 var PLAYER_MUST_STRIP = "must_strip";
 var PLAYER_STRIPPED = "stripped";
 
-var PLAYER_MUST_FORFEIT = "must_forfeit";
-var PLAYER_START_FORFEIT = "start_forfeit";
-var PLAYER_FORFEITING = "forfeiting";
-var PLAYER_HEAVY_FORFEITING = "heavy_forfeiting";
-var PLAYER_FINISHING = "finishing";
-var PLAYER_FINISHED = "finished";
+var PLAYER_MUST_MASTURBATE = "must_masturbate";
+var PLAYER_START_MASTURBATING = "start_masturbating";
+var PLAYER_MASTURBATING = "masturbating";
+var PLAYER_HEAVY_MASTURBATING = "heavy_masturbating";
+var PLAYER_FINISHING_MASTURBATING = "finishing_masturbating";
+var PLAYER_FINISHED_MASTURBATING = "finished_masturbating";
 
 var MALE_HUMAN_WILL_STRIP = "male_human_will_strip";
 
@@ -59,11 +59,11 @@ var MALE_REMOVED_MAJOR = "male_removed_major";
 var MALE_CHEST_IS_VISIBLE = "male_chest_is_visible";
 var MALE_CROTCH_IS_VISIBLE = "male_crotch_is_visible";
 
-var MALE_MUST_FORFEIT = "male_must_forfeit";
-var MALE_START_FORFEIT = "male_start_forfeit";
-var MALE_FORFEITING = "male_forfeiting";
-var MALE_HEAVY_FORFEITING = "male_heavy_forfeiting";
-var MALE_FINISHED = "male_finished";
+var MALE_MUST_MASTURBATE = "male_must_masturbate";
+var MALE_START_MASTURBATING = "male_start_masturbating";
+var MALE_MASTURBATING = "male_masturbating";
+var MALE_HEAVY_MASTURBATING = "male_heavy_masturbating";
+var MALE_FINISHED_MASTURBATING = "male_finished_masturbating";
 
 var FEMALE_HUMAN_WILL_STRIP = "female_human_will_strip";
 
@@ -79,11 +79,11 @@ var FEMALE_REMOVED_MAJOR = "female_removed_major";
 var FEMALE_CHEST_IS_VISIBLE = "female_chest_is_visible";
 var FEMALE_CROTCH_IS_VISIBLE = "female_crotch_is_visible";
 
-var FEMALE_MUST_FORFEIT = "female_must_forfeit";
-var FEMALE_START_FORFEIT = "female_start_forfeit";
-var FEMALE_FORFEITING = "female_forfeiting";
-var FEMALE_HEAVY_FORFEITING = "female_heavy_forfeiting";
-var FEMALE_FINISHED = "female_finished";
+var FEMALE_MUST_MASTURBATE = "female_must_masturbate";
+var FEMALE_START_MASTURBATING = "female_start_masturbating";
+var FEMALE_MASTURBATING = "female_masturbating";
+var FEMALE_HEAVY_MASTURBATING = "female_heavy_masturbating";
+var FEMALE_FINISHED_MASTURBATING = "female_finished_masturbating";
  
 /**********************************************************************
  *****                 Behaviour Parsing Functions                *****
@@ -108,7 +108,7 @@ function loadBehaviour (folder, callFunction) {
             var gender = $(xml).find('gender').text();
             var timer = $(xml).find('timer').text();
             
-            var newPlayer = createNewPlayer(folder, first, last, label, gender, [], false, "", Number(timer), 0, [], xml);
+            var newPlayer = createNewPlayer(folder, first, last, label, gender, [], false, "", Number(timer), 0, 0, [], xml);
             
             loadOpponentWardrobe(newPlayer);
             
@@ -172,19 +172,14 @@ function parseDialogue (caseObject, replace, content) {
  * provided tag.
  ************************************************************/
 function updateBehaviour (player, tag, replace, content) {
-    /* determine what stage they are in */
-    var stageNum = 0;
-    for (var i = 0; i < players[player].clothing.length; i++) {
-        /* count the null items */
-        if (!players[player].clothing[i]) {
-            stageNum++;
-        }
-    } 
-
-	if (players[player].out) {
-        /* determine what their forfeit stage is */
-		stageNum += 1;
+	/* determine if the AI is dialogue locked */
+	if (players[player].forfeit[1] == CANNOT_SPEAK) {
+		/* their is restricted to this only */
+		tag = players[player].forfeit[0];
 	}
+	
+    /* get the AI stage */
+    var stageNum = players[player].stage;
 	
     /* try to find the stage */
     var stage = null;
@@ -213,7 +208,7 @@ function updateBehaviour (player, tag, replace, content) {
     /* quick check to see if the tag exists */
 	if (!found) {
 		players[player].state = null;
-		console.log("Error: couldn't find "+tag+" dialogue for player "+player+" at stage "+stage);
+		console.log("Error: couldn't find "+tag+" dialogue for player "+player+" at stage "+stageNum);
 	}
 }
 

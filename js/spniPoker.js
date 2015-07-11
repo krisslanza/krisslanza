@@ -332,6 +332,7 @@ function determineLowestHand () {
 			/* anything higher than two pair only has one tie breaker */
 			var lowestValue = 15;
             var lowestPlayer = -1;
+			var tiedPlayers = lowestPlayers;
             
             for (var i = 0; i < lowestPlayers.length; i++) {
                 if (hands[tiedPlayers[i]].value < lowestValue) {

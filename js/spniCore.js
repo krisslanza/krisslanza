@@ -55,7 +55,7 @@ var players = [null, null, null, null, null];
  * state (array of PlayerState objects), their sequential states.
  * xml (jQuery object), the player's loaded XML file.
  ************************************************************/
-function createNewPlayer (folder, first, last, label, gender, clothing, out, forfeit, timer, current, state, xml) {
+function createNewPlayer (folder, first, last, label, gender, clothing, out, forfeit, timer, current, stage, state, xml) {
     var newPlayerObject = {folder:folder,
                            first:first,
                            last:last,
@@ -66,6 +66,7 @@ function createNewPlayer (folder, first, last, label, gender, clothing, out, for
                            forfeit:forfeit,
                            timer:timer,
                            current:current,
+						   stage:stage,
                            state:state,
                            xml:xml};
                            
@@ -81,7 +82,7 @@ function createNewPlayer (folder, first, last, label, gender, clothing, out, for
  ************************************************************/
 function initialSetup () {
     /* start by creating the human player object */
-    var humanPlayer = createNewPlayer("", "", "", "", MALE, [], false, "", 0, 0, [], null);
+    var humanPlayer = createNewPlayer("", "", "", "", MALE, [], false, "", 0, 0, 0, [], null);
     players[HUMAN_PLAYER] = humanPlayer;
     
     /* load the title screen */

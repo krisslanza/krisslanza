@@ -56,7 +56,8 @@ $cardButtons = [$("#player-0-card-1"),
  **********************************************************************/
 
 /* pseudo constants */
-var GAME_DELAY = 750;
+var GAME_DELAY = 50;
+var GAME_OVER_DELAY = 1000;
  
 /* colours */
 var currentColour = "#85C5F5"; 	/* indicates current turn */
@@ -66,7 +67,8 @@ var loserColour = "#F58585";	/* indicates loser of a round */
 /* game state */
 var currentTurn = 0;
 var recentLoser = 0;
-var timers = [0, 0, 0, 0, 0];
+var savedContext = "";
+var gameOver = false;
                       
 /**********************************************************************
  *****                    Start Up Functions                      *****
@@ -221,6 +223,7 @@ function implementAIAction () {
 	/* refresh the hand */
 	hideHand(currentTurn);
 	
+	/* IMPLEMENT STACKING/RANDOMIZED TRIGGERS HERE SO THAT AIs CAN COMMENT ON PLAYER "ACTIONS" */
 	/* update behaviour */
 	determineHand(currentTurn);
 	if (hands[currentTurn].strength == HIGH_CARD) {
@@ -259,7 +262,7 @@ function advanceTurn () {
 	/* check to see if they are still in the game */
 	if (players[currentTurn].out && currentTurn > 0) {
 		/* update their speech and skip their turn */
-        updateBehaviour(currentTurn, players[currentTurn].forfeit, [], []);
+        updateBehaviour(currentTurn, players[currentTurn].forfeit[0], [], []);
         updateGameVisual(currentTurn);
 			
         window.setTimeout(advanceTurn, GAME_DELAY);
@@ -408,8 +411,14 @@ function completeStripPhase () {
     /* strip the player with the lowest hand */
     stripPlayer(recentLoser);
     updateAllGameVisuals();
-    
-    /* check to see how many players are still in the game */
+}
+
+/************************************************************
+ * Handles everything that happens at the end of the round.
+ * Including the checks for the end of game.
+ ************************************************************/
+function endRound () {
+	/* check to see how many players are still in the game */
     var inGame = 0;
     var lastPlayer = 0;
     for (var i = 0; i < players.length; i++) {
@@ -421,20 +430,45 @@ function completeStripPhase () {
     
     /* if there is only one player left, end the game */
     if (inGame == 1) {
-        $gameBanner.html("Game Over! "+players[lastPlayer].label+" won Strip Poker Night at the Inventory!");
-        gameOver = true;
-        $mainButton.html("Restart?");
-        handleGameOver();
-    } else {
-        $mainButton.html("Deal");
-    }
+		console.log("The game has ended!");
+		$gameBanner.html("Game Over! "+players[lastPlayer].label+" won Strip Poker Night at the Inventory!");
+		gameOver = true;
+		handleGameOver();
+	} else {
+		$mainButton.html("Deal");
+	}
+	$mainButton.attr('disabled', false);
 }
 
 /************************************************************
- * Handles all of the game over related problems.
+ * Handles the end of the game. Currently just waits for all
+ * players to finish their forfeits.
  ************************************************************/
-function handleGameOver () {
-    console.log("The game has ended!");
+function handleGameOver() {
+	/* determine how many timers are left */
+	var left = 0;
+	for (var i = 0; i < timers.length; i++) {
+		if (timers[i] > 0) {
+			left++;
+		}
+	}
+	
+	/* determine true end */
+	if (left == 0) {
+		/* true end */
+		$mainButton.html("Restart?");
+	} else {
+		/* someone is still forfeiting */
+		var context = "Continue";
+		$mainButton.html("Continue");
+		context = tickForfeitTimers(context);
+		if (context == "Continue") {
+			/* no one finished yet */
+			window.setTimeout(handleGameOver, GAME_OVER_DELAY);
+		} else {
+			/* someone finished, wait for the continue button */
+		}
+	}
 }
  
 /**********************************************************************
@@ -494,30 +528,7 @@ function advanceGame () {
     $mainButton.attr('disabled', true);
     
     /* lower the timers of everyone who is forfeiting */
-    var oneFinished = false;
-    for (var i = 0; i < players.length; i++) {
-        if (players[i].out && timers[i] > 0) {
-            timers[i]--;
-            
-            /* check to see if their timer is up */
-            if (timers[i] <= 0 && !oneFinished) {
-                oneFinished = true;
-                console.log(players[i].first+" is finishing!");
-                
-                /*if (players[HUMAN_PLAYER].gender == MALE) {
-                    updateAllBehaviours(player, MALE_START_FORFEIT, [NAME], [players[player].first]);
-                } else if (players[HUMAN_PLAYER].gender == FEMALE) {
-                    updateAllBehaviours(player, FEMALE_START_FORFEIT, [NAME], [players[player].first]);
-                }
-                updateBehaviour(player, PLAYER_START_FORFEIT, [NAME], [players[player].first]);*/
-            } else if (timers[i] <= 0) {
-                /* two people can't finish at the same time */
-                timers[i]++;
-            } else {
-                /* random chance they go into heavy forfeiting */
-            }
-        }
-    }
+    context = tickForfeitTimers(context);
     
     /* handle the game */
     if (context == "Deal") {
@@ -538,9 +549,15 @@ function advanceGame () {
         /* stripping the loser */
         completeStripPhase();
         $mainButton.attr('disabled', false);
-    } else {
+    } else if (context == "Continue") {
+		if (!gameOver) {
+			$mainButton.html("Deal");
+			$mainButton.attr('disabled', false);
+		} else {
+			handleGameOver();
+		}
+	} else {
         console.log("Invalid main button state: "+context);
-        $mainButton.attr('disabled', false);
     }
 }
 

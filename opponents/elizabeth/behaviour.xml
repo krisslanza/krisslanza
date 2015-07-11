@@ -9,7 +9,7 @@
     <last></last>            <!-- what's their last name? you can leave this blank -->
 	<label>Elizabeth</label> <!-- what would you like their name plate to say? -->
 	<gender>female</gender>  <!-- what's their gender? -->
-    <timer>10</timer>        <!-- how long do they... uh... take to 'finish'? -->
+    <timer>11</timer>        <!-- how long do they... uh... take to 'finish'? -->
 	
 	<!-- Game Start Information -->
 	<start>
@@ -92,7 +92,7 @@
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage0happy.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -133,28 +133,28 @@
 				</state>
 			</case>
 			
-			<!-- male player forfeiting cases -->
-			<case tag="male_must_forfeit"> <!-- a male player has to forfeit -->
+			<!-- male player masturbating cases -->
+			<case tag="male_must_masturbate"> <!-- a male player has to forfeit -->
 				<state img="stage0happy.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="male_start_forfeit"> <!-- a male player has starting forfeiting -->
+			<case tag="male_start_masturbating"> <!-- a male player has starting masturbating -->
 				<state img="stage0happy.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="male_forfeiting"> <!-- a male player is forfeiting -->
+			<case tag="male_masturbating"> <!-- a male player is masturbating -->
 				<state img="stage0happy.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_forfeiting"> <!-- a male player has gotten really into forfeiting -->
+			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
 				<state img="stage0happy.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="male_finished"> <!-- a male player has "finished" forfeiting -->
+			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="stage0happy.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -178,7 +178,7 @@
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage0happy.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -219,28 +219,28 @@
 				</state>
 			</case>
 			
-			<!-- female player forfeiting cases -->
-			<case tag="female_must_forfeit"> <!-- a female player has to forfeit -->
+			<!-- female player masturbating cases -->
+			<case tag="female_must_masturbate"> <!-- a female player has to forfeit -->
 				<state img="stage0happy.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="female_start_forfeit"> <!-- a female player has starting forfeiting -->
+			<case tag="female_start_masturbating"> <!-- a female player has starting masturbating -->
 				<state img="stage0happy.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="female_forfeiting"> <!-- a female player is forfeiting -->
+			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="stage0happy.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="female_heavy_forfeiting"> <!-- a female player has gotten really into forfeiting -->
+			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
 				<state img="stage0happy.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="female_finished"> <!-- a female player has "finished" forfeiting -->
+			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
 				<state img="stage0happy.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -299,7 +299,7 @@
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage1happy.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -340,28 +340,28 @@
 				</state>
 			</case>
 			
-			<!-- male player forfeiting cases -->
-			<case tag="male_must_forfeit"> <!-- a male player has to forfeit -->
+			<!-- male player masturbating cases -->
+			<case tag="male_must_masturbate"> <!-- a male player has to forfeit -->
 				<state img="stage1happy.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="male_start_forfeit"> <!-- a male player has starting forfeiting -->
+			<case tag="male_start_masturbating"> <!-- a male player has starting masturbating -->
 				<state img="stage1happy.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="male_forfeiting"> <!-- a male player is forfeiting -->
+			<case tag="male_masturbating"> <!-- a male player is masturbating -->
 				<state img="stage1happy.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_forfeiting"> <!-- a male player has gotten really into forfeiting -->
+			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
 				<state img="stage1happy.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="male_finished"> <!-- a male player has "finished" forfeiting -->
+			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="stage1happy.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -385,7 +385,7 @@
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage1happy.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -426,28 +426,28 @@
 				</state>
 			</case>
 			
-			<!-- female player forfeiting cases -->
-			<case tag="female_must_forfeit"> <!-- a female player has to forfeit -->
+			<!-- female player masturbating cases -->
+			<case tag="female_must_masturbate"> <!-- a female player has to forfeit -->
 				<state img="stage1happy.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="female_start_forfeit"> <!-- a female player has starting forfeiting -->
+			<case tag="female_start_masturbating"> <!-- a female player has starting masturbating -->
 				<state img="stage1happy.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="female_forfeiting"> <!-- a female player is forfeiting -->
+			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="stage1happy.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="female_heavy_forfeiting"> <!-- a female player has gotten really into forfeiting -->
+			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
 				<state img="stage1happy.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="female_finished"> <!-- a female player has "finished" forfeiting -->
+			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
 				<state img="stage1happy.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -506,7 +506,7 @@
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage2calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -547,28 +547,28 @@
 				</state>
 			</case>
 			
-			<!-- male player forfeiting cases -->
-			<case tag="male_must_forfeit"> <!-- a male player has to forfeit -->
+			<!-- male player masturbating cases -->
+			<case tag="male_must_masturbate"> <!-- a male player has to forfeit -->
 				<state img="stage2calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="male_start_forfeit"> <!-- a male player has starting forfeiting -->
+			<case tag="male_start_masturbating"> <!-- a male player has starting masturbating -->
 				<state img="stage2calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="male_forfeiting"> <!-- a male player is forfeiting -->
+			<case tag="male_masturbating"> <!-- a male player is masturbating -->
 				<state img="stage2calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_forfeiting"> <!-- a male player has gotten really into forfeiting -->
+			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
 				<state img="stage2calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="male_finished"> <!-- a male player has "finished" forfeiting -->
+			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="stage2calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -592,7 +592,7 @@
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage2calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -633,28 +633,28 @@
 				</state>
 			</case>
 			
-			<!-- female player forfeiting cases -->
-			<case tag="female_must_forfeit"> <!-- a female player has to forfeit -->
+			<!-- female player masturbating cases -->
+			<case tag="female_must_masturbate"> <!-- a female player has to forfeit -->
 				<state img="stage2calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="female_start_forfeit"> <!-- a female player has starting forfeiting -->
+			<case tag="female_start_masturbating"> <!-- a female player has starting masturbating -->
 				<state img="stage2calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="female_forfeiting"> <!-- a female player is forfeiting -->
+			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="stage2calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="female_heavy_forfeiting"> <!-- a female player has gotten really into forfeiting -->
+			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
 				<state img="stage2calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="female_finished"> <!-- a female player has "finished" forfeiting -->
+			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
 				<state img="stage2calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -713,7 +713,7 @@
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage3calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -754,28 +754,28 @@
 				</state>
 			</case>
 			
-			<!-- male player forfeiting cases -->
-			<case tag="male_must_forfeit"> <!-- a male player has to forfeit -->
+			<!-- male player masturbating cases -->
+			<case tag="male_must_masturbate"> <!-- a male player has to forfeit -->
 				<state img="stage3calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="male_start_forfeit"> <!-- a male player has starting forfeiting -->
+			<case tag="male_start_masturbating"> <!-- a male player has starting masturbating -->
 				<state img="stage3calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="male_forfeiting"> <!-- a male player is forfeiting -->
+			<case tag="male_masturbating"> <!-- a male player is masturbating -->
 				<state img="stage3calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_forfeiting"> <!-- a male player has gotten really into forfeiting -->
+			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
 				<state img="stage3calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="male_finished"> <!-- a male player has "finished" forfeiting -->
+			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="stage3calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -799,7 +799,7 @@
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage3calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -840,28 +840,28 @@
 				</state>
 			</case>
 			
-			<!-- female player forfeiting cases -->
-			<case tag="female_must_forfeit"> <!-- a female player has to forfeit -->
+			<!-- female player masturbating cases -->
+			<case tag="female_must_masturbate"> <!-- a female player has to forfeit -->
 				<state img="stage3calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="female_start_forfeit"> <!-- a female player has starting forfeiting -->
+			<case tag="female_start_masturbating"> <!-- a female player has starting masturbating -->
 				<state img="stage3calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="female_forfeiting"> <!-- a female player is forfeiting -->
+			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="stage3calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="female_heavy_forfeiting"> <!-- a female player has gotten really into forfeiting -->
+			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
 				<state img="stage3calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="female_finished"> <!-- a female player has "finished" forfeiting -->
+			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
 				<state img="stage3calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -920,7 +920,7 @@
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage4calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -961,28 +961,28 @@
 				</state>
 			</case>
 			
-			<!-- male player forfeiting cases -->
-			<case tag="male_must_forfeit"> <!-- a male player has to forfeit -->
+			<!-- male player masturbating cases -->
+			<case tag="male_must_masturbate"> <!-- a male player has to forfeit -->
 				<state img="stage4calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="male_start_forfeit"> <!-- a male player has starting forfeiting -->
+			<case tag="male_start_masturbating"> <!-- a male player has starting masturbating -->
 				<state img="stage4calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="male_forfeiting"> <!-- a male player is forfeiting -->
+			<case tag="male_masturbating"> <!-- a male player is masturbating -->
 				<state img="stage4calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_forfeiting"> <!-- a male player has gotten really into forfeiting -->
+			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
 				<state img="stage4calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="male_finished"> <!-- a male player has "finished" forfeiting -->
+			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="stage4calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -1006,7 +1006,7 @@
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage4calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -1047,28 +1047,28 @@
 				</state>
 			</case>
 			
-			<!-- female player forfeiting cases -->
-			<case tag="female_must_forfeit"> <!-- a female player has to forfeit -->
+			<!-- female player masturbating cases -->
+			<case tag="female_must_masturbate"> <!-- a female player has to forfeit -->
 				<state img="stage4calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="female_start_forfeit"> <!-- a female player has starting forfeiting -->
+			<case tag="female_start_masturbating"> <!-- a female player has starting masturbating -->
 				<state img="stage4calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="female_forfeiting"> <!-- a female player is forfeiting -->
+			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="stage4calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="female_heavy_forfeiting"> <!-- a female player has gotten really into forfeiting -->
+			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
 				<state img="stage4calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="female_finished"> <!-- a female player has "finished" forfeiting -->
+			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
 				<state img="stage4calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -1127,7 +1127,7 @@
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage5calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -1168,28 +1168,28 @@
 				</state>
 			</case>
 			
-			<!-- male player forfeiting cases -->
-			<case tag="male_must_forfeit"> <!-- a male player has to forfeit -->
+			<!-- male player masturbating cases -->
+			<case tag="male_must_masturbate"> <!-- a male player has to forfeit -->
 				<state img="stage5calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="male_start_forfeit"> <!-- a male player has starting forfeiting -->
+			<case tag="male_start_masturbating"> <!-- a male player has starting masturbating -->
 				<state img="stage5calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="male_forfeiting"> <!-- a male player is forfeiting -->
+			<case tag="male_masturbating"> <!-- a male player is masturbating -->
 				<state img="stage5calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_forfeiting"> <!-- a male player has gotten really into forfeiting -->
+			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
 				<state img="stage5calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="male_finished"> <!-- a male player has "finished" forfeiting -->
+			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="stage5calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -1213,7 +1213,7 @@
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage5calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -1254,28 +1254,28 @@
 				</state>
 			</case>
 			
-			<!-- female player forfeiting cases -->
-			<case tag="female_must_forfeit"> <!-- a female player has to forfeit -->
+			<!-- female player masturbating cases -->
+			<case tag="female_must_masturbate"> <!-- a female player has to forfeit -->
 				<state img="stage5calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="female_start_forfeit"> <!-- a female player has starting forfeiting -->
+			<case tag="female_start_masturbating"> <!-- a female player has starting masturbating -->
 				<state img="stage5calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="female_forfeiting"> <!-- a female player is forfeiting -->
+			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="stage5calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="female_heavy_forfeiting"> <!-- a female player has gotten really into forfeiting -->
+			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
 				<state img="stage5calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="female_finished"> <!-- a female player has "finished" forfeiting -->
+			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
 				<state img="stage5calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -1334,7 +1334,7 @@
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage6calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -1375,28 +1375,28 @@
 				</state>
 			</case>
 			
-			<!-- male player forfeiting cases -->
-			<case tag="male_must_forfeit"> <!-- a male player has to forfeit -->
+			<!-- male player masturbating cases -->
+			<case tag="male_must_masturbate"> <!-- a male player has to forfeit -->
 				<state img="stage6calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="male_start_forfeit"> <!-- a male player has starting forfeiting -->
+			<case tag="male_start_masturbating"> <!-- a male player has starting masturbating -->
 				<state img="stage6calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="male_forfeiting"> <!-- a male player is forfeiting -->
+			<case tag="male_masturbating"> <!-- a male player is masturbating -->
 				<state img="stage6calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_forfeiting"> <!-- a male player has gotten really into forfeiting -->
+			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
 				<state img="stage6calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="male_finished"> <!-- a male player has "finished" forfeiting -->
+			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="stage6calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -1420,7 +1420,7 @@
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage6calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -1461,28 +1461,28 @@
 				</state>
 			</case>
 			
-			<!-- female player forfeiting cases -->
-			<case tag="female_must_forfeit"> <!-- a female player has to forfeit -->
+			<!-- female player masturbating cases -->
+			<case tag="female_must_masturbate"> <!-- a female player has to forfeit -->
 				<state img="stage6calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="female_start_forfeit"> <!-- a female player has starting forfeiting -->
+			<case tag="female_start_masturbating"> <!-- a female player has starting masturbating -->
 				<state img="stage6calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="female_forfeiting"> <!-- a female player is forfeiting -->
+			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="stage6calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="female_heavy_forfeiting"> <!-- a female player has gotten really into forfeiting -->
+			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
 				<state img="stage6calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="female_finished"> <!-- a female player has "finished" forfeiting -->
+			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
 				<state img="stage6calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -1541,7 +1541,7 @@
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage7calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -1582,28 +1582,28 @@
 				</state>
 			</case>
 			
-			<!-- male player forfeiting cases -->
-			<case tag="male_must_forfeit"> <!-- a male player has to forfeit -->
+			<!-- male player masturbating cases -->
+			<case tag="male_must_masturbate"> <!-- a male player has to forfeit -->
 				<state img="stage7calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="male_start_forfeit"> <!-- a male player has starting forfeiting -->
+			<case tag="male_start_masturbating"> <!-- a male player has starting masturbating -->
 				<state img="stage7calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="male_forfeiting"> <!-- a male player is forfeiting -->
+			<case tag="male_masturbating"> <!-- a male player is masturbating -->
 				<state img="stage7calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_forfeiting"> <!-- a male player has gotten really into forfeiting -->
+			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
 				<state img="stage7calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="male_finished"> <!-- a male player has "finished" forfeiting -->
+			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="stage7calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -1627,7 +1627,7 @@
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage7calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -1668,28 +1668,28 @@
 				</state>
 			</case>
 			
-			<!-- female player forfeiting cases -->
-			<case tag="female_must_forfeit"> <!-- a female player has to forfeit -->
+			<!-- female player masturbating cases -->
+			<case tag="female_must_masturbate"> <!-- a female player has to forfeit -->
 				<state img="stage7calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="female_start_forfeit"> <!-- a female player has starting forfeiting -->
+			<case tag="female_start_masturbating"> <!-- a female player has starting masturbating -->
 				<state img="stage7calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="female_forfeiting"> <!-- a female player is forfeiting -->
+			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="stage7calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="female_heavy_forfeiting"> <!-- a female player has gotten really into forfeiting -->
+			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
 				<state img="stage7calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="female_finished"> <!-- a female player has "finished" forfeiting -->
+			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
 				<state img="stage7calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -1724,7 +1724,7 @@
 					I miss my ~clothing~ already...
 				</state>
 			</case>
-			<case tag="must_forfeit"> <!-- this player lost the hand -->
+			<case tag="must_masturbate"> <!-- this player lost the hand -->
 				<state img="stage8calm.jpg">
 					I have nothing left to take off...
 				</state>
@@ -1751,7 +1751,7 @@
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage8calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -1792,28 +1792,28 @@
 				</state>
 			</case>
 			
-			<!-- male player forfeiting cases -->
-			<case tag="male_must_forfeit"> <!-- a male player has to forfeit -->
+			<!-- male player masturbating cases -->
+			<case tag="male_must_masturbate"> <!-- a male player has to forfeit -->
 				<state img="stage8calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="male_start_forfeit"> <!-- a male player has starting forfeiting -->
+			<case tag="male_start_masturbating"> <!-- a male player has starting masturbating -->
 				<state img="stage8calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="male_forfeiting"> <!-- a male player is forfeiting -->
+			<case tag="male_masturbating"> <!-- a male player is masturbating -->
 				<state img="stage8calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_forfeiting"> <!-- a male player has gotten really into forfeiting -->
+			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
 				<state img="stage8calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="male_finished"> <!-- a male player has "finished" forfeiting -->
+			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="stage8calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -1837,7 +1837,7 @@
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage8calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -1878,28 +1878,28 @@
 				</state>
 			</case>
 			
-			<!-- female player forfeiting cases -->
-			<case tag="female_must_forfeit"> <!-- a female player has to forfeit -->
+			<!-- female player masturbating cases -->
+			<case tag="female_must_masturbate"> <!-- a female player has to forfeit -->
 				<state img="stage8calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="female_start_forfeit"> <!-- a female player has starting forfeiting -->
+			<case tag="female_start_masturbating"> <!-- a female player has starting masturbating -->
 				<state img="stage8calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="female_forfeiting"> <!-- a female player is forfeiting -->
+			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="stage8calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="female_heavy_forfeiting"> <!-- a female player has gotten really into forfeiting -->
+			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
 				<state img="stage8calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="female_finished"> <!-- a female player has "finished" forfeiting -->
+			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
 				<state img="stage8calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
@@ -1907,189 +1907,199 @@
 			
 		</stage>
 		
-		<!-- ninth stage, light forfeiting, can still comment on the game -->
+		<!-- ninth stage, masturbating, can still comment on the game for a while -->
 		<stage id="9">	 
 			
 			<!-- personal event cases -->
-			<case tag="start_forfeiting"> <!-- this player has started doing something other than poker -->
-				<state img="stage9calm.jpg">
+			<case tag="start_masturbating"> <!-- this player has started doing something other than poker -->
+				<state img="masturbation_start.jpg">
 					I can't believe I'm doing this...
 				</state>
 			</case>
-			<case tag="forfeiting"> <!-- this player is doing something other than poker -->
-				<state img="stage9calm.jpg">
+			<case tag="masturbating"> <!-- this player is doing something other than poker -->
+				<state img="masturbation_calm.jpg">
 					How long do I have to keep going for?
+				</state>
+			</case>
+			<case tag="heavy_masturbating"> <!-- this player is really into what their doing -->
+				<state img="masturbation_heavy.jpg">
+					Mmmmmmmm....
+				</state>
+			</case>
+			<case tag="finishing_masturbating"> <!-- this player is about finished -->
+				<state img="masturbation_finishing.jpg">
+					I'm cumming!
 				</state>
 			</case>
 			
 			<!-- male player pre stripping cases -->
 			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					What are you going to take off, ~name~?
 				</state>
 			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
 				</state>
 			</case>
 			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
-				<state img="stage9calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+				<state img="masturbation_calm.jpg">
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					I guess it's time to see that chest of yours, ~name~!
 				</state>
 			</case>
 			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
 			<!-- male player stripping cases -->
 			<case tag="male_removed_accessory"> <!-- a male player has removed an accessory (hat, gloves, belt) -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					At least you have less small stuff to take off now.
 				</state>
 			</case>
 			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
 			<case tag="male_chest_is_visible"> <!-- a male player's chest has become visible -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					Nice chest, ~name~.
 				</state>
 			</case>
 			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					Well then... that was more than I was expecting ~name~...
 				</state>
 			</case>
 			
-			<!-- male player forfeiting cases -->
-			<case tag="male_must_forfeit"> <!-- a male player has to forfeit -->
-				<state img="stage9calm.jpg">
+			<!-- male player masturbating cases -->
+			<case tag="male_must_masturbate"> <!-- a male player has to masturbate -->
+				<state img="masturbation_calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="male_start_forfeit"> <!-- a male player has starting forfeiting -->
-				<state img="stage9calm.jpg">
+			<case tag="male_start_masturbating"> <!-- a male player has started masturbating -->
+				<state img="masturbation_calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="male_forfeiting"> <!-- a male player is forfeiting -->
-				<state img="stage9calm.jpg">
+			<case tag="male_masturbating"> <!-- a male player is masturbating -->
+				<state img="masturbation_calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_forfeiting"> <!-- a male player has gotten really into forfeiting -->
-				<state img="stage9calm.jpg">
+			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
+				<state img="masturbation_calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="male_finished"> <!-- a male player has "finished" forfeiting -->
-				<state img="stage9calm.jpg">
+			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
+				<state img="masturbation_calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
 			</case>
 			
 			<!-- female player pre stripping cases -->
 			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					What are you going to take off, ~name~?
 				</state>
 			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
 				</state>
 			</case>
 			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
-				<state img="stage9calm.jpg">
-					Finally getting ~name~ out of that ~clothing~!
+				<state img="masturbation_calm.jpg">
+					Finally getting ~name~ out of their ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					I guess it's time to see those tits of yours, ~name~!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
 			<!-- female player stripping cases -->
 			<case tag="female_removed_accessory"> <!-- a female player has removed an accessory (hat, gloves, belt) -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					At least you have less small stuff to take off now.
 				</state>
 			</case>
 			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
 			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					Nice tits, ~name~.
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
-				<state img="stage9calm.jpg">
+				<state img="masturbation_calm.jpg">
 					It's so pretty, ~name~...
 				</state>
 			</case>
 			
-			<!-- female player forfeiting cases -->
-			<case tag="female_must_forfeit"> <!-- a female player has to forfeit -->
-				<state img="stage9calm.jpg">
+			<!-- female player masturbating cases -->
+			<case tag="female_must_masturbate"> <!-- a female player has to masturbate -->
+				<state img="masturbation_calm.jpg">
 					Time to show your skills, ~name~...
 				</state>
 			</case>
-			<case tag="female_start_forfeit"> <!-- a female player has starting forfeiting -->
-				<state img="stage9calm.jpg">
+			<case tag="female_start_masturbating"> <!-- a female player has started masturbating -->
+				<state img="masturbation_calm.jpg">
 					You're going to have to go until you're done, ~name~...
 				</state>
 			</case>
-			<case tag="female_forfeiting"> <!-- a female player is forfeiting -->
-				<state img="stage9calm.jpg">
+			<case tag="female_masturbating"> <!-- a female player is masturbating -->
+				<state img="masturbation_calm.jpg">
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="female_heavy_forfeiting"> <!-- a female player has gotten really into forfeiting -->
-				<state img="stage9calm.jpg">
+			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
+				<state img="masturbation_calm.jpg">
 					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
-			<case tag="female_finished"> <!-- a female player has "finished" forfeiting -->
-				<state img="stage9calm.jpg">
+			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
+				<state img="masturbation_calm.jpg">
 					So soon, ~name~? Just kidding...
 				</state>
 			</case>
@@ -2097,22 +2107,184 @@
 		</stage>
 		
 		
-		<!-- tenth stage, heavy forfeiting and finish -->
+		<!-- tenth stage, after cumming, allowed to comment on the game again -->
 		<stage id="10">	 
 		
-			<case tag="heavy_forfeiting"> <!-- this player is really into what their doing -->
-				<state img="stage9calm.jpg">
-					Mmmmmmmm....
+			<case tag="finished_masturbating"> <!-- this player is finished -->
+				<state img="masturbation_finish.jpg">
+					I'm done...
 				</state>
 			</case>
-			<case tag="finishing"> <!-- this player is about finished -->
-				<state img="stage9calm.jpg">
-					I'm cumming!
+			
+			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="masturbation_finish.jpg">
+					What are you going to take off, ~name~?
 				</state>
 			</case>
-			<case tag="finished"> <!-- this player is finished -->
-				<state img="stage9calm.jpg">
-					I guess I can stop now...
+			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
+				<state img="masturbation_finish.jpg">
+					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
+				</state>
+			</case>
+			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
+				<state img="masturbation_finish.jpg">
+					I guess you're ~clothing~ is something, at least.
+				</state>
+			</case>
+			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
+				<state img="masturbation_finish.jpg">
+					Finally getting ~name~ out of their ~clothing~!
+				</state>
+			</case>
+			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
+				<state img="masturbation_finish.jpg">
+					I guess it's time to see that chest of yours, ~name~!
+				</state>
+			</case>
+			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
+				<state img="masturbation_finish.jpg">
+					I guess you have to show 'that' to me now, ~name~...
+				</state>
+			</case>
+			
+			<!-- male player stripping cases -->
+			<case tag="male_removed_accessory"> <!-- a male player has removed an accessory (hat, gloves, belt) -->
+				<state img="masturbation_finish.jpg">
+					At least you have less small stuff to take off now.
+				</state>
+			</case>
+			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
+				<state img="masturbation_finish.jpg">
+					Maybe we can get you out of some large stuff now, ~name~.
+				</state>
+			</case>
+			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
+				<state img="masturbation_finish.jpg">
+					You look better without your ~clothing~, ~name~.
+				</state>
+			</case>
+			<case tag="male_chest_is_visible"> <!-- a male player's chest has become visible -->
+				<state img="masturbation_finish.jpg">
+					Nice chest, ~name~.
+				</state>
+			</case>
+			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="masturbation_finish.jpg">
+					Well then... that was more than I was expecting ~name~...
+				</state>
+			</case>
+			
+			<!-- male player masturbating cases -->
+			<case tag="male_must_masturbate"> <!-- a male player has to masturbate -->
+				<state img="masturbation_finish.jpg">
+					Time to show your skills, ~name~...
+				</state>
+			</case>
+			<case tag="male_start_masturbating"> <!-- a male player has started masturbating -->
+				<state img="masturbation_finish.jpg">
+					You're going to have to go until you're done, ~name~...
+				</state>
+			</case>
+			<case tag="male_masturbating"> <!-- a male player is masturbating -->
+				<state img="masturbation_finish.jpg">
+					Keep going, ~name~...
+				</state>
+			</case>
+			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
+				<state img="masturbation_finish.jpg">
+					You're really getting into it, aren't you ~name~?
+				</state>
+			</case>
+			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
+				<state img="masturbation_finish.jpg">
+					So soon, ~name~? Just kidding...
+				</state>
+			</case>
+			
+			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="masturbation_finish.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
+			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
+				<state img="masturbation_finish.jpg">
+					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
+				</state>
+			</case>
+			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
+				<state img="masturbation_finish.jpg">
+					I guess you're ~clothing~ is something, at least.
+				</state>
+			</case>
+			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
+				<state img="masturbation_finish.jpg">
+					Finally getting ~name~ out of their ~clothing~!
+				</state>
+			</case>
+			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
+				<state img="masturbation_finish.jpg">
+					I guess it's time to see those tits of yours, ~name~!
+				</state>
+			</case>
+			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
+				<state img="masturbation_finish.jpg">
+					I guess you have to show 'that' to me now, ~name~...
+				</state>
+			</case>
+			
+			<!-- female player stripping cases -->
+			<case tag="female_removed_accessory"> <!-- a female player has removed an accessory (hat, gloves, belt) -->
+				<state img="masturbation_finish.jpg">
+					At least you have less small stuff to take off now.
+				</state>
+			</case>
+			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
+				<state img="masturbation_finish.jpg">
+					Maybe we can get you out of some large stuff now, ~name~.
+				</state>
+			</case>
+			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
+				<state img="masturbation_finish.jpg">
+					You look better without your ~clothing~, ~name~.
+				</state>
+			</case>
+			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="masturbation_finish.jpg">
+					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
+				<state img="masturbation_finish.jpg">
+					It's so pretty, ~name~...
+				</state>
+			</case>
+			
+			<!-- female player masturbating cases -->
+			<case tag="female_must_masturbate"> <!-- a female player has to masturbate -->
+				<state img="masturbation_finish.jpg">
+					Time to show your skills, ~name~...
+				</state>
+			</case>
+			<case tag="female_start_masturbating"> <!-- a female player has started masturbating -->
+				<state img="masturbation_finish.jpg">
+					You're going to have to go until you're done, ~name~...
+				</state>
+			</case>
+			<case tag="female_masturbating"> <!-- a female player is masturbating -->
+				<state img="masturbation_finish.jpg">
+					Keep going, ~name~...
+				</state>
+			</case>
+			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
+				<state img="masturbation_finish.jpg">
+					You're really getting into it, aren't you ~name~?
+				</state>
+			</case>
+			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
+				<state img="masturbation_finish.jpg">
+					So soon, ~name~? Just kidding...
 				</state>
 			</case>
 			
