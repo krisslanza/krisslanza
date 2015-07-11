@@ -127,7 +127,10 @@ function updateGameVisual (player) {
         if (players[player].state[players[player].current].direction) {
             $gameBubbles[player-1].removeClass();
             $gameBubbles[player-1].addClass("bordered dialogue-bubble dialogue-"+players[player].state[players[player].current].direction);
-        }
+        } else {
+			$gameBubbles[player-1].removeClass();
+            $gameBubbles[player-1].addClass("bordered dialogue-bubble dialogue-centre");
+		}
         
         /* update image */
         $gameImages[player-1].attr('src', players[player].folder + players[player].state[players[player].current].image);
@@ -472,6 +475,9 @@ function advanceGameDialogue (slot) {
     if (players[slot].state[players[slot].current].direction) {
         $gameBubbles[slot-1].removeClass();
 		$gameBubbles[slot-1].addClass("bordered dialogue-bubble dialogue-"+players[slot].state[players[slot].current].direction);
+	} else {
+		$gameBubbles[player-1].removeClass();
+		$gameBubbles[player-1].addClass("bordered dialogue-bubble dialogue-centre");
 	}
     
     /* update image */

@@ -5,8 +5,12 @@
  -->
 <opponent>
 	<!-- Basic Information -->
-	<name>Default</name>	 <!-- what's their name? -->
+	<first>Default</first>   <!-- what's their name? -->
+    <last>Default</last>     <!-- what's their last name? you can leave this blank -->
+	<label>Default</label>   <!-- what would you like their name plate to say? -->
 	<gender>none</gender>    <!-- what's their gender? -->
+    <timer>12</timer>        <!-- how long do they... uh... take to 'finish'? -->
+	<!-- this value will randomly be increased or decreased by up to 50% -->
 	
 	<!-- Game Start Information -->
 	<start>
@@ -66,6 +70,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage0happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage0happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -147,6 +156,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage0happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage0happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -263,6 +277,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage1happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage1happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -344,6 +363,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage1happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage1happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -460,6 +484,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage2happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage2happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -541,6 +570,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage2happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage2happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -657,6 +691,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage3calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage3calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -738,6 +777,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage3calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage3calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -854,6 +898,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage4calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage4calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -935,6 +984,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage4calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage4calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1051,6 +1105,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage5calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage5calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1132,6 +1191,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage5calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage5calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1248,6 +1312,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage6calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage6calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1329,6 +1398,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage6calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage6calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1445,6 +1519,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage7calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage7calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1526,6 +1605,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage7calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage7calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1645,6 +1729,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage8calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage8calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1726,6 +1815,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage8calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage8calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1824,6 +1918,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage9calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage9calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1905,6 +2004,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage9calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage9calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.

@@ -77,6 +77,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage0happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage0happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -84,12 +89,12 @@
 			</case>
 			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage0happy.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage0happy.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -99,7 +104,7 @@
 			</case>
 			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
 				<state img="stage0happy.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -111,7 +116,7 @@
 			</case>
 			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage0happy.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
@@ -158,6 +163,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage0happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage0happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -165,12 +175,12 @@
 			</case>
 			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage0happy.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage0happy.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -180,7 +190,7 @@
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
 				<state img="stage0happy.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -192,7 +202,7 @@
 			</case>
 			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage0happy.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
@@ -251,7 +261,7 @@
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
-				<state img="stage1happy.jpg">
+				<state img="stage1calm.jpg">
 					I've got an okay hand.
 				</state>
 			</case>
@@ -263,17 +273,22 @@
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
-				<state img="stage1happy.jpg">
+				<state img="stage1calm.jpg">
 					I miss my ~clothing~ already...
 				</state>
 			</case>
 			<case tag="must_strip"> <!-- this player lost the hand -->
-				<state img="stage1happy.jpg">
+				<state img="stage1calm.jpg">
 					I guess I'll just take off my ~clothing~...
 				</state>
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage1happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage1happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -281,12 +296,12 @@
 			</case>
 			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage1happy.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage1happy.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -296,7 +311,7 @@
 			</case>
 			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
 				<state img="stage1happy.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -308,7 +323,7 @@
 			</case>
 			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage1happy.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
@@ -355,6 +370,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage1happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage1happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -362,12 +382,12 @@
 			</case>
 			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage1happy.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage1happy.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -377,7 +397,7 @@
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
 				<state img="stage1happy.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -389,7 +409,7 @@
 			</case>
 			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage1happy.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
@@ -448,7 +468,7 @@
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
-				<state img="stage2happy.jpg">
+				<state img="stage2calm.jpg">
 					I've got an okay hand.
 				</state>
 			</case>
@@ -460,17 +480,22 @@
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
-				<state img="stage2happy.jpg">
+				<state img="stage2calm.jpg">
 					I miss my ~clothing~ already...
 				</state>
 			</case>
 			<case tag="must_strip"> <!-- this player lost the hand -->
-				<state img="stage2happy.jpg">
+				<state img="stage2calm.jpg">
 					I guess I'll just take off my ~clothing~...
 				</state>
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage2happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage2happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -478,12 +503,12 @@
 			</case>
 			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage2happy.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage2happy.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -493,7 +518,7 @@
 			</case>
 			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
 				<state img="stage2happy.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -505,7 +530,7 @@
 			</case>
 			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage2happy.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
@@ -552,6 +577,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage2happy.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage2happy.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -559,12 +589,12 @@
 			</case>
 			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage2happy.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage2happy.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -574,7 +604,7 @@
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
 				<state img="stage2happy.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -586,7 +616,7 @@
 			</case>
 			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage2happy.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
@@ -668,6 +698,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage3calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage3calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -675,12 +710,12 @@
 			</case>
 			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage3calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage3calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -690,7 +725,7 @@
 			</case>
 			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
 				<state img="stage3calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -702,7 +737,7 @@
 			</case>
 			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage3calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
@@ -749,6 +784,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage3calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage3calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -756,12 +796,12 @@
 			</case>
 			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage3calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage3calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -771,7 +811,7 @@
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
 				<state img="stage3calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -783,7 +823,7 @@
 			</case>
 			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage3calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
@@ -865,6 +905,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage4calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage4calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -872,12 +917,12 @@
 			</case>
 			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage4calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage4calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -887,7 +932,7 @@
 			</case>
 			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
 				<state img="stage4calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -899,7 +944,7 @@
 			</case>
 			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage4calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
@@ -946,6 +991,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage4calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage4calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -953,12 +1003,12 @@
 			</case>
 			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage4calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage4calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -968,7 +1018,7 @@
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
 				<state img="stage4calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -980,7 +1030,7 @@
 			</case>
 			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage4calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
@@ -1062,6 +1112,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage5calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage5calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1069,12 +1124,12 @@
 			</case>
 			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage5calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage5calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -1084,7 +1139,7 @@
 			</case>
 			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
 				<state img="stage5calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -1096,7 +1151,7 @@
 			</case>
 			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage5calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
@@ -1143,6 +1198,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage5calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage5calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1150,12 +1210,12 @@
 			</case>
 			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage5calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage5calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -1165,7 +1225,7 @@
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
 				<state img="stage5calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -1177,7 +1237,7 @@
 			</case>
 			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage5calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
@@ -1259,6 +1319,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage6calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage6calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1266,12 +1331,12 @@
 			</case>
 			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage6calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage6calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -1281,7 +1346,7 @@
 			</case>
 			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
 				<state img="stage6calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -1293,7 +1358,7 @@
 			</case>
 			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage6calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
@@ -1340,6 +1405,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage6calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage6calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1347,12 +1417,12 @@
 			</case>
 			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage6calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage6calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -1362,7 +1432,7 @@
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
 				<state img="stage6calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -1374,7 +1444,7 @@
 			</case>
 			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage6calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
@@ -1456,6 +1526,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage7calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage7calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1463,12 +1538,12 @@
 			</case>
 			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage7calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage7calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -1478,7 +1553,7 @@
 			</case>
 			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
 				<state img="stage7calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -1490,7 +1565,7 @@
 			</case>
 			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage7calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
@@ -1537,6 +1612,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage7calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage7calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1544,12 +1624,12 @@
 			</case>
 			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage7calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage7calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -1559,7 +1639,7 @@
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
 				<state img="stage7calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -1571,7 +1651,7 @@
 			</case>
 			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage7calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
@@ -1656,6 +1736,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage8calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage8calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1663,12 +1748,12 @@
 			</case>
 			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage8calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage8calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -1678,7 +1763,7 @@
 			</case>
 			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
 				<state img="stage8calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -1690,7 +1775,7 @@
 			</case>
 			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage8calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
@@ -1737,6 +1822,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage8calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage8calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1744,12 +1834,12 @@
 			</case>
 			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage8calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage8calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -1759,7 +1849,7 @@
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
 				<state img="stage8calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -1771,7 +1861,7 @@
 			</case>
 			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage8calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
@@ -1823,7 +1913,7 @@
 		<stage id="9">	 
 			
 			<!-- personal event cases -->
-			<case tag="start_forfeit"> <!-- this player has started doing something other than poker -->
+			<case tag="start_forfeiting"> <!-- this player has started doing something other than poker -->
 				<state img="stage9calm.jpg">
 					I can't believe I'm doing this...
 				</state>
@@ -1835,6 +1925,11 @@
 			</case>
 			
 			<!-- male player pre stripping cases -->
+			<case tag="male_human_will_strip"> <!-- a male human player is about to strip, but you don't know what they will remove -->
+				<state img="stage9calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="male_will_remove_accessory"> <!-- a male player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage9calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1842,12 +1937,12 @@
 			</case>
 			<case tag="male_will_remove_minor"> <!-- a male player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage9calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="male_will_remove_major"> <!-- a male player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage9calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="male_chest_will_be_visible"> <!-- a male player's chest will become visible -->
@@ -1857,7 +1952,7 @@
 			</case>
 			<case tag="male_crotch_will_be_visible"> <!-- a male player's crotch will become visible -->
 				<state img="stage9calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -1869,7 +1964,7 @@
 			</case>
 			<case tag="male_removed_minor"> <!-- a male player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage9calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="male_removed_major"> <!-- a male player has removed a major article of clothing (shirt, pants) -->
@@ -1916,6 +2011,11 @@
 			</case>
 			
 			<!-- female player pre stripping cases -->
+			<case tag="female_human_will_strip"> <!-- a female human player is about to strip, but you don't know what they will remove -->
+				<state img="stage9calm.jpg">
+					What are you going to take off, ~name~?
+				</state>
+			</case>
 			<case tag="female_will_remove_accessory"> <!-- a female player has to remove an accessory (hat, gloves, belt) -->
 				<state img="stage9calm.jpg">
 					You're only taking off your ~clothing~, ~name~? That doesn't seem fair.
@@ -1923,12 +2023,12 @@
 			</case>
 			<case tag="female_will_remove_minor"> <!-- a female player has to remove a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage9calm.jpg">
-					I guess your ~clothing~ is something, at least.
+					I guess you're ~clothing~ is something, at least.
 				</state>
 			</case>
 			<case tag="female_will_remove_major"> <!-- a female player has to remove a major article of clothing (shirt, pants) -->
 				<state img="stage9calm.jpg">
-					Finally getting ~name~ out of their ~clothing~!
+					Finally getting ~name~ out of that ~clothing~!
 				</state>
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
@@ -1938,7 +2038,7 @@
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
 				<state img="stage9calm.jpg">
-					I guess you have to show 'that' to us now, ~name~...
+					I guess you have to show 'that' to me now, ~name~...
 				</state>
 			</case>
 			
@@ -1950,7 +2050,7 @@
 			</case>
 			<case tag="female_removed_minor"> <!-- a female player has removed a minor article of clothing (belt, shoes, socks, jacket) -->
 				<state img="stage9calm.jpg">
-					Maybe we can get you out of some larger stuff now, ~name~.
+					Maybe we can get you out of some large stuff now, ~name~.
 				</state>
 			</case>
 			<case tag="female_removed_major"> <!-- a female player has removed a major article of clothing (shirt, pants) -->
@@ -2019,7 +2119,6 @@
 			</case>
 			
 		</stage>
-		
 		
 	</behaviour>
 </opponent>

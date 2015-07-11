@@ -244,6 +244,9 @@ function advanceSelectDialogue (slot) {
     if (players[slot].state[players[slot].current].direction) {
         $selectBubbles[slot-1].removeClass();
 		$selectBubbles[slot-1].addClass("bordered dialogue-bubble dialogue-"+players[slot].state[players[slot].current].direction);
+	} else {
+		$selectBubbles[slot-1].removeClass();
+		$selectBubbles[slot-1].addClass("bordered dialogue-bubble dialogue-centre");
 	}
     
     /* update image */
@@ -397,6 +400,9 @@ function advanceIndividualDialogue () {
     if (storedPlayer.state[storedPlayer.current].direction) {
         $individualBubble.removeClass();
 		$individualBubble.addClass("bordered dialogue-bubble individual-bubble dialogue-"+storedPlayer.state[storedPlayer.current].direction);
+	}  else {
+		$individualBubble.removeClass();
+		$individualBubble.addClass("bordered dialogue-bubble dialogue-centre");
 	}
     
     /* update image */
@@ -480,6 +486,9 @@ function updateSelectionVisuals () {
             if (players[i].state[players[i].current].direction) {
                 $selectBubbles[i-1].removeClass();
                 $selectBubbles[i-1].addClass("bordered dialogue-bubble dialogue-"+players[i].state[players[i].current].direction);
+            } else {
+                $selectBubbles[i-1].removeClass();
+                $selectBubbles[i-1].addClass("bordered dialogue-bubble dialogue-centre");
             }
             
             /* update image */
@@ -543,6 +552,9 @@ function updateIndividualScreen (playerObject) {
     if (playerObject.state[playerObject.current].direction) {
         $individualBubble.removeClass();
 		$individualBubble.addClass("bordered dialogue-bubble individual-bubble dialogue-"+playerObject.state[playerObject.current].direction);
+	} else {
+        $individualBubble.removeClass();
+		$individualBubble.addClass("bordered dialogue-bubble individual-bubble dialogue-centre");
 	}
     
     /* update image */
