@@ -78,6 +78,7 @@ function loadClothing () {
 				} else {
                     loadedClothing += "Other";
                 }
+				console.log(position);
 				
                 /* close the clothing label */
 				loadedClothing += 
