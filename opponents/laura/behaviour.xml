@@ -5,9 +5,11 @@
  -->
 <opponent>
 	<!-- Basic Information -->
-	<name>Laura</name> 				 <!-- what's their name? -->
+	<first>Laura</first> 			 <!-- what's their first name? -->
+    <last>Croft</last>               <!-- what's their last name? you can leave this blank -->
 	<label>Laura (&amp; Sam)</label> <!-- what would you like their name plate to say? -->
 	<gender>female</gender> 		 <!-- what's their gender? -->
+    <timer>14</timer>                <!-- how long do they... uh... take to 'finish'? -->
 	
 	<!-- Game Start Information -->
 	<start>

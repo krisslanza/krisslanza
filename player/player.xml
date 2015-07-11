@@ -12,7 +12,7 @@
 	<wardrobe tag="male">
 		
 		<!-- Upper Body Clothing -->
-		<category label="Upper Body" warning="(Minimum: 1)">
+		<category label="upper">
 			<clothing type="major" img="player/male/shirt.jpg" default="yes">
 				<proper>Shirt</proper>
 				<lower>shirt</lower>
@@ -24,7 +24,7 @@
 		</category>
 		
 		<!-- Lower Body Clothing -->
-		<category label="Lower Body" warning="(Minimum: 1)">
+		<category label="lower">
 			<clothing type="major" img="player/male/pants.jpg" default="yes">
 				<proper>Pants</proper>
 				<lower>pants</lower>
@@ -36,18 +36,18 @@
 		</category>
 		
 		<!-- Other Clothing -->
-		<category label="Other">
-			<clothing type="minor" img="player/male/belt.jpg" default="yes">
-				<proper>Belt</proper>
-				<lower>belt</lower>
+		<category label="other">
+			<clothing type="minor" img="player/male/shoes.jpg" default="yes">
+				<proper>Shoes</proper>
+				<lower>shoes</lower>
 			</clothing>
 			<clothing type="extra" img="player/male/socks.jpg" default="yes">
 				<proper>Socks</proper>
 				<lower>socks</lower>
 			</clothing>
-			<clothing type="minor" img="player/male/shoes.jpg" default="yes">
-				<proper>Shoes</proper>
-				<lower>shoes</lower>
+			<clothing type="minor" img="player/male/belt.jpg" default="yes">
+				<proper>Belt</proper>
+				<lower>belt</lower>
 			</clothing>
 		</category>
 	</wardrobe>
@@ -58,7 +58,7 @@
 	<wardrobe tag="female">
 		
 		<!-- Upper Body Clothing -->
-		<category label="Upper Body" warning="(Minimum: 1)">
+		<category label="upper">
 			<clothing type="major" img="player/female/tanktop.jpg" default="yes">
 				<proper>Tank Top</proper>
 				<lower>tank top</lower>
@@ -70,7 +70,7 @@
 		</category>
 
 		<!-- Lower Body Clothing -->
-		<category label="Lower Body" warning="(Minimum: 1)">
+		<category label="lower">
 			<clothing type="major" img="player/female/pants.jpg" default="yes">
 				<proper>Pants</proper>
 				<lower>pants</lower>
@@ -82,11 +82,7 @@
 		</category>
 		
 		<!-- Accessories -->
-		<category label="Other">
-			<clothing type="extra" img="player/female/belt.jpg" default="yes">
-				<proper>Belt</proper>
-				<lower>belt</lower>
-			</clothing>
+		<category label="other">
 			<clothing type="minor" img="player/female/boots.jpg" default="yes">
 				<proper>Boots</proper>
 				<lower>boots</lower>
@@ -94,6 +90,10 @@
 			<clothing type="minor" img="player/female/socks.jpg" default="yes">
 				<proper>Socks</proper>
 				<lower>socks</lower>
+			</clothing>
+			<clothing type="extra" img="player/female/belt.jpg" default="yes">
+				<proper>Belt</proper>
+				<lower>belt</lower>
 			</clothing>
 		</category>
 		

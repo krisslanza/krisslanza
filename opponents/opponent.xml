@@ -7,21 +7,16 @@
 <catalog>
 
 	<!-- Individual Listings -->
-	<singles>
-		<opponent folder="elizabeth/" headshot="headshot.jpg" picture="start.jpg" gender="female">Elizabeth</opponent>
-		<opponent folder="lilith/" headshot="headshot.jpg" picture="start.jpg" gender="female">Lilith</opponent>
-		<opponent folder="zoey/" headshot="headshot.jpg" picture="start.jpg" gender="female">Zoey</opponent>
-		<opponent folder="laura/" headshot="headshot.jpg" picture="start.jpg" gender="female">Laura (&amp; Sam)</opponent>
-	</singles>
+	<individuals>
+		<opponent folder="opponents/elizabeth/" name="Elizabeth" from="Bioshock Infinite" gender="female" artist="josephkantel" writer="none" />
+		<opponent folder="opponents/lilith/" name="Lilith" from="Borderlands" gender="female" artist="josephkantel" writer="none" />
+		<opponent folder="opponents/zoey/" name="Zoey" from="Left 4 Dead" gender="female" artist="josephkantel" writer="none" />
+		<opponent folder="opponents/laura/" name="Laura (&amp; Sam)" from="Tomb Raider" gender="female" artist="josephkantel" writer="none" />
+	</individuals>
 		
 	<!-- Group Listings -->
 	<groups>
-		<group>
-			<opponent folder="elizabeth/" headshot="headshot.jpg" picture="start.jpg" gender="female">Elizabeth</opponent>
-			<opponent folder="lilith/" headshot="headshot.jpg" picture="start.jpg" gender="female">Lilith</opponent>
-			<opponent folder="zoey/" headshot="headshot.jpg" picture="start.jpg" gender="female">Zoey</opponent>
-			<opponent folder="laura/" headshot="headshot.jpg" picture="start.jpg" gender="female">Laura (&amp; Sam)</opponent>
-		</group>
+		<group title="The Shooter Table" img="groups/shooter_table.jpg" opp1="opponents/elizabeth/" opp2="opponents/lilith/" opp3="opponents/zoey/" opp4="opponents/laura/" />
 	</groups>
 
 </catalog>
