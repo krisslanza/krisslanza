@@ -172,9 +172,9 @@ function prepareToStripPlayer (player) {
 		/* the player has clothes left and will strip */
         if (player == HUMAN_PLAYER) {
             if (players[HUMAN_PLAYER].gender == MALE) {
-                updateAllBehaviours(player, MALE_HUMAN_WILL_STRIP, NAME, [players[player].first]);
+                updateAllBehaviours(player, MALE_HUMAN_WILL_STRIP, [NAME], [players[player].first]);
             } else {
-                updateAllBehaviours(player, FEMALE_HUMAN_WILL_STRIP, NAME, [players[player].first]);
+                updateAllBehaviours(player, FEMALE_HUMAN_WILL_STRIP, [NAME], [players[player].first]);
             }
         } else {
             var toBeRemovedClothing = players[player].clothing[startingClothes - 1];
