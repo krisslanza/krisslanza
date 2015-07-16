@@ -36,6 +36,7 @@ var OKAY_HAND = "okay_hand";
 var GOOD_HAND = "good_hand";
  
 var PLAYER_MUST_STRIP = "must_strip";
+var PLAYER_STRIPPING = "stripping";
 var PLAYER_STRIPPED = "stripped";
 
 var PLAYER_MUST_MASTURBATE = "must_masturbate";
@@ -45,11 +46,12 @@ var PLAYER_HEAVY_MASTURBATING = "heavy_masturbating";
 var PLAYER_FINISHING_MASTURBATING = "finishing_masturbating";
 var PLAYER_FINISHED_MASTURBATING = "finished_masturbating";
 
-var MALE_HUMAN_WILL_STRIP = "male_human_will_strip";
+var MALE_HUMAN_MUST_STRIP = "male_human_must_strip";
+var MALE_MUST_STRIP = "male_must_strip";
 
-var MALE_WILL_REMOVE_ACCESSORY = "male_will_remove_accessory";
-var MALE_WILL_REMOVE_MINOR = "male_will_remove_minor";
-var MALE_WILL_REMOVE_MAJOR = "male_will_remove_major";
+var MALE_REMOVING_ACCESSORY = "male_removing_accessory";
+var MALE_REMOVING_MINOR = "male_removing_minor";
+var MALE_REMOVING_MAJOR = "male_removing_major";
 var MALE_CHEST_WILL_BE_VISIBLE = "male_chest_will_be_visible";
 var MALE_CROTCH_WILL_BE_VISIBLE = "male_crotch_will_be_visible";
 
@@ -65,11 +67,12 @@ var MALE_MASTURBATING = "male_masturbating";
 var MALE_HEAVY_MASTURBATING = "male_heavy_masturbating";
 var MALE_FINISHED_MASTURBATING = "male_finished_masturbating";
 
-var FEMALE_HUMAN_WILL_STRIP = "female_human_will_strip";
+var FEMALE_HUMAN_MUST_STRIP = "female_human_must_strip";
+var FEMALE_MUST_STRIP = "female_must_strip";
 
-var FEMALE_WILL_REMOVE_ACCESSORY = "female_will_remove_accessory";
-var FEMALE_WILL_REMOVE_MINOR = "female_will_remove_minor";
-var FEMALE_WILL_REMOVE_MAJOR = "female_will_remove_major";
+var FEMALE_REMOVING_ACCESSORY = "female_removing_accessory";
+var FEMALE_REMOVING_MINOR = "female_removing_minor";
+var FEMALE_REMOVING_MAJOR = "female_removing_major";
 var FEMALE_CHEST_WILL_BE_VISIBLE = "female_chest_will_be_visible";
 var FEMALE_CROTCH_WILL_BE_VISIBLE = "female_crotch_will_be_visible";
 

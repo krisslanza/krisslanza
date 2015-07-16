@@ -93,13 +93,13 @@ function getClothingTrigger (player, clothing, removed) {
 				if (removed) {
 					return MALE_REMOVED_MAJOR;
 				} else {
-					return MALE_WILL_REMOVE_MAJOR;
+					return MALE_REMOVING_MAJOR;
 				}
 			} else if (gender == FEMALE) {
 				if (removed) {
 					return FEMALE_REMOVED_MAJOR;
 				} else {
-					return FEMALE_WILL_REMOVE_MAJOR;
+					return FEMALE_REMOVING_MAJOR;
 				}
 			}
 		}
@@ -110,13 +110,13 @@ function getClothingTrigger (player, clothing, removed) {
 			if (removed) {
 				return MALE_REMOVED_MAJOR;
 			} else {
-				return MALE_WILL_REMOVE_MAJOR;
+				return MALE_REMOVING_MAJOR;
 			}
 		} else if (gender == FEMALE) {
 			if (removed) {
 				return FEMALE_REMOVED_MAJOR;
 			} else {
-				return FEMALE_WILL_REMOVE_MAJOR;
+				return FEMALE_REMOVING_MAJOR;
 			}
 		}
 	}
@@ -126,13 +126,13 @@ function getClothingTrigger (player, clothing, removed) {
 			if (removed) {
 				return MALE_REMOVED_MINOR;
 			} else {
-				return MALE_WILL_REMOVE_MINOR;
+				return MALE_REMOVING_MINOR;
 			}
 		} else if (gender == FEMALE) {
 			if (removed) {
 				return FEMALE_REMOVED_MINOR;
 			} else {
-				return FEMALE_WILL_REMOVE_MINOR;
+				return FEMALE_REMOVING_MINOR;
 			}
 		}
 	}
@@ -142,13 +142,13 @@ function getClothingTrigger (player, clothing, removed) {
 			if (removed) {
 				return MALE_REMOVED_ACCESSORY;
 			} else {
-				return MALE_WILL_REMOVE_ACCESSORY;
+				return MALE_REMOVING_ACCESSORY;
 			}
 		} else if (gender == FEMALE) {
 			if (removed) {
 				return FEMALE_REMOVED_ACCESSORY;
 			} else {
-				return FEMALE_WILL_REMOVE_ACCESSORY;
+				return FEMALE_REMOVING_ACCESSORY;
 			}
 		}
 	}
@@ -156,6 +156,52 @@ function getClothingTrigger (player, clothing, removed) {
 
 /************************************************************
  * Manages the dialogue triggers before a player strips or forfeits.
+ ************************************************************/
+function playerMustStrip (player) {
+	/* count the clothing the player has remaining */
+    var clothes = 0;
+    for (var i = 0; i < players[player].clothing.length; i++) {
+        if (players[player].clothing[i]) {
+            clothes++;
+        }
+    }
+    var startingClothes = players[player].clothing.length;
+	
+	if (clothes > 0) {
+		/* the player has clothes and will strip */
+		if (player == HUMAN_PLAYER) {
+			if (players[HUMAN_PLAYER].gender == MALE) {
+				updateAllBehaviours(player, MALE_HUMAN_MUST_STRIP, [NAME], [players[player].first]);
+			} else {
+				updateAllBehaviours(player, FEMALE_HUMAN_MUST_STRIP, [NAME], [players[player].first]);
+			}
+		} else {
+			if (players[player].gender == MALE) {
+				updateAllBehaviours(player, MALE_MUST_STRIP, [NAME], [players[player].first]);
+			} else {
+				updateAllBehaviours(player, FEMALE_MUST_STRIP, [NAME], [players[player].first]);
+			}
+			updateBehaviour(player, PLAYER_MUST_STRIP, [NAME], [players[player].first]);
+		}
+	} else {
+		/* the player has no clothes and will have to accept a forfeit */
+		if (players[player].gender == MALE) {
+			updateAllBehaviours(player, MALE_MUST_MASTURBATE, [NAME], [players[player].first]);
+		} else if (players[player].gender == FEMALE) {
+			updateAllBehaviours(player, FEMALE_MUST_MASTURBATE, [NAME], [players[player].first]);
+		}
+
+		if (player != HUMAN_PLAYER) {
+			updateBehaviour(player, PLAYER_MUST_MASTURBATE, [NAME], [players[player].first]);
+		}
+	}
+	
+	return clothes;
+}
+
+/************************************************************
+ * Manages the dialogue triggers as player beings to strip
+ * or forfeit.
  ************************************************************/
 function prepareToStripPlayer (player) {
     /* count the clothing the player has remaining */
@@ -172,9 +218,9 @@ function prepareToStripPlayer (player) {
 		/* the player has clothes left and will strip */
         if (player == HUMAN_PLAYER) {
             if (players[HUMAN_PLAYER].gender == MALE) {
-                updateAllBehaviours(player, MALE_HUMAN_WILL_STRIP, [NAME], [players[player].first]);
+                updateAllBehaviours(player, MALE_HUMAN_MUST_STRIP, [NAME], [players[player].first]);
             } else {
-                updateAllBehaviours(player, FEMALE_HUMAN_WILL_STRIP, [NAME], [players[player].first]);
+                updateAllBehaviours(player, FEMALE_HUMAN_MUST_STRIP, [NAME], [players[player].first]);
             }
         } else {
             var toBeRemovedClothing = players[player].clothing[startingClothes - 1];
@@ -185,10 +231,7 @@ function prepareToStripPlayer (player) {
             var content = [players[player].first, toBeRemovedClothing.proper, toBeRemovedClothing.lower];
         
             updateAllBehaviours(player, dialogueTrigger, replace, content);
-
-            if (player != HUMAN_PLAYER) {
-                updateBehaviour(player, PLAYER_MUST_STRIP, replace, content);
-            }
+            updateBehaviour(player, PLAYER_STRIPPING, replace, content);
         }
 	} else {
 		/* the player has no clothes and will have to accept a forfeit */
@@ -402,13 +445,13 @@ function stripPlayer (player) {
 			}
 			$gameClothingLabel.html("<b>You're Masturbating...</b>");
 		} else {
-            setForfeitTimer(player);
 			if (players[HUMAN_PLAYER].gender == MALE) {
 				updateAllBehaviours(player, MALE_START_MASTURBATING, [NAME], [players[player].first]);
 			} else if (players[HUMAN_PLAYER].gender == FEMALE) {
 				updateAllBehaviours(player, FEMALE_START_MASTURBATING, [NAME], [players[player].first]);
 			}
 			updateBehaviour(player, PLAYER_START_MASTURBATING, [NAME], [players[player].first]);
+			setForfeitTimer(player);
 		}
 		
 		/* allow progression */

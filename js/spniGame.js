@@ -56,7 +56,7 @@ $cardButtons = [$("#player-0-card-1"),
  **********************************************************************/
 
 /* pseudo constants */
-var GAME_DELAY = 750;
+var GAME_DELAY = 50;
 var GAME_OVER_DELAY = 1000;
  
 /* colours */
@@ -129,10 +129,7 @@ function updateGameVisual (player) {
         if (players[player].state[players[player].current].direction) {
             $gameBubbles[player-1].removeClass();
             $gameBubbles[player-1].addClass("bordered dialogue-bubble dialogue-"+players[player].state[players[player].current].direction);
-        } else {
-			$gameBubbles[player-1].removeClass();
-            $gameBubbles[player-1].addClass("bordered dialogue-bubble dialogue-centre");
-		}
+        } 
         
         /* update image */
         $gameImages[player-1].attr('src', players[player].folder + players[player].state[players[player].current].image);
@@ -386,7 +383,7 @@ function completeRevealPhase () {
     }
     
     /* update behaviour */
-    prepareToStripPlayer(recentLoser);
+	var clothes = playerMustStrip (recentLoser);
     updateAllGameVisuals();
     
     /* highlight the loser */
@@ -399,7 +396,24 @@ function completeRevealPhase () {
     }
     
     /* set up the main button */
-    $mainButton.html("Strip");
+	if (recentLoser != HUMAN_PLAYER && clothes > 0) {
+		$mainButton.html("Continue");
+	} else {
+		$mainButton.html("Strip");
+	}
+}
+
+/************************************************************
+ * Processes everything required to complete the continue phase
+ * of a round. A very short phase in which a player removes an 
+ * article of clothing.
+ ************************************************************/
+function completeContinuePhase () {
+	/* show the player removing an article of clothing */
+	prepareToStripPlayer(recentLoser);
+    updateAllGameVisuals();
+	
+	$mainButton.html("Strip");
 }
 
 /************************************************************
@@ -459,14 +473,14 @@ function handleGameOver() {
 		$mainButton.html("Restart?");
 	} else {
 		/* someone is still forfeiting */
-		var context = "Continue";
-		$mainButton.html("Continue");
+		var context = "Wait";
+		$mainButton.html("Wait");
 		context = tickForfeitTimers(context);
-		if (context == "Continue") {
+		if (context == "Wait") {
 			/* no one finished yet */
 			window.setTimeout(handleGameOver, GAME_OVER_DELAY);
 		} else {
-			/* someone finished, wait for the continue button */
+			/* someone finished, wait for the button */
 		}
 	}
 }
@@ -509,10 +523,7 @@ function advanceGameDialogue (slot) {
     if (players[slot].state[players[slot].current].direction) {
         $gameBubbles[slot-1].removeClass();
 		$gameBubbles[slot-1].addClass("bordered dialogue-bubble dialogue-"+players[slot].state[players[slot].current].direction);
-	} else {
-		$gameBubbles[slot-1].removeClass();
-		$gameBubbles[slot-1].addClass("bordered dialogue-bubble dialogue-centre");
-	}
+	} 
     
     /* update image */
     $gameImages[slot-1].attr('src', players[slot].folder + players[slot].state[players[slot].current].image);
@@ -543,13 +554,17 @@ function advanceGame () {
     } else if (context == "Reveal") {
         /* revealing cards */
         completeRevealPhase();
-        
         $mainButton.attr('disabled', false);
-    } else if (context == "Strip") {
+    } else if (context == "Continue") {
+		/* waiting for the loser to strip */
+		completeContinuePhase();
+		$mainButton.attr('disabled', false);
+	} else if (context == "Strip") {
         /* stripping the loser */
         completeStripPhase();
         $mainButton.attr('disabled', false);
-    } else if (context == "Continue") {
+    } else if (context == "Wait") {
+		/* waiting for someone to finish */
 		if (!gameOver) {
 			$mainButton.html("Deal");
 			$mainButton.attr('disabled', false);

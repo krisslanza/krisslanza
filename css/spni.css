@@ -15,15 +15,6 @@ body {
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-* {
-	box-sizing: content-box;
-}
-
-table {
-	border-collapse: initial;
-	border-spacing: 2px;
-}
-
 /************************************************************
  * Global style classes.
  ************************************************************/
@@ -36,6 +27,23 @@ table {
 
 .centred {
 	margin: 0px auto;
+}
+
+/************************************************************
+ * Bootstrap overrides
+ ************************************************************/
+ 
+* {
+	box-sizing: content-box;
+}
+
+table {
+	border-collapse: initial;
+	border-spacing: 2px;
+}
+ 
+body.modal-open {
+	margin-left: 0px;
 }
 
 /************************************************************
@@ -734,6 +742,15 @@ table {
 
 #dock-card-area table {
 	margin: 0px auto;
+}
+
+.hidden-card {
+	position: absolute;
+	opacity: 0;
+}
+
+.shown-card {
+	opacity: 1;
 }
 
 .large-card-image {

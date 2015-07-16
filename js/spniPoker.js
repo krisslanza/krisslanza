@@ -42,9 +42,12 @@ function createNewHand (cards, strength, value, tradeIns) {
 /**********************************************************************
  *****                      Poker UI Elements                     *****
  **********************************************************************/
+
+$gameDeckArea = $('#game-deck-area');
+$hiddenSmallCard = $('#hidden-small-card');
  
 /* player card cells */
-var cardCells = [[$("#player-0-card-1"), $("#player-0-card-2"), $("#player-0-card-3"), $("#player-0-card-4"), $("#player-0-card-5")],
+$cardCells = [[$("#player-0-card-1"), $("#player-0-card-2"), $("#player-0-card-3"), $("#player-0-card-4"), $("#player-0-card-5")],
 			     [$("#player-1-card-1"), $("#player-1-card-2"), $("#player-1-card-3"), $("#player-1-card-4"), $("#player-1-card-5")],
 			     [$("#player-2-card-1"), $("#player-2-card-2"), $("#player-2-card-3"), $("#player-2-card-4"), $("#player-2-card-5")],
 			     [$("#player-3-card-1"), $("#player-3-card-2"), $("#player-3-card-3"), $("#player-3-card-4"), $("#player-3-card-5")],
@@ -147,14 +150,14 @@ function getCardSuitValue (card) {
  * Sets the given card to full opacity.
  ************************************************************/
 function fillCard (player, card) {
-	cardCells[player][card].css({opacity: 1});
+	$cardCells[player][card].css({opacity: 1});
 }
 
 /************************************************************
  * Sets the given card to a lower opacity.
  ************************************************************/
 function dullCard (player, card) {
-	cardCells[player][card].css({opacity: 0.4});
+	$cardCells[player][card].css({opacity: 0.4});
 }
 
 /************************************************************
@@ -162,7 +165,7 @@ function dullCard (player, card) {
  ************************************************************/
 function showHand (player) {
 	for (var i = 0; i < hands[player].cards.length; i++) {
-		cardCells[player][i].attr('src', imageSource + hands[player].cards[i] + ".jpg");
+		$cardCells[player][i].attr('src', imageSource + hands[player].cards[i] + ".jpg");
 		fillCard(player, i);
 	}
 }
@@ -172,7 +175,7 @@ function showHand (player) {
  ************************************************************/
 function dullHand (player) {
 	for (var i = 0; i < hands[player].cards.length; i++) {
-		cardCells[player][i].attr('src', imageSource + hands[player].cards[i] + ".jpg");
+		$cardCells[player][i].attr('src', imageSource + hands[player].cards[i] + ".jpg");
 		dullCard(player, i);
 	}
 }
@@ -183,9 +186,9 @@ function dullHand (player) {
 function hideHand (player) {
 	for (var i = 0; i < hands[player].cards.length; i++) {
 		if (!players[player].out) {
-            cardCells[player][i].attr('src', UNKNOWN_CARD_IMAGE);
+            $cardCells[player][i].attr('src', UNKNOWN_CARD_IMAGE);
 		} else {
-			cardCells[player][i].attr('src', BLANK_CARD_IMAGE);
+			$cardCells[player][i].attr('src', BLANK_CARD_IMAGE);
 		}
 		fillCard(player, i);
 	}
@@ -205,7 +208,7 @@ function collectPlayerHand (player) {
 			outDeck.push(hands[player].cards[i]);
 		}
 		hands[player].cards[i] = null;
-		cardCells[player][i].attr('src', BLANK_CARD_IMAGE);
+		$cardCells[player][i].attr('src', BLANK_CARD_IMAGE);
 	}
 }
 
@@ -238,7 +241,7 @@ function dealHand (player) {
 	var drawnCard;
 	for (var i = 0; i < hands[player].cards.length; i++) {
 		drawnCard = getRandomNumber(0, inDeck.length);
-        cardCells[player][i].attr('src', UNKNOWN_CARD_IMAGE);
+        $cardCells[player][i].attr('src', UNKNOWN_CARD_IMAGE);
 		hands[player].cards[i] = inDeck[drawnCard];
 		inDeck.splice(drawnCard, 1);
 	}
