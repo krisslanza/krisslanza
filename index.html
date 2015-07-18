@@ -102,13 +102,13 @@
 			<tr><td style="width:15%;">
 				<table style="width:100%;">
 					<tr><td><p class="version-text">Current Version</p></td></tr>
-					<tr><td><p class="version-text"><b>beta3</b></p></td></tr>
+					<tr><td><p class="version-text"><b>beta4</b></p></td></tr>
 				</table>
 			</td><td style="width:85%;">
 				<table style="float:left;">
-					<tr><td><p class="news-text default-font">- Tons of new images!</p></td></tr>
-					<tr><td><p class="news-text default-font">- Stripping text can no longer be skipped.</p></td></tr>
-					<tr><td><p class="news-text default-font">- A few new dialogue triggers.</p></td></tr>
+					<tr><td><p class="news-text default-font">- Added a new dealing animation.</p></td></tr>
+					<tr><td><p class="news-text default-font">- Some of the random selection buttons work now.</p></td></tr>
+					<tr><td><p class="news-text default-font">- Looking to add new characters soon.</p></td></tr>
 				</table>
 			</td></tr>
 			</table>
@@ -266,16 +266,16 @@
                 </td>
 				<td style="width:36%; text-align: center;">
                     <button class="bordered default-font smooth-button select-option-button" onclick="clickedSelectGroupButton()">Select a<br>Group</button>
-					<button class="bordered default-font smooth-button select-option-button" disabled>Select a<br>Random Group</button>
+					<button class="bordered default-font smooth-button select-option-button" onclick="clickedRandomGroupButton()">Select a<br>Random Group</button>
 				</td>
 				<td class="deck-area">
 					<img class="bordered deck-image" src="img/unknown.jpg">
 					<button id="main-select-button" class="bordered smooth-button center-dock-button" onclick="advanceSelectScreen()" disabled>Start</button>	
 				</td>
 				<td style="width:44%; text-align: center;">
-					<button class="bordered default-font smooth-button select-option-button" disabled>All<br>Random</button>
-                    <button class="bordered default-font smooth-button select-option-button" disabled>All Random<br>Males</button>
-                    <button class="bordered default-font smooth-button select-option-button" disabled>All Random<br>Females</button>
+					<button class="bordered default-font smooth-button select-option-button" onclick="clickedRandomFillButton()">Select<br>Random</button>
+                    <button class="bordered default-font smooth-button select-option-button" disabled>Random<br>Males</button>
+                    <button class="bordered default-font smooth-button select-option-button" disabled>Random<br>Females</button>
 				</td>
 			</tr>
 			</table>
@@ -722,7 +722,10 @@
 					</table>
 				</td>
 				<td id="game-deck-area" class="deck-area">
-					<img class="bordered deck-image" src="img/unknown.jpg">
+					<div id="game-hidden-area" class="centred-deck-area">
+						<img class="bordered deck-image" src="img/unknown.jpg">
+						<img id="hidden-large-card" class="bordered large-card-image hidden-large-card" src="img/unknown.jpg">
+					</div>
 					<button id="main-game-button" class="bordered smooth-button center-dock-button" onclick="advanceGame()">Deal</button>	
 				</td>
 				<td id="dock-card-area">

@@ -744,8 +744,18 @@ body.modal-open {
 	margin: 0px auto;
 }
 
-.hidden-card {
+.centred-deck-area {
 	position: absolute;
+	width: 69px;
+	left: 0;
+	right: 0;
+	top: 5px;
+	margin: 0 auto;
+}
+
+.hidden-large-card {
+	position: absolute;
+	top: 0;
 	opacity: 0;
 }
 

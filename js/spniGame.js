@@ -282,12 +282,12 @@ function advanceTurn () {
 }
  
 /************************************************************
- * Processes everything required to complete the deal phase
- * of a round. Deals cards to each player and resets all of 
- * the relevant information.
+ * Deals cards to each player and resets all of the relevant 
+ * information.
  ************************************************************/
-function completeDealPhase () {
+function startDealPhase () {
     /* dealing cards */
+	dealLock = 0;
     for (var i = 0; i < players.length; i++) {
         if (!players[i].out) {
             /* deal out a new hand to this player */
@@ -304,20 +304,47 @@ function completeDealPhase () {
             hands[i].tradeIns[j] = false;
         }
     }
-    
-    /* set visual state */
+	
+	/* hide the dialogue bubbles */
+    for (var i = 1; i < players.length; i++) {
+        $gameDialogues[i-1].html("");
+        $gameAdvanceButtons[i-1].css({opacity : 0});
+        $gameBubbles[i-1].hide();
+    }
+	
+	/* clear the labels */
+	for (var i = 0; i < players.length; i++) {
+		$gameLabels[i].css({"background-color" : clearColour});
+	}
+
+	window.setTimeout(checkDealLock, (ANIM_DELAY*(players.length))+ANIM_TIME);
+}
+
+/************************************************************
+ * Checks the deal lock to see if the animation is finished.
+ ************************************************************/
+function checkDealLock () {
+	/* count the players still in the game */
+	
+	/* check the deal lock */
+	console.log("Check");
+	if (dealLock < 25) {
+		window.setTimeout(checkDealLock, 100);
+	} else {
+		continueDealPhase();
+	}
+}
+
+/************************************************************
+ * Finishes the deal phase and allows the game to progress.
+ ************************************************************/
+function continueDealPhase () {
+	/* set visual state */
     if (!players[HUMAN_PLAYER].out) {
         showHand(HUMAN_PLAYER);
     }
     for (var i = 1; i < players.length; i++) {
         hideHand(i);
-    }
-    
-    /* hide the dialogue bubbles */
-    for (var i = 1; i < players.length; i++) {
-        $gameDialogues[i-1].html("");
-        $gameAdvanceButtons[i-1].css({opacity : 0});
-        $gameBubbles[i-1].hide();
     }
     
     /* enable player cards */
@@ -545,7 +572,7 @@ function advanceGame () {
     if (context == "Deal") {
         /* dealing the cards */
         $mainButton.html("Exchange");
-        completeDealPhase();
+        startDealPhase();
     } else if (context == "Exchange") {
         /* exchanging cards */
         $mainButton.html("Reveal");

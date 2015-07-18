@@ -43,8 +43,9 @@ function createNewHand (cards, strength, value, tradeIns) {
  *****                      Poker UI Elements                     *****
  **********************************************************************/
 
-$gameDeckArea = $('#game-deck-area');
-$hiddenSmallCard = $('#hidden-small-card');
+/* hidden cards and hidden card areas */
+$gameHiddenArea = $('#game-hidden-area');
+$hiddenLargeCard = $('#hidden-large-card');
  
 /* player card cells */
 $cardCells = [[$("#player-0-card-1"), $("#player-0-card-2"), $("#player-0-card-3"), $("#player-0-card-4"), $("#player-0-card-5")],
@@ -57,6 +58,10 @@ $cardCells = [[$("#player-0-card-1"), $("#player-0-card-2"), $("#player-0-card-3
  *****                       Poker Variables                      *****
  **********************************************************************/
 
+/* pseudo constants */
+var ANIM_DELAY = 500;
+var ANIM_TIME = 1000;
+ 
 /* image constants */
 var BLANK_CARD_IMAGE = imageSource + "blankcard.jpg";
 var UNKNOWN_CARD_IMAGE = imageSource + "unknown.jpg";
@@ -67,6 +72,9 @@ var outDeck = [];	/* cards waiting to be shuffled into the deck */
 
 /* player hands */
 var hands = [null, null, null, null, null];
+
+/* deal lock */
+var dealLock = 0;
  
 /**********************************************************************
  *****                    Start Up Functions                      *****
@@ -241,9 +249,10 @@ function dealHand (player) {
 	var drawnCard;
 	for (var i = 0; i < hands[player].cards.length; i++) {
 		drawnCard = getRandomNumber(0, inDeck.length);
-        $cardCells[player][i].attr('src', UNKNOWN_CARD_IMAGE);
+        $cardCells[player][i].attr('src', BLANK_CARD_IMAGE);
 		hands[player].cards[i] = inDeck[drawnCard];
 		inDeck.splice(drawnCard, 1);
+		delayDealtCard(player, i);
 	}
 }
 
@@ -282,6 +291,53 @@ function exchangeCards (player) {
             hands[player].tradeIns[i] = false;
 		}
 	}
+}
+
+/**********************************************************************
+ *****                    Animation Functions                     *****
+ **********************************************************************/
+
+/************************************************************
+ * Adds a short delay to the dealt card animation.
+ ************************************************************/
+function delayDealtCard (player, card) {
+	window.setTimeout(function(){animateDealtCard(player, card)}, (player*(ANIM_DELAY/5)) + (card*ANIM_DELAY));
+}
+
+/************************************************************
+ * Animates a small card into a player's hand.
+ ************************************************************/
+function animateDealtCard (player, card) {
+	var topOffset = 0;
+	var leftOffset = 0;
+	var width = 0;
+	var height = 0;
+	
+	$clonedCard = $hiddenLargeCard.clone().prependTo($gameHiddenArea);
+	$clonedCard.addClass("shown-card");
+	$clonedCard.attr('id', 'dealt-card-'+player+'-'+card);
+	
+	if (player == HUMAN_PLAYER) {
+		topOffset = 5;
+		leftOffset = 26;
+		width = 65;
+		height = 90;
+	} else {
+		topOffset = 5;
+		leftOffset = 22;
+		width = 35;
+		height = 45;
+	}
+	
+	var offset = $cardCells[player][card].offset();
+	var top = offset.top - $clonedCard.offset().top;
+	var left = offset.left - $clonedCard.offset().left;
+	
+	$clonedCard.animate({top:top, left:left, width:width, height:height}, ANIM_TIME, function() {
+		$('#dealt-card-'+player+'-'+card).remove();
+		$cardCells[player][card].attr('src', UNKNOWN_CARD_IMAGE);
+		dealLock++;
+	});
 }
 
 /**********************************************************************

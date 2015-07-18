@@ -101,6 +101,7 @@ var loadedGroups = [];
 var selectedSlot = 0;
 var storedPlayer = null;
 var storedGroup = [null, null, null, null];
+var randomLock = false;
  
 /**********************************************************************
  *****                    Start Up Functions                      *****
@@ -331,6 +332,60 @@ function clickedSelectGroupButton () {
 	/* switch screens */
 	$selectScreen.hide();
 	$groupSelectScreen.show();
+}
+
+/************************************************************
+ * The player clicked on the select random group slot.
+ ************************************************************/
+function clickedRandomGroupButton () {
+	selectedSlot = 1;
+	
+	/* get a random number for the group listings */
+	var randomGroupNumber = getRandomNumber(0, loadedGroups.length);
+	
+	/* load the corresponding group */
+	loadBehaviour(loadedGroups[randomGroupNumber].opp1, updateRandomSelection);
+	loadBehaviour(loadedGroups[randomGroupNumber].opp2, updateRandomSelection);
+	loadBehaviour(loadedGroups[randomGroupNumber].opp3, updateRandomSelection);
+	loadBehaviour(loadedGroups[randomGroupNumber].opp4, updateRandomSelection);
+}
+
+/************************************************************
+ * The player clicked on the all random button.
+ ************************************************************/
+function clickedRandomFillButton () {
+	/* compose a copy of the loaded opponents list */
+	var loadedOpponentsCopy = [];
+	
+	/* only add non-selected opponents from the list */
+	for (var i = 0; i < loadedOpponents.length; i++) {
+		/* check to see if this opponent is selected */
+		var position = -1;
+		for (var j = 1; j < players.length; j++) {
+			if (players[j] && loadedOpponents[i].folder == players[j].folder) {
+				/* this opponent is loaded */
+				position = j;
+			}
+		}
+		if (position == -1) {
+			loadedOpponentsCopy.push(loadedOpponents[i]);
+		}
+	}
+	
+	/* select random opponents */
+	for (var i = 1; i < players.length; i++) {
+		/* if slot is empty */
+		if (!players[i]) {
+			/* select random opponent */
+			var randomOpponent = getRandomNumber(0, loadedOpponentsCopy.length);
+	
+			/* load opponent */
+			loadBehaviour(loadedOpponentsCopy[randomOpponent].folder, updateRandomSelection);
+			
+			/* remove random opponent from copy list */
+			loadedOpponentsCopy.splice(randomOpponent, 1);
+		}
+	}
 }
 
 /************************************************************
@@ -580,10 +635,22 @@ function updateGroupScreen (playerObject) {
             break;
         }
     }
-    
-    /* update label */
-    //$groupLabel.html(playerObject.label);
-    
-    /* enable the button */
-    $groupButton.attr('disabled', false);
+
+	/* enable the button */
+	$groupButton.attr('disabled', false);
+}
+
+/************************************************************
+ * This is the callback for the random buttons.
+ ************************************************************/
+function updateRandomSelection (playerObject) {
+    /* find a spot to store this player */
+    for (var i = 0; i < players.length; i++) {
+        if (!players[i]) {
+            players[i] = playerObject;
+            break;
+        }
+    }
+
+	updateSelectionVisuals();
 }
