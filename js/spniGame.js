@@ -325,10 +325,16 @@ function startDealPhase () {
  ************************************************************/
 function checkDealLock () {
 	/* count the players still in the game */
+	var inGame = 0;
+	for (var i = 0; i < players.length; i++) {
+		if (!players[i].out) {
+			inGame++;
+		}
+	}
 	
 	/* check the deal lock */
 	console.log("Check");
-	if (dealLock < 25) {
+	if (dealLock < inGame * 5) {
 		window.setTimeout(checkDealLock, 100);
 	} else {
 		continueDealPhase();
