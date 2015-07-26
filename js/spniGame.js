@@ -334,10 +334,6 @@ function checkDealLock () {
 	}
 	
 	/* check the deal lock */
-<<<<<<< HEAD
-=======
-	console.log("Check");
->>>>>>> origin/master
 	if (dealLock < inGame * 5) {
 		window.setTimeout(checkDealLock, 100);
 	} else {
