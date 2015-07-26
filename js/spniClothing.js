@@ -21,12 +21,13 @@ var OTHER_ARTICLE = "other";
 /************************************************************
  * Stores information on an article of clothing.
  ************************************************************/
-function createNewClothing (proper, lower, type, position, image) {
+function createNewClothing (proper, lower, type, position, image, layer) {
 	var newClothingObject = {proper:proper, 
 						     lower:lower, 
 						     type:type, 
 						     position:position,
-                             image:image};
+                             image:image,
+							 layer:layer};
 						  
 	return newClothingObject;
 }
@@ -258,44 +259,27 @@ function showStrippingModal () {
     $stripClothing.html("");
     selectedClothing = -1;
     
-    /* determine the highest level of clothing left */
-    var highestPosition = "";
-    var highestLevel = "";
+    /* determine the highest layer of clothing left */
+	var highestLayer = 0;
+	for (var i = 0; i < players[HUMAN_PLAYER].clothing.length; i++) {
+		if (players[HUMAN_PLAYER].clothing[i]) {
+			/* determine if this clothing has a higher layer */
+			if (players[HUMAN_PLAYER].clothing[i].layer > highestLayer) {
+				highestLayer = players[HUMAN_PLAYER].clothing[i].layer;
+			}
+		}
+	}
+    
+    /* load the current layer of clothing into the modal */
     for (var i = 0; i < players[HUMAN_PLAYER].clothing.length; i++) {
         if (players[HUMAN_PLAYER].clothing[i]) {
-            /* highest level */
-            if (players[HUMAN_PLAYER].clothing[i].position == OTHER_ARTICLE) {
-                highestPosition = OTHER_ARTICLE;
-                highestLevel = "";
-                break;
-            }
-
-            /* minor level */
-            if (players[HUMAN_PLAYER].clothing[i].type == MINOR_ARTICLE) {
-                highestLevel = MINOR_ARTICLE;
-            }
-            
-            /* major level */
-            if (players[HUMAN_PLAYER].clothing[i].type == MAJOR_ARTICLE && highestLevel != MINOR_ARTICLE) {
-                highestLevel = MAJOR_ARTICLE;
-            }
-            
-            /* important level */
-            if (players[HUMAN_PLAYER].clothing[i].type == IMPORTANT_ARTICLE && highestLevel != MINOR_ARTICLE && highestLevel != MAJOR_ARTICLE) {
-                highestLevel = IMPORTANT_ARTICLE;
-            }
-        }
-    }
-    
-    /* load the clothing into the modal */
-    for (var i = 0; i < players[HUMAN_PLAYER].clothing.length; i++) {
-        if (players[HUMAN_PLAYER].clothing[i] && (players[HUMAN_PLAYER].clothing[i].position == highestPosition
-                                              ||  players[HUMAN_PLAYER].clothing[i].type == highestLevel)) {
-            var clothingCard = 
-                "<input type='image' id='"+i+"' class='bordered modal-clothing-image' src="+
-                players[HUMAN_PLAYER].clothing[i].image+" onclick='selectClothingToStrip("+i+")'/>";
-            
-            $stripClothing.append(clothingCard);
+		    if (players[HUMAN_PLAYER].clothing[i].layer == highestLayer) {
+				var clothingCard = 
+					"<input type='image' id='"+i+"' class='bordered modal-clothing-image' src="+
+					players[HUMAN_PLAYER].clothing[i].image+" onclick='selectClothingToStrip("+i+")'/>";
+				
+				$stripClothing.append(clothingCard);
+			}
         }
     }
     

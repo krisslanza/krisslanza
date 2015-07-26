@@ -60,7 +60,7 @@ var GAME_DELAY = 600;
 var GAME_OVER_DELAY = 1000;
  
 /* colours */
-var currentColour = "#85C5F5"; 	/* indicates current turn */
+var currentColour = "#75B5E5"; 	/* indicates current turn */
 var clearColour = "#FFFFFF";	/* indicates neutral */
 var loserColour = "#F58585";	/* indicates loser of a round */
  
@@ -289,7 +289,8 @@ function startDealPhase () {
     /* dealing cards */
 	dealLock = 0;
     for (var i = 0; i < players.length; i++) {
-        if (!players[i].out) {
+        console.log(players[i] + " "+ i);
+		if (!players[i].out) {
             /* deal out a new hand to this player */
             dealHand(i);
         } else {
@@ -325,10 +326,15 @@ function startDealPhase () {
  ************************************************************/
 function checkDealLock () {
 	/* count the players still in the game */
+	var inGame = 0;
+	for (var i = 0; i < players.length; i++) {
+		if (!players[i].out) {
+			inGame++;
+		}
+	}
 	
 	/* check the deal lock */
-	console.log("Check");
-	if (dealLock < 25) {
+	if (dealLock < inGame * 5) {
 		window.setTimeout(checkDealLock, 100);
 	} else {
 		continueDealPhase();

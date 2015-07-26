@@ -8,281 +8,349 @@
 </head>
 <body onload="initialSetup()">
 
+
 <!-- Start of Title Screen -->
 <table id="title-screen" class="screen-container" hidden>
 	<tr><td>
-	<table class="screen-table">
-	
-		<!-- Start of Title Banner -->
-		<tr><td>
-			<div class="bordered banner">
-				<img id="title-banner" src="img/title.png">
-			</div>
-		</td></tr>
-        <!-- End of Title Banner -->
-
-		<!-- Start of Main Intro Area -->
-		<tr><td>
-			<table class="centred">
-			<tr>
-			
-			<!-- Left Title Image -->
-			<td class="title-image-area"><img class="title-image" src="img/title1image.jpg"></td>
-			
-			<td colspan="2">
-			
-				<!-- Start of Name and Gender Selection -->
-				<table class="centred">
-					<tr><td>
-						<table class="centred">
-						<tr>
-							<td><p class="intro-label">What's your name?</p></td>
-						</tr>
-						<tr>
-							<td><input type="text" class="bordered" id="player-name-field"/></td>
-						</tr>
-						</table>
-					</td><td>
-						<table class="centred" style="margin-left:50px;">
-						<tr>
-							<td colspan="2"><p class="intro-label">What's your gender?</p></td>
-						</tr>
-						<tr>
-							<td><input type="image" value="" class="bordered intro-gender-image" id="male-gender-button" src="img/male.jpg" onclick="changePlayerGender('male')"></td>
-							<td><input type="image" value="" class="bordered intro-gender-image" id="female-gender-button" src="img/female.jpg" onclick="changePlayerGender('female')" style="opacity:0.4;"></td>
-						</tr>
-						</table>
-					</td></tr>
-				</table>
-                <!-- End of Name and Gender Selection -->
-				
-				<!-- Start of Clothing Selection -->
-				<table id="title-clothing-area">
-					<tr>
-						<td colspan="8"><p class="intro-label">What are you wearing? (Maximum: 8, Minimum: 2)</p></td>
-					</tr>
-					<tr><td>
-						<div id="title-clothing-div">
-							<table id="title-clothing-table" class="bordered">
-								
-							</table>
-						</div>
-					</td></tr>
-				</table>
-                <!-- End of Clothing Selection -->
-				
-				<!-- Start of Warning Label -->
-				<table class="warning-label-area" class="centred" style="margin-top: 10px;">
-					<tr>
-						<td><p id="title-warning-label" class="default-font"></p></td>
-					</tr>
-				</table>
-                <!-- End of Warning Label -->
-				
-				<!-- Start of Start Button -->
-				<table class="title-advance-button-area">
-					<tr>
-						<td><button id="title-advance-button" class="centred bordered smooth-button" onclick="validateTitleScreen()">Start Game</button></td>
-					</tr>
-				</table>
-                <!-- End of Start Button -->
-			</td>
-			
-			<!-- Right Title Image -->
-			<td class="title-image-area"><img class="title-image" src="img/title2image.jpg"></td>
-			
-			</tr>
-			</table>
-		</td></tr>
-        <!-- End of Main Intro Area -->
+	<div class="screen-area">
+	<div class="screen">
 		
-		<!-- Start of News -->
-		<tr><td>
-			<table id="title-screen-news-bar" class="bordered">
-			<tr><td style="width:15%;">
-				<table style="width:100%;">
-					<tr><td><p class="version-text">Current Version</p></td></tr>
-					<tr><td><p class="version-text"><b>beta4</b></p></td></tr>
-				</table>
-			</td><td style="width:85%;">
-				<table style="float:left;">
-					<tr><td><p class="news-text default-font">- Added a new dealing animation.</p></td></tr>
-					<tr><td><p class="news-text default-font">- Some of the random selection buttons work now.</p></td></tr>
-					<tr><td><p class="news-text default-font">- Looking to add new characters soon.</p></td></tr>
-				</table>
-			</td></tr>
-			</table>
-		</td></tr>
-        <!-- End of News -->
-        
-	</table>
+		<table class="screen">
+		
+			<!-- Start of Title Banner -->
+			<tr>
+				<td colspan="4" style="padding:0px 2px;">
+					<div class="title-banner-container">
+					<div class="bordered title-banner-area">
+						<img class="bordered title-banner" src="img/title.png">
+					</div>
+					</div>
+				</td>
+			</tr>
+			<!-- End of Title Banner -->
+
+			<!-- Start of Opponent Visuals -->
+			<tr>
+				<td style="width:25%">
+					<div class="opponent-image-area">
+						<img id="title-image-1" class="opponent-image" src="opponents/lilith/start.png"/>
+					</div>
+				</td>
+				
+				<!-- Start of Title Content Area -->
+				<td>
+					<div class="main-title-container">
+					<table class="main-title-table">
+						<tr><td>
+							<table class="centred">
+							<tr>
+								<td class="title-label">What is your name?</td>
+							</tr><tr>
+								<td><input type="text" class="bordered" id="player-name-field"/></td>
+							</tr>
+							</table>
+						</td><td>
+							<table class="centred">
+							<tr>
+								<td colspan="2" class="title-label">What is your gender?</td>
+							</tr><tr>
+								<td><input type="image" value="" class="bordered title-gender-image" id="male-gender-button" src="img/male.jpg" onclick="changePlayerGender('male')"></td>
+								<td><input type="image" value="" class="bordered title-gender-image" id="female-gender-button" src="img/female.jpg" onclick="changePlayerGender('female')" style="opacity:0.4;"></td>
+							</tr>
+							</table>
+						</td></tr><tr><td colspan="2">
+						
+							<!-- Start of Male Clothing Selection -->
+							<table id="male-clothing-container" class="title-clothing-container" hidden>
+								<tr><td colspan="10">
+									<p class="title-label">What are you wearing?</p>
+								</td></tr>
+								<tr>
+									<td hidden><input id="male-clothing-option-0" type="image" value="" class="bordered title-clothing-image" src="player/male/shirt.jpg" onclick="selectClothing(0)"></td>
+									<td hidden><input id="male-clothing-option-1" type="image" value="" class="bordered title-clothing-image" src="player/male/undershirt.jpg" onclick="selectClothing(1)"></td>
+									<td><input id="male-clothing-option-2" type="image" value="" class="bordered title-clothing-image" src="player/male/belt.jpg" onclick="selectClothing(2)"></td>
+									<td><input id="male-clothing-option-3" type="image" value="" class="bordered title-clothing-image" src="player/male/shirt.jpg" onclick="selectClothing(3)"></td>
+									<td><input id="male-clothing-option-4" type="image" value="" class="bordered title-clothing-image" src="player/male/undershirt.jpg" onclick="selectClothing(4)"></td>
+								</tr>
+								<tr>
+									<td hidden><input id="male-clothing-option-5" type="image" value="" class="bordered title-clothing-image" src="player/male/pants.jpg" onclick="selectClothing(5)"></td>
+									<td><input id="male-clothing-option-6" type="image" value="" class="bordered title-clothing-image" src="player/male/socks.jpg" onclick="selectClothing(6)"></td>
+									<td><input id="male-clothing-option-7" type="image" value="" class="bordered title-clothing-image" src="player/male/shoes.jpg" onclick="selectClothing(7)"></td>
+									<td><input id="male-clothing-option-8" type="image" value="" class="bordered title-clothing-image" src="player/male/pants.jpg" onclick="selectClothing(8)"></td>
+									<td><input id="male-clothing-option-9" type="image" value="" class="bordered title-clothing-image" src="player/male/boxers.jpg" onclick="selectClothing(9)"></td>
+								</tr>
+							</table>
+							<!-- End of Male Clothing Selection -->
+							
+							<!-- Start of Female Clothing Selection -->
+							<table id="female-clothing-container" class="title-clothing-container">
+								<tr><td colspan="10">
+									<p class="title-label">What are you wearing?</p>
+								</td></tr>
+								<tr>
+									<td hidden><input id="female-clothing-option-0" type="image" value="" class="bordered title-clothing-image" src="player/female/shirt.jpg" onclick="selectClothing(0)"></td>
+									<td hidden><input id="female-clothing-option-1" type="image" value="" class="bordered title-clothing-image" src="player/female/undershirt.jpg" onclick="selectClothing(1)"></td>
+									<td><input id="female-clothing-option-2" type="image" value="" class="bordered title-clothing-image" src="player/female/belt.jpg" onclick="selectClothing(2)"></td>
+									<td><input id="female-clothing-option-3" type="image" value="" class="bordered title-clothing-image" src="player/female/tanktop.jpg" onclick="selectClothing(3)"></td>
+									<td><input id="female-clothing-option-4" type="image" value="" class="bordered title-clothing-image" src="player/female/bra.jpg" onclick="selectClothing(4)"></td>
+								</tr>
+								<tr>
+									<td hidden><input id="female-clothing-option-5" type="image" value="" class="bordered title-clothing-image" src="player/female/pants.jpg" onclick="selectClothing(5)"></td>
+									<td><input id="female-clothing-option-6" type="image" value="" class="bordered title-clothing-image" src="player/female/socks.jpg" onclick="selectClothing(6)"></td>
+									<td><input id="female-clothing-option-7" type="image" value="" class="bordered title-clothing-image" src="player/female/boots.jpg" onclick="selectClothing(7)"></td>
+									<td><input id="female-clothing-option-8" type="image" value="" class="bordered title-clothing-image" src="player/female/pants.jpg" onclick="selectClothing(8)"></td>
+									<td><input id="female-clothing-option-9" type="image" value="" class="bordered title-clothing-image" src="player/female/panties.jpg" onclick="selectClothing(9)"></td>
+								</tr>
+							</table>
+							<!-- End of Female Clothing Selection -->
+							
+						</td></tr><tr><td colspan="2">
+						
+							<table style="width:100%">
+								<!-- Start of Title Button -->
+								<tr><td>
+								<div>
+									<button class="bordered smooth-button smooth-button-red title-entrance-button" onclick="validateTitleScreen()">
+										<img class="title-entrance-image" src="img/enter.png"/>
+									</button>
+								</div>
+								</td></tr>
+								<!-- End of Title Button -->
+								
+								<!-- Start of Version Label -->
+								<tr><td>
+								<div class="bordered version-label">
+									Version beta5
+								</div>
+								</td></tr>
+								<!-- End of Version Label -->
+							</table>
+						
+						</td></tr>
+					</table>
+					</div>
+				</td>
+				<!-- End of Title Content Area -->
+				
+				<td style="width:25%">
+					<div class="opponent-image-area">
+						<img id="title-image-4" class="opponent-image" src="opponents/zoey/start.png"/>
+					</div>
+				</td>
+			</tr>
+			<!-- End of Opponent Visuals -->
+		</table>
+
+	</div>
+	</div>
 	</td></tr>
 </table>
-<!-- End of Introduction Screen -->
+<!-- End of Title Screen -->
 
 
 <!-- Start of Main Select Screen -->
-<table id="select-screen" class="screen-container" hidden>
+<table id="main-select-screen" class="screen-container" hidden>
 	<tr><td>
-	<table class="screen-table">
+	<div class="screen-area">
+	<div class="screen">
 		
-		<!-- Start of Small Banner -->
-		<tr><td>
-			<div class="bordered banner">
-				<p id="select-banner">Choose your opponents!</p>
-			</div>
-		</td></tr>
-        <!-- End of Small Banner -->
+		<!-- Start of Opponent Dialogues -->
+		<table class="screen">
 		
-		<!-- Start of Main Area -->
-		<tr><td id="select-main-area">
-			<table class="screen-table">
-			
-				<!-- Dialogue Bubbles -->
-				<tr>
-					<td class="dialogue-bubble-area">
-						<div class="bordered dialogue-bubble dialogue-centre" id="select-bubble-1">
-							<div class="dialogue-area">
-								<span class="dialogue" id="select-dialogue-1"></span>
-							</div>
-							<button id="select-advance-button-1" class="bordered smooth-button advance-button" onclick="advanceSelectDialogue(1)">
-                                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                            </button>
-                        </div>
-					</td>
-					<td class="dialogue-bubble-area">
-						<div class="bordered dialogue-bubble dialogue-centre" id="select-bubble-2">
-							<div class="dialogue-area">
-								<span class="dialogue" id="select-dialogue-2"></span>
-							</div>
-							<button id="select-advance-button-2" class="bordered smooth-button advance-button" onclick="advanceSelectDialogue(2)">
-                                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                            </button>
-                        </div>
-					</td>
-					<td class="dialogue-bubble-area">
-						<div class="bordered dialogue-bubble dialogue-centre" id="select-bubble-3">
-							<div class="dialogue-area">
-								<span class="dialogue" id="select-dialogue-3"></span>
-							</div>
-							<button id="select-advance-button-3" class="bordered smooth-button advance-button" onclick="advanceSelectDialogue(3)">
-                                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                            </button>
-                        </div>
-					</td>
-					<td class="dialogue-bubble-area">
-						<div class="bordered dialogue-bubble dialogue-centre" id="select-bubble-4">
-							<div class="dialogue-area">
-								<span class="dialogue" id="select-dialogue-4"></span>
-							</div>
-							<button id="select-advance-button-4" class="bordered smooth-button advance-button" onclick="advanceSelectDialogue(4)">
-                                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                            </button>
-                        </div>
-					</td>
-				</tr>
-				
-				<!-- Start of Selected Opponent Visuals -->
-				<tr>
-					<td>
-						<div class="opponent-image-area">
-							<img id="select-image-1" class="opponent-image" src="opponents/blank.jpg"/>
+			<!-- Start of Opponent Dialogues -->
+			<tr>
+				<td class="dialogue-bubble-area">
+					<div id="select-bubble-1" class="bordered dialogue-bubble dialogue-centre">
+						<div class="dialogue-area">
+							<span id="select-dialogue-1" class="dialogue"></span>
 						</div>
-					</td>
-					<td>
-						<div class="opponent-image-area">
-							<img id="select-image-2" class="opponent-image" src="opponents/blank.jpg"/>
+						<button id="select-advance-button-1" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(1)">
+							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						</button>
+					</div>
+				</td>
+				<td class="dialogue-bubble-area">
+					<div id="select-bubble-2" class="bordered dialogue-bubble dialogue-centre">
+						<div class="dialogue-area">
+							<span id="select-dialogue-2" class="dialogue"></span>
 						</div>
-					</td>
-					<td>
-						<div class="opponent-image-area">
-							<img id="select-image-3" class="opponent-image" src="opponents/blank.jpg"/>
+						<button id="select-advance-button-2" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(2)">
+							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						</button>
+					</div>
+				</td>
+				<td class="dialogue-bubble-area">
+					<div id="select-bubble-3" class="bordered dialogue-bubble dialogue-centre">
+						<div class="dialogue-area">
+							<span id="select-dialogue-3" class="dialogue"></span>
 						</div>
-					</td>	
-					<td>
-						<div class="opponent-image-area">
-							<img id="select-image-4" class="opponent-image" src="opponents/blank.jpg"/>
+						<button id="select-advance-button-3" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(3)">
+							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						</button>
+					</div>
+				</td>
+				<td class="dialogue-bubble-area">
+					<div id="select-bubble-4" class="bordered dialogue-bubble dialogue-centre">
+						<div class="dialogue-area">
+							<span id="select-dialogue-4" class="dialogue"></span>
 						</div>
-					</td>
-				</tr>
-                <!-- End of Selected Opponent Visuals -->
-				
-				<!-- Start of Opponent Selection Areas -->
-				<tr><td>
-					<table class="opponent-area">
+						<button id="select-advance-button-4" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(4)">
+							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			<!-- End of Opponent Dialogues -->
+		
+			<!-- Start of Opponent Visuals -->
+			<tr>
+				<td>
+					<div class="opponent-image-area">
+						<img id="select-image-1" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>
+				<td>
+					<div class="opponent-image-area">
+						<img id="select-image-2" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>
+				<td>
+					<div class="opponent-image-area">
+						<img id="select-image-3" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>	
+				<td>
+					<div class="opponent-image-area">
+						<img id="select-image-4" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<!-- End of Opponent Visuals -->
+		
+		<!-- Start of Hide Button -->
+		<button class="bordered smooth-button hide-table-button" onclick="toggleTableVisibility()">
+			<span class="glyphicon glyphicon-eye-close" style="padding-top:4px;" aria-hidden="true"></span>
+		</button>
+		<!-- End of Hide Button -->
+		
+		<!-- Start of Dock Area -->
+		<div class="bordered game-table">
+		<table class="bordered game-table-surface">
+		<tr><td colspan="2">
+		
+			<!-- Start of Opponent Cards -->
+			<table class="game-table-area">
+			<tr>
+			<td>
+				<table class="bordered opponent-area">
 					<tr><td>
-						<div class="bordered opponent-name-label" id="select-name-label-1">Opponent 1</div>
+						<button id="select-slot-button-1" class="bordered smooth-button select-slot-button" onclick="selectOpponentSlot(1)">Select Opponent</button>
 					</td></tr>
 					<tr><td>
-						<button class="bordered default-font smooth-button select-slot-button" id="select-slot-button-1" onclick="selectOpponentSlot(1)">Select Opponent</button>
+						<div id="select-name-label-1" class="bordered opponent-name-label">Opponent 1</div>
 					</td></tr>
-					</table>
-				</td><td>
-					<table class="opponent-area">
+				</table>
+			</td>
+			<td>
+				<table class="bordered opponent-area">
 					<tr><td>
-						<div class="bordered opponent-name-label" id="select-name-label-2">Opponent 2</div>
-					</td></tr>
-					<tr><td>
-						<button class="bordered default-font smooth-button select-slot-button" id="select-slot-button-2" onclick="selectOpponentSlot(2)">Select Opponent</button>
-					</td></tr>
-					</table>
-				</td><td>
-					<table class="opponent-area">
-					<tr><td>
-						<div class="bordered opponent-name-label" id="select-name-label-3">Opponent 3</div>
+						<button id="select-slot-button-2" class="bordered smooth-button select-slot-button" onclick="selectOpponentSlot(2)">Select Opponent</button>
 					</td></tr>
 					<tr><td>
-						<button class="bordered default-font smooth-button select-slot-button" id="select-slot-button-3" onclick="selectOpponentSlot(3)">Select Opponent</button>
+						<div id="select-name-label-2" class="bordered opponent-name-label">Opponent 2</div>
 					</td></tr>
-					</table>
-				</td><td>
-					<table class="opponent-area">
+				</table>
+			</td>
+			<td>
+				<table class="bordered opponent-area">
 					<tr><td>
-						<div class="bordered opponent-name-label" id="select-name-label-4">Opponent 4</div>
+						<button id="select-slot-button-3" class="bordered smooth-button select-slot-button" onclick="selectOpponentSlot(3)">Select Opponent</button>
 					</td></tr>
+					<tr><td>
+						<div id="select-name-label-3" class="bordered opponent-name-label">Opponent 3</div>
+					</td></tr>
+				</table>
+			</td>
+			<td>
+				<table class="bordered opponent-area">
 					<tr><td>
 						<button id="select-slot-button-4" class="bordered smooth-button select-slot-button" onclick="selectOpponentSlot(4)">Select Opponent</button>
 					</td></tr>
-					</table>
-				</td></tr>
-                <!-- End of Opponent Selection Areas -->
-				
-			</table>
-		</td></tr>
-		<!-- End of Main Area -->
-        
-		<!-- Start of Dock Area -->
-		<tr><td>
-			<table class="bordered" id="game-player-area">
-			<tr>
-                <td class="dock-options-area">
-                    <button class="bordered smooth-button dock-options-button" style="margin-bottom:10px;" disabled>
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    </button>
-                    <br>
-                    <button class="bordered smooth-button dock-options-button" disabled>
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                    </button>
-                </td>
-				<td style="width:36%; text-align: center;">
-                    <button class="bordered default-font smooth-button select-option-button" onclick="clickedSelectGroupButton()">Select a<br>Group</button>
-					<button class="bordered default-font smooth-button select-option-button" onclick="clickedRandomGroupButton()">Select a<br>Random Group</button>
-				</td>
-				<td class="deck-area">
-					<img class="bordered deck-image" src="img/unknown.jpg">
-					<button id="main-select-button" class="bordered smooth-button center-dock-button" onclick="advanceSelectScreen()" disabled>Start</button>	
-				</td>
-				<td style="width:44%; text-align: center;">
-					<button class="bordered default-font smooth-button select-option-button" onclick="clickedRandomFillButton()">Select<br>Random</button>
-                    <button class="bordered default-font smooth-button select-option-button" disabled>Random<br>Males</button>
-                    <button class="bordered default-font smooth-button select-option-button" disabled>Random<br>Females</button>
-				</td>
+					<tr><td>
+						<div id="select-name-label-4" class="bordered opponent-name-label">Opponent 4</div>
+					</td></tr>
+				</table>
+			</td>
 			</tr>
 			</table>
+			<!-- End of Opponent Cards -->
+			
+		</td></tr><tr>
+		
+			<!-- Start of Human Player Area -->
+			<td>
+			<table class="bordered player-table-area">
+				<tr>
+				
+				<td style="width:40%;padding-left:10px;">
+					<table class="clear player-area">
+					<tr>
+					<td>
+						<button class="bordered smooth-button smooth-button-red select-dock-button" onclick="backSelectScreen()">Back</button>	
+					</td>
+					<td>
+						<button class="bordered smooth-button select-dock-button" onclick="clickedSelectGroupButton()">Select Group</button>	
+					</td>
+					<td>
+						<button class="bordered smooth-button smooth-button-purple select-dock-button" onclick="clickedRandomGroupButton()" disabled>Random Group</button>	
+					</td>
+					</tr>
+					</table>
+				</td>
+				
+				<td style="position:relative;width:20%">
+					<table class="clear centred tight player-area">
+					<tr><td>
+						<table class="player-card-area">
+						<tr>
+							<td>
+								<div class="centred-deck-area">
+									<img class="bordered large-card-image" src="img/unknown.jpg">
+								</div>
+								<button id="main-select-button" class="bordered smooth-button center-dock-button" onclick="advanceSelectScreen()">Start</button>	
+							</td>
+						</tr>
+						</table>
+					</td></tr>
+					</table>
+				</td>
+				
+				<td style="width:40%;padding-right:10px;">
+					<table class="clear player-area">
+					<tr>
+					<td>
+						<button class="bordered smooth-button smooth-button-purple select-dock-button" onclick="clickedRandomFillButton()" disabled>All Random</button>	
+					</td>
+					<td>
+						<button class="bordered smooth-button smooth-button-purple select-dock-button" onclick="backToSelect()" disabled>Random Males</button>	
+					</td>
+					<td>
+						<button class="bordered smooth-button smooth-button-purple select-dock-button" onclick="backToSelect()" disabled>Random Females</button>	
+					</td>
+					</tr>
+					</table>
+				</td>
+				</tr>
+			</table>
+			<!-- End of Human Player Area -->
+			
 		</td></tr>
-        <!-- End of Dock Area -->
-        
-	</table>
+		</table>
+		</div>
+
+	</div>
+	</div>
 	</td></tr>
 </table>
 <!-- End of Main Select Screen -->
@@ -291,107 +359,416 @@
 <!-- Start of Individual Select Screen -->
 <table id="individual-select-screen" class="screen-container" hidden>
 	<tr><td>
-	<table class="screen-table">
+	<div class="screen-area">
+	<div class="screen">
 		
-		<!-- Start of Small Banner -->
-		<tr><td>
-			<div class="bordered banner">
-				<p id="select-banner">Choose an opponent to play against!</p>
-			</div>
-		</td></tr>
-        <!-- End of Small Banner -->
-        
-		<!-- Start of Main Area -->
-		<tr><td id="individual-main-area">
-			<table class="screen-table">
-            
-				<tr>
-                    <!-- Start of Individual Listings -->
-                    <td rowspan="42" id="individual-select-container">
-                        <div id="individual-select-div">
-                        <table id="individual-select-table" class="bordered table">
-                            <tr>
-                                <th style="border-top-left-radius: 8px;">#</th>
-                                <th>Name</th>
-                                <th>Source</th>
-                                <th>Artist</th>
-                                <th style="border-top-right-radius: 8px;">Writer</th>
-                            </tr>
-                        </table>
-                        </div>
-                    </td>
-                    <!-- End of Individual Listings -->
-                
-                    <!-- Start of Dialogue Bubble -->
-					<td class="dialogue-bubble-area">
-						<div id="individual-bubble" class="bordered dialogue-bubble individual-bubble dialogue-centre">
-							<div class="dialogue-area">
-								<span class="dialogue" id="individual-dialogue"></span>
-							</div>
-							<button id="individual-advance-button" class="bordered smooth-button advance-button" onclick="advanceIndividualDialogue()">
-                                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                            </button>
-                        </div>
-					</td>
-                    <!-- End of Dialogue Bubble -->
-				</tr>
-				
-				<!-- Start of Selected Opponent Visuals -->
-				<tr>
-					<td>
-						<div class="opponent-image-area">
-							<img id="individual-select-image" class="opponent-image" src="opponents/blank.jpg"/>
-						</div>
-					</td>
-				</tr>
-                <!-- End of Selected Opponent Visuals -->
-
-                <!-- Start of Selected Opponent Stats -->
-                <tr><td>
-                <table class="opponent-area">
-					<tr><td>
-						<div id="individual-name-label" class="bordered opponent-name-label">Opponent</div>
-					</td></tr>
-					<tr><td>
-						<button id="individual-select-button" class="bordered default-font smooth-button select-slot-button" onclick="selectIndividualOpponent()" disabled>Select Opponent</button>
-					</td></tr>
-                </table>
-                </td></tr>
-                <!-- End of Selected Opponent Stats -->
-                
-			</table>
-		</td></tr>
-        <!-- End of Main Area -->
+		<!-- Start of Opponent Dialogues -->
+		<table class="screen">
 		
-		<!-- Start of Dock Area -->
-		<tr><td>
-			<table class="bordered" id="game-player-area">
+			<!-- Start of Opponent Dialogues -->
 			<tr>
-                <td class="dock-options-area">
-                    <button class="bordered smooth-button dock-options-button" style="margin-bottom:10px;" disabled>
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    </button>
-                    <br>
-                    <button class="bordered smooth-button dock-options-button" disabled>
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                    </button>
-                </td>
-				<td class="player-clothing-area">
-
+				<td class="opponent-stats-area">
+					<div id="individual-stats-page-1-1" class="bordered opponent-stats">
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="bordered input-group-addon">Name</div>
+										<input id="individual-name-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Prefers</div>
+										<input id="individual-prefers-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-left">
+										<div class="bordered input-group-addon">Sex</div>
+										<input id="individual-sex-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-right">
+										<div class="bordered input-group-addon">Height</div>
+										<input id="individual-height-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeIndividualStats(1, 1, 2)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="individual-stats-page-1-2" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeIndividualStats(1, 2, 1)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Source</div>
+										<input id="individual-source-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Writer</div>
+										<input id="individual-writer-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Artist</div>
+										<input id="individual-artist-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeIndividualStats(1, 2, 3)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="individual-stats-page-1-3" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeIndividualStats(1, 3, 2)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div>
+										<textarea id="individual-description-label-1" class="bordered form-control form-control-area" value="" disabled></textarea>
+									</div>
+								</div>
+							</td></tr>
+						</table>
+					</div>
 				</td>
-				<td class="deck-area">
-					<img class="bordered deck-image" src="img/unknown.jpg">
-					<button id="main-select-button" class="bordered smooth-button smooth-button-red center-dock-button" onclick="backToSelect()">Back</button>	
+				<td class="opponent-stats-area">
+					<div id="individual-stats-page-2-1" class="bordered opponent-stats">
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="bordered input-group-addon">Name</div>
+										<input id="individual-name-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Prefers</div>
+										<input id="individual-prefers-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-left">
+										<div class="bordered input-group-addon">Sex</div>
+										<input id="individual-sex-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-right">
+										<div class="bordered input-group-addon">Height</div>
+										<input id="individual-height-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeIndividualStats(2, 1, 2)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="individual-stats-page-2-2" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeIndividualStats(2, 2, 1)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Source</div>
+										<input id="individual-source-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Writer</div>
+										<input id="individual-writer-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Artist</div>
+										<input id="individual-artist-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeIndividualStats(2, 2, 3)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="individual-stats-page-2-3" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeIndividualStats(2, 3, 2)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div>
+										<textarea id="individual-description-label-2" class="bordered form-control form-control-area" value="" disabled></textarea>
+									</div>
+								</div>
+							</td></tr>
+						</table>
+					</div>
 				</td>
-				<td style="width:44%">
-                
+				<td class="opponent-stats-area">
+					<div id="individual-stats-page-3-1" class="bordered opponent-stats">
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="bordered input-group-addon">Name</div>
+										<input id="individual-name-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Prefers</div>
+										<input id="individual-prefers-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-left">
+										<div class="bordered input-group-addon">Sex</div>
+										<input id="individual-sex-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-right">
+										<div class="bordered input-group-addon">Height</div>
+										<input id="individual-height-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeIndividualStats(3, 1, 2)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="individual-stats-page-3-2" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeIndividualStats(3, 2, 1)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Source</div>
+										<input id="individual-source-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Writer</div>
+										<input id="individual-writer-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Artist</div>
+										<input id="individual-artist-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeIndividualStats(3, 2, 3)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="individual-stats-page-3-3" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeIndividualStats(3, 3, 2)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div>
+										<textarea id="individual-description-label-4" class="bordered form-control form-control-area" value="" disabled></textarea>
+									</div>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+				</td>
+				<td class="opponent-stats-area">
+					<div id="individual-stats-page-4-1" class="bordered opponent-stats">
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="bordered input-group-addon">Name</div>
+										<input id="individual-name-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Prefers</div>
+										<input id="individual-prefers-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-left">
+										<div class="bordered input-group-addon">Sex</div>
+										<input id="individual-sex-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-right">
+										<div class="bordered input-group-addon">Height</div>
+										<input id="individual-height-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeIndividualStats(4, 1, 2)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="individual-stats-page-4-2" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeIndividualStats(4, 2, 1)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Source</div>
+										<input id="individual-source-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Writer</div>
+										<input id="individual-writer-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Artist</div>
+										<input id="individual-artist-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeIndividualStats(4, 2, 3)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="individual-stats-page-4-3" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeIndividualStats(4, 3, 2)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div>
+										<textarea id="individual-description-label-4" class="bordered form-control form-control-area" value="" disabled></textarea>
+									</div>
+								</div>
+							</td></tr>
+						</table>
+					</div>
 				</td>
 			</tr>
+			<!-- End of Opponent Dialogues -->
+		
+			<!-- Start of Opponent Visuals -->
+			<tr>
+				<td>
+					<div class="opponent-image-area">
+						<img id="individual-image-1" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>
+				<td>
+					<div class="opponent-image-area">
+						<img id="individual-image-2" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>
+				<td>
+					<div class="opponent-image-area">
+						<img id="individual-image-3" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>	
+				<td>
+					<div class="opponent-image-area">
+						<img id="individual-image-4" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<!-- End of Opponent Visuals -->
+		
+		<!-- Start of Hide Button -->
+		<button class="bordered smooth-button hide-table-button" onclick="toggleTableVisibility()">
+			<span class="glyphicon glyphicon-eye-close" style="padding-top:4px;" aria-hidden="true"></span>
+		</button>
+		<!-- End of Hide Button -->
+		
+		<!-- Start of Dock Area -->
+		<div class="bordered game-table">
+		<table class="bordered game-table-surface">
+		<tr><td colspan="2">
+		
+			<!-- Start of Opponent Cards -->
+			<table class="game-table-area">
+			<tr>
+			<td>
+				<table class="bordered opponent-area">
+					<tr><td>
+						<button id="individual-button-1" class="bordered smooth-button select-slot-button" onclick="selectIndividualOpponent(1)">Select Opponent</button>
+					</td></tr>
+				</table>
+			</td>
+			<td>
+				<table class="bordered opponent-area">
+					<tr><td>
+						<button id="individual-button-2" class="bordered smooth-button select-slot-button" onclick="selectIndividualOpponent(2)">Select Opponent</button>
+					</td></tr>
+				</table>
+			</td>
+			<td>
+				<table class="bordered opponent-area">
+					<tr><td>
+						<button id="individual-button-3" class="bordered smooth-button select-slot-button" onclick="selectIndividualOpponent(3)">Select Opponent</button>
+					</td></tr>
+				</table>
+			</td>
+			<td>
+				<table class="bordered opponent-area">
+					<tr><td>
+						<button id="individual-button-4" class="bordered smooth-button select-slot-button" onclick="selectIndividualOpponent(4)">Select Opponent</button>
+					</td></tr>
+				</table>
+			</td>
+			</tr>
 			</table>
+			<!-- End of Opponent Cards -->
+			
+		</td></tr><tr>
+		
+			<!-- Start of Human Player Area -->
+			<td>
+			<table class="bordered player-table-area">
+				<tr>
+				
+				<td style="width:5%;">
+					<button class="bordered smooth-button smooth-button-red select-dock-button" onclick="backToSelect()">Back</button>	
+				</td>
+				
+				<td style="width:20%">
+					<table class="clear filter-area">
+					<tr><td colspan="5">
+						<div class="input-group">
+							<div class="bordered input-group-addon">Page</div>
+							<input id="individual-page-indicator" type="text" class="bordered form-control form-control-center" value="" />
+							<div id="individual-max-page-indicator" class="bordered input-group-addon">of 2</div>
+						</div>
+					</td></tr>	
+					<tr><td>
+						<button class="bordered btn smooth-button page-button" onclick="changeIndividualPage(true, -1)">
+							<span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+						</button>
+					</td><td>
+						<button class="bordered btn smooth-button page-button" onclick="changeIndividualPage(false, -1)">
+							<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+						</button>
+					</td><td>
+						<button class="bordered btn smooth-button page-button" onclick="changeIndividualPage(true, 0)">Go</button>
+					</td><td>	
+						<button class="bordered btn smooth-button page-button" onclick="changeIndividualPage(false, 1)">
+							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						</button>
+					</td><td>
+						<button class="bordered btn smooth-button page-button" onclick="changeIndividualPage(true, 1)">
+							<span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+						</button>
+					</td></tr>
+					</table>
+				</td>
+				</tr>
+			</table>
+			<!-- End of Human Player Area -->
+			
 		</td></tr>
-        <!-- End of Dock Area -->
-        
-	</table>
+		</table>
+		</div>
+
+	</div>
+	</div>
 	</td></tr>
 </table>
 <!-- End of Individual Select Screen -->
@@ -400,99 +777,398 @@
 <!-- Start of Group Select Screen -->
 <table id="group-select-screen" class="screen-container" hidden>
 	<tr><td>
-	<table class="screen-table">
+	<div class="screen-area">
+	<div class="screen">
 		
-		<!-- Start of Small Banner -->
-		<tr><td>
-			<div class="bordered banner">
-				<p id="select-banner">Choose a group to play against!</p>
-			</div>
-		</td></tr>
-        <!-- End of Small Banner -->
-        
-		<!-- Start of Main Area -->
-		<tr><td id="group-main-area">
-			<table class="screen-table">
-            
-				<tr>
-                    <!-- Start of Individual Listings -->
-                    <td rowspan="42" id="group-select-container">
-                        <div id="group-select-div">
-                        <table id="group-select-table" class="bordered table">
-                            <tr>
-                                <th style="border-top-left-radius: 8px;">#</th>
-                                <th style="border-top-right-radius: 8px;">Name</th>
-                            </tr>
-                        </table>
-                        </div>
-                    </td>
-                    <!-- End of Individual Listings -->
-                
-                    <!-- Start of Selected Opponent Visuals -->
-                    <tr>
-                        <td>
-                            <div class="group-image-area">
-                                <img id="group-select-image" class="group-image" src="groups/blank.jpg"/>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- End of Selected Opponent Visuals -->
-				</tr>
-				
-				
-
-                <!-- Start of Selected Opponent Stats -->
-                <tr><td>
-                <table class="group-area">
-                    <tr>
-                        <td><div id="group-name-label-1" class="bordered group-opponent-name-label">Opponent 1</div></td>
-                        <td><div id="group-name-label-2" class="bordered group-opponent-name-label">Opponent 2</div></td>
-                        <td><div id="group-name-label-3" class="bordered group-opponent-name-label">Opponent 3</div></td>
-                        <td><div id="group-name-label-4" class="bordered group-opponent-name-label">Opponent 4</div></td>
-                    </tr>
-					<tr><td colspan="4">
-						<div id="group-name-label" class="bordered opponent-name-label">Group</div>
-					</td></tr>
-					<tr><td colspan="4">
-						<button id="group-select-button" class="bordered default-font smooth-button select-slot-button" onclick="selectGroup()">Select Group</button>
-					</td></tr>
-                </table>
-                </td></tr>
-                <!-- End of Selected Opponent Stats -->
-                
-			</table>
-		</td></tr>
-        <!-- End of Main Area -->
+		<!-- Start of Opponent Dialogues -->
+		<table class="screen">
 		
-		<!-- Start of Dock Area -->
-		<tr><td>
-			<table class="bordered" id="game-player-area">
+			<!-- Start of Opponent Dialogues -->
 			<tr>
-                <td class="dock-options-area">
-                    <button class="bordered smooth-button dock-options-button" style="margin-bottom:10px;" disabled>
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    </button>
-                    <br>
-                    <button class="bordered smooth-button dock-options-button" disabled>
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                    </button>
-                </td>
-				<td class="player-clothing-area">
-
+				<td class="opponent-stats-area">
+					<div id="group-stats-page-1-1" class="bordered opponent-stats">
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="bordered input-group-addon">Name</div>
+										<input id="group-name-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Prefers</div>
+										<input id="group-prefers-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-left">
+										<div class="bordered input-group-addon">Sex</div>
+										<input id="group-sex-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-right">
+										<div class="bordered input-group-addon">Height</div>
+										<input id="group-height-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeGroupStats(1, 1, 2)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="group-stats-page-1-2" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeGroupStats(1, 2, 1)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Source</div>
+										<input id="group-source-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Writer</div>
+										<input id="group-writer-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Artist</div>
+										<input id="group-artist-label-1" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeGroupStats(1, 2, 3)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="group-stats-page-1-3" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeGroupStats(1, 3, 2)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div>
+										<textarea id="group-description-label-1" class="bordered form-control form-control-area" value="" disabled></textarea>
+									</div>
+								</div>
+							</td></tr>
+						</table>
+					</div>
 				</td>
-				<td class="deck-area">
-					<img class="bordered deck-image" src="img/unknown.jpg">
-					<button id="main-group-button" class="bordered smooth-button smooth-button-red center-dock-button" onclick="backToSelect()">Back</button>	
+				<td class="opponent-stats-area">
+					<div id="group-stats-page-2-1" class="bordered opponent-stats">
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="bordered input-group-addon">Name</div>
+										<input id="group-name-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Prefers</div>
+										<input id="group-prefers-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-left">
+										<div class="bordered input-group-addon">Sex</div>
+										<input id="group-sex-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-right">
+										<div class="bordered input-group-addon">Height</div>
+										<input id="group-height-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeGroupStats(2, 1, 2)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="group-stats-page-2-2" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeGroupStats(2, 2, 1)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Source</div>
+										<input id="group-source-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Writer</div>
+										<input id="group-writer-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Artist</div>
+										<input id="group-artist-label-2" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeGroupStats(2, 2, 3)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="group-stats-page-2-3" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeGroupStats(2, 3, 2)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div>
+										<textarea id="group-description-label-2" class="bordered form-control form-control-area" value="" disabled></textarea>
+									</div>
+								</div>
+							</td></tr>
+						</table>
+					</div>
 				</td>
-				<td style="width:44%">
-                
+				<td class="opponent-stats-area">
+					<div id="group-stats-page-3-1" class="bordered opponent-stats">
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="bordered input-group-addon">Name</div>
+										<input id="group-name-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Prefers</div>
+										<input id="group-prefers-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-left">
+										<div class="bordered input-group-addon">Sex</div>
+										<input id="group-sex-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-right">
+										<div class="bordered input-group-addon">Height</div>
+										<input id="group-height-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeGroupStats(3, 1, 2)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="group-stats-page-3-2" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeGroupStats(3, 2, 1)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Source</div>
+										<input id="group-source-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Writer</div>
+										<input id="group-writer-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Artist</div>
+										<input id="group-artist-label-3" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeGroupStats(3, 2, 3)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="group-stats-page-3-3" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeGroupStats(3, 3, 2)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div>
+										<textarea id="group-description-label-4" class="bordered form-control form-control-area" value="" disabled></textarea>
+									</div>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+				</td>
+				<td class="opponent-stats-area">
+					<div id="group-stats-page-4-1" class="bordered opponent-stats">
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="bordered input-group-addon">Name</div>
+										<input id="group-name-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Prefers</div>
+										<input id="group-prefers-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-left">
+										<div class="bordered input-group-addon">Sex</div>
+										<input id="group-sex-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group half-input-group-right">
+										<div class="bordered input-group-addon">Height</div>
+										<input id="group-height-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeGroupStats(4, 1, 2)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="group-stats-page-4-2" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeGroupStats(4, 2, 1)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Source</div>
+										<input id="group-source-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Writer</div>
+										<input id="group-writer-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<div class="input-group">
+										<div class="bordered input-group-addon">Artist</div>
+										<input id="group-artist-label-4" type="text" class="bordered form-control" value="" disabled>
+									</div>
+									<button class="bordered smooth-button select-advance-button-right" onclick="changeGroupStats(4, 2, 3)">
+										<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+								</div>
+							</td></tr>
+						</table>
+					</div>
+					<div id="group-stats-page-4-3" class="bordered opponent-stats" hidden>
+						<table class="opponent-stats-table">
+							<tr><td>
+								<div class="form-group">
+									<button class="bordered smooth-button select-advance-button-left" onclick="changeGroupStats(4, 3, 2)">
+										<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<div>
+										<textarea id="group-description-label-4" class="bordered form-control form-control-area" value="" disabled></textarea>
+									</div>
+								</div>
+							</td></tr>
+						</table>
+					</div>
 				</td>
 			</tr>
+			<!-- End of Opponent Dialogues -->
+		
+			<!-- Start of Opponent Visuals -->
+			<tr>
+				<td>
+					<div class="opponent-image-area">
+						<img id="group-image-1" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>
+				<td>
+					<div class="opponent-image-area">
+						<img id="group-image-2" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>
+				<td>
+					<div class="opponent-image-area">
+						<img id="group-image-3" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>	
+				<td>
+					<div class="opponent-image-area">
+						<img id="group-image-4" class="opponent-image" src="opponents/blank.png"/>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<!-- End of Opponent Visuals -->
+		
+		<!-- Start of Hide Button -->
+		<button class="bordered smooth-button hide-table-button" onclick="toggleTableVisibility()">
+			<span class="glyphicon glyphicon-eye-close" style="padding-top:4px;" aria-hidden="true"></span>
+		</button>
+		<!-- End of Hide Button -->
+		
+		<!-- Start of Dock Area -->
+		<div class="bordered game-table">
+		<table class="bordered game-table-surface">
+		<tr><td colspan="2">
+		
+			<!-- Start of Opponent Cards -->
+			<table class="game-table-area">
+			<tr>
+			<td>
+				<table class="bordered opponent-area" style="width: auto;">
+					<tr><td>
+						<div id="group-name-label" class="bordered group-name-label">Opponent 1</div>
+					</td></tr>
+					<tr><td>
+						<button id="group-button" class="bordered smooth-button select-group-button" onclick="selectGroup()">Select Group</button>
+					</td></tr>
+				</table>
+			</td>
+			</tr>
 			</table>
+			<!-- End of Opponent Cards -->
+			
+		</td></tr><tr>
+		
+			<!-- Start of Human Player Area -->
+			<td>
+			<table class="bordered player-table-area">
+				<tr>
+				
+				<td style="width:5%;">
+					<button class="bordered smooth-button smooth-button-red select-dock-button" onclick="backToSelect()">Back</button>	
+				</td>
+				
+				<td style="width:20%">
+					<table class="clear filter-area">
+					<tr><td colspan="5">
+						<div class="input-group">
+							<div class="bordered input-group-addon">Page</div>
+							<input id="group-page-indicator" type="text" class="bordered form-control form-control-center" value="" />
+							<div id="group-max-page-indicator" class="bordered input-group-addon">of 2</div>
+						</div>
+					</td></tr>	
+					<tr><td>
+						<button class="bordered btn smooth-button page-button" onclick="changeGroupPage(true, -1)">
+							<span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+						</button>
+					</td><td>
+						<button class="bordered btn smooth-button page-button" onclick="changeGroupPage(false, -1)">
+							<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+						</button>
+					</td><td>
+						<button class="bordered btn smooth-button page-button" onclick="changeGroupPage(true, 0)">Go</button>
+					</td><td>	
+						<button class="bordered btn smooth-button page-button" onclick="changeGroupPage(false, 1)">
+							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						</button>
+					</td><td>
+						<button class="bordered btn smooth-button page-button" onclick="changeGroupPage(true, 1)">
+							<span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+						</button>
+					</td></tr>
+					</table>
+				</td>
+				</tr>
+			</table>
+			<!-- End of Human Player Area -->
+			
 		</td></tr>
-        <!-- End of Dock Area -->
-        
-	</table>
+		</table>
+		</div>
+
+	</div>
+	</div>
 	</td></tr>
 </table>
 <!-- End of Group Select Screen -->
@@ -501,96 +1177,121 @@
 <!-- Start of Main Game Screen -->
 <table id="game-screen" class="screen-container" hidden>
 	<tr><td>
-	<table class="screen-table">
-	
-		<!-- Start of Small Banner -->
-		<tr><td>
-			<div class="bordered banner">
-				<p id="game-banner">Welcome to Strip Poker Night at the Inventory!</p>
-			</div>
-		</td></tr>
-        <!-- End of Small Banner -->
+	<div class="screen-area">
+	<div class="screen">
 		
-		<!-- Start of Main Area -->
-		<tr><td id="game-main-area">
-			<table class="screen-table">
-			
-				<!-- Start of Dialogue Bubbles -->
-				<tr>
-					<td class="dialogue-bubble-area">
-						<div id="game-bubble-1" class="bordered dialogue-bubble dialogue-centre">
-							<div class="dialogue-area">
-								<span id="game-dialogue-1" class="dialogue"></span>
+		<table class="screen">
+			<!-- Start of Opponent Dialogues -->
+			<tr>
+				<td class="dialogue-bubble-area">
+					<div id="game-bubble-1" class="bordered dialogue-bubble dialogue-centre">
+						<div class="dialogue-area">
+							<span id="game-dialogue-1" class="dialogue"></span>
+						</div>
+						<button id="game-advance-button-1" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(1)">
+							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						</button>
+					</div>
+				</td>
+				<td class="dialogue-bubble-area">
+					<div id="game-bubble-2" class="bordered dialogue-bubble dialogue-centre">
+						<div class="dialogue-area">
+							<span id="game-dialogue-2" class="dialogue"></span>
+						</div>
+						<button id="game-advance-button-2" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(2)">
+							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						</button>
+					</div>
+				</td>
+				<td class="dialogue-bubble-area">
+					<div class="bordered dialogue-bubble dialogue-centre" id="game-bubble-3">
+						<div class="dialogue-area">
+							<span id="game-dialogue-3" class="dialogue"></span>
+						</div>
+						<button id="game-advance-button-3" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(3)">
+							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						</button>
+					</div>
+				</td>
+				<td class="dialogue-bubble-area">
+					<div class="bordered dialogue-bubble dialogue-centre" id="game-bubble-4">
+						<div class="dialogue-area">
+							<span id="game-dialogue-4" class="dialogue"></span>
+						</div>
+						<button id="game-advance-button-4" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(4)">
+							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			<!-- End of Opponent Dialogues -->
+		
+			<!-- Start of Opponent Visuals -->
+			<tr>
+				<td>
+					<div class="opponent-image-area">
+						<img id="game-image-1" class="opponent-image" src="opponents/elizabeth/start.png"/>
+					</div>
+				</td>
+				<td>
+					<div class="opponent-image-area">
+						<img id="game-image-2" class="opponent-image" src="opponents/lilith/start.png"/>
+					</div>
+				</td>
+				<td>
+					<div class="opponent-image-area">
+						<img id="game-image-3" class="opponent-image" src="opponents/ana/start.png"/>
+					</div>
+				</td>	
+				<td>
+					<div class="opponent-image-area">
+						<img id="game-image-4" class="opponent-image" src="opponents/june/start.png"/>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<!-- End of Opponent Visuals -->
+		
+		<!-- Start of Stripping Modal -->
+			<div id="stripping-modal" class="modal table-modal fade" role="dialog">
+				<div class="bordered modal-dialog">
+				<div class="bordered modal-dialog-surface">
+					<!-- Start of Modal Content -->
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title text-center">Select an article of clothing to remove</h4>
+						</div>
+						<div class="modal-body">
+							<div id="stripping-clothing-area" class="modal-body-container">
+								
 							</div>
-							<button id="game-advance-button-1" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(1)">
-                                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                            </button>
 						</div>
-					</td>
-					<td class="dialogue-bubble-area">
-						<div id="game-bubble-2" class="bordered dialogue-bubble dialogue-centre">
-							<div class="dialogue-area">
-								<span id="game-dialogue-2" class="dialogue"></span>
-							</div>
-							<button id="game-advance-button-2" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(2)">
-                                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                            </button>
+						<div class="modal-footer">
+							<button id="stripping-modal-button" class="bordered smooth-button modal-button" data-dismiss="modal" onclick="closeStrippingModal()">Strip</button>
 						</div>
-					</td>
-					<td class="dialogue-bubble-area">
-						<div class="bordered dialogue-bubble dialogue-centre" id="game-bubble-3">
-							<div class="dialogue-area">
-								<span id="game-dialogue-3" class="dialogue"></span>
-							</div>
-							<button id="game-advance-button-3" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(3)">
-                                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                            </button>
-						</div>
-					</td>
-					<td class="dialogue-bubble-area">
-						<div class="bordered dialogue-bubble dialogue-centre" id="game-bubble-4">
-							<div class="dialogue-area">
-								<span id="game-dialogue-4" class="dialogue"></span>
-							</div>
-							<button id="game-advance-button-4" class="bordered smooth-button advance-button" onclick="advanceGameDialogue(4)">
-                                <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-                            </button>
-						</div>
-					</td>
-				</tr>
-				<!-- End of Dialogue Bubbles -->
-				
-				<!-- Start of Opponent Visuals -->
-				<tr>
-					<td>
-						<div class="opponent-image-area">
-							<img id="game-image-1" class="opponent-image" src="opponents/blank.jpg"/>
-						</div>
-					</td>
-					<td>
-						<div class="opponent-image-area">
-							<img id="game-image-2" class="opponent-image" src="opponents/blank.jpg"/>
-						</div>
-					</td>
-					<td>
-						<div class="opponent-image-area">
-							<img id="game-image-3" class="opponent-image" src="opponents/blank.jpg"/>
-						</div>
-					</td>	
-					<td>
-						<div class="opponent-image-area">
-							<img id="game-image-4" class="opponent-image" src="opponents/blank.jpg"/>
-						</div>
-					</td>
-				</tr>
-				<!-- End of Opponent Visuals -->
-				
-				<!-- Start of Opponent Areas -->
-				<tr><td>
-					<table class="opponent-area">
-					<tr><td>
-						<div id="game-name-label-1" class="bordered opponent-name-label">Opponent 1</div>
-					</td></tr>
+					</div>
+					<!-- End of Modal Content -->
+				</div>
+				</div>
+			</div>
+			<!-- End of Stripping Modal -->
+		
+		<!-- Start of Hide Button -->
+		<button class="bordered smooth-button hide-table-button" onclick="toggleTableVisibility()">
+			<span class="glyphicon glyphicon-eye-close" style="padding-top:4px;" aria-hidden="true"></span>
+		</button>
+		<!-- End of Hide Button -->
+		
+		<!-- Start of Dock Area -->
+		<div class="bordered game-table">
+		<table class="bordered game-table-surface" style="width:100%;">
+		<tr><td colspan="2">
+		
+			<!-- Start of Opponent Cards -->
+			<table class="game-table-area">
+			<tr>
+			<td>
+				<table class="bordered opponent-area">
 					<tr><td>
 						<table class="opponent-card-area">
 						<tr>
@@ -602,12 +1303,13 @@
 						</tr>
 						</table>
 					</td></tr>
-					</table>
-				</td><td>
-					<table class="opponent-area">
 					<tr><td>
-						<div id="game-name-label-2" class="bordered opponent-name-label">Opponent 2</div>
+						<div id="game-name-label-1" class="bordered opponent-name-label">Opponent 1</div>
 					</td></tr>
+				</table>
+			</td>
+			<td>
+				<table class="bordered opponent-area">
 					<tr><td>
 						<table class="opponent-card-area">
 						<tr>
@@ -619,12 +1321,13 @@
 						</tr>
 						</table>
 					</td></tr>
-					</table>
-				</td><td>
-					<table class="opponent-area">
 					<tr><td>
-						<div id="game-name-label-3" class="bordered opponent-name-label">Opponent 3</div>
+						<div id="game-name-label-2" class="bordered opponent-name-label">Opponent 2</div>
 					</td></tr>
+				</table>
+			</td>
+			<td>
+				<table class="bordered opponent-area">
 					<tr><td>
 						<table class="opponent-card-area">
 						<tr>
@@ -636,12 +1339,13 @@
 						</tr>
 						</table>
 					</td></tr>
-					</table>
-				</td><td>
-					<table class="opponent-area">
 					<tr><td>
-						<div id="game-name-label-4" class="bordered opponent-name-label">Opponent 4</div>
+						<div id="game-name-label-3" class="bordered opponent-name-label">Opponent 3</div>
 					</td></tr>
+				</table>
+			</td>
+			<td>
+				<table class="bordered opponent-area">
 					<tr><td>
 						<table class="opponent-card-area">
 						<tr>
@@ -653,98 +1357,104 @@
 						</tr>
 						</table>
 					</td></tr>
+					<tr><td>
+						<div id="game-name-label-4" class="bordered opponent-name-label">Opponent 4</div>
+					</td></tr>
+				</table>
+			</td>
+			</tr>
+			</table>
+			<!-- End of Opponent Cards -->
+			
+		</td></tr><tr>
+		
+			<!-- Start of Human Player Area -->
+			<td>
+			<table class="bordered player-table-area">
+				<tr>
+				
+				<td style="width:10%">
+					<table class="clear player-area dock-options-area">
+					<tr><td>
+						<button class="bordered smooth-button dock-options-button" style="margin-bottom:10px" disabled>
+							<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+						</button>
+					</td></tr><tr><td>
+						<button class="bordered smooth-button dock-options-button" disabled>
+							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+						</button>
+					</td></tr>
+					</table>
+				</td>
+				
+				<td style="width:30%">
+					<table class="clear player-area">
+					<tr><td>
+						<table class="player-card-area">
+						<tr>
+							<td rowspan="2"><img class="bordered small-clothing-image" id="player-0-clothing-8" src="img/blankcard.jpg"></td>
+							<td colspan="4"><div id="game-name-label-0" class="bordered player-name-label">Player</div></td>
+							<td rowspan="2"><img class="bordered small-clothing-image" id="player-0-clothing-1" src="img/blankcard.jpg"></td>
+						</tr>
+						<tr>
+							<td colspan="4"><div id="game-clothing-label" class="bordered player-clothing-label"><b>Your Clothing</b></div></td>							
+						</tr>
+						<tr>
+							<td><img class="bordered small-clothing-image" id="player-0-clothing-7" src="img/blankcard.jpg"></td>
+							<td><img class="bordered small-clothing-image" id="player-0-clothing-6" src="img/blankcard.jpg"></td>
+							<td><img class="bordered small-clothing-image" id="player-0-clothing-5" src="img/blankcard.jpg"></td>
+							<td><img class="bordered small-clothing-image" id="player-0-clothing-4" src="img/blankcard.jpg"></td>
+							<td><img class="bordered small-clothing-image" id="player-0-clothing-3" src="img/blankcard.jpg"></td>
+							<td><img class="bordered small-clothing-image" id="player-0-clothing-2" src="img/blankcard.jpg"></td>
+						</tr>
+						</table>
+					</td></tr>
+					</table>
+				</td>
+				
+				<td style="position:relative;width:20%">
+					<table class="clear centred tight player-area">
+					<tr><td>
+						<table class="player-card-area">
+						<tr>
+							<td>
+								<div id="game-hidden-area" class="centred-deck-area">
+									<img class="bordered large-card-image" src="img/unknown.jpg">
+									<img id="hidden-large-card" class="bordered large-card-image hidden-large-card" src="img/unknown.jpg">
+								</div>
+								<button id="main-game-button" class="bordered smooth-button center-dock-button" onclick="advanceGame()">Deal</button>	
+							</td>
+						</tr>
+						</table>
+					</td></tr>
+					</table>
+				</td>
+				
+				<td style="width:40%">
+					<table class="clear player-area">
+					<tr><td>
+						<table class="player-card-area">
+						<tr>
+							<td><input type="image" id="player-0-card-1" class="bordered large-card-image" src="img/blankcard.jpg" onclick="selectCard(0)"/></td>
+							<td><input type="image" id="player-0-card-2" class="bordered large-card-image" src="img/blankcard.jpg" onclick="selectCard(1)"/></td>
+							<td><input type="image" id="player-0-card-3" class="bordered large-card-image" src="img/blankcard.jpg" onclick="selectCard(2)"/></td>
+							<td><input type="image" id="player-0-card-4" class="bordered large-card-image" src="img/blankcard.jpg" onclick="selectCard(3)"/></td>
+							<td><input type="image" id="player-0-card-5" class="bordered large-card-image" src="img/blankcard.jpg" onclick="selectCard(4)"/></td>
+						</tr>
+						</table>
+					</td></tr>
 					</table>
 				</td>
 				</tr>
-				<!-- End of Opponent Areas -->
-				
 			</table>
+			<!-- End of Human Player Area -->
+			
 		</td></tr>
-		<!-- End of Main Area -->
-		
-		<!-- Start of Modal -->
-		<div id="stripping-modal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title text-center">Select an article of clothing to remove</h4>
-                </div>
-                <div class="modal-body">
-                    <div id="stripping-clothing-area" class="modal-body-container">
-                        
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="stripping-modal-button" class="bordered smooth-button modal-button" data-dismiss="modal" onclick="closeStrippingModal()">Strip</button>
-                </div>
-            </div>
-
-            </div>
+		</table>
 		</div>
-		<!-- End of Modal -->
-		
-		<!-- Start of Dock Area -->
-		<tr><td>
-			<table id="game-player-area" class="bordered">
-			<tr>
-                <td class="dock-options-area">
-                    <button class="bordered smooth-button dock-options-button" style="margin-bottom:10px;" disabled>
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    </button>
-                    <br>
-                    <button class="bordered smooth-button dock-options-button" disabled>
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                    </button>
-                </td>
-				<td class="player-clothing-area">
-					<table>
-					<tr>
-						<td></td>
-						<td rowspan='2'><img class="bordered small-clothing-image" id="player-0-clothing-8" src="img/blankcard.jpg"></td>
-						<td colspan='4'><div class="bordered player-name-label" id="game-name-label-0">Player</div></td>
-						<td rowspan='2'><img class="bordered small-clothing-image" id="player-0-clothing-1" src="img/blankcard.jpg"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td colspan='4'><div class="bordered player-clothing-label" id="game-clothing-label"><b>Your Clothing</b></p></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><img class="bordered small-clothing-image" id="player-0-clothing-7" src="img/blankcard.jpg"></td>
-						<td><img class="bordered small-clothing-image" id="player-0-clothing-6" src="img/blankcard.jpg"></td>
-						<td><img class="bordered small-clothing-image" id="player-0-clothing-5" src="img/blankcard.jpg"></td>
-						<td><img class="bordered small-clothing-image" id="player-0-clothing-4" src="img/blankcard.jpg"></td>
-						<td><img class="bordered small-clothing-image" id="player-0-clothing-3" src="img/blankcard.jpg"></td>
-						<td><img class="bordered small-clothing-image" id="player-0-clothing-2" src="img/blankcard.jpg"></td>
-					</tr>
-					</table>
-				</td>
-				<td id="game-deck-area" class="deck-area">
-					<div id="game-hidden-area" class="centred-deck-area">
-						<img class="bordered deck-image" src="img/unknown.jpg">
-						<img id="hidden-large-card" class="bordered large-card-image hidden-large-card" src="img/unknown.jpg">
-					</div>
-					<button id="main-game-button" class="bordered smooth-button center-dock-button" onclick="advanceGame()">Deal</button>	
-				</td>
-				<td id="dock-card-area">
-					<table>
-					<tr>
-						<td><input type="image" class="bordered large-card-image" id="player-0-card-1" src="img/blankcard.jpg" onclick="selectCard(0)"/></td>
-						<td><input type="image" class="bordered large-card-image" id="player-0-card-2" src="img/blankcard.jpg" onclick="selectCard(1)"/></td>
-						<td><input type="image" class="bordered large-card-image" id="player-0-card-3" src="img/blankcard.jpg" onclick="selectCard(2)"/></td>
-						<td><input type="image" class="bordered large-card-image" id="player-0-card-4" src="img/blankcard.jpg" onclick="selectCard(3)"/></td>
-						<td><input type="image" class="bordered large-card-image" id="player-0-card-5" src="img/blankcard.jpg" onclick="selectCard(4)"/></td>
-					</tr>
-					</table>
-				</td>
-			</tr>
-			</table>
-		</td></tr>
-		<!-- End of Dock Area -->
-		
-	</table>
+
+	</div>
+	</div>
 	</td></tr>
 </table>
 <!-- End of Main Game Screen -->

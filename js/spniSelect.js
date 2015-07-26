@@ -10,13 +10,19 @@
 /**************************************************
  * Stores meta information about opponents.
  **************************************************/
-function createNewOpponent (folder, name, from, gender, artist, writer) {
+function createNewOpponent (folder, enabled, first, last, label, image, gender, height, source, artist, writer, description) {
 	var newOpponentObject = {folder:folder,
-                             name:name, 
-                             from:from,
+							 enabled:enabled,
+                             first:first,
+							 last:last,
+							 label:label,
+							 image:image,
                              gender:gender,
+							 height:height,
+							 source:source,
                              artist:artist,
-                             writer:writer};
+                             writer:writer,
+							 description:description};
 						  
 	return newOpponentObject;
 }
@@ -24,13 +30,9 @@ function createNewOpponent (folder, name, from, gender, artist, writer) {
 /**************************************************
  * Stores meta information about groups.
  **************************************************/
-function createNewGroup (title, image, opp1, opp2, opp3, opp4) {
+function createNewGroup (title, opponents) {
 	var newGroupObject = {title:title,
-                          image:image,
-                          opp1:opp1, 
-					      opp2:opp2,
-				          opp3:opp3,
-					      opp4:opp4};
+						  opponents:opponents};
 						  
 	return newGroupObject;
 }
@@ -67,40 +69,61 @@ $selectButtons = [$("#select-slot-button-1"),
 $selectMainButton = $("#main-select-button");
  
 /* individual select screen */
-$individualTable = $("#individual-select-table");
+$individualNameLabels = [$("#individual-name-label-1"), $("#individual-name-label-2"), $("#individual-name-label-3"), $("#individual-name-label-4")];
+$individualPrefersLabels = [$("#individual-prefers-label-1"), $("#individual-prefers-label-2"), $("#individual-prefers-label-3"), $("#individual-prefers-label-4")];
+$individualSexLabels = [$("#individual-sex-label-1"), $("#individual-sex-label-2"), $("#individual-sex-label-3"), $("#individual-sex-label-4")];
+$individualHeightLabels = [$("#individual-height-label-1"), $("#individual-height-label-2"), $("#individual-height-label-3"), $("#individual-height-label-4")];
+$individualSourceLabels = [$("#individual-source-label-1"), $("#individual-source-label-2"), $("#individual-source-label-3"), $("#individual-source-label-4")];
+$individualWriterLabels = [$("#individual-writer-label-1"), $("#individual-writer-label-2"), $("#individual-writer-label-3"), $("#individual-writer-label-4")];
+$individualArtistLabels = [$("#individual-artist-label-1"), $("#individual-artist-label-2"), $("#individual-artist-label-3"), $("#individual-artist-label-4")];
+$individualDescriptionLabels = [$("#individual-description-label-1"), $("#individual-description-label-2"), $("#individual-description-label-3"), $("#individual-description-label-4")];
 
-$individualBubble = $("#individual-bubble");
-$individualDialogue = $("#individual-dialogue");
-$individualAdvanceButton = $("#individual-advance-button");
-$individualImage = $("#individual-select-image");
-$individualLabel = $("#individual-name-label");
-$individualButton = $("#individual-select-button");
+$individualImages = [$("#individual-image-1"), $("#individual-image-2"), $("#individual-image-3"), $("#individual-image-4")];
+$individualButtons = [$("#individual-button-1"), $("#individual-button-2"), $("#individual-button-3"), $("#individual-button-4")];
+
+$individualPageIndicator = $("#individual-page-indicator");
+$individualMaxPageIndicator = $("#individual-max-page-indicator");
 
 /* group select screen */
-$groupTable = $("#group-select-table");
-$groupImage = $("#group-select-image");
-$groupLabels = [$("#group-name-label"),
-                $("#group-name-label-1"),
-                $("#group-name-label-2"),
-                $("#group-name-label-3"),
-                $("#group-name-label-4")]
-$groupButton = $("#group-select-button");
+$groupNameLabels = [$("#group-name-label-1"), $("#group-name-label-2"), $("#group-name-label-3"), $("#group-name-label-4")];
+$groupPrefersLabels = [$("#group-prefers-label-1"), $("#group-prefers-label-2"), $("#group-prefers-label-3"), $("#group-prefers-label-4")];
+$groupSexLabels = [$("#group-sex-label-1"), $("#group-sex-label-2"), $("#group-sex-label-3"), $("#group-sex-label-4")];
+$groupHeightLabels = [$("#group-height-label-1"), $("#group-height-label-2"), $("#group-height-label-3"), $("#group-height-label-4")];
+$groupSourceLabels = [$("#group-source-label-1"), $("#group-source-label-2"), $("#group-source-label-3"), $("#group-source-label-4")];
+$groupWriterLabels = [$("#group-writer-label-1"), $("#group-writer-label-2"), $("#group-writer-label-3"), $("#group-writer-label-4")];
+$groupArtistLabels = [$("#group-artist-label-1"), $("#group-artist-label-2"), $("#group-artist-label-3"), $("#group-artist-label-4")];
+$groupDescriptionLabels = [$("#group-description-label-1"), $("#group-description-label-2"), $("#group-description-label-3"), $("#group-description-label-4")];
+
+$groupImages = [$("#group-image-1"), $("#group-image-2"), $("#group-image-3"), $("#group-image-4")];
+$groupNameLabel = $("#group-name-label");
+$groupButton = $("#group-button");
+
+$groupPageIndicator = $("#group-page-indicator");
+$groupMaxPageIndicator = $("#group-max-page-indicator");
 
 /**********************************************************************
  *****                  Select Screen Variables                   *****
  **********************************************************************/
 
-/* opponent meta file */
-var opponentMetaFile = "opponents/opponent.xml";
+/* opponent listing file */
+var listingFile = "opponents/listing.xml";
+var metaFile = "meta.xml";
 
 /* opponent information storage */
 var loadedOpponents = [];
+var selectableOpponents = [];
+var hiddenOpponents = [];
 var loadedGroups = [];
+
+/* page variables */
+var individualPage = 0;
+var groupPage = 0;
 
 /* consistence variables */
 var selectedSlot = 0;
-var storedPlayer = null;
-var storedGroup = [null, null, null, null];
+var individualSlot = 0;
+var shownIndividuals = [null, null, null, null];
+var shownGroup = [null, null, null, null];
 var randomLock = false;
  
 /**********************************************************************
@@ -112,112 +135,252 @@ var randomLock = false;
  * screen.
  ************************************************************/
 function loadSelectScreen () {
-    loadOpponentMeta();
-    $selectMainButton.attr('disabled', true);
-    $individualButton.attr('disabled', true);
-    $groupButton.attr('disabled', true);
+    loadListingFile();
     
-    $selectScreen.show();
+	updateSelectionVisuals();
 }
 
 /************************************************************
- * Loads and parses the opponent meta XML file.
+ * Loads and parses the main opponent listing file.
  ************************************************************/
-function loadOpponentMeta () {
-	/* clear the previous meta */
+function loadListingFile () {
+	/* clear the previous meta information */
 	loadedOpponents = [];
 	loadedGroups = [];
 	
-	/* grab and parse the opponent meta file */
+	/* grab and parse the opponent listing file */
 	$.ajax({
         type: "GET",
-		url: opponentMetaFile,
+		url: listingFile,
 		dataType: "text",
 		success: function(xml) {
-			/* start by grabbing and parsing the individual listings */
-			$individuals = $(xml).find('individuals');
-			$individuals.find('opponent').each(function () {
-                /* grab all the info for this listing */
-				var folder = $(this).attr('folder');
-				var name = $(this).attr('name');
-				var from = $(this).attr('from');
-                var gender = $(this).attr('gender');
-                var artist = $(this).attr('artist');
-                var writer = $(this).attr('writer');
-
-				var opponent = createNewOpponent(folder, name, from, gender, artist, writer);
-                
-				/* add the opponent to the list */
-				loadedOpponents.push(opponent);
+			/* start by parsing and loading the individual listings */
+			$individualListings = $(xml).find('individuals');
+			$individualListings.find('opponent').each(function () {
+				var folder = $(this).text();
+				loadOpponentMeta(opponentSource + folder);
 			});
 			
-			/* load the individual select screen */
-			loadIndividualSelectScreen();
-			
-			/* grab and parse the groups */
-            $groups = $(xml).find('groups');
-			$groups.find('group').each(function () {
-                /* grab all the info for this listing */
+			/* end by parsing and loading the group listings */
+			$groupListings = $(xml).find('groups');
+			$groupListings.find('group').each(function () {
 				var title = $(this).attr('title');
-                var image = $(this).attr('img');
-				var opp1 = $(this).attr('opp1');
-				var opp2 = $(this).attr('opp2');
-                var opp3 = $(this).attr('opp3');
-                var opp4 = $(this).attr('opp4');
-
-				var group = createNewGroup(title, image, opp1, opp2, opp3, opp4);
-                
-				/* add the opponent to the list */
-				loadedGroups.push(group);
+				var opp1 = opponentSource + $(this).attr('opp1');
+				var opp2 = opponentSource + $(this).attr('opp2');
+				var opp3 = opponentSource + $(this).attr('opp3');
+				var opp4 = opponentSource + $(this).attr('opp4');
+				
+				var newGroup = createNewGroup(title, [opp1, opp2, opp3, opp4]);
+				loadGroupMeta(newGroup);
 			});
-            
-            /* load the group select screen */
-			loadGroupSelectScreen();
 		}
 	});
 }
 
 /************************************************************
- * Loads all of the content required to display the 
- * individual select screen.
+ * Loads and parses the meta XML file of an opponent.
  ************************************************************/
-function loadIndividualSelectScreen () {
-    /* create and load all of the individual opponents */
-	for (var i = 0; i < loadedOpponents.length; i++) {
-        var row = 
-            "<tr id='"+i+"' class='"+loadedOpponents[i].gender+"-row opponent-row'>"+
-                "<td>"+(i+1)+"</td>"+
-                "<td>"+loadedOpponents[i].name+"</td>"+
-                "<td>"+loadedOpponents[i].from+"</td>"+
-                "<td>"+loadedOpponents[i].artist+"</td>"+
-                "<td>"+loadedOpponents[i].writer+"</td>"+
-            "</tr>";
+function loadOpponentMeta (folder) {
+	/* grab and parse the opponent meta file */
+	$.ajax({
+        type: "GET",
+		url: folder + metaFile,
+		dataType: "text",
+		success: function(xml) {			
+			/* grab all the info for this listing */
+			var enabled = $(xml).find('enabled').text();
+			var first = $(xml).find('first').text();
+			var last = $(xml).find('last').text();
+			var label = $(xml).find('label').text();
+			var pic = $(xml).find('pic').text();
+			var gender = $(xml).find('gender').text();
+			var height = $(xml).find('height').text();
+			var from = $(xml).find('from').text();
+			var artist = $(xml).find('artist').text();
+			var writer = $(xml).find('writer').text();
+			var description = $(xml).find('description').text();
 
-        $individualTable.append(row);
+			var opponent = createNewOpponent(folder, enabled, first, last, label, pic, gender, height, from, artist, writer, description);
+			
+			/* add the opponent to the list */
+			loadedOpponents.push(opponent);
+			selectableOpponents.push(opponent);
+	
+			/* load the individual select screen */
+			individualPage = 0;
+			updateIndividualSelectScreen();
+		}
+	});
+}
+ 
+/************************************************************
+ * Loads opponents onto the individual select screen based
+ * on the currently selected page.
+ ************************************************************/
+function updateIndividualSelectScreen () {
+	/* safety wrap around */
+	if (individualPage < 0) {
+		/* wrap to last page */
+		individualPage = (selectableOpponents.length/4)-1;
+	}
+	$individualPageIndicator.val(individualPage+1);
+	
+	/* keep track of how many opponents were on this screen */
+	var empty = 0;
+	
+    /* create and load all of the individual opponents */
+	for (var i = individualPage*4; i < (individualPage+1)*4; i++) {
+		var index = i - individualPage*4;
+
+		if (i < selectableOpponents.length) {
+			shownIndividuals[index] = selectableOpponents[i];
+			
+			$individualNameLabels[index].attr('value', selectableOpponents[i].first + " " + selectableOpponents[i].last);
+			$individualPrefersLabels[index].attr('value', selectableOpponents[i].label);
+			$individualSexLabels[index].attr('value', selectableOpponents[i].gender);
+			$individualHeightLabels[index].attr('value', selectableOpponents[i].height);
+			$individualSourceLabels[index].attr('value', selectableOpponents[i].source);
+			$individualWriterLabels[index].attr('value', selectableOpponents[i].writer);
+			$individualArtistLabels[index].attr('value', selectableOpponents[i].artist);
+			$individualDescriptionLabels[index].html(selectableOpponents[i].description);
+			
+			$individualImages[index].attr('src', selectableOpponents[i].folder + selectableOpponents[i].image);
+			if (selectableOpponents[i].enabled == "true") {
+				$individualButtons[index].html('Select Opponent');
+				$individualButtons[index].attr('disabled', false);
+			} else {
+				$individualButtons[index].html('Coming Soon');
+				$individualButtons[index].attr('disabled', true);
+			}
+		} else {
+			shownIndividuals[index] = null;
+			
+			$individualNameLabels[index].attr('value', "");
+			$individualPrefersLabels[index].attr('value', "");
+			$individualSexLabels[index].attr('value', "");
+			$individualHeightLabels[index].attr('value', "");
+			$individualSourceLabels[index].attr('value', "");
+			$individualWriterLabels[index].attr('value', "");
+			$individualArtistLabels[index].attr('value', "");
+			$individualDescriptionLabels[index].html("");
+			
+			$individualImages[index].attr('src', BLANK_PLAYER_IMAGE);
+			$individualButtons[index].attr('disabled', true);
+			
+			empty++;
+		}
     }
-    
-    /* allow the rows on the individual screen to be selected */
-    allowIndividualClickableRows();
+	
+	/* reload if the page is empty */
+	if (empty == 4 && individualPage != 0) {
+		individualPage = 0;
+		updateIndividualSelectScreen();
+	}
 }
 
 /************************************************************
- * Loads all of the content required to display the group
- * select screen.
+ * Loads the meta information for an entire group.
  ************************************************************/
-function loadGroupSelectScreen () {
-    /* create and load all of the groups */
-	for (var i = 0; i < loadedGroups.length; i++) {
-        var row = 
-            "<tr id='"+i+"' class='group-row'>"+
-                "<td>"+(i+1)+"</td>"+
-                "<td>"+loadedGroups[i].title+"</td>"+
-            "</tr>";
+function loadGroupMeta (group) {
+	/* parse the individual information of each group member */
+	var groupID = loadedGroups.length;
+	loadedGroups.push(group);
+	
+	for (var i = 0; i < 4; i++) {
+		loadGroupMemberMeta (group.opponents[i], groupID, i);
+	}
+}
 
-        $groupTable.append(row);
+/************************************************************
+ * Loads the meta information for a single group member.
+ ************************************************************/
+function loadGroupMemberMeta (folder, groupID, member) {
+	/* grab and parse the opponent meta file */
+	$.ajax({
+		type: "GET",
+		url: folder + metaFile,
+		dataType: "text",
+		success: function(xml) {
+			/* grab all the info for this listing */
+			var enabled = $(xml).find('enabled').text();
+			var first = $(xml).find('first').text();
+			var last = $(xml).find('last').text();
+			var label = $(xml).find('label').text();
+			var pic = $(xml).find('pic').text();
+			var gender = $(xml).find('gender').text();
+			var height = $(xml).find('height').text();
+			var from = $(xml).find('from').text();
+			var artist = $(xml).find('artist').text();
+			var writer = $(xml).find('writer').text();
+			var description = $(xml).find('description').text();
+
+			var opponent = createNewOpponent(folder, enabled, first, last, label, pic, gender, height, from, artist, writer, description);
+			
+			/* add the opponent information to the group */
+			loadedGroups[groupID].opponents[member] = opponent;
+	
+			/* load the individual select screen */
+			groupPage = 0;
+			updateGroupSelectScreen();
+		}
+	});
+}
+
+/************************************************************
+ * Loads opponents onto the group select screen based on the
+ * currently selected page.
+ ************************************************************/
+function updateGroupSelectScreen () {
+	/* safety wrap around */
+	if (groupPage < 0) {
+		/* wrap to last page */
+		groupPage = (loadedGroups.length)-1;
+	} else if (groupPage > loadedGroups.length-1) {
+		/* wrap to the first page */
+		groupPage = 0;
+	}
+	$groupPageIndicator.val(groupPage+1);
+	
+    /* create and load all of the individual opponents */
+	for (var i = 0; i < 4; i++) {
+		var opponent = loadedGroups[groupPage].opponents[i];
+
+		if (opponent) {
+			shownGroup[i] = opponent;
+			
+			$groupNameLabels[i].attr('value', opponent.first + " " + opponent.last);
+			$groupPrefersLabels[i].attr('value', opponent.label);
+			$groupSexLabels[i].attr('value', opponent.gender);
+			$groupHeightLabels[i].attr('value', opponent.height);
+			$groupSourceLabels[i].attr('value', opponent.source);
+			$groupWriterLabels[i].attr('value', opponent.writer);
+			$groupArtistLabels[i].attr('value', opponent.artist);
+			$groupDescriptionLabels[i].html(opponent.description);
+			
+			$groupImages[i].attr('src', opponent.folder + opponent.image);
+			$groupNameLabel.html(loadedGroups[groupPage].title);
+			if (opponent.enabled == "true") {
+				$groupButton.html('Select Group');
+				$groupButton.attr('disabled', false);
+			} else {
+				$groupButton.html('Coming Soon');
+				$groupButton.attr('disabled', true);
+			}
+		} else {
+			shownIndividuals[i] = null;
+			
+			$groupNameLabels[i].attr('value', "");
+			$groupPrefersLabels[i].attr('value', "");
+			$groupSexLabels[i].attr('value', "");
+			$groupHeightLabels[i].attr('value', "");
+			$groupSourceLabels[i].attr('value', "");
+			$groupWriterLabels[i].attr('value', "");
+			$groupArtistLabels[i].attr('value', "");
+			$groupDescriptionLabels[i].html("");
+			
+			$groupImages[i].attr('src', BLANK_PLAYER_IMAGE);
+		}
     }
-    
-    /* allow the rows on the individual screen to be selected */
-    allowGroupClickableRows();
 }
 
 /**********************************************************************
@@ -262,61 +425,35 @@ function selectOpponentSlot (slot) {
         /* add a new opponent */
         selectedSlot = slot;
         
+		/* shallow copy the selectable list */
+		selectableOpponents = [];
+		for (var i = 0; i < loadedOpponents.length; i++) {
+			selectableOpponents[i] = loadedOpponents[i];
+		}
+		
+		/* update max page indicator */
+		$individualMaxPageIndicator.html("of "+(selectableOpponents.length/4));
+		
         /* hide selected opponents */
         for (var i = 1; i < players.length; i++) {
             if (players[i]) {
-                /* figure out which row belongs to this opponent */
-                for (var j = 0; j < loadedOpponents.length; j++) {
-                    if (loadedOpponents[j].folder == players[i].folder) {
-                        /* this is the opponent's row, check to see if it's selected */
-                        if ($('#'+j+'.opponent-row').hasClass('selected-row')) {
-                            /* remove the class */
-                            $('#'+j+'.opponent-row').removeClass('selected-row');
-                            
-                            /* clear the screen */
-                            $individualDialogue.html("");
-                            $individualAdvanceButton.css({opacity : 0});
-                            $individualBubble.removeClass();
-                            $individualBubble.addClass("bordered dialogue-bubble individual-bubble dialogue-centre");
-                            $individualImage.attr('src', BLANK_PLAYER_IMAGE);
-                            $individualLabel.html("Opponent");
-                            $individualButton.attr('disabled', true);
-                        }
-                        
-                        $('#'+j+'.opponent-row').hide();
-                        break;
+                /* find this opponent's placement in the selectable opponents */
+                for (var j = 0; j < selectableOpponents.length; j++) {
+                    if (selectableOpponents[j].folder == players[i].folder) {
+                        /* this is a selected player */
+						selectableOpponents.splice(j, 1);
                     }
                 }
             }
         }
+		
+		/* reload selection screen */
+		updateIndividualSelectScreen();
         
         /* switch screens */
         $selectScreen.hide();
         $individualSelectScreen.show();
     } else {
-        /* unhide their row */
-        for (var j = 0; j < loadedOpponents.length; j++) {
-            if (loadedOpponents[j].folder == players[slot].folder) {
-                /* this is the opponent's row, check to see if it's selected */
-                if ($('#'+j+'.opponent-row').hasClass('selected-row')) {
-                    /* remove the class */
-                    $('#'+j+'.opponent-row').removeClass('selected-row');
-                    
-                    /* clear the screen */
-                    $individualDialogue.html("");
-                    $individualAdvanceButton.css({opacity : 0});
-                    $individualBubble.removeClass();
-                    $individualBubble.addClass("bordered dialogue-bubble individual-bubble dialogue-centre");
-                    $individualImage.attr('src', BLANK_PLAYER_IMAGE);
-                    $individualLabel.html("Opponent");
-                    $individualButton.attr('disabled', true);
-                }
-                
-                $('#'+j+'.opponent-row').show();
-                break;
-            }
-        }
-        
         /* remove the opponent that's there */
         players[slot] = null;
         updateSelectionVisuals();
@@ -389,23 +526,6 @@ function clickedRandomFillButton () {
 }
 
 /************************************************************
- * Allows the player to click opponent rows, the internal 
- * function is called whenever the player clicks on an 
- * individual opponent row.
- ************************************************************/
-function allowIndividualClickableRows () {
-    $('.opponent-row').click(function() {
-        /* update the table visual */
-        $('.selected-row').removeClass('selected-row');
-        $(this).addClass('selected-row');
-        
-        /* load their XML file */
-        var id = $(this).attr('id');
-        loadBehaviour(loadedOpponents[id].folder, updateIndividualScreen);
-    });
-}
-
-/************************************************************
  * Allows the player to click group rows, the internal 
  * function is called whenever the player clicks on an 
  * group opponent row.
@@ -435,61 +555,93 @@ function allowGroupClickableRows () {
 }
 
 /************************************************************
- * The player clicked the advance dialogue button on the 
+ * The player clicked on a change stats card button on the 
  * individual select screen.
  ************************************************************/
-function advanceIndividualDialogue () {
-    storedPlayer.current++;
-    
-    /* update dialogue */
-    $individualDialogue.html(storedPlayer.state[storedPlayer.current].dialogue);
-    
-    /* determine if the advance dialogue button should be shown */
-    if (storedPlayer.state.length > storedPlayer.current+1) {
-        $individualAdvanceButton.css({opacity : 1});
-    } else {
-        $individualAdvanceButton.css({opacity : 0});
-    }
-    
-    /* direct the dialogue bubble */
-    if (storedPlayer.state[storedPlayer.current].direction) {
-        $individualBubble.removeClass();
-		$individualBubble.addClass("bordered dialogue-bubble individual-bubble dialogue-"+storedPlayer.state[storedPlayer.current].direction);
-	}  else {
-		$individualBubble.removeClass();
-		$individualBubble.addClass("bordered dialogue-bubble dialogue-centre");
-	}
-    
-    /* update image */
-    $individualImage.attr('src', storedPlayer.folder + storedPlayer.state[storedPlayer.current].image);
+function changeIndividualStats (slot, current, target) {
+    $('#individual-stats-page-'+slot+'-'+current).hide();
+	$('#individual-stats-page-'+slot+'-'+target).show();
 }
 
 /************************************************************
  * The player clicked the select opponent button on the
  * individual select screen.
  ************************************************************/
-function selectIndividualOpponent () {
+function selectIndividualOpponent (slot) {
     /* move the stored player into the selected slot and update visuals */
-    players[selectedSlot] = storedPlayer;
-    players[selectedSlot].current = 0;
-    updateSelectionVisuals();
-    
-    /* switch screens */
-    $individualSelectScreen.hide();
-	$selectScreen.show();
+	individualSlot = slot;
+	loadBehaviour(shownIndividuals[slot-1].folder, individualScreenCallback, 0);
 }
 
 /************************************************************
- * The player clicked the select group button on the group 
- * select screen.
+ * This is the callback for the individual select screen.
+ ************************************************************/
+function individualScreenCallback (playerObject, slot) {
+    players[selectedSlot] = playerObject;
+    players[selectedSlot].current = 0;
+	
+	/* switch screens */
+    $individualSelectScreen.hide();
+	$selectScreen.show();
+	updateSelectionVisuals();
+}
+
+/************************************************************
+ * The player is changing the page on the individual screen.
+ ************************************************************/
+function changeIndividualPage (skip, page) {
+	if (skip) {
+		if (page == -1) {
+			/* go to first page */
+			individualPage = 0;
+		} else if (page == 1) {
+			/* go to last page */
+			individualPage = (selectableOpponents.length/4)-1;
+		} else {
+			/* go to selected page */
+			individualPage = Number($individualPageIndicator.val()) - 1;
+		}
+	} else {
+		individualPage += page;
+	}
+	updateIndividualSelectScreen();
+}
+
+/************************************************************
+ * The player clicked on a change stats card button on the 
+ * group select screen.
+ ************************************************************/
+function changeGroupStats (slot, current, target) {
+    $('#group-stats-page-'+slot+'-'+current).hide();
+	$('#group-stats-page-'+slot+'-'+target).show();
+}
+
+/************************************************************
+ * The player clicked the select opponent button on the
+ * group select screen.
  ************************************************************/
 function selectGroup () {
-    /* load the opponents into the first few slots */
-    for (var i = 1; i < players.length; i++) {
-        players[i] = storedGroup[i-1];
-        players[i].current = 0;
-    }
-    updateSelectionVisuals();
+    /* clear the selection screen */
+	for (var i = 1; i < 5; i++) {
+		players[i] = null;
+	}
+	updateSelectionVisuals();
+	
+	/* load the group members */
+	for (var i = 0; i < 4; i++) {
+		loadBehaviour(loadedGroups[groupPage].opponents[i].folder, groupScreenCallback, i+1);
+	}
+}
+
+/************************************************************
+ * This is the callback for the group select screen.
+ ************************************************************/
+function groupScreenCallback (playerObject, slot) {
+	console.log(slot +" "+playerObject);
+    players[slot] = playerObject;
+    players[slot].current = 0;
+	
+	updateSelectionVisuals();
     
     /* switch screens */
     $groupSelectScreen.hide();
@@ -497,7 +649,28 @@ function selectGroup () {
 }
 
 /************************************************************
- * The player clicked on  back button on the individual or
+ * The player is changing the page on the group screen.
+ ************************************************************/
+function changeGroupPage (skip, page) {
+	if (skip) {
+		if (page == -1) {
+			/* go to first page */
+			groupPage = 0;
+		} else if (page == 1) {
+			/* go to last page */
+			groupPage = loadedGroups.length-1;
+		} else {
+			/* go to selected page */
+			groupPage = Number($groupPageIndicator.val()) - 1;
+		}
+	} else {
+		groupPage += page;
+	}
+	updateGroupSelectScreen();
+}
+
+/************************************************************
+ * The player clicked on the back button on the individual or
  * group select screen.
  ************************************************************/
 function backToSelect () {
@@ -513,6 +686,14 @@ function backToSelect () {
  ************************************************************/
 function advanceSelectScreen () {
     advanceToNextScreen($selectScreen);
+}
+
+/************************************************************
+ * The player clicked on the back button on the main select
+ * screen.
+ ************************************************************/
+function backSelectScreen () {
+	returnToPreviousScreen($selectScreen);
 }
 
 /**********************************************************************
@@ -545,6 +726,9 @@ function updateSelectionVisuals () {
                 $selectBubbles[i-1].removeClass();
                 $selectBubbles[i-1].addClass("bordered dialogue-bubble dialogue-centre");
             }
+			
+			/* show the bubble */
+			$selectBubbles[i-1].show();
             
             /* update image */
             $selectImages[i-1].attr('src', players[i].folder + players[i].state[players[i].current].image);
@@ -559,8 +743,7 @@ function updateSelectionVisuals () {
             /* clear the view */
             $selectDialogues[i-1].html("");
             $selectAdvanceButtons[i-1].css({opacity : 0});
-            $selectBubbles[i-1].removeClass();
-            $selectBubbles[i-1].addClass("bordered dialogue-bubble dialogue-centre");
+			$selectBubbles[i-1].hide();
             $selectImages[i-1].attr('src', BLANK_PLAYER_IMAGE);
             $selectLabels[i-1].html("Opponent "+i);
             
@@ -586,41 +769,7 @@ function updateSelectionVisuals () {
     }
 }
  
-/************************************************************
- * This is the callback for the individual clicked rows, it
- * displays the returned opponent on the individual screen.
- ************************************************************/
-function updateIndividualScreen (playerObject) {
-    storedPlayer = playerObject;
-    
-    /* update dialogue */
-    $individualDialogue.html(playerObject.state[playerObject.current].dialogue);
-    
-    /* determine if the advance dialogue button should be shown */
-    if (playerObject.state.length > 1) {
-        $individualAdvanceButton.css({opacity : 1});
-    } else {
-        $individualAdvanceButton.css({opacity : 0});
-    }
-    
-    /* direct the dialogue bubble */
-    if (playerObject.state[playerObject.current].direction) {
-        $individualBubble.removeClass();
-		$individualBubble.addClass("bordered dialogue-bubble individual-bubble dialogue-"+playerObject.state[playerObject.current].direction);
-	} else {
-        $individualBubble.removeClass();
-		$individualBubble.addClass("bordered dialogue-bubble individual-bubble dialogue-centre");
-	}
-    
-    /* update image */
-    $individualImage.attr('src', playerObject.folder + playerObject.state[playerObject.current].image);
-    
-    /* update label */
-    $individualLabel.html(playerObject.label);
-    
-    /* enable the button */
-    $individualButton.attr('disabled', false);
-}
+
 
 /************************************************************
  * This is the callback for the group clicked rows, it

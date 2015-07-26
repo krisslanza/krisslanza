@@ -97,9 +97,9 @@ var FEMALE_FINISHED_MASTURBATING = "female_finished_masturbating";
  * given opponent source folder.
  *
  * The callFunction parameter must be a function capable of 
- * receiving a new player object.
+ * receiving a new player object and a slot number.
  ************************************************************/
-function loadBehaviour (folder, callFunction) {
+function loadBehaviour (folder, callFunction, slot) {
 	$.ajax({
         type: "GET",
 		url: folder + "behaviour.xml",
@@ -118,7 +118,7 @@ function loadBehaviour (folder, callFunction) {
             newPlayer.current = 0;
 			newPlayer.state = parseDialogue($(xml).find('start'), [], []);
 			
-			callFunction(newPlayer);
+			callFunction(newPlayer, slot);
 		}
 	});
 }
@@ -141,7 +141,7 @@ function loadOpponentWardrobe (player) {
 		var type = $(this).attr('type');
 		var position = $(this).attr('position');
 		
-		var newClothing = createNewClothing(properName, lowercase, type, position, null);
+		var newClothing = createNewClothing(properName, lowercase, type, position, null, 0);
 		
 		player.clothing.push(newClothing);
 	});

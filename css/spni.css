@@ -2,7 +2,7 @@
  This file contains all of the CSS that is shared by the
  various game screens and elements.
  ************************************************************/
-
+ 
 html {
 	width: 100%;
 	height: 100%;
@@ -11,8 +11,24 @@ html {
 body {
 	width: 100%;
 	height: 100%;
-	background-color: #F5F5F5;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-color: #111111;
+}
+
+/************************************************************
+ * Bootstrap overrides.
+ ************************************************************/
+ 
+* {
+	box-sizing: content-box;
+}
+
+table {
+	border-collapse: initial;
+}
+ 
+body.modal-open {
+	margin-left: 0px;
 }
 
 /************************************************************
@@ -22,7 +38,15 @@ body {
 .bordered {
 	border: 2px solid black;
 	border-radius: 8px;
-	box-shadow: 0px 2px 2px rgba(150, 150, 150, 0.4) inset, 0px 2px 2px rgba(150, 150, 150, 0.6);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4) inset, 
+				0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+.flare-bordered {
+	border: 2px solid black;
+	border-radius: 4px;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4) inset, 
+				0px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .centred {
@@ -30,68 +54,46 @@ body {
 }
 
 /************************************************************
- * Bootstrap overrides
- ************************************************************/
- 
-* {
-	box-sizing: content-box;
-}
-
-table {
-	border-collapse: initial;
-	border-spacing: 2px;
-}
- 
-body.modal-open {
-	margin-left: 0px;
-}
-
-/************************************************************
- * Classes used by multiple different screens.
+ * Screen classes.
  ************************************************************/
  
 .screen-container {
 	width: 100%;
 	height: 100%;
-	min-width: 800px;
+	min-width: 900px;
 	min-height: 600px;
-	background-color: #F5F5F5;
+	background-image: url("../img/background.png");
+	background-size: 100% 100%;
+	background-color: #555555;
 	vertical-align: middle;
+	border-spacing: 0px;
 }
 
-.screen-table {
+.screen-area {
+	display: table;
+	position: relative;
+	width: auto;
+	height: 100%;
+	min-width: 900px;
+	min-height: 600px;
+	max-width: 1400px;
+	max-height: 100%;
+	margin: 0px auto;
+	background: transparent;
+	vertical-align: middle;
+	border-collapse: collapse;
+}
+
+.screen {
+	display: table-cell;
 	width: 100%;
 	height: auto;
-	max-width: 100%;
 	max-height: 100%;
-	max-width: 1400px;
-	background-color: #F5F5F5;
-	
+	background: transparent;
 	margin: 0px auto;
 	padding: 0px;
-	
 	table-layout: fixed;
 	vertical-align: middle;
-}
-
-.banner {
-	text-align: center;
-	
-	background-color: white;
-	font-size: 24px;
-}
-
-.deck-area {
-	position: relative;
-	width: 12%;
-}
-
-.deck-image {
-	display: block;
-	width: 65px;
-	height: 90px;
-	
-	margin: 0px auto;
 }
 
 /************************************************************
@@ -99,12 +101,18 @@ body.modal-open {
  ************************************************************/
 
 .smooth-button {
-	background: linear-gradient(#85C5F5, #65A5D5);
-	background-color: #85C5F5;
+	background: linear-gradient(#75B5E5, #5595C5);
+	background-color: #75B5E5;
+	color: black;
 }
 
 .smooth-button-red {
-	background: linear-gradient(#FF6666, #DF4646);
+	background: linear-gradient(#DD4444, #BF2626);
+	background-color: #FF6666;
+}
+
+.smooth-button-purple {
+	background: linear-gradient(#AA44DD, #8F26AF);
 	background-color: #FF6666;
 }
 
@@ -126,33 +134,89 @@ body.modal-open {
 .center-dock-button {
 	position: absolute;
 	height: 50px;
-	width: 100%;
-	
+	width: 100px;
 	top: 26%;
 	left: 0px;
+	right: 0px;
+	margin: 0 auto;
 	box-sizing: border-box;
+	font-size: 20px;
+	opacity: 1;
+}
 
-	font-size: 22px;
+.hide-table-button {
+	position: absolute;
+	width: 30px;
+	height: 5vh;
+	right: 10px;
+	bottom: 6%;
+	background: linear-gradient(#FFFFFF, #DDDDDD);
+	background-color: #EEEEEE;
+	opacity: 0.5;
+}
+
+.hide-table-button:hover {
+	background: linear-gradient(#FFFFFF, #DDDDDD);
+	background-color: #EEEEEE;
+	opacity: 1;
+}
+
+.select-slot-button {
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    box-sizing: border-box;
 }
 
 /************************************************************
- * Classes for the modal.
+ * Classes for modals styled like the game table.
  ************************************************************/
 
 .modal {
-	top: 50%;
+	top: 40%;
 }
 
-.modal-body {
+.table-modal .modal-dialog {
+	height: auto;
+	box-sizing: border-box;
+	margin: 0px auto;
+	padding: 5px;
+	background: linear-gradient(#333333, #222222);
+	background-color: #333333;
+}
+
+.table-modal .modal-dialog-surface {
+	width: 100%;
+	padding: 5px;
+	background: radient-gradient(#888888, #666666);
+	background-color: #777777;
+	box-sizing: border-box;
+}
+
+.table-modal .modal-content {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+}
+
+.table-modal .modal-header {
+	border: none;
+}
+
+.table-modal .modal-title {
+	color: black;
+}
+
+.table-modal .modal-body {
     text-align: center;
 }
 
-.modal-body-container {
+.table-modal .modal-body-container {
     margin: 0px auto;
     display: inline-block;
 }
 
-.modal-clothing-image {
+.table-modal .modal-clothing-image {
 	display: block;
 	float: left;
 	width: 80px;
@@ -161,23 +225,24 @@ body.modal-open {
     opacity: 0.4;
 }
 
-.modal-clothing-image:hover {
+.table-modal .modal-clothing-image:hover {
 	opacity: 0.7;
 }
 
-.modal-selected-clothing-image {
+.table-modal .modal-selected-clothing-image {
 	opacity: 1;
 }
 
-.modal-selected-clothing-image:hover {
+.table-modal .modal-selected-clothing-image:hover {
     opacity: 1;
 }
 
-.modal-footer {
+.table-modal .modal-footer {
 	text-align: center;
+	border: none;
 }
 
-.modal-button {
+.table-modal .modal-button {
 	height: 40px;
 	width: 100px;
 	
@@ -191,13 +256,15 @@ body.modal-open {
 
 /* the area around the dialogue bubble */
 .dialogue-bubble-area {
-	height: 124px;
+	height: 128px;
+	width: 24vw;
+	padding: 0px;
 }
 
 /* the body of the dialogue bubble */
 .dialogue-bubble {
 	position: relative;
-	height: 116px;
+	height: 120px;
 	
 	margin: 2px 2px;
 	background-color: white;
@@ -232,39 +299,39 @@ body.modal-open {
 
 /* the stroke of the bottom triangle, positioned on the left */
 .dialogue-left:before {
-	bottom: -17px;
+	bottom: -16px;
 	left: 30px;
 }
 
 /* the fill of the bottom triangle, positioned on the left */
 .dialogue-left:after {
-	bottom: -15px;
+	bottom: -14px;
 	left: 31px;
 }
 
 /* the stroke of the bottom triangle, positioned in the centre */
 .dialogue-centre:before {
-	bottom: -17px;
+	bottom: -16px;
 	left: 50%;
 	margin-left: -16px;
 }
 
 /* the fill of the bottom triangle, positioned in the centre */
 .dialogue-centre:after {
-	bottom: -15px;
+	bottom: -14px;
 	left: 50%;
 	margin-left: -15px;
 }
 
 /* the stroke of the bottom triangle, positioned on the right */
 .dialogue-right:before {
-	bottom: -17px;
+	bottom: -16px;
 	right: 30px;
 }
 
 /* the fill of the bottom triangle, positioned on the right */
 .dialogue-right:after {
-	bottom: -15px;
+	bottom: -14px;
 	right: 31px;
 }
 
@@ -289,7 +356,6 @@ body.modal-open {
 	height: 20px;
 	right: 5px;
 	bottom: 5px;
-    border-width: 0px;
     opacity: 0;
 }
 
@@ -297,376 +363,390 @@ body.modal-open {
     margin-left: 2px;
 	margin-bottom: 2px;
 }
+ 
+/************************************************************
+ * Classes for opponent images.
+ ************************************************************/
+
+.opponent-image-area {
+	width: auto;
+	height: auto;
+	max-width: 25vw;
+	max-height: 80vh;
+    margin: 0px auto;
+}
+
+.opponent-image {
+	display: block;
+	min-width: 225px;
+	min-height: 525px;
+	max-width: 100%;
+	max-height: 80vh;
+	margin: 0px auto;
+}
 
 /************************************************************
  * Classes for the title screen.
  ************************************************************/
 
-#title-banner {
-	width: 95%;
-	height: auto;
-	margin-top: 10px;
-	
-	font-size: 24px;
-	
+.title-banner-container {
+	display: table-cell;
+	height: 128px;
+	margin: 0 auto;
 	vertical-align: middle;
 }
-
-.title-image-area {
-	width: 25%;
-	max-width: 25vw;
+ 
+.title-banner-area {
 	height: auto;
-	max-height: 60vh;
+	padding: 5px;
+	padding-right: 10px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	background: linear-gradient(#333333, #222222);
+	background-color: #333333;
 }
 
-.title-image {
-    display: block;
-	
-	min-height: 40vh;
-	max-width: 100%;
-	max-height: 60vh;
-	
-	margin: 0px auto;
+.title-banner {
+	width: 100%;
+	height: auto;
+	max-height: 120px;
+	background: linear-gradient(#888888, #777777, #666666);
+	background-color: #777777;
 }
 
-.intro-label {
-	margin-top: 0px;
-	margin-bottom: 0px;
-	
+.main-title-container {
+	padding: 5px;
+}
+
+.main-title-table {
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	table-layout: fixed;
+}
+ 
+.title-label {
+	padding: 0 5px;
 	text-align: center;
-	font-size: 18px;
+	font-size: 20px;
+	color: #F5F5F5;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000; 
 }
-
+ 
 #player-name-field {
 	width: 200px;
 	height: 60px;
-
 	font-size: 22px;
 	text-align: center;
+	margin: 5px 5px;
 }
 
-.intro-gender-image {
+.title-gender-image {
 	display: block;
 	width: 60px;
 	height: 60px;
-	
-	margin: 0 auto;
+	margin: 5px auto;
 }
 
-#title-clothing-area {
-	width: 100%;
+.title-clothing-container {
+	margin: 20px auto;
+	table-layout: fixed;
 }
 
-#title-clothing-div {
-	width: 100%;
-	height: 40vh;
-	overflow: auto;
-	margin-left: 8px;
-	padding-right: 20px;
-}
-
-#title-clothing-table {
-	width: 100%;
-	height: 40vh;
-    background-color: white;
-}
-
-.title-clothing-label {
-	height: 22px;
-	background-color: #DDDDDD;
-    font-size: 16px;
-    text-align: center;
+.title-clothing-heading {
+	width: 100px;
+	text-align: center;
+	padding: 0 5px;
+	margin: 0 10px;
+	font-size: 16px;
+	background: linear-gradient(lightgrey, #888888);
+	background-color: lightgrey;
 }
 
 .title-clothing-image {
 	display: block;
-	float: left;
-	width: 80px;
-	height: 80px;
-	margin: 0px 2px;
+	width: 70px;
+	height: 70px;
+	margin: 5px 5px;
 	opacity: 0.4;
 }
 
-.warning-label-area {
-    width: 100%;
+.title-entrance-button {
+	display: block;
+	width: 150px;
+	height: 75px;
+	margin: 0 auto;
+	padding: 10px 10px 5px 10px;
 }
 
-#title-warning-label {
-    width: 100%;
-	height: 20px;
-	margin: 0px 0px;
-	margin-bottom: 2px;
-	padding: 0px 0px;
-    color: red;
-    
-    text-align: center;
-    font-size: 16px;
-}
-
-.title-advance-button-area {
-    width: 100%;
-    text-align: center;
-}
-
-#title-advance-button {
-	width: 160px;
-	height: 50px;
-
-	text-align: center;
-	font-size: 20px;
-    margin: 0 auto;
-}
-
-#title-screen-news-bar {
-    width: 100%;
-    height: 110px;
-	box-sizing: border-box;
-	
-	background: white;
-}
-
-.version-text {
+.title-entrance-image {
+	display: block;
 	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
 
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 20px;
-	
+.version-label {
+	width: 100px;
+	background: radial-gradient(#DDDDDD, #888888);
+	background-color: #AAAAAA;
 	text-align: center;
 	font-size: 16px;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-}
-
-.news-text {
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 40px;
-	font-size: 14px;
-	text-align: left;
+	margin: 5px auto;
+	padding: 2px 5px;
 }
 
 /************************************************************
  * Classes for the main select screen.
  ************************************************************/
 
-#select-banner {
-    height: 35px;
-	margin: 2px 0px 0px 0px;
+.select-dock-button {
+	width: 70px;
+	height: 70px;
+	font-size: 18px;
+	margin: 5px;
 }
 
-.select-slot-button {
-    width: 100%;
+/************************************************************
+ * Classes for the individual and group select screens.
+ ************************************************************/
+
+.opponent-stats-area {
+	height: 128px;
+}
+
+.opponent-stats {
+	position: relative;
+	width: auto;
+	height: 120px;
+	margin: 2px;
+	padding: 5px;
+	background-color: #F5F5F5;
+	box-sizing: border-box;
+}
+
+.opponent-stats-table {
+	width: 100%;
+}
+
+.opponent-stats-table .form-group {
+	width: 100%;
+	padding-right: 8px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.opponent-stats-table .input-group {
+	width: 100%;
+	margin-bottom: 3px;
+}
+
+.opponent-stats-table .half-input-group-left {
+	width: 51%;
+	float: left;
+}
+
+.opponent-stats-table .half-input-group-right {
+	width: 43%;
+	float: right;
+}
+
+.opponent-stats-table .input-group-addon {
+	width: 40px;
+	height: 20px;
+	padding: 0px 4px;
+	color: black;
+	font-size: 12px;
+	background: linear-gradient(lightgrey, #888888);
+	background-color: lightgrey;
+}
+
+.opponent-stats-table .form-control {
+	height: 20px;
+	padding: 0px;
+	padding-left: 4px;
+	color: black;
+}
+
+.opponent-stats-table .form-control:disabled {
+	background-color: white;
+	cursor: default;
+	color: black;
+}
+
+.opponent-stats-table .form-control-area {
+	height: 74px;
+	resize: none;
+	text-align: center;
+	overflow: hidden;
+}
+
+.select-advance-button-left {
+	position: absolute;
+	height: 20px;
+	left: 5px;
+	bottom: 6px;
+	z-index: 10;
+}
+
+.select-advance-button-left span {
+    margin: 0 auto;
+	margin-bottom: 2px;
+}
+
+.select-advance-button-right {
+	position: absolute;
+	height: 20px;
+	right: 5px;
+	bottom: 6px;
+	z-index: 10;
+}
+
+.select-advance-button-right span {
+    margin-left: 2px;
+	margin-bottom: 2px;
+}
+
+.group-name-label {
+	width: 500px;
+	height: 20px;
+	padding-bottom: 3px;
+	margin: 2px auto;
+	text-align: center;
+	font-size: 16px;
+	background: white;
+}
+
+.select-group-button {
+	width: 504px;
     height: 40px;
     font-size: 18px;
     box-sizing: border-box;
 }
 
-.select-option-button {
-    height: 70px;
-    font-size: 18px;
-}
-
 /************************************************************
- * Classes for the individual select screen.
+ * Classes for the filter area on the selection screen.
  ************************************************************/
 
-#individual-select-container {
-    width: 70%;
-    vertical-align:top;
-    overflow: hidden;
-}
- 
-#individual-select-div {
-    width: 100%;
-	height: 60vh;
-	overflow: auto;
-	//padding-right: 16px; /*add this back when a scrollbar is needed*/
-}
-
-#individual-select-table {
-    width: 95%;             /* change this back to 100 when a scrollbar is needed */
-    border-spacing: 0px;
-}
-
-#individual-select-table th {
-    border-top: transparent;
-    border-bottom: 2px solid black;
-    background-color: white;
-}
-
-#individual-select-table td {
-    border-color: transparent;
-    border-bottom: 1px solid black;
-    
-    font-size: 16px;
-}
-
-.opponent-row { 
-    cursor: pointer;
-    border-radius: 8px;
-}
-
-.opponent-row:hover { 
-    background-color: white; 
-}
-
-.male-row {
-    background-color: lightblue;
-}
-
-.female-row {
-    background-color: pink;
-}
-
-.individual-bubble {
-    width: 80%;
-    
-    margin: 0 auto;
-}
-
-/************************************************************
- * Classes for the individual select screen.
- ************************************************************/
-
-#group-select-container {
-    width: 40%;
-    vertical-align:top;
-    overflow: hidden;
-}
- 
-#group-select-div {
-    width: 100%;
-	height: 60vh;
-	overflow: auto;
-	//padding-right: 16px; /*add this back when a scrollbar is needed*/
-}
-
-#group-select-table {
-    width: 95%;             /* change this back to 100 when a scrollbar is needed */
-    border-spacing: 0px;
-}
-
-#group-select-table th {
-    border-top: transparent;
-    border-bottom: 2px solid black;
-    background-color: white;
-}
-
-#group-select-table td {
-    border-color: transparent;
-    border-bottom: 1px solid black;
-    
-    font-size: 16px;
-}
-
-.group-row { 
-    cursor: pointer;
-    border-radius: 8px;
-    background-color: lightgreen;
-}
-
-.group-row:hover { 
-    background-color: white; 
-}
-
-.selected-row { 
-    background-color: #FFFF99; 
-}
-
-.group-image-area {
+.filter-area {
 	width: auto;
-	height: auto;
-	max-height: 60vh;
-    
-    margin: 0px auto;
+	padding: 5px;
+	box-sizing: border-box;
 }
 
-.group-image {
+.filter-area .input-group {
+	margin: 0 auto;
+	margin-bottom: 5px;
+}
+
+.filter-area .input-group-addon {
+	width: 52px;
+	height: 20px;
+	padding: 0px 4px;
+	color: black;
+	font-size: 18px;
+	background: linear-gradient(lightgrey, #888888);
+	background-color: lightgrey;
+}
+
+.filter-area .form-control {
+	width: 40px;
+	height: 40px;
+	padding: 0px;
+	padding-left: 8px;
+	color: black;
+	font-size: 18px;
+}
+
+.filter-area .form-control-center {
+	padding-left: 0px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.filter-area .label-left {
+	float: left;
+	margin-left: 5px;
+	color: white;
+	font-size: 18px;
+}
+
+.filter-area .label-right {
+	float: right;
+	margin-right: 5px;
+	color: white;
+	font-size: 18px;
+}
+
+.page-button {
 	display: block;
-	
-	min-height: 40vh;
-	max-width: 100%;
-	max-height: 60vh;
-	
-	margin: 0px auto;
-}
-
-.group-area {
-    width: 100%;
-    table-layout: fixed;
-}
-
-#group-name-label {
-    width: auto;
-	height: 20px;
-	
-    padding: 5px;
-    padding-top: 0px;
-	padding-bottom: 2px;
-	
-	text-align: center;
+	width: 48px;
+	height: 44px;
 	font-size: 16px;
-	background: white;
-}
-
-.group-opponent-name-label {
-    width: auto;
-	height: 20px;
-	
-    padding: 5px;
-    padding-top: 0px;
-	padding-bottom: 2px;
-	
-	text-align: center;
-	font-size: 16px;
-	background: white;
+	box-sizing: border-box;
+	margin: 0 auto;
 }
 
 /************************************************************
- * Classes for the main game screen.
+ * Classes for the table on the main game screen.
  ************************************************************/
 
-#game-banner {
-	height: 35px;
-	margin: 2px 0px 0px 0px;
-}
-
-#game-main-area {
-	max-height: 100%;
-}
-
-.opponent-image-area {
-	width: auto;
-	max-width: 25vw;
+.game-table {
+	position: absolute;
 	height: auto;
-	max-height: 60vh;
-    
-    margin: 0px auto;
+	left: 5px;
+	right: 5px;
+	bottom: 10%;
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 5px;
+	background: transparent;
+	background-color: #663300;
 }
 
-.opponent-image {
-	display: block;
-	
-	min-height: 40vh;
-	max-width: 100%;
-	max-height: 60vh;
-	
-	margin: 0px auto;
+.game-table-solid {
+	height: auto;
+	left: 5px;
+	right: 5px;
+	bottom: 10%;
+	box-sizing: border-box;
+	margin: 5px;
+	padding: 5px;
+	background-color: #663300;
+}
+
+.game-table-surface {
+	width: 100%;
+	padding: 5px;
+	background: radial-gradient(#007000, #006000, #005000);
+	background-color: #006000;
+	box-sizing: border-box;
+}
+
+.game-table-area {
+	width: 100%;
+	margin-bottom: 5px;
+	table-layout: fixed;
 }
 
 .opponent-area {
-	width: auto;
-	
+	width: 90%;
 	margin: 0px auto;
-	padding: 0px;
+	padding: 2px;
+	background: radial-gradient(#454545, #454545, #454545);
+	background-color: #454545;
 }
 
 .opponent-name-label {
 	width: 200px;
 	height: 20px;
-	
-	padding-bottom: 2px;
-	
+	padding-bottom: 3px;
+	margin: 2px auto;
 	text-align: center;
 	font-size: 16px;
 	background: white;
@@ -675,8 +755,8 @@ body.modal-open {
 .opponent-card-area {
 	width: auto;
 	height: 50px;
-	
 	box-sizing: border-box;
+	border-spacing: 2px;
 	margin: 0px auto;
 }
 
@@ -685,77 +765,80 @@ body.modal-open {
 	height: 45px;
 }
 
-#game-player-area {
-	width: 100%;
-	height: 110px;
+/************************************************************
+ * Classes for the human player section of the table on the 
+ * main game screen.
+ ************************************************************/
+
+.player-table-area {
+	width: auto;
+	margin: 0 auto;
+	margin-top: 5px;
 	box-sizing: border-box;
-	
-	background: #E6E6E6;
+	background: radial-gradient(#454545, #454545, #454545);
 }
-
+ 
 .dock-options-area {
-    width: 8%;
-    text-align: center;
+	width: 0%;
 }
-
-.player-clothing-area {
-	width: 36%;
-}
-
-.player-clothing-area table {
-	margin: 0px auto;
-
-}
-
-.player-name-label {
-	height: 20px;	
-	padding-bottom: 2px;
-	
-	text-align: center;
-
-	font-size: 16px;
-	background: white;
-}
-
-.player-clothing-label {
-	height: 16px;
-	
-	padding-bottom: 2px;
-	
-	text-align: center;
-	font-size: 14px;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-
-	background: white;
+ 
+.dock-options-button {
+	display: block;
+	width: 30px;
+	height: 35px;
+	margin-left: 11%;
 }
 
 .small-clothing-image {
 	width: 40px;
 	height: 40px;
-	
-	margin: 2px 1px;
 }
 
-#dock-card-area {
-	width: 44%;
+.player-area {
+	width: 100%;
+	padding: 0px;
+	background: transparent;
+	box-sizing: border-box;
 }
 
-#dock-card-area table {
+.player-card-area {
+	width: auto;
+	height: 50px;
+	box-sizing: border-box;
+	border-spacing: 4px;
 	margin: 0px auto;
 }
 
+.player-name-label {
+	width: 100%;
+	height: 26px;
+	text-align: center;
+	font-size: 16px;
+	background: white;
+	box-sizing: border-box;
+}
+
+.player-clothing-label {
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+	background: white;
+	box-sizing: border-box;
+}
+
+.large-card-image {
+	width: 65px;
+	height: 90px;
+}
+
 .centred-deck-area {
-	position: absolute;
-	width: 69px;
-	left: 0;
-	right: 0;
-	top: 5px;
-	margin: 0 auto;
+	position: relative;
 }
 
 .hidden-large-card {
 	position: absolute;
 	top: 0;
+	left: 0;
 	opacity: 0;
 }
 
@@ -763,8 +846,26 @@ body.modal-open {
 	opacity: 1;
 }
 
-.large-card-image {
-	width: 65px;
-	height: 90px;
-	border: 2px solid black;
+/************************************************************
+ * Global override classes.
+ ************************************************************/
+
+.clear {
+	background: transparent;
+}
+
+.tight {
+	width: auto;
+}
+
+.never-hide {
+	visibility: visible;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
 }

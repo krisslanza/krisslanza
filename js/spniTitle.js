@@ -1,6 +1,6 @@
 /********************************************************************************
- This file contains the variables and functions that form the title screen of the 
- game. The parsing functions for the player.xml file, the clothing organization
+ This file contains the variables and functions that form the title and setup screens
+ of the game. The parsing functions for the player.xml file, the clothing organization
  functions, and human player initialization.
  ********************************************************************************/
 
@@ -17,7 +17,6 @@ $warningLabel = $("#title-warning-label");
  *****                    Title Screen Variables                  *****
  **********************************************************************/
 
-var playerClothingFile = "player/player.xml";
 var clothingChoices = [];
 var selectedChoices = [];
  
@@ -31,8 +30,6 @@ var selectedChoices = [];
  ************************************************************/
 function loadTitleScreen () {
     loadClothing();
-    
-    $titleScreen.show();
 }
 
 /************************************************************
@@ -41,93 +38,61 @@ function loadTitleScreen () {
 function loadClothing () {
 	/* clear previously loaded content */
 	clothingChoices = [];
-	selectedChoices = [];
+	selectedChoices = [false, false, true, true, true, false, true, true, true, true];
 	
-    /* load the player clothing XML file */
-	$.ajax({
-        type: "GET",
-		url: playerClothingFile,
-		dataType: "text",
-		success: function(xml) {
-			/* fetch the corresponding gender wardrobe */
-			$wardrobe = null;
-			$(xml).find('wardrobe').each(function () {
-				if ($(this).attr('tag') == players[HUMAN_PLAYER].gender) {
-					$wardrobe = $(this);
-				}
-			});
-			
-			/* string storage */
-			var loadedClothing = "";
-			
-			/* load all clothing by category */
-			$wardrobe.find('category').each(function () {
-                /* HTML for the clothing label */
-				loadedClothing += 
-					"<tr><td colspan='42'>"+
-					"<div class='title-clothing-label default-font bordered'>";
-                
-                /* get the clothing label */
-				var position = OTHER_ARTICLE;
-				if ($(this).attr('label') == "upper") {
-					position = UPPER_ARTICLE;
-                    loadedClothing += "Upper Body (Minimum: 1)";
-				} else if ($(this).attr('label') == "lower") {
-					position = LOWER_ARTICLE;
-                    loadedClothing += "Lower Body (Minimum: 1)";
-				} else {
-                    loadedClothing += "Other";
-                }
-				
-                /* close the clothing label */
-				loadedClothing += 
-					"</div>"+
-					"<tr><td>";
-					
-				/* load all of the clothing in this category */
-				$(this).find('clothing').each(function() {
-					var proper = $(this).find('proper').text();
-					var lower = $(this).find('lower').text();
-					var image = $(this).attr('img');
-					var type = $(this).attr('type');
-					
-					clothingChoices.push(createNewClothing(proper, lower, type, position, image));
-					
-					loadedClothing += 
-						"<input type='image' value='' class='title-clothing-image bordered' id='clothing-option-"+
-						(clothingChoices.length-1)+"' src='"+image+"' onclick='selectClothing("+(clothingChoices.length-1)+")'>";
-						
-					/* determine if this is worn by default */
-					var defaultClothing = $(this).attr('default');
-					if (defaultClothing == 'yes') {
-						selectedChoices.push(true);
-					} else {
-						selectedChoices.push(false);
-					}
-				});
-					
-				loadedClothing +=
-					"</td></tr>"+
-					"</td></tr>";
-			});
-			
-			/* update visuals */
-			$clothingTable.html(loadedClothing);
-			for (var i = 0; i < selectedChoices.length; i++) {
-				if (selectedChoices[i]) {
-					$('#clothing-option-'+i).css('opacity', '1');
-				} else {
-					$('#clothing-option-'+i).css('opacity', '0.4');
-				} 
-			}
-		}
-	});
+    /* load all hardcoded clothing, it's just easier this way */
+	if (players[HUMAN_PLAYER].gender == MALE) {
+		clothingChoices.push(null);
+		clothingChoices.push(null);
+		clothingChoices.push(createNewClothing('Belt', 'belt', OTHER_ARTICLE, EXTRA_ARTICLE, "player/male/belt.jpg", 2));
+		clothingChoices.push(createNewClothing('Shirt', 'shirt', MAJOR_ARTICLE, UPPER_ARTICLE, "player/male/shirt.jpg", 1));
+		clothingChoices.push(createNewClothing('Undershirt', 'undershirt', IMPORTANT_ARTICLE, UPPER_ARTICLE, "player/male/undershirt.jpg", 0));
+		clothingChoices.push(null);
+		clothingChoices.push(createNewClothing('Socks', 'socks', OTHER_ARTICLE, EXTRA_ARTICLE, "player/male/socks.jpg", 1));
+		clothingChoices.push(createNewClothing('Shoes', 'shoes', MINOR_ARTICLE, EXTRA_ARTICLE, "player/male/shoes.jpg", 2));
+		clothingChoices.push(createNewClothing('Pants', 'pants', MAJOR_ARTICLE, LOWER_ARTICLE, "player/male/pants.jpg", 1));
+		clothingChoices.push(createNewClothing('Boxers', 'boxers', IMPORTANT_ARTICLE, LOWER_ARTICLE, "player/male/boxers.jpg", 0));
+	} else if (players[HUMAN_PLAYER].gender == FEMALE) {
+		clothingChoices.push(null);
+		clothingChoices.push(null);
+		clothingChoices.push(createNewClothing('Belt', 'belt', OTHER_ARTICLE, EXTRA_ARTICLE, "player/female/belt.jpg", 2));
+		clothingChoices.push(createNewClothing('Tank Top', 'tank top', MAJOR_ARTICLE, UPPER_ARTICLE, "player/female/tanktop.jpg", 1));
+		clothingChoices.push(createNewClothing('Bra', 'bra', IMPORTANT_ARTICLE, UPPER_ARTICLE, "player/female/bra.jpg", 0));
+		clothingChoices.push(null);
+		clothingChoices.push(createNewClothing('Socks', 'socks', OTHER_ARTICLE, EXTRA_ARTICLE, "player/female/socks.jpg", 1));
+		clothingChoices.push(createNewClothing('Boots', 'boots', MINOR_ARTICLE, EXTRA_ARTICLE, "player/female/boots.jpg", 2));
+		clothingChoices.push(createNewClothing('Pants', 'pants', MAJOR_ARTICLE, LOWER_ARTICLE, "player/female/pants.jpg", 1));
+		clothingChoices.push(createNewClothing('Panties', 'panties', IMPORTANT_ARTICLE, LOWER_ARTICLE, "player/female/panties.jpg", 0));
+	}
+	updateTitleClothing();
 }
+
+/************************************************************
+ * Updates the clothing on the title screen.
+ ************************************************************/
+function updateTitleClothing () {
+	if (players[HUMAN_PLAYER].gender == MALE) {
+		$('#female-clothing-container').hide();
+		$('#male-clothing-container').show();
+	} else if (players[HUMAN_PLAYER].gender == FEMALE) {
+		$('#male-clothing-container').hide();
+		$('#female-clothing-container').show();
+	}
+	
+	for (var i = 0; i < selectedChoices.length; i++) {
+		if (selectedChoices[i]) {
+			$('#'+players[HUMAN_PLAYER].gender+'-clothing-option-'+i).css('opacity', '1');
+		} else {
+			$('#'+players[HUMAN_PLAYER].gender+'-clothing-option-'+i).css('opacity', '0.4');
+		}
+	}
+}
+ 
  
 /**********************************************************************
  *****                   Interaction Functions                    *****
  **********************************************************************/
-
+ 
 /************************************************************
  * The player clicked on one of the gender icons on the title 
  * screen, or this was called by an internal source.
@@ -153,15 +118,14 @@ function changePlayerGender (gender) {
 function selectClothing (id) {
 	if (selectedChoices[id]) {
 		selectedChoices[id] = false;
-		$('#clothing-option-'+id).css('opacity', '0.4');
 	} else {
 		selectedChoices[id] = true;
-		$('#clothing-option-'+id).css('opacity', '1');
 	} 
+	updateTitleClothing();
 }
  
 /************************************************************
- * The player clicked on the start game button on the title 
+ * The player clicked on the advance button on the title 
  * screen.
  ************************************************************/
 function validateTitleScreen () {
@@ -182,6 +146,7 @@ function validateTitleScreen () {
 	var clothingCount = [0, 0, 0, 0];
 	for (var i = 0; i < clothingChoices.length; i++) {
 		if (selectedChoices[i]) {
+			console.log(clothingChoices[i]);
 			if (clothingChoices[i].position == UPPER_ARTICLE) {
 				clothingCount[0]++;
 			} else if (clothingChoices[i].position == LOWER_ARTICLE) {
@@ -192,6 +157,7 @@ function validateTitleScreen () {
 			clothingCount[3]++;
 		}
 	}
+	console.log(clothingCount);
 
 	/* ensure the player is wearing enough clothing */
 	if (clothingCount[0] < 1) {
@@ -210,8 +176,16 @@ function validateTitleScreen () {
     
     /* dress the player */
     wearClothing();
+	console.log(players[0]);
     
     advanceToNextScreen($titleScreen);
+}
+
+/************************************************************
+ * The player clicked on the back button on the setup screen.
+ ************************************************************/
+function backSetupScreen () {
+	returnToPreviousScreen($setupScreen);
 }
 
 /**********************************************************************

@@ -10,6 +10,7 @@
 
 /* source constants */
 var imageSource = "img/";
+var opponentSource = "opponents/";
  
 /* player constants */
 var HUMAN_PLAYER = 0;
@@ -20,17 +21,21 @@ var FEMALE = "female";
 
 /* game screens */
 $titleScreen = $('#title-screen');
-$selectScreen = $('#select-screen');
+$selectScreen = $('#main-select-screen');
 $individualSelectScreen = $('#individual-select-screen');
 $groupSelectScreen = $('#group-select-screen');
 $gameScreen = $('#game-screen');
 $optionsScreen = $('#options-screen');
 
+/* game table */
+var tableOpacity = 1;
+$gameTable = $('.game-table');
+
 /* screen state */
 $previousScreen = null;
 
 /* useful variables */
-var BLANK_PLAYER_IMAGE = "opponents/blank.jpg";
+var BLANK_PLAYER_IMAGE = "opponents/blank.png";
 
 /* player array */
 var players = [null, null, null, null, null];
@@ -85,24 +90,57 @@ function initialSetup () {
     var humanPlayer = createNewPlayer("", "", "", "", MALE, [], false, "", 0, 0, 0, [], null);
     players[HUMAN_PLAYER] = humanPlayer;
     
-    /* load the title screen */
+	/* enable table opacity */
+	tableOpacity = 1;
+	$gameTable.css({opacity:1});
+	
+    /* load the all content */
     loadTitleScreen();
+	loadSelectScreen();
+	
+	/* show the title screen */
+	$titleScreen.show();
 }
  
 /************************************************************
- * Calls the content for the next screen based on the screen
- * provided.
+ * Switches to the next screen based on the screen provided.
  ************************************************************/
 function advanceToNextScreen (screen) {
     if (screen == $titleScreen) {
-        /* advance to the select screen */
+        /* advance to the setup screen */
         $titleScreen.hide();
-        loadSelectScreen();
+        $selectScreen.show();
     } else if (screen == $selectScreen) {
         /* advance to the main game screen */
         $selectScreen.hide();
-        loadGameScreen();
+		loadGameScreen();
+        $gameScreen.show();
     }
+}
+
+/************************************************************
+ * Switches to the last screen based on the screen provided.
+ ************************************************************/
+function returnToPreviousScreen (screen) {
+    if (screen == $selectScreen) {
+        /* return to the title screen */
+        $selectScreen.hide();
+        $titleScreen.show();
+    }
+}
+
+/**********************************************************************
+ *****                Multi Interaction Functions                 *****
+ **********************************************************************/
+ 
+function toggleTableVisibility () {
+	if (tableOpacity > 0) {
+		$gameTable.fadeOut();
+		tableOpacity = 0;
+	} else {
+		$gameTable.fadeIn();
+		tableOpacity = 1;
+	}
 }
  
 /**********************************************************************
