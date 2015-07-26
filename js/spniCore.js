@@ -132,6 +132,7 @@ function returnToPreviousScreen (screen) {
 /**********************************************************************
  *****                Multi Interaction Functions                 *****
  **********************************************************************/
+<<<<<<< HEAD
  
 function toggleTableVisibility () {
 	if (tableOpacity > 0) {
@@ -142,7 +143,14 @@ function toggleTableVisibility () {
 		tableOpacity = 1;
 	}
 }
+=======
+>>>>>>> origin/master
  
+function toggleTableVisibility () {
+	console.log("Hello")
+	$(".game-table").fadeOut();
+}
+
 /**********************************************************************
  *****                     Utility Functions                      *****
  **********************************************************************/
