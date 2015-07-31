@@ -15,7 +15,7 @@
 	<gender>female</gender>  <!-- what gender are they? -->
 	<height>5'6&#34;</height>	 <!-- how tall are they? -->
 	<from>Bioshock Infinite</from>	<!-- what are they from? -->
-	<writer></writer> <!-- who wrote their dialogue? -->
+	<writer>undeadclown</writer> <!-- who wrote their dialogue? -->
 	<artist>josephkantel</artist> <!-- who created their images? -->
 	<description>No description.</description> <!-- describe them -->
 </opponent>

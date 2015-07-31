@@ -57,6 +57,8 @@ function getClothingTrigger (player, clothing, removed) {
 	var type = clothing.type;
 	var pos = clothing.position;
 	var gender = players[player].gender;
+	console.log(clothing);
+	console.log(type);
 
 	/* starting with important articles */
 	if (type == IMPORTANT_ARTICLE) {
@@ -320,7 +322,7 @@ function closeStrippingModal () {
         var removedClothing = players[HUMAN_PLAYER].clothing[selectedClothing];
         players[HUMAN_PLAYER].clothing[selectedClothing] = null;
         var dialogueTrigger = getClothingTrigger(HUMAN_PLAYER, removedClothing, true);
-        
+        console.log(removedClothing);
         /* display the remaining clothing */
         displayHumanPlayerClothing();
         

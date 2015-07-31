@@ -44,23 +44,23 @@ function loadClothing () {
 	if (players[HUMAN_PLAYER].gender == MALE) {
 		clothingChoices.push(null);
 		clothingChoices.push(null);
-		clothingChoices.push(createNewClothing('Belt', 'belt', OTHER_ARTICLE, EXTRA_ARTICLE, "player/male/belt.jpg", 2));
+		clothingChoices.push(createNewClothing('Belt', 'belt', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/belt.jpg", 2));
 		clothingChoices.push(createNewClothing('Shirt', 'shirt', MAJOR_ARTICLE, UPPER_ARTICLE, "player/male/shirt.jpg", 1));
 		clothingChoices.push(createNewClothing('Undershirt', 'undershirt', IMPORTANT_ARTICLE, UPPER_ARTICLE, "player/male/undershirt.jpg", 0));
 		clothingChoices.push(null);
-		clothingChoices.push(createNewClothing('Socks', 'socks', OTHER_ARTICLE, EXTRA_ARTICLE, "player/male/socks.jpg", 1));
-		clothingChoices.push(createNewClothing('Shoes', 'shoes', MINOR_ARTICLE, EXTRA_ARTICLE, "player/male/shoes.jpg", 2));
+		clothingChoices.push(createNewClothing('Socks', 'socks', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/socks.jpg", 1));
+		clothingChoices.push(createNewClothing('Shoes', 'shoes', MINOR_ARTICLE, OTHER_ARTICLE, "player/male/shoes.jpg", 2));
 		clothingChoices.push(createNewClothing('Pants', 'pants', MAJOR_ARTICLE, LOWER_ARTICLE, "player/male/pants.jpg", 1));
 		clothingChoices.push(createNewClothing('Boxers', 'boxers', IMPORTANT_ARTICLE, LOWER_ARTICLE, "player/male/boxers.jpg", 0));
 	} else if (players[HUMAN_PLAYER].gender == FEMALE) {
 		clothingChoices.push(null);
 		clothingChoices.push(null);
-		clothingChoices.push(createNewClothing('Belt', 'belt', OTHER_ARTICLE, EXTRA_ARTICLE, "player/female/belt.jpg", 2));
+		clothingChoices.push(createNewClothing('Belt', 'belt', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/belt.jpg", 2));
 		clothingChoices.push(createNewClothing('Tank Top', 'tank top', MAJOR_ARTICLE, UPPER_ARTICLE, "player/female/tanktop.jpg", 1));
 		clothingChoices.push(createNewClothing('Bra', 'bra', IMPORTANT_ARTICLE, UPPER_ARTICLE, "player/female/bra.jpg", 0));
 		clothingChoices.push(null);
-		clothingChoices.push(createNewClothing('Socks', 'socks', OTHER_ARTICLE, EXTRA_ARTICLE, "player/female/socks.jpg", 1));
-		clothingChoices.push(createNewClothing('Boots', 'boots', MINOR_ARTICLE, EXTRA_ARTICLE, "player/female/boots.jpg", 2));
+		clothingChoices.push(createNewClothing('Socks', 'socks', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/socks.jpg", 1));
+		clothingChoices.push(createNewClothing('Boots', 'boots', MINOR_ARTICLE, OTHER_ARTICLE, "player/female/boots.jpg", 2));
 		clothingChoices.push(createNewClothing('Pants', 'pants', MAJOR_ARTICLE, LOWER_ARTICLE, "player/female/pants.jpg", 1));
 		clothingChoices.push(createNewClothing('Panties', 'panties', IMPORTANT_ARTICLE, LOWER_ARTICLE, "player/female/panties.jpg", 0));
 	}
