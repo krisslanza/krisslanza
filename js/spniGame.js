@@ -204,7 +204,7 @@ function makeAIDecision () {
 	}
 	
 	/* update a few hardcoded visuals */
-	$gameDialogues[currentTurn-1].html("I will exchange "+swap+" cards.");
+	$gameDialogues[currentTurn-1].html("I will exchange "+swap+" cards."); //HARDCODED, FOR NOW
     $gameAdvanceButtons[currentTurn-1].css({opacity : 0});
 	
 	/* wait and implement AI action */
@@ -220,7 +220,6 @@ function implementAIAction () {
 	/* refresh the hand */
 	hideHand(currentTurn);
 	
-	/* IMPLEMENT STACKING/RANDOMIZED TRIGGERS HERE SO THAT AIs CAN COMMENT ON PLAYER "ACTIONS" */
 	/* update behaviour */
 	determineHand(currentTurn);
 	if (hands[currentTurn].strength == HIGH_CARD) {
@@ -306,12 +305,7 @@ function startDealPhase () {
         }
     }
 	
-	/* hide the dialogue bubbles */
-    for (var i = 1; i < players.length; i++) {
-        $gameDialogues[i-1].html("");
-        $gameAdvanceButtons[i-1].css({opacity : 0});
-        $gameBubbles[i-1].hide();
-    }
+	/* IMPLEMENT STACKING/RANDOMIZED TRIGGERS HERE SO THAT AIs CAN COMMENT ON PLAYER "ACTIONS" */
 	
 	/* clear the labels */
 	for (var i = 0; i < players.length; i++) {
@@ -345,6 +339,13 @@ function checkDealLock () {
  * Finishes the deal phase and allows the game to progress.
  ************************************************************/
 function continueDealPhase () {
+	/* hide the dialogue bubbles */
+    for (var i = 1; i < players.length; i++) {
+        $gameDialogues[i-1].html("");
+        $gameAdvanceButtons[i-1].css({opacity : 0});
+        $gameBubbles[i-1].hide();
+    }
+	
 	/* set visual state */
     if (!players[HUMAN_PLAYER].out) {
         showHand(HUMAN_PLAYER);
@@ -401,7 +402,6 @@ function completeRevealPhase () {
     if (recentLoser == -1) {
         console.log("Fuck... there was an absolute tie");
         /* inform the player */
-        $gameBanner.html("There has been an absolute tie! Nobody loses!");
         
         /* hide the dialogue bubbles */
         for (var i = 1; i < players.length; i++) {

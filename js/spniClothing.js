@@ -430,10 +430,11 @@ function stripPlayer (player) {
 				updateAllBehaviours(HUMAN_PLAYER, FEMALE_START_MASTURBATING, [NAME], [players[HUMAN_PLAYER].first]);
 			}
 			$gameClothingLabel.html("<b>You're Masturbating...</b>");
+			setForfeitTimer(player);
 		} else {
-			if (players[HUMAN_PLAYER].gender == MALE) {
+			if (players[player].gender == MALE) {
 				updateAllBehaviours(player, MALE_START_MASTURBATING, [NAME], [players[player].first]);
-			} else if (players[HUMAN_PLAYER].gender == FEMALE) {
+			} else if (players[player].gender == FEMALE) {
 				updateAllBehaviours(player, FEMALE_START_MASTURBATING, [NAME], [players[player].first]);
 			}
 			updateBehaviour(player, PLAYER_START_MASTURBATING, [NAME], [players[player].first]);

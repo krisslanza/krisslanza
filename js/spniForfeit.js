@@ -42,56 +42,87 @@ function setForfeitTimer (player) {
  ************************************************************/
 function tickForfeitTimers (context) {
 	var oneFinished = false;
-    for (var i = 1; i < players.length; i++) {
+    for (var i = 0; i < players.length; i++) {
         if (players[i].out && timers[i] > 0) {
             timers[i]--;
             
-            /* check to see if their timer is up */
-            if (timers[i] <= 0 && !oneFinished) {
-                oneFinished = true;
-                console.log(players[i].first+" is finishing!");
-				
-				/* save context */
-				savedContext = context;
-				context = null;
-				
-				/* set the button state */
-				$mainButton.html("Continue");
-				$mainButton.attr('disabled', true);
-                
-                /* hide everyone else's dialogue bubble */
-				for (var j = 1; j < players.length; j++) {
-					if (i != j) {
-						$gameDialogues[j-1].html("");
-						$gameAdvanceButtons[j-1].css({opacity : 0});
-						$gameBubbles[j-1].hide();
+			if (i == HUMAN_PLAYER) {
+				/* human player */
+				if (timers[i] <= 0 && !oneFinished) {
+					/* player's timer is up */
+					oneFinished = true;
+					console.log(players[i].first+" is finishing!");
+					$gameClothingLabel.html("<b>You're 'Finished'</b>");
+					
+					/* save context */
+					savedContext = context;
+					context = null;
+					
+					/* set the button state */
+					$mainButton.html("Continue");
+					$mainButton.attr('disabled', true);
+					
+					/* finish */
+					finishMasturbation(i);
+				} else if (timers[i] <= 0) {
+					/* two people can't finish at the same time */
+					timers[i] = 1;
+				} else {
+					/* update the player label */
+					$gameClothingLabel.html("<b>'Finished' in "+timers[i]+" phases</b>");
+					
+					updateAllBehaviours(i, MALE_MASTURBATING, [NAME], [players[i].first]);
+					updateAllGameVisuals();
+				}
+			} else {
+				/* AI player */
+				if (timers[i] <= 0 && !oneFinished) {
+					/* this player's timer is up */
+					oneFinished = true;
+					console.log(players[i].first+" is finishing!");
+					
+					/* save context */
+					savedContext = context;
+					context = null;
+					
+					/* set the button state */
+					$mainButton.html("Continue");
+					$mainButton.attr('disabled', true);
+					
+					/* hide everyone else's dialogue bubble */
+					for (var j = 1; j < players.length; j++) {
+						if (i != j) {
+							$gameDialogues[j-1].html("");
+							$gameAdvanceButtons[j-1].css({opacity : 0});
+							$gameBubbles[j-1].hide();
+						}
+					}
+					
+					/* let the player speak again */
+					players[i].forfeit = [PLAYER_FINISHING_MASTURBATING, CAN_SPEAK];
+					
+					/* show them cumming */
+					updateBehaviour(i, PLAYER_FINISHING_MASTURBATING, [NAME], [players[i].first]);
+					updateGameVisual(i);
+					
+					/* trigger the callback */
+					var player = i;
+					window.setTimeout(function(){ finishMasturbation(player); }, ORGASM_DELAY);
+				} else if (timers[i] <= 0) {
+					/* two people can't finish at the same time */
+					timers[i] = 1;
+				} else {
+					/* random chance they go into heavy masturbation */
+					var randomChance = getRandomNumber(0, players[i].timer);
+					
+					if (randomChance > timers[i]-1) {
+						/* this player is now heavily masturbating */
+						players[i].forfeit = [PLAYER_HEAVY_MASTURBATING, CANNOT_SPEAK];
+						updateBehaviour(i, PLAYER_HEAVY_MASTURBATING, [NAME], [players[i].first]);
+						updateGameVisual(i);
 					}
 				}
-				
-				/* let the player speak again */
-				players[i].forfeit = [PLAYER_FINISHING_MASTURBATING, CAN_SPEAK];
-				
-				/* show them cumming */
-                updateBehaviour(i, PLAYER_FINISHING_MASTURBATING, [NAME], [players[i].first]);
-				updateGameVisual(i);
-				
-				/* trigger the callback */
-				var player = i;
-				window.setTimeout(function(){ finishMasturbation(player); }, ORGASM_DELAY);
-            } else if (timers[i] <= 0) {
-                /* two people can't finish at the same time */
-                timers[i]++;
-            } else {
-                /* random chance they go into heavy masturbation */
-				var randomChance = getRandomNumber(0, players[i].timer);
-				
-				if (randomChance > timers[i]-1) {
-					/* this player is now heavily masturbating */
-					players[i].forfeit = [PLAYER_HEAVY_MASTURBATING, CANNOT_SPEAK];
-					updateBehaviour(i, PLAYER_HEAVY_MASTURBATING, [NAME], [players[i].first]);
-					updateGameVisual(i);
-				}
-            }
+			}
         }
     }
 	
@@ -113,7 +144,9 @@ function finishMasturbation (player) {
 	}
 	
 	/* update their dialogue */
-	updateBehaviour(player, PLAYER_FINISHED_MASTURBATING, [NAME], [players[player].first]);
+	if (player != HUMAN_PLAYER) {
+		updateBehaviour(player, PLAYER_FINISHED_MASTURBATING, [NAME], [players[player].first]);
+	}
 	updateAllGameVisuals();
 	
 	/* update the button */

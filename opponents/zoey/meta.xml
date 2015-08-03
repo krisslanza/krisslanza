@@ -15,7 +15,7 @@
 	<gender>female</gender>  <!-- what gender are they? -->
 	<height>5'1&#34;</height>	 <!-- how tall are they? -->
 	<from>Left 4 Dead</from>	<!-- what are they from? -->
-	<writer></writer> <!-- who wrote their dialogue? -->
+	<writer>undeadclown</writer> <!-- who wrote their dialogue? -->
 	<artist>josephkantel</artist> <!-- who created their images? -->
 	<description>No description.</description> <!-- describe them -->
 </opponent>
