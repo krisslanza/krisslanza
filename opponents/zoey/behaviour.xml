@@ -196,7 +196,7 @@
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
 				<state img="0-interested.png">
-					Show us your tits! Woooow!
+					Show us your tits! Wooooo!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
@@ -418,7 +418,7 @@
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
 				<state img="1-interested.png">
-					Show us your tits! Woooow!
+					Show us your tits! Wooooo!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
@@ -640,7 +640,7 @@
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
 				<state img="2-interested.png">
-					Show us your tits! Woooow!
+					Show us your tits! Wooooo!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
@@ -862,7 +862,7 @@
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
 				<state img="3-interested.png">
-					Show us your tits! Woooow!
+					Show us your tits! Wooooo!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
@@ -1084,7 +1084,7 @@
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
 				<state img="4-interested.png">
-					Show us your tits! Woooow!
+					Show us your tits! Wooooo!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
@@ -1306,7 +1306,7 @@
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
 				<state img="5-interested.png">
-					Show us your tits! Woooow!
+					Show us your tits! Wooooo!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
@@ -1528,7 +1528,7 @@
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
 				<state img="6-interested.png">
-					Show us your tits! Woooow!
+					Show us your tits! Wooooo!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
@@ -1750,7 +1750,7 @@
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
 				<state img="7-interested.png">
-					Show us your tits! Woooow!
+					Show us your tits! Wooooo!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
@@ -1972,7 +1972,7 @@
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
 				<state img="8-interested.png">
-					Show us your tits! Woooow!
+					Show us your tits! Wooooo!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
@@ -2176,7 +2176,7 @@
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
 				<state img="9-interested.png">
-					Show us your tits! Woooow!
+					Show us your tits! Wooooo!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
@@ -2370,7 +2370,7 @@
 			</case>
 			<case tag="female_chest_will_be_visible"> <!-- a female player's chest will become visible -->
 				<state img="10-interested.png">
-					Show us your tits! Woooow!
+					Show us your tits! Wooooo!
 				</state>
 			</case>
 			<case tag="female_crotch_will_be_visible"> <!-- a female player's crotch will become visible -->
