@@ -141,7 +141,7 @@ function loadOpponentWardrobe (player) {
 		var type = $(this).attr('type');
 		var position = $(this).attr('position');
 		
-		var newClothing = createNewClothing(properName, lowercase, type, position, null, 0);
+		var newClothing = createNewClothing(properName, lowercase, type, position, null, 0, 0);
 		
 		player.clothing.push(newClothing);
 	});

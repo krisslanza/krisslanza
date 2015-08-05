@@ -50,6 +50,9 @@ $cardButtons = [$("#player-0-card-1"),
 				$("#player-0-card-3"),
 				$("#player-0-card-4"),
 				$("#player-0-card-5")];
+				
+/* restart modal */
+$restartModal = $("#restart-modal");
                     
 /**********************************************************************
  *****                   Game Screen Variables                    *****
@@ -141,6 +144,12 @@ function updateGameVisual (player) {
         $gameDialogues[player-1].html("");
         $gameAdvanceButtons[player-1].css({opacity : 0});
         $gameBubbles[player-1].hide();
+		
+		/* hide their cards */
+		for (var i = 0; i < CARDS_PER_HAND; i++) {
+			$cardCells[player][i].attr('src', BLANK_CARD_IMAGE);
+			fillCard(player, i);
+		}
     }
 }
  
@@ -168,9 +177,11 @@ function displayHumanPlayerClothing () {
     
     /* display the remaining clothing items */
     clothingImages.reverse();
+	$gameClothingLabel.html("<b>Your Clothing</b>");
 	for (var i = 0; i < 8; i++) {
 		if (clothingImages[i]) {
 			$gameClothingCells[i].attr('src', clothingImages[i]);
+			$gameClothingCells[i].css({opacity: 1});
 		} else {
 			$gameClothingCells[i].css({opacity: 0});
 		}
@@ -504,6 +515,7 @@ function handleGameOver() {
 	if (left == 0) {
 		/* true end */
 		$mainButton.html("Restart?");
+		$mainButton.attr('disabled', false);
 	} else {
 		/* someone is still forfeiting */
 		var context = "Wait";
@@ -604,12 +616,17 @@ function advanceGame () {
 		} else {
 			handleGameOver();
 		}
+	} else if (context == "Restart?") {
+		showRestartModal();
+		$mainButton.attr('disabled', false);
 	} else {
         console.log("Invalid main button state: "+context);
     }
 }
 
-
-
-
- 
+/************************************************************
+ * The player clicked the home button. Shows the restart modal.
+ ************************************************************/
+function showRestartModal () {
+    $restartModal.modal('show');
+}

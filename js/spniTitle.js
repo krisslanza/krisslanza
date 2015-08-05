@@ -18,7 +18,7 @@ $warningLabel = $("#title-warning-label");
  **********************************************************************/
 
 var clothingChoices = [];
-var selectedChoices = [];
+var selectedChoices = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
  
 /**********************************************************************
  *****                    Start Up Functions                      *****
@@ -29,6 +29,7 @@ var selectedChoices = [];
  * screen.
  ************************************************************/
 function loadTitleScreen () {
+	selectedChoices = [false, false, true, false, true, false, true, true, false, true, false, false, true, false, true];
     loadClothing();
 }
 
@@ -38,31 +39,44 @@ function loadTitleScreen () {
 function loadClothing () {
 	/* clear previously loaded content */
 	clothingChoices = [];
-	selectedChoices = [false, false, true, true, true, false, true, true, true, true];
 	
     /* load all hardcoded clothing, it's just easier this way */
 	if (players[HUMAN_PLAYER].gender == MALE) {
-		clothingChoices.push(null);
-		clothingChoices.push(null);
-		clothingChoices.push(createNewClothing('Belt', 'belt', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/belt.jpg", 2));
-		clothingChoices.push(createNewClothing('Shirt', 'shirt', MAJOR_ARTICLE, UPPER_ARTICLE, "player/male/shirt.jpg", 1));
-		clothingChoices.push(createNewClothing('Undershirt', 'undershirt', IMPORTANT_ARTICLE, UPPER_ARTICLE, "player/male/undershirt.jpg", 0));
-		clothingChoices.push(null);
-		clothingChoices.push(createNewClothing('Socks', 'socks', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/socks.jpg", 1));
-		clothingChoices.push(createNewClothing('Shoes', 'shoes', MINOR_ARTICLE, OTHER_ARTICLE, "player/male/shoes.jpg", 2));
-		clothingChoices.push(createNewClothing('Pants', 'pants', MAJOR_ARTICLE, LOWER_ARTICLE, "player/male/pants.jpg", 1));
-		clothingChoices.push(createNewClothing('Boxers', 'boxers', IMPORTANT_ARTICLE, LOWER_ARTICLE, "player/male/boxers.jpg", 0));
+		clothingChoices.push(createNewClothing('Hat', 'hat', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/hat.png", 3, 0));
+		clothingChoices.push(createNewClothing('Jacket', 'jacket', MINOR_ARTICLE, UPPER_ARTICLE, "player/male/jacket.png", 3, 1));
+		clothingChoices.push(createNewClothing('Shirt', 'shirt', MAJOR_ARTICLE, UPPER_ARTICLE, "player/male/shirt.png", 2, 2));
+		clothingChoices.push(createNewClothing('T-Shirt', 't-shirt', MAJOR_ARTICLE, UPPER_ARTICLE, "player/male/tshirt.png", 1, 3));
+		clothingChoices.push(createNewClothing('Undershirt', 'undershirt', IMPORTANT_ARTICLE, UPPER_ARTICLE, "player/male/undershirt.png", 0, 4));
+		
+		clothingChoices.push(createNewClothing('Headphones', 'headphones', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/headphones.png", 3, 5));
+		clothingChoices.push(createNewClothing('Belt', 'belt', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/belt.png", 3, 6));
+		clothingChoices.push(createNewClothing('Pants', 'pants', MAJOR_ARTICLE, LOWER_ARTICLE, "player/male/pants.png", 2, 7));
+		clothingChoices.push(createNewClothing('Shorts', 'shorts', MAJOR_ARTICLE, LOWER_ARTICLE, "player/male/shorts.png", 1, 8));
+		clothingChoices.push(createNewClothing('Boxers', 'boxers', IMPORTANT_ARTICLE, LOWER_ARTICLE, "player/male/boxers.png", 0, 9));
+		
+		clothingChoices.push(createNewClothing('Tie', 'tie', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/tie.png", 3, 10));
+		clothingChoices.push(createNewClothing('Gloves', 'gloves', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/gloves.png", 3, 11));
+		clothingChoices.push(createNewClothing('Shoes', 'shoes', MINOR_ARTICLE, OTHER_ARTICLE, "player/male/shoes.png", 3, 12));
+		clothingChoices.push(createNewClothing('Boots', 'boots', MINOR_ARTICLE, OTHER_ARTICLE, "player/male/boots.png", 3, 13));
+		clothingChoices.push(createNewClothing('Socks', 'socks', MINOR_ARTICLE, OTHER_ARTICLE, "player/male/socks.png", 1, 14));
 	} else if (players[HUMAN_PLAYER].gender == FEMALE) {
-		clothingChoices.push(null);
-		clothingChoices.push(null);
-		clothingChoices.push(createNewClothing('Belt', 'belt', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/belt.jpg", 2));
-		clothingChoices.push(createNewClothing('Tank Top', 'tank top', MAJOR_ARTICLE, UPPER_ARTICLE, "player/female/tanktop.jpg", 1));
-		clothingChoices.push(createNewClothing('Bra', 'bra', IMPORTANT_ARTICLE, UPPER_ARTICLE, "player/female/bra.jpg", 0));
-		clothingChoices.push(null);
-		clothingChoices.push(createNewClothing('Socks', 'socks', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/socks.jpg", 1));
-		clothingChoices.push(createNewClothing('Boots', 'boots', MINOR_ARTICLE, OTHER_ARTICLE, "player/female/boots.jpg", 2));
-		clothingChoices.push(createNewClothing('Pants', 'pants', MAJOR_ARTICLE, LOWER_ARTICLE, "player/female/pants.jpg", 1));
-		clothingChoices.push(createNewClothing('Panties', 'panties', IMPORTANT_ARTICLE, LOWER_ARTICLE, "player/female/panties.jpg", 0));
+		clothingChoices.push(createNewClothing('Hat', 'hat', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/hat.png", 3, 0));
+		clothingChoices.push(createNewClothing('Jacket', 'jacket', MINOR_ARTICLE, UPPER_ARTICLE, "player/female/jacket.png", 3, 1));
+		clothingChoices.push(createNewClothing('Shirt', 'shirt', MAJOR_ARTICLE, UPPER_ARTICLE, "player/female/shirt.png", 2, 2));
+		clothingChoices.push(createNewClothing('Tank Top', 'tank top', MAJOR_ARTICLE, UPPER_ARTICLE, "player/female/tanktop.png", 1, 3));
+		clothingChoices.push(createNewClothing('Bra', 'bra', IMPORTANT_ARTICLE, UPPER_ARTICLE, "player/female/bra.png", 0, 4));
+		
+		clothingChoices.push(createNewClothing('Headphones', 'headphones', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/headphones.png", 3, 5));
+		clothingChoices.push(createNewClothing('Belt', 'belt', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/belt.png", 3, 6));
+		clothingChoices.push(createNewClothing('Pants', 'pants', MAJOR_ARTICLE, LOWER_ARTICLE, "player/female/pants.png", 2, 7));
+		clothingChoices.push(createNewClothing('Skirt', 'skirt', MAJOR_ARTICLE, LOWER_ARTICLE, "player/female/skirt.png", 1, 8));
+		clothingChoices.push(createNewClothing('Panties', 'panties', IMPORTANT_ARTICLE, LOWER_ARTICLE, "player/female/panties.png", 0, 9));
+		
+		clothingChoices.push(createNewClothing('Necklace', 'necklace', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/necklace.png", 3, 10));
+		clothingChoices.push(createNewClothing('Gloves', 'gloves', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/gloves.png", 3, 11));
+		clothingChoices.push(createNewClothing('Shoes', 'shoes', MINOR_ARTICLE, OTHER_ARTICLE, "player/female/shoes.png", 3, 12));
+		clothingChoices.push(createNewClothing('Stockings', 'stockings', MINOR_ARTICLE, OTHER_ARTICLE, "player/female/stockings.png", 3, 13));
+		clothingChoices.push(createNewClothing('Socks', 'socks', MINOR_ARTICLE, OTHER_ARTICLE, "player/female/socks.png", 1, 14));
 	}
 	updateTitleClothing();
 }
@@ -86,6 +100,26 @@ function updateTitleClothing () {
 			$('#'+players[HUMAN_PLAYER].gender+'-clothing-option-'+i).css('opacity', '0.4');
 		}
 	}
+	$warningLabel.html("");
+}
+
+/************************************************************
+ * Updates the clothing on the title screen based on already
+ * worn clothing.
+ ************************************************************/
+function holdTitleClothing () {
+	/* clear selection */
+	for (var i = 0; i < selectedChoices.length; i++) {
+		selectedChoices[i] = false;
+	}
+	
+	/* hold worn clothing */
+	for (var i = 0; i < players[HUMAN_PLAYER].clothing.length; i++) {
+		if (players[HUMAN_PLAYER].clothing[i]) {
+			selectedChoices[players[HUMAN_PLAYER].clothing[i].id] = true; 
+		}
+	}
+	updateTitleClothing();
 }
  
  
@@ -146,7 +180,6 @@ function validateTitleScreen () {
 	var clothingCount = [0, 0, 0, 0];
 	for (var i = 0; i < clothingChoices.length; i++) {
 		if (selectedChoices[i]) {
-			console.log(clothingChoices[i]);
 			if (clothingChoices[i].position == UPPER_ARTICLE) {
 				clothingCount[0]++;
 			} else if (clothingChoices[i].position == LOWER_ARTICLE) {
@@ -167,10 +200,10 @@ function validateTitleScreen () {
 		$warningLabel.html( "You must wear at least 1 article of clothing on your lower body.");
 		return;
 	} else if (clothingCount[3] < 2) {
-		$warningLabel.html("You must be wearing at least 2 articles of clothing.");
+		$warningLabel.html("You must be wearing at least 2 articles of clothing. Nudist.");
 		return;
 	} else if (clothingCount[3] > 8) {
-		$warningLabel.html("You cannot wear more than 8 articles of clothing.");
+		$warningLabel.html("You cannot wear more than 8 articles of clothing. Cheater.");
 		return;
 	}
     
@@ -178,14 +211,7 @@ function validateTitleScreen () {
     wearClothing();
 	console.log(players[0]);
     
-    advanceToNextScreen($titleScreen);
-}
-
-/************************************************************
- * The player clicked on the back button on the setup screen.
- ************************************************************/
-function backSetupScreen () {
-	returnToPreviousScreen($setupScreen);
+    screenTransition($titleScreen, $selectScreen);
 }
 
 /**********************************************************************
@@ -210,6 +236,9 @@ function wearClothing () {
 			position[2].push(clothingChoices[i]);
 		}
 	}
+	
+	/* clear player clothing array */
+	players[HUMAN_PLAYER].clothing = [];
 	
 	/* wear the clothing is sorted order */
 	for (var i = 0; i < position[0].length || i < position[1].length; i++) {

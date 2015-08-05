@@ -451,8 +451,7 @@ function selectOpponentSlot (slot) {
 		updateIndividualSelectScreen();
         
         /* switch screens */
-        $selectScreen.hide();
-        $individualSelectScreen.show();
+		screenTransition($selectScreen, $individualSelectScreen);
     } else {
         /* remove the opponent that's there */
         players[slot] = null;
@@ -467,8 +466,7 @@ function clickedSelectGroupButton () {
 	selectedSlot = 1;
 	
 	/* switch screens */
-	$selectScreen.hide();
-	$groupSelectScreen.show();
+	screenTransition($selectScreen, $groupSelectScreen);
 }
 
 /************************************************************
@@ -581,8 +579,7 @@ function individualScreenCallback (playerObject, slot) {
     players[selectedSlot].current = 0;
 	
 	/* switch screens */
-    $individualSelectScreen.hide();
-	$selectScreen.show();
+	screenTransition($individualSelectScreen, $selectScreen);
 	updateSelectionVisuals();
 }
 
@@ -644,8 +641,7 @@ function groupScreenCallback (playerObject, slot) {
 	updateSelectionVisuals();
     
     /* switch screens */
-    $groupSelectScreen.hide();
-	$selectScreen.show();
+	screenTransition($groupSelectScreen, $selectScreen);
 }
 
 /************************************************************
@@ -675,9 +671,8 @@ function changeGroupPage (skip, page) {
  ************************************************************/
 function backToSelect () {
     /* switch screens */
-    $individualSelectScreen.hide();
-    $groupSelectScreen.hide();
-	$selectScreen.show();
+	screenTransition($individualSelectScreen, $selectScreen);
+	screenTransition($groupSelectScreen, $selectScreen);
 }
 
 /************************************************************
@@ -693,7 +688,7 @@ function advanceSelectScreen () {
  * screen.
  ************************************************************/
 function backSelectScreen () {
-	returnToPreviousScreen($selectScreen);
+	screenTransition($selectScreen, $titleScreen);
 }
 
 /**********************************************************************

@@ -21,13 +21,14 @@ var OTHER_ARTICLE = "other";
 /************************************************************
  * Stores information on an article of clothing.
  ************************************************************/
-function createNewClothing (proper, lower, type, position, image, layer) {
+function createNewClothing (proper, lower, type, position, image, layer, id) {
 	var newClothingObject = {proper:proper, 
 						     lower:lower, 
 						     type:type, 
 						     position:position,
                              image:image,
-							 layer:layer};
+							 layer:layer,
+							 id:id};
 						  
 	return newClothingObject;
 }

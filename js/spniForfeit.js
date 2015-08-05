@@ -14,6 +14,9 @@ var CANNOT_SPEAK = false;
  *****                      Forfeit Variables                     *****
  **********************************************************************/
  
+/* locks */
+var oneFinished = false;
+ 
 /* orgasm timer */
 var ORGASM_DELAY = 4000;
  
@@ -41,7 +44,6 @@ function setForfeitTimer (player) {
  * been set.
  ************************************************************/
 function tickForfeitTimers (context) {
-	var oneFinished = false;
     for (var i = 0; i < players.length; i++) {
         if (players[i].out && timers[i] > 0) {
             timers[i]--;
@@ -154,4 +156,5 @@ function finishMasturbation (player) {
 	
 	/* allow progression */
 	$mainButton.attr('disabled', false);
+	oneFinished = false;
 }

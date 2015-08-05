@@ -61,6 +61,7 @@ $cardCells = [[$("#player-0-card-1"), $("#player-0-card-2"), $("#player-0-card-3
 /* pseudo constants */
 var ANIM_DELAY = 500;
 var ANIM_TIME = 1000;
+var CARDS_PER_HAND = 5;
  
 /* image constants */
 var BLANK_CARD_IMAGE = imageSource + "blankcard.jpg";

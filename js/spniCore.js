@@ -81,7 +81,7 @@ function createNewPlayer (folder, first, last, label, gender, clothing, out, for
 /**********************************************************************
  *****              Overarching Game Flow Functions               *****
  **********************************************************************/
- 
+
 /************************************************************
  * Loads the initial content of the game.
  ************************************************************/
@@ -101,15 +101,23 @@ function initialSetup () {
 	/* show the title screen */
 	$titleScreen.show();
 }
+
+/************************************************************
+ * Transitions between two screens.
+ ************************************************************/
+function screenTransition (first, second) {
+	first.hide();
+	second.show();
+}
  
 /************************************************************
  * Switches to the next screen based on the screen provided.
  ************************************************************/
 function advanceToNextScreen (screen) {
     if (screen == $titleScreen) {
-        /* advance to the setup screen */
-        $titleScreen.hide();
-        $selectScreen.show();
+        /* advance to the select screen */
+		screenTransition($titleScreen, $selectScreen);
+
     } else if (screen == $selectScreen) {
         /* advance to the main game screen */
         $selectScreen.hide();
@@ -123,10 +131,52 @@ function advanceToNextScreen (screen) {
  ************************************************************/
 function returnToPreviousScreen (screen) {
     if (screen == $selectScreen) {
+		/* hold previous screen state */
+		holdTitleClothing();
+		
         /* return to the title screen */
         $selectScreen.hide();
         $titleScreen.show();
     }
+}
+
+/************************************************************
+ * Clears the game state so that the game can be restarted.
+ ************************************************************/
+function clearState () {
+	/* clear players */
+	for (var i = 0; i < players.length; i++) {
+		players[i] = null;
+	}
+}
+
+/************************************************************
+ * Restarts the game.
+ ************************************************************/
+function restartGame () {
+    console.log("restarting the game");
+	
+	/* start by creating the human player object */
+    var humanPlayer = createNewPlayer("", "", "", "", players[HUMAN_PLAYER].gender, players[HUMAN_PLAYER].clothing, false, "", 20, 0, 0, [], null);
+	
+	/* clean slate */
+	clearState();
+	
+	/* load the previous human player */
+	players[HUMAN_PLAYER] = humanPlayer;
+    
+	/* enable table opacity */
+	tableOpacity = 1;
+	$gameTable.css({opacity:1});
+	
+	/* trigger screen refreshes */
+	updateSelectionVisuals();
+	updateAllGameVisuals();
+	
+	/* there is only one call to this right now */
+	$gameScreen.hide();
+	holdTitleClothing();
+	$titleScreen.show();
 }
 
 /**********************************************************************
