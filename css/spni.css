@@ -31,6 +31,10 @@ body.modal-open {
 	margin-left: 0px;
 }
 
+.pagination {
+	margin: 5px 0px;
+}
+
 /************************************************************
  * Global style classes.
  ************************************************************/
@@ -38,6 +42,11 @@ body.modal-open {
 .bordered {
 	border: 2px solid black;
 	border-radius: 8px;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4) inset, 
+				0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+.shaded {
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4) inset, 
 				0px 2px 2px rgba(0, 0, 0, 0.4);
 }
@@ -102,8 +111,8 @@ body.modal-open {
  ************************************************************/
 
 .smooth-button {
-	background: linear-gradient(#75B5E5, #5595C5);
-	background-color: #75B5E5;
+	background: linear-gradient(#63AAE7, #439AD7);
+	background-color: #63AAE7;
 	color: black;
 }
 
@@ -173,8 +182,17 @@ body.modal-open {
  * Classes for modals styled like the game table.
  ************************************************************/
 
-.modal {
-	top: 40%;
+.modal-table-container {
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+
+.modal-cell-container {
+	width: 100%;
+	height: 100%;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .table-modal .modal-dialog {
@@ -184,6 +202,7 @@ body.modal-open {
 	padding: 5px;
 	background: linear-gradient(#333333, #222222);
 	background-color: #333333;
+	color: black;
 }
 
 .table-modal .modal-dialog-surface {
@@ -206,6 +225,10 @@ body.modal-open {
 
 .table-modal .modal-title {
 	color: black;
+}
+
+.table-modal .modal-left {
+	text-align: left;
 }
 
 .table-modal .modal-body {
@@ -250,6 +273,42 @@ body.modal-open {
 	width: 100px;
 	
 	font-size: 22px;
+}
+
+.pagination li a {
+	color: black;
+	background-color: #BBBBBB;
+	border-color: black;
+}
+
+.pagination li a:hover {
+	color: black;
+	background-color: #DDDDDD;
+	border-color: black;
+}
+
+.pagination .active a {
+	background-color: #439AD7;
+	border-color: white;
+}
+
+.pagination .active a:hover {
+	background-color: #63AAE7;
+	border-color: white;
+}
+
+.credit-table {
+	width: 100%;
+	font-size: 16px;
+}
+
+.credit-table td {
+	padding: 0px 10px;
+}
+
+.credit-modal-label {
+	padding: 2px 0px;
+	background-color: lightgrey;
 }
 
 /************************************************************
@@ -504,12 +563,20 @@ body.modal-open {
 
 .version-label {
 	width: 100px;
-	background: radial-gradient(#DDDDDD, #888888);
+	background: radial-gradient(#DDDDDD, #AAAAAA);
 	background-color: #AAAAAA;
 	text-align: center;
 	font-size: 16px;
 	margin: 5px auto;
 	padding: 2px 5px;
+}
+
+.title-small-button {
+	display: block;
+	width: 100px;
+	height: 26px;
+	font-size: 16px;
+	margin: 0 auto;
 }
 
 /************************************************************
@@ -652,7 +719,7 @@ body.modal-open {
 
 .filter-area .input-group {
 	margin: 0 auto;
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 }
 
 .filter-area .input-group-addon {
@@ -694,13 +761,43 @@ body.modal-open {
 	font-size: 18px;
 }
 
-.page-button {
+.filter-area .pagination li a {
+	border: 2px solid;
+	border-right: 1px;
+}
+
+.filter-area .pagination > li:first-child > a, .pagination > li:first-child > span {
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.filter-area .pagination > li:last-child > a, .pagination > li:last-child > span {
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.filter-area .page-button {
 	display: block;
 	width: 48px;
 	height: 44px;
 	font-size: 16px;
 	box-sizing: border-box;
 	margin: 0 auto;
+	cursor: pointer;
+	text-align: center;
+	border-radius: 0px;
+}
+
+.filter-area .page-button span {
+	margin-top: 5px;
+}
+
+.filter-area .page-button:active span {
+	margin-left: 2px;
+}
+
+.filter-area .page-button:active div {
+	margin-left: 2px;
 }
 
 /************************************************************
@@ -716,7 +813,6 @@ body.modal-open {
 	box-sizing: border-box;
 	margin: 0px;
 	padding: 5px;
-	background: transparent;
 	background-color: #663300;
 }
 
@@ -731,12 +827,20 @@ body.modal-open {
 	background-color: #663300;
 }
 
+.game-table-glass {
+	background: rgba(255, 255, 255, 0.2);
+}
+
 .game-table-surface {
 	width: 100%;
 	padding: 5px;
 	background: radial-gradient(#007000, #006000, #005000);
 	background-color: #006000;
 	box-sizing: border-box;
+}
+
+.game-table-surface-glass {
+	background: rgba(255, 255, 255, 0.1);
 }
 
 .game-table-area {
@@ -751,6 +855,12 @@ body.modal-open {
 	padding: 2px;
 	background: radial-gradient(#454545, #454545, #454545);
 	background-color: #454545;
+}
+
+.opponent-area-glass {
+	background: transparent;
+	border: none;
+	box-shadow: none;
 }
 
 .opponent-name-label {
@@ -788,6 +898,12 @@ body.modal-open {
 	box-sizing: border-box;
 	background: radial-gradient(#454545, #454545, #454545);
 }
+
+.player-table-area-glass {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+}
  
 .dock-options-area {
 	width: 0%;
@@ -798,6 +914,11 @@ body.modal-open {
 	width: 30px;
 	height: 35px;
 	margin-left: 11%;
+}
+
+.dock-options-button span {
+	margin-right: 1px;
+	margin-bottom: 2px;
 }
 
 .small-clothing-image {

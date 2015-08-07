@@ -38,17 +38,35 @@
 	</wardrobe>
 	
 	<!-- Dialogue and Expression -->
-	<!-- each case may have any number of states, one will be chosen at random -->
-	<!-- ~name~ is the name of the AI or player, if applicable -->
-	<!-- ~clothing~ is the lower-case name of the clothing they have to remove, if applicable -->
-	<!-- ~Clothing~ is the upper-case name of the clothing they have to remove, if applicable -->
+	<behaviour>	
 	
-	<behaviour>	 <!-- this is where all of the character's dialogue goes -->
+		<!-- Dialogue is split up into stages based on the character's current state of dress or action.
+			 - The first stage is always the fully dressed stage.
+			 - The two stages following the naked stage are always the masturbation and rest stages.
+			 
+			 In each stage is a set of cases, each indicating a unique situation requiring dialogue.
+			 - The tag and comment will tell you what the situation is.
+			 - If multiple cases with the same tag are listed in the same stage, then the game will choose 
+			   one of them at random to use.
+			 
+			 In each case is a set of states, each indicating a single line of dialogue and corresponding image.
+			 - If there are multiple states in a single case, the game will display a dialogue advance button,
+			   which will allow the player to manually advance through each state.
+			   
+			 Also included from the code side are replaceable tags that can be used in any applicable line of dialogue.
+			 ~name~ will be replaced with the name of AI or player in question, if applicable.
+			 ~clothing~ will be replaced with the lower-case name of the clothing being removed, if applicable.
+			 ~Clothing~ will be replaced with the upper-case name of the clothing being removed, if applicable.
 	
-		<!-- start stage, fully dressed -->
+		<!-- Start of Beginning Stage: Fully Dressed -->
 		<stage id="0">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="0-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="0-happy.png">
 					Heh, looking good. Looking very good.
@@ -66,7 +84,17 @@
 			</case>
 			
 			<!-- personal event cases -->
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="0-loss.png">
+					Ha ha! So who's it gonna be? Huh...why is everyone looking at me?
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
+				<state img="0-loss.png">
+					Ha ha! So who's it gonna be? Huh...why is everyone looking at me?
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
 				<state img="0-loss.png">
 					Ha ha! So who's it gonna be? Huh...why is everyone looking at me?
 				</state>
@@ -266,6 +294,11 @@
 		<stage id="1">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="1-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="1-happy.png">
 					Heh, looking good. Looking very good.
@@ -288,7 +321,17 @@
 					Truly this is the most erotic of games.
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="1-loss.png">
+					I don't have any hard evidence yet, but I suspect this is a conspiracy.
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
+				<state img="1-loss.png">
+					I don't have any hard evidence yet, but I suspect this is a conspiracy.
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
 				<state img="1-loss.png">
 					I don't have any hard evidence yet, but I suspect this is a conspiracy.
 				</state>
@@ -488,6 +531,11 @@
 		<stage id="2">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="2-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="2-happy.png">
 					Heh, looking good. Looking very good.
@@ -510,7 +558,17 @@
 					I'm sure this is doing it for someone somewhere.
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="2-loss.png">
+					Really? Again?
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
+				<state img="2-loss.png">
+					Really? Again?
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
 				<state img="2-loss.png">
 					Really? Again?
 				</state>
@@ -710,6 +768,11 @@
 		<stage id="3">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="3-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="3-happy.png">
 					Heh, looking good. Looking very good.
@@ -732,7 +795,17 @@
 					I'm still modest, just...sporty looking.
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="3-loss.png">
+					Sheesh, you guys are supposed to be losing, not me!
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
+				<state img="3-loss.png">
+					Sheesh, you guys are supposed to be losing, not me!
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
 				<state img="3-loss.png">
 					Sheesh, you guys are supposed to be losing, not me!
 				</state>
@@ -932,6 +1005,11 @@
 		<stage id="4">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="4-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="4-happy.png">
 					Heh, looking good. Looking very good.
@@ -954,7 +1032,17 @@
 					Heh...just like Spring Break...not that I actually ever went.
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="4-loss.png">
+					Oh no...now I'm going to have to take off my pants!
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
+				<state img="4-loss.png">
+					Oh no...now I'm going to have to take off my pants!
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
 				<state img="4-loss.png">
 					Oh no...now I'm going to have to take off my pants!
 				</state>
@@ -1154,6 +1242,11 @@
 		<stage id="5">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="5-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="5-happy.png">
 					Heh, looking good. Looking very good.
@@ -1176,7 +1269,17 @@
 					Oh, c'mon, you guys are a little disappointed, right?
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="5-loss.png">
+					Welp...
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
+				<state img="5-loss.png">
+					Welp...
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
 				<state img="5-loss.png">
 					Welp...
 				</state>
@@ -1376,6 +1479,11 @@
 		<stage id="6">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="6-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="6-happy.png">
 					Heh, looking good. Looking very good.
@@ -1398,7 +1506,17 @@
 					*Sigh* Down to my underwear. Anyone want to call off the game and just have an underwear party? No?
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="6-loss.png">
+					Ah...well...huh...
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
+				<state img="6-loss.png">
+					Ah...well...huh...
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
 				<state img="6-loss.png">
 					Ah...well...huh...
 				</state>
@@ -1598,6 +1716,11 @@
 		<stage id="7">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="7-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="7-happy.png">
 					Heh, looking good. Looking very good.
@@ -1620,7 +1743,17 @@
 					Damn...I wish I was more confident in situations like this...
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="7-loss.png">
+					Well...shit.
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
+				<state img="7-loss.png">
+					Well...shit.
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
 				<state img="7-loss.png">
 					Well...shit.
 				</state>
@@ -1820,6 +1953,11 @@
 		<stage id="8">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="8-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="8-happy.png">
 					Heh, looking good. Looking very good.
@@ -2036,6 +2174,7 @@
 			</case>
 			
 		</stage>
+		
 		
 		<!-- ninth stage, masturbating, can still comment on the game for a while -->
 		<stage id="9">	 

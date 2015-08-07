@@ -56,8 +56,8 @@ function loadClothing () {
 		
 		clothingChoices.push(createNewClothing('Tie', 'tie', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/tie.png", 3, 10));
 		clothingChoices.push(createNewClothing('Gloves', 'gloves', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/gloves.png", 3, 11));
-		clothingChoices.push(createNewClothing('Shoes', 'shoes', MINOR_ARTICLE, OTHER_ARTICLE, "player/male/shoes.png", 3, 12));
-		clothingChoices.push(createNewClothing('Boots', 'boots', MINOR_ARTICLE, OTHER_ARTICLE, "player/male/boots.png", 3, 13));
+		clothingChoices.push(createNewClothing('Shoes', 'shoes', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/shoes.png", 3, 12));
+		clothingChoices.push(createNewClothing('Boots', 'boots', EXTRA_ARTICLE, OTHER_ARTICLE, "player/male/boots.png", 3, 13));
 		clothingChoices.push(createNewClothing('Socks', 'socks', MINOR_ARTICLE, OTHER_ARTICLE, "player/male/socks.png", 1, 14));
 	} else if (players[HUMAN_PLAYER].gender == FEMALE) {
 		clothingChoices.push(createNewClothing('Hat', 'hat', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/hat.png", 3, 0));
@@ -74,8 +74,8 @@ function loadClothing () {
 		
 		clothingChoices.push(createNewClothing('Necklace', 'necklace', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/necklace.png", 3, 10));
 		clothingChoices.push(createNewClothing('Gloves', 'gloves', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/gloves.png", 3, 11));
-		clothingChoices.push(createNewClothing('Shoes', 'shoes', MINOR_ARTICLE, OTHER_ARTICLE, "player/female/shoes.png", 3, 12));
-		clothingChoices.push(createNewClothing('Stockings', 'stockings', MINOR_ARTICLE, OTHER_ARTICLE, "player/female/stockings.png", 3, 13));
+		clothingChoices.push(createNewClothing('Shoes', 'shoes', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/shoes.png", 3, 12));
+		clothingChoices.push(createNewClothing('Stockings', 'stockings', EXTRA_ARTICLE, OTHER_ARTICLE, "player/female/stockings.png", 3, 13));
 		clothingChoices.push(createNewClothing('Socks', 'socks', MINOR_ARTICLE, OTHER_ARTICLE, "player/female/socks.png", 1, 14));
 	}
 	updateTitleClothing();

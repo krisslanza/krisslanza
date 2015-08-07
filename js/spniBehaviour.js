@@ -26,16 +26,20 @@ function createNewState (dialogue, image, direction) {
 var NAME = "~name~";
 var PROPER_CLOTHING = "~Clothing~";
 var LOWERCASE_CLOTHING = "~clothing~";
+var CARDS = "~cards~";
 
 /**********************************************************************
  *****                    All Dialogue Triggers                   *****
  **********************************************************************/
 
+var SWAP_CARDS = "swap_cards";
 var BAD_HAND = "bad_hand";
 var OKAY_HAND = "okay_hand";
 var GOOD_HAND = "good_hand";
  
-var PLAYER_MUST_STRIP = "must_strip";
+var PLAYER_MUST_STRIP_WINNING = "must_strip_winning";
+var PLAYER_MUST_STRIP_NORMAL = "must_strip_normal";
+var PLAYER_MUST_STRIP_LOSING = "must_strip_losing";
 var PLAYER_STRIPPING = "stripping";
 var PLAYER_STRIPPED = "stripped";
 

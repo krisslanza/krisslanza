@@ -48,6 +48,11 @@
 		<stage id="0">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="0-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="0-happy.png">
 					No way am I losing with this hand!
@@ -65,7 +70,17 @@
 			</case>
 			
 			<!-- personal event cases -->
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="0-loss.png">
+					Lame! Ah well, can't win forever.
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
+				<state img="0-loss.png">
+					Lame! Ah well, can't win forever.
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
 				<state img="0-loss.png">
 					Lame! Ah well, can't win forever.
 				</state>
@@ -265,31 +280,46 @@
 		<stage id="1">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="1-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="1-happy.png">
-					I've got a good hand.
+					No way am I losing with this hand!
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
 				<state img="1-calm.png">
-					I've got an okay hand.
+					Eh, guess this could be worse.
 				</state>
 			</case>
 			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
 				<state img="1-sad.png">
-					I've got a bad hand.
+					Just so we're clear, if I lose this, it's the cards' fault.
 				</state>
 			</case>
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
 				<state img="1-sad.png">
-					I miss my ~clothing~ already...
+					Lame! Ah well, can't win forever.
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="1-loss.png">
+					Well, I guess it had to be my turn eventually...
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
 				<state img="1-loss.png">
 					I guess I lost, huh?
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
+				<state img="1-loss.png">
+					I lost again? But... I have less clothes than everyone else!
 				</state>
 			</case>
 			<case tag="stripping"> <!-- this player is stripping -->
@@ -487,31 +517,46 @@
 		<stage id="2">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="2-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="2-happy.png">
-					I've got a good hand.
+					No way am I losing with this hand!
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
 				<state img="2-calm.png">
-					I've got an okay hand.
+					Eh, guess this could be worse.
 				</state>
 			</case>
 			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
 				<state img="2-sad.png">
-					I've got a bad hand.
+					Just so we're clear, if I lose this, it's the cards' fault.
 				</state>
 			</case>
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
 				<state img="2-sad.png">
-					I miss my ~clothing~ already...
+					Lame! Ah well, can't win forever.
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="2-loss.png">
+					Well, I guess it had to be my turn eventually...
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
 				<state img="2-loss.png">
 					I guess I lost, huh?
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
+				<state img="2-loss.png">
+					I lost again? But... I have less clothes than everyone else!
 				</state>
 			</case>
 			<case tag="stripping"> <!-- this player is stripping -->
@@ -709,31 +754,46 @@
 		<stage id="3">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="3-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="3-happy.png">
-					I've got a good hand.
+					No way am I losing with this hand!
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
 				<state img="3-calm.png">
-					I've got an okay hand.
+					Eh, guess this could be worse.
 				</state>
 			</case>
 			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
 				<state img="3-sad.png">
-					I've got a bad hand.
+					Just so we're clear, if I lose this, it's the cards' fault.
 				</state>
 			</case>
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
 				<state img="3-sad.png">
-					I miss my ~clothing~ already...
+					Lame! Ah well, can't win forever.
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="3-loss.png">
+					Well, I guess it had to be my turn eventually...
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
 				<state img="3-loss.png">
 					I guess I lost, huh?
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
+				<state img="3-loss.png">
+					I lost again? But... I have less clothes than everyone else!
 				</state>
 			</case>
 			<case tag="stripping"> <!-- this player is stripping -->
@@ -931,31 +991,46 @@
 		<stage id="4">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="4-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="4-happy.png">
-					I've got a good hand.
+					No way am I losing with this hand!
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
 				<state img="4-calm.png">
-					I've got an okay hand.
+					Eh, guess this could be worse.
 				</state>
 			</case>
 			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
 				<state img="4-sad.png">
-					I've got a bad hand.
+					Just so we're clear, if I lose this, it's the cards' fault.
 				</state>
 			</case>
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
 				<state img="4-sad.png">
-					I miss my ~clothing~ already...
+					Lame! Ah well, can't win forever.
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="4-loss.png">
+					Well, I guess it had to be my turn eventually...
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
 				<state img="4-loss.png">
 					I guess I lost, huh?
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
+				<state img="4-loss.png">
+					I lost again? But... I have less clothes than everyone else!
 				</state>
 			</case>
 			<case tag="stripping"> <!-- this player is stripping -->
@@ -1153,31 +1228,46 @@
 		<stage id="5">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="5-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="5-happy.png">
-					I've got a good hand.
+					No way am I losing with this hand!
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
 				<state img="5-calm.png">
-					I've got an okay hand.
+					Eh, guess this could be worse.
 				</state>
 			</case>
 			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
 				<state img="5-sad.png">
-					I've got a bad hand.
+					Just so we're clear, if I lose this, it's the cards' fault.
 				</state>
 			</case>
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
 				<state img="5-sad.png">
-					I miss my ~clothing~ already...
+					Lame! Ah well, can't win forever.
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="5-loss.png">
+					Well, I guess it had to be my turn eventually...
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
 				<state img="5-loss.png">
 					I guess I lost, huh?
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
+				<state img="5-loss.png">
+					I lost again? But... I have less clothes than everyone else!
 				</state>
 			</case>
 			<case tag="stripping"> <!-- this player is stripping -->
@@ -1375,31 +1465,46 @@
 		<stage id="6">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="6-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="6-happy.png">
-					I've got a good hand.
+					No way am I losing with this hand!
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
 				<state img="6-calm.png">
-					I've got an okay hand.
+					Eh, guess this could be worse.
 				</state>
 			</case>
 			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
 				<state img="6-sad.png">
-					I've got a bad hand.
+					Just so we're clear, if I lose this, it's the cards' fault.
 				</state>
 			</case>
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
 				<state img="6-sad.png">
-					I miss my ~clothing~ already...
+					Lame! Ah well, can't win forever.
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="6-loss.png">
+					Well, I guess it had to be my turn eventually...
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
 				<state img="6-loss.png">
 					I guess I lost, huh?
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
+				<state img="6-loss.png">
+					I lost again? But... I have less clothes than everyone else!
 				</state>
 			</case>
 			<case tag="stripping"> <!-- this player is stripping -->
@@ -1597,31 +1702,46 @@
 		<stage id="7">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="7-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="7-happy.png">
-					I've got a good hand.
+					No way am I losing with this hand!
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
 				<state img="7-calm.png">
-					I've got an okay hand.
+					Eh, guess this could be worse.
 				</state>
 			</case>
 			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
 				<state img="7-sad.png">
-					I've got a bad hand.
+					Just so we're clear, if I lose this, it's the cards' fault.
 				</state>
 			</case>
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
 				<state img="7-sad.png">
-					I miss my ~clothing~ already...
+					Lame! Ah well, can't win forever.
 				</state>
 			</case>
-			<case tag="must_strip"> <!-- this player lost the hand -->
+			<case tag="must_strip_winning"> <!-- this player lost the hand but is winning overall -->
+				<state img="7-loss.png">
+					Well, I guess it had to be my turn eventually...
+				</state>
+			</case>
+			<case tag="must_strip_normal"> <!-- this player lost the hand and isn't winning or losing overall -->
 				<state img="7-loss.png">
 					I guess I lost, huh?
+				</state>
+			</case>
+			<case tag="must_strip_losing"> <!-- this player lost the hand and is losing overall -->
+				<state img="7-loss.png">
+					I lost again? But... I have less clothes than everyone else!
 				</state>
 			</case>
 			<case tag="stripping"> <!-- this player is stripping -->
@@ -1819,26 +1939,31 @@
 		<stage id="8">	 
 		
 			<!-- hand strength cases -->
+			<case tag="swap_cards"> <!-- this player is exchanging cards -->
+				<state img="8-calm.png">
+					I'll exchange ~cards~ cards.
+				</state>
+			</case>
 			<case tag="good_hand"> <!-- the character has a good hand after the exchange -->
 				<state img="8-happy.png">
-					I've got a good hand.
+					No way am I losing with this hand!
 				</state>
 			</case>
 			<case tag="okay_hand"> <!-- the character has an okay hand after the exchange -->
 				<state img="8-calm.png">
-					I've got an okay hand.
+					Eh, guess this could be worse.
 				</state>
 			</case>
 			<case tag="bad_hand"> <!-- the character has a bad hand after the exchange -->
 				<state img="8-sad.png">
-					I've got a bad hand.
+					Just so we're clear, if I lose this, it's the cards' fault.
 				</state>
 			</case>
 			
 			<!-- personal event cases -->
 			<case tag="stripped"> <!-- this player just stripped down to the stage -->
 				<state img="8-sad.png">
-					I miss my ~clothing~ already...
+					Lame! Ah well, can't win forever.
 				</state>
 			</case>
 			<case tag="must_masturbate"> <!-- this player lost the hand and has to masturbate -->
@@ -2035,6 +2160,7 @@
 			</case>
 			
 		</stage>
+		
 		
 		<!-- ninth stage, masturbating, can still comment on the game for a while -->
 		<stage id="9">	 

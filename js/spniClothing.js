@@ -159,6 +159,45 @@ function getClothingTrigger (player, clothing, removed) {
 }
 
 /************************************************************
+ * Determines whether or not the provided player is winning
+ * or losing and returns the appropriate dialogue trigger.
+ ************************************************************/
+function determineStrippingSituation (player) {
+	/* gather the clothing amounts of each player */
+	var clothingCounts = [0, 0, 0, 0, 0];
+	for (var i = 0; i < players.length; i++) {
+		for (var j = 0; j < players[i].clothing.length; j++) {
+			if (players[i].clothing[j]) {
+				clothingCounts[i]++;
+			}
+		}
+	}
+	
+	/* determine if this player's clothing count is the highest or lowest */
+	var isMax = true;
+	var isMin = true;
+	
+	for (var i = 0; i < players.length; i++) {
+		if (i != player) {
+			if (clothingCounts[player] > clothingCounts[i]) {
+				isMin = false;
+			} else if (clothingCounts[player] <= clothingCounts[i]) {
+				isMax = false;
+			}
+		}
+	}
+	
+	/* return appropriate trigger */
+	if (isMax) {
+		return PLAYER_MUST_STRIP_WINNING;
+	} else if (isMin) {
+		return PLAYER_MUST_STRIP_LOSING;
+	} else {
+		return PLAYER_MUST_STRIP_NORMAL;
+	}
+}
+
+/************************************************************
  * Manages the dialogue triggers before a player strips or forfeits.
  ************************************************************/
 function playerMustStrip (player) {
@@ -185,7 +224,8 @@ function playerMustStrip (player) {
 			} else {
 				updateAllBehaviours(player, FEMALE_MUST_STRIP, [NAME], [players[player].first]);
 			}
-			updateBehaviour(player, PLAYER_MUST_STRIP, [NAME], [players[player].first]);
+			var trigger = determineStrippingSituation(player);
+			updateBehaviour(player, trigger, [NAME], [players[player].first]);
 		}
 	} else {
 		/* the player has no clothes and will have to accept a forfeit */

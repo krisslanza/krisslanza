@@ -25,7 +25,9 @@ $selectScreen = $('#main-select-screen');
 $individualSelectScreen = $('#individual-select-screen');
 $groupSelectScreen = $('#group-select-screen');
 $gameScreen = $('#game-screen');
-$optionsScreen = $('#options-screen');
+
+/* credit modal */
+$creditModal = $('#credit-modal');
 
 /* game table */
 var tableOpacity = 1;
@@ -180,9 +182,19 @@ function restartGame () {
 }
 
 /**********************************************************************
- *****                Multi Interaction Functions                 *****
+ *****                    Interaction Functions                   *****
  **********************************************************************/
  
+/************************************************************
+ * The player clicked the credits button. Shows the credits modal.
+ ************************************************************/
+function showCreditModal () {
+    $creditModal.modal('show');
+}
+
+/************************************************************
+ * The player clicked on a table opacity button.
+ ************************************************************/
 function toggleTableVisibility () {
 	if (tableOpacity > 0) {
 		$gameTable.fadeOut();

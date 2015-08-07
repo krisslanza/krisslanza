@@ -132,7 +132,7 @@
 								<!-- End of Warning Label -->
 							
 								<!-- Start of Title Button -->
-								<tr><td>
+								<tr><td colspan="3">
 								<div>
 									<button class="bordered smooth-button smooth-button-red title-entrance-button" onclick="validateTitleScreen()">
 										<img class="title-entrance-image" src="img/enter.png"/>
@@ -142,11 +142,16 @@
 								<!-- End of Title Button -->
 								
 								<!-- Start of Version Label -->
-								<tr><td>
-								<div class="bordered version-label">
-									Version beta7
-								</div>
-								</td></tr>
+								<tr>
+								<td><div class="bordered version-label">
+									Version beta8
+								</div></td>
+								<td>
+									<button class="bordered smooth-button title-small-button" onclick="showCreditModal()">
+										Credits
+									</button>
+								</td>
+								</tr>
 								<!-- End of Version Label -->
 							</table>
 						
@@ -763,23 +768,35 @@
 						</div>
 					</td></tr>	
 					<tr><td>
-						<button class="bordered btn smooth-button page-button" onclick="changeIndividualPage(true, -1)">
-							<span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
-						</button>
-					</td><td>
-						<button class="bordered btn smooth-button page-button" onclick="changeIndividualPage(false, -1)">
-							<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-						</button>
-					</td><td>
-						<button class="bordered btn smooth-button page-button" onclick="changeIndividualPage(true, 0)">Go</button>
-					</td><td>	
-						<button class="bordered btn smooth-button page-button" onclick="changeIndividualPage(false, 1)">
-							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-						</button>
-					</td><td>
-						<button class="bordered btn smooth-button page-button" onclick="changeIndividualPage(true, 1)">
-							<span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
-						</button>
+						<nav>
+						<ul class="pagination">
+							<li>
+								<a class="bordered smooth-button page-button" onclick="changeGroupPage(true, -1)">
+									<span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+								</a>
+							</li>
+							<li>
+								<a class="bordered smooth-button page-button" onclick="changeGroupPage(false, -1)">
+									<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+								</a>
+							</li>
+							<li>
+								<a class="bordered smooth-button page-button" onclick="changeGroupPage(true, 0)">
+									<div style="margin-top:2px"><b>Go</b></div>
+								</a>
+							</li>
+							<li>
+								<a class="bordered smooth-button page-button" onclick="changeGroupPage(false, 1)">
+									<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+								</a>
+							</li>
+							<li>
+								<a class="bordered smooth-button page-button" onclick="changeGroupPage(true, 1)" style="border-right: 2px solid">
+									<span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+								</a>
+							</li>
+						</ul>
+						</nav>
 					</td></tr>
 					</table>
 				</td>
@@ -1161,25 +1178,38 @@
 							<input id="group-page-indicator" type="text" class="bordered form-control form-control-center" value="" />
 							<div id="group-max-page-indicator" class="bordered input-group-addon">of 1</div>
 						</div>
-					</td></tr>	
+					</td></tr>
+					
 					<tr><td>
-						<button class="bordered btn smooth-button page-button" onclick="changeGroupPage(true, -1)">
-							<span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
-						</button>
-					</td><td>
-						<button class="bordered btn smooth-button page-button" onclick="changeGroupPage(false, -1)">
-							<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
-						</button>
-					</td><td>
-						<button class="bordered btn smooth-button page-button" onclick="changeGroupPage(true, 0)">Go</button>
-					</td><td>	
-						<button class="bordered btn smooth-button page-button" onclick="changeGroupPage(false, 1)">
-							<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-						</button>
-					</td><td>
-						<button class="bordered btn smooth-button page-button" onclick="changeGroupPage(true, 1)">
-							<span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
-						</button>
+					<nav>
+						<ul class="pagination">
+							<li>
+								<a class="bordered smooth-button page-button" onclick="changeGroupPage(true, -1)">
+									<span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+								</a>
+							</li>
+							<li>
+								<a class="bordered smooth-button page-button" onclick="changeGroupPage(false, -1)">
+									<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+								</a>
+							</li>
+							<li>
+								<a class="bordered smooth-button page-button" onclick="changeGroupPage(true, 0)">
+									<div style="margin-top:2px"><b>Go</b></div>
+								</a>
+							</li>
+							<li>
+								<a class="bordered smooth-button page-button" onclick="changeGroupPage(false, 1)">
+									<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+								</a>
+							</li>
+							<li>
+								<a class="bordered smooth-button page-button" onclick="changeGroupPage(true, 1)" style="border-right: 2px solid">
+									<span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+								</a>
+							</li>
+						</ul>
+					</nav>
 					</td></tr>
 					</table>
 				</td>
@@ -1196,6 +1226,216 @@
 	</td></tr>
 </table>
 <!-- End of Group Select Screen -->
+
+
+<!-- Start of Restart Modal -->
+<div id="restart-modal" class="modal table-modal fade" role="dialog">
+	<div class="modal-table-container">
+	<div class="modal-cell-container">
+	<div class="bordered modal-dialog">
+	<div class="bordered modal-dialog-surface">
+		<!-- Start of Modal Content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title text-center">Are you sure you want to return to the title screen?</h4>
+			</div>
+			<div class="modal-body">
+				<div class="modal-body-container">
+					<button class="bordered smooth-button modal-button" data-dismiss="modal" onclick="restartGame()">Yes</button>
+					<button class="bordered smooth-button modal-button" data-dismiss="modal" onclick="closeRestartModal()">No</button>
+				</div>
+			</div>
+		</div>
+		<!-- End of Modal Content -->
+	</div>
+	</div>
+	</div>
+	</div>
+</div>
+<!-- End of Restart Modal -->
+
+
+<!-- Start of Stripping Modal -->
+<div id="stripping-modal" class="modal table-modal fade" role="dialog">
+	<div class="modal-table-container">
+	<div class="modal-cell-container">
+	<div class="bordered modal-dialog">
+	<div class="bordered modal-dialog-surface">
+		<!-- Start of Modal Content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title text-center">Select an article of clothing to remove</h4>
+			</div>
+			<div class="modal-body">
+				<div id="stripping-clothing-area" class="modal-body-container">
+					
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button id="stripping-modal-button" class="bordered smooth-button modal-button" data-dismiss="modal" onclick="closeStrippingModal()">Strip</button>
+			</div>
+		</div>
+		<!-- End of Modal Content -->
+	</div>
+	</div>
+	</div>
+	</div>
+</div>
+<!-- End of Stripping Modal -->
+
+
+<!-- Start of Options Modal -->
+<div id="options-modal" class="modal table-modal fade" role="dialog">
+	<div class="modal-table-container">
+	<div class="modal-cell-container">
+	<div class="bordered modal-dialog">
+	<div class="bordered modal-dialog-surface">
+		<!-- Start of Modal Content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title text-center">Options</h3>
+				<h5 class="modal-title text-center"><b>Please Note:</b> These settings don't save if you refresh the page.</h5>
+			</div>
+			<div class="modal-body">
+				<div class="modal-body-container" style="width:100%">
+					<table style="width:100%">
+						<!-- Table Style -->
+						<tr>
+							<td style="width:25%"><h4 class="modal-title modal-left">Table Style</h4></td>
+							<td>
+								<nav>
+									<ul class="pagination">
+										<li id="options-table-style-1" class="active"><a href="#" onclick="setTableStyle(1)">Standard</a></li>
+										<li id="options-table-style-2"><a href="#" onclick="setTableStyle(2)">Glass</a></li>
+									</ul>
+								</nav>
+							</td>
+						</tr>
+						
+						<!-- Card Suggest -->
+						<tr>
+							<td style="width:25%"><h4 class="modal-title modal-left">Card Suggest</h4></td>
+							<td>
+								<nav>
+									<ul class="pagination">
+										<li id="options-card-suggest-1"><a href="#" onclick="setCardSuggest(1)">Enabled</a></li>
+										<li id="options-card-suggest-2" class="active"><a href="#" onclick="setCardSuggest(2)">Disabled</a></li>
+									</ul>
+								</nav>
+							</td>
+						</tr>
+					
+						<!-- AI Turn Time -->
+						<tr>
+							<td style="width:25%"><h4 class="modal-title modal-left">AI Turn Time</h4></td>
+							<td>
+								<nav>
+									<ul class="pagination">
+										<li id="options-ai-turn-time-1"><a href="#" onclick="setAITurnTime(1)">Very Fast</a></li>
+										<li id="options-ai-turn-time-2"><a href="#" onclick="setAITurnTime(2)">Fast</a></li>
+										<li id="options-ai-turn-time-3" class="active"><a href="#" onclick="setAITurnTime(3)">Normal</a></li>
+										<li id="options-ai-turn-time-4"><a href="#" onclick="setAITurnTime(4)">Slow</a></li>
+										<li id="options-ai-turn-time-5"><a href="#" onclick="setAITurnTime(5)">Very Slow</a></li>
+									</ul>
+								</nav>
+							</td>
+						</tr>
+						
+						<!-- Deal Animation -->
+						<tr>
+							<td style="width:25%"><h4 class="modal-title modal-left">Deal Animation</h4></td>
+							<td>
+								<nav>
+									<ul class="pagination">
+										<li id="options-deal-speed-1"><a href="#" onclick="setDealSpeed(1)">Disabled</a></li>
+										<li id="options-deal-speed-2"><a href="#" onclick="setDealSpeed(2)">Fast</a></li>
+										<li id="options-deal-speed-3" class="active"><a href="#" onclick="setDealSpeed(3)">Normal</a></li>
+										<li id="options-deal-speed-4"><a href="#" onclick="setDealSpeed(4)">Slow</a></li>
+									</ul>
+								</nav>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button id="options-modal-button" class="bordered smooth-button modal-button" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		<!-- End of Modal Content -->
+	</div>
+	</div>
+	</div>
+	</div>
+</div>
+<!-- End of Options Modal -->
+
+
+<!-- Start of Credits Modal -->
+<div id="credit-modal" class="modal table-modal fade" role="dialog">
+	<div class="modal-table-container">
+	<div class="modal-cell-container">
+	<div class="bordered modal-dialog">
+	<div class="bordered modal-dialog-surface">
+		<!-- Start of Modal Content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title text-center">Credits</h3>
+				<h5 class="modal-title text-center">If you are on this list and you want your name to link to something, let me know!</h5>
+			</div>
+			<div class="modal-body">
+				<table class="modal-body-container" style="margin: 0 auto;">
+				<tr><td style="width:100%">
+					<table class="credit-table">
+						<tr>
+							<td colspan="42"><h4 class="bordered credit-modal-label">Programmers</h4></td>
+						</tr>
+						<tr>
+							<td>josephkantel</td>
+						</tr>
+					</table>
+				</td></tr><tr><td>
+					<table class="credit-table" style="margin-top: 12px;">
+						<tr>
+							<td colspan="42"><h4 class="bordered credit-modal-label">Writers</h4></td>
+						</tr>
+						<tr>
+							<td>undeadclown</td>
+							<td>krisslanza</td>
+						</tr>
+					</table>
+				</td></tr><tr><td>
+					<table class="credit-table" style="margin-top: 12px;">
+						<tr>
+							<td colspan="42"><h4 class="bordered credit-modal-label">Kisekae Artists</h4></td>
+						</tr>
+						<tr>
+							<td>josephkantel</td>
+						</tr>
+					</table>
+				</td></tr><tr><td>
+					<table class="credit-table" style="margin-top: 12px;">
+						<tr>
+							<td colspan="42"><h4 class="bordered credit-modal-label">Special Thanks</h4></td>
+						</tr>
+						<tr>
+							<td>Hot-Legs</td>
+						</tr>
+					</table>
+				</td></tr>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button id="credit-modal-button" class="bordered smooth-button modal-button" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		<!-- End of Modal Content -->
+	</div>
+	</div>
+	</div>
+	</div>
+</div>
+<!-- End of Credits Modal -->
 
 
 <!-- Start of Main Game Screen -->
@@ -1275,52 +1515,6 @@
 			</tr>
 		</table>
 		<!-- End of Opponent Visuals -->
-		
-		<!-- Start of Restart Modal -->
-		<div id="restart-modal" class="modal table-modal fade" role="dialog">
-			<div class="bordered modal-dialog">
-			<div class="bordered modal-dialog-surface">
-				<!-- Start of Modal Content -->
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title text-center">Are you sure you want to return to the title screen?</h4>
-					</div>
-					<div class="modal-body">
-						<div class="modal-body-container">
-							<button class="bordered smooth-button modal-button" data-dismiss="modal" onclick="restartGame()">Yes</button>
-							<button class="bordered smooth-button modal-button" data-dismiss="modal" onclick="closeRestartModal()">No</button>
-						</div>
-					</div>
-				</div>
-				<!-- End of Modal Content -->
-			</div>
-			</div>
-		</div>
-		<!-- End of Restart Modal -->
-		
-		<!-- Start of Stripping Modal -->
-		<div id="stripping-modal" class="modal table-modal fade" role="dialog">
-			<div class="bordered modal-dialog">
-			<div class="bordered modal-dialog-surface">
-				<!-- Start of Modal Content -->
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title text-center">Select an article of clothing to remove</h4>
-					</div>
-					<div class="modal-body">
-						<div id="stripping-clothing-area" class="modal-body-container">
-							
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button id="stripping-modal-button" class="bordered smooth-button modal-button" data-dismiss="modal" onclick="closeStrippingModal()">Strip</button>
-					</div>
-				</div>
-				<!-- End of Modal Content -->
-			</div>
-			</div>
-		</div>
-		<!-- End of Stripping Modal -->
 		
 		<!-- Start of Hide Button -->
 		<button class="bordered smooth-button hide-table-button" onclick="toggleTableVisibility()">
@@ -1426,7 +1620,7 @@
 							<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
 						</button>
 					</td></tr><tr><td>
-						<button class="bordered smooth-button dock-options-button" disabled>
+						<button class="bordered smooth-button dock-options-button" onclick="showOptionsModal()">
 							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 						</button>
 					</td></tr>

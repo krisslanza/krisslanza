@@ -61,11 +61,12 @@ $restartModal = $("#restart-modal");
 /* pseudo constants */
 var GAME_DELAY = 600;
 var GAME_OVER_DELAY = 1000;
+var CARD_SUGGEST = false;
  
 /* colours */
-var currentColour = "#75B5E5"; 	/* indicates current turn */
+var currentColour = "#63AAE7"; 	/* indicates current turn */
 var clearColour = "#FFFFFF";	/* indicates neutral */
-var loserColour = "#F58585";	/* indicates loser of a round */
+var loserColour = "#DD4444";	/* indicates loser of a round */
  
 /* game state */
 var currentTurn = 0;
@@ -217,6 +218,7 @@ function makeAIDecision () {
 	/* update a few hardcoded visuals */
 	$gameDialogues[currentTurn-1].html("I will exchange "+swap+" cards."); //HARDCODED, FOR NOW
     $gameAdvanceButtons[currentTurn-1].css({opacity : 0});
+	$gameBubbles[currentTurn-1].show();
 	
 	/* wait and implement AI action */
 	window.setTimeout(implementAIAction, GAME_DELAY);
@@ -369,6 +371,18 @@ function continueDealPhase () {
     for (var i = 0; i < $cardButtons.length; i++) {
        $cardButtons[i].attr('disabled', false);
     }
+	
+	/* suggest cards to swap, if enabled */
+	if (CARD_SUGGEST) {
+		determineAIAction(HUMAN_PLAYER);
+		
+		/* dull the cards they are trading in */
+		for (var i = 0; i < hands[HUMAN_PLAYER].tradeIns.length; i++) {
+			if (hands[HUMAN_PLAYER].tradeIns[i]) {
+				dullCard(HUMAN_PLAYER, i);
+			}
+		}
+	}
     
     /* allow each of the AIs to take their turns */
     currentTurn = 0;
