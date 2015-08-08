@@ -221,7 +221,7 @@ function updateIndividualSelectScreen () {
 	/* safety wrap around */
 	if (individualPage < 0) {
 		/* wrap to last page */
-		individualPage = (selectableOpponents.length/4)-1;
+		individualPage = Math.ceil(selectableOpponents.length/4)-1;
 	}
 	$individualPageIndicator.val(individualPage+1);
 	
@@ -432,7 +432,7 @@ function selectOpponentSlot (slot) {
 		}
 		
 		/* update max page indicator */
-		$individualMaxPageIndicator.html("of "+(selectableOpponents.length/4));
+		$individualMaxPageIndicator.html("of "+Math.ceil(selectableOpponents.length/4));
 		
         /* hide selected opponents */
         for (var i = 1; i < players.length; i++) {
@@ -524,35 +524,6 @@ function clickedRandomFillButton () {
 }
 
 /************************************************************
- * Allows the player to click group rows, the internal 
- * function is called whenever the player clicks on an 
- * group opponent row.
- ************************************************************/
-function allowGroupClickableRows () {
-    $('.group-row').click(function() {
-        /* update the table visual */
-        $('.selected-row').removeClass('selected-row');
-        $(this).addClass('selected-row');
-
-        /* clear the stored group */
-        storedGroup = [null, null, null, null];
-        
-        /* get the ID */
-        var id = $(this).attr('id');
-        
-        /* update some of the visuals */
-        $groupImage.attr('src', loadedGroups[id].image);
-        $groupLabels[0].html(loadedGroups[id].title);
-        
-        /* load all of the XML files */
-        loadBehaviour(loadedGroups[id].opp1, updateGroupScreen);
-        loadBehaviour(loadedGroups[id].opp2, updateGroupScreen);
-        loadBehaviour(loadedGroups[id].opp3, updateGroupScreen);
-        loadBehaviour(loadedGroups[id].opp4, updateGroupScreen);
-    });
-}
-
-/************************************************************
  * The player clicked on a change stats card button on the 
  * individual select screen.
  ************************************************************/
@@ -587,13 +558,14 @@ function individualScreenCallback (playerObject, slot) {
  * The player is changing the page on the individual screen.
  ************************************************************/
 function changeIndividualPage (skip, page) {
+	console.log("resigtered");
 	if (skip) {
 		if (page == -1) {
 			/* go to first page */
 			individualPage = 0;
 		} else if (page == 1) {
 			/* go to last page */
-			individualPage = (selectableOpponents.length/4)-1;
+			individualPage = Math.ceil(selectableOpponents.length/4)-1;
 		} else {
 			/* go to selected page */
 			individualPage = Number($individualPageIndicator.val()) - 1;

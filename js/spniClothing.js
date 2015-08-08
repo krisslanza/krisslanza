@@ -337,7 +337,6 @@ function showStrippingModal () {
  * The human player clicked on an article of clothing in
  * the stripping modal.
  ************************************************************/
- 
 function selectClothingToStrip (id) {
     console.log(id);
     
@@ -436,6 +435,29 @@ function stripAIPlayer (player) {
 }
 
 /************************************************************
+ * Determines whether or not the provided player is winning
+ * or losing at the end and returns the appropriate dialogue trigger.
+ ************************************************************/
+function determineForfeitSituation (player) {
+	/* check to see how many players are out */
+	var out = 0;
+	for (var i = 0; i < players.length; i++) {
+		for (var j = 0; j < players[i].clothing.length; j++) {
+			if (players[i].out) {
+				out++;
+			}
+		}
+	}
+	
+	/* return appropriate trigger */
+	if (out > 0) {
+		return PLAYER_START_MASTURBATING;
+	} else {
+		return PLAYER_START_MASTURBATING_FIRST;
+	}
+}
+
+/************************************************************
  * Removes an article of clothing from the selected player.
  * Also handles all of the dialogue triggers involved in the 
  * process.
@@ -473,12 +495,14 @@ function stripPlayer (player) {
 			$gameClothingLabel.html("<b>You're Masturbating...</b>");
 			setForfeitTimer(player);
 		} else {
+			var trigger = determineForfeitSituation(player);
+			
 			if (players[player].gender == MALE) {
 				updateAllBehaviours(player, MALE_START_MASTURBATING, [NAME], [players[player].first]);
 			} else if (players[player].gender == FEMALE) {
 				updateAllBehaviours(player, FEMALE_START_MASTURBATING, [NAME], [players[player].first]);
 			}
-			updateBehaviour(player, PLAYER_START_MASTURBATING, [NAME], [players[player].first]);
+			updateBehaviour(player, trigger, [NAME], [players[player].first]);
 			setForfeitTimer(player);
 		}
 		

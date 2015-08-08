@@ -26,8 +26,7 @@
 		<clothing proper-name="Clothing" lowercase="clothing" type="important" position="lower" />
 	</wardrobe>
 	<!-- An article of clothing can have one of four types: important, major, minor, and extra.
-		 - Important articles of clothing expose the character's chest or crotch when removed. 
-		   - There need to be 2 important articles at least (one for the chest and one for the crotch).
+		 - Important articles of clothing expose the character's chest or crotch when removed (underwear). 
 		 - Major articles of clothing expose a decent amount of skin when removed (shirts and pants).
 		 - Minor articles of clothing expose a little bit of skin when removed (jackets and socks).
 		 - Extra articles of clothing expose very little when removed (hats, belts, and gloves). 
@@ -195,11 +194,6 @@
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
-				<state img="0-awkward.png">
-					You're really getting into it, aren't you ~name~?
-				</state>
-			</case>
 			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="0-shocked.png">
 					Wow... uh... I guess you're done then...
@@ -290,11 +284,6 @@
 			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="0-horny.png">
 					Keep going, ~name~...
-				</state>
-			</case>
-			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
-				<state img="0-awkward.png">
-					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
 			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
@@ -448,11 +437,6 @@
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
-				<state img="1-awkward.png">
-					You're really getting into it, aren't you ~name~?
-				</state>
-			</case>
 			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="1-shocked.png">
 					Wow... uh... I guess you're done then...
@@ -543,11 +527,6 @@
 			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="1-horny.png">
 					Keep going, ~name~...
-				</state>
-			</case>
-			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
-				<state img="1-awkward.png">
-					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
 			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
@@ -701,11 +680,6 @@
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
-				<state img="2-awkward.png">
-					You're really getting into it, aren't you ~name~?
-				</state>
-			</case>
 			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="2-shocked.png">
 					Wow... uh... I guess you're done then...
@@ -796,11 +770,6 @@
 			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="2-horny.png">
 					Keep going, ~name~...
-				</state>
-			</case>
-			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
-				<state img="2-awkward.png">
-					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
 			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
@@ -954,11 +923,6 @@
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
-				<state img="3-awkward.png">
-					You're really getting into it, aren't you ~name~?
-				</state>
-			</case>
 			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="3-shocked.png">
 					Wow... uh... I guess you're done then...
@@ -1049,11 +1013,6 @@
 			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="3-horny.png">
 					Keep going, ~name~...
-				</state>
-			</case>
-			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
-				<state img="3-awkward.png">
-					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
 			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
@@ -1207,11 +1166,6 @@
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
-				<state img="4-awkward.png">
-					You're really getting into it, aren't you ~name~?
-				</state>
-			</case>
 			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="4-shocked.png">
 					Wow... uh... I guess you're done then...
@@ -1302,11 +1256,6 @@
 			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="4-horny.png">
 					Keep going, ~name~...
-				</state>
-			</case>
-			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
-				<state img="4-awkward.png">
-					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
 			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
@@ -1460,11 +1409,6 @@
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
-				<state img="5-awkward.png">
-					You're really getting into it, aren't you ~name~?
-				</state>
-			</case>
 			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="5-shocked.png">
 					Wow... uh... I guess you're done then...
@@ -1555,11 +1499,6 @@
 			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="5-horny.png">
 					Keep going, ~name~...
-				</state>
-			</case>
-			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
-				<state img="5-awkward.png">
-					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
 			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
@@ -1713,11 +1652,6 @@
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
-				<state img="6-awkward.png">
-					You're really getting into it, aren't you ~name~?
-				</state>
-			</case>
 			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="6-shocked.png">
 					Wow... uh... I guess you're done then...
@@ -1808,11 +1742,6 @@
 			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="6-horny.png">
 					Keep going, ~name~...
-				</state>
-			</case>
-			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
-				<state img="6-awkward.png">
-					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
 			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
@@ -1966,11 +1895,6 @@
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
-				<state img="7-awkward.png">
-					You're really getting into it, aren't you ~name~?
-				</state>
-			</case>
 			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="7-shocked.png">
 					Wow... uh... I guess you're done then...
@@ -2061,11 +1985,6 @@
 			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="7-horny.png">
 					Keep going, ~name~...
-				</state>
-			</case>
-			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
-				<state img="7-awkward.png">
-					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
 			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
@@ -2209,11 +2128,6 @@
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
-				<state img="8-awkward.png">
-					You're really getting into it, aren't you ~name~?
-				</state>
-			</case>
 			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="8-shocked.png">
 					Wow... uh... I guess you're done then...
@@ -2304,11 +2218,6 @@
 			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="8-horny.png">
 					Keep going, ~name~...
-				</state>
-			</case>
-			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
-				<state img="8-awkward.png">
-					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
 			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
@@ -2428,11 +2337,6 @@
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
-				<state img="9-awkward.png">
-					You're really getting into it, aren't you ~name~?
-				</state>
-			</case>
 			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="9-shocked.png">
 					Wow... uh... I guess you're done then...
@@ -2523,11 +2427,6 @@
 			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="9-horny.png">
 					Keep going, ~name~...
-				</state>
-			</case>
-			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
-				<state img="9-awkward.png">
-					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
 			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->
@@ -2637,11 +2536,6 @@
 					Keep going, ~name~...
 				</state>
 			</case>
-			<case tag="male_heavy_masturbating"> <!-- a male player has gotten really into masturbating -->
-				<state img="10-awkward.png">
-					You're really getting into it, aren't you ~name~?
-				</state>
-			</case>
 			<case tag="male_finished_masturbating"> <!-- a male player has "finished" masturbating -->
 				<state img="10-shocked.png">
 					Wow... uh... I guess you're done then...
@@ -2732,11 +2626,6 @@
 			<case tag="female_masturbating"> <!-- a female player is masturbating -->
 				<state img="10-horny.png">
 					Keep going, ~name~...
-				</state>
-			</case>
-			<case tag="female_heavy_masturbating"> <!-- a female player has gotten really into masturbating -->
-				<state img="10-awkward.png">
-					You're really getting into it, aren't you ~name~?
 				</state>
 			</case>
 			<case tag="female_finished_masturbating"> <!-- a female player has "finished" masturbating -->

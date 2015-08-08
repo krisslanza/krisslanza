@@ -216,9 +216,8 @@ function makeAIDecision () {
 	}
 	
 	/* update a few hardcoded visuals */
-	$gameDialogues[currentTurn-1].html("I will exchange "+swap+" cards."); //HARDCODED, FOR NOW
-    $gameAdvanceButtons[currentTurn-1].css({opacity : 0});
-	$gameBubbles[currentTurn-1].show();
+	updateBehaviour(currentTurn, SWAP_CARDS, [CARDS], [swap]);
+	updateGameVisual(currentTurn);
 	
 	/* wait and implement AI action */
 	window.setTimeout(implementAIAction, GAME_DELAY);
@@ -373,7 +372,7 @@ function continueDealPhase () {
     }
 	
 	/* suggest cards to swap, if enabled */
-	if (CARD_SUGGEST) {
+	if (CARD_SUGGEST && !players[HUMAN_PLAYER].out) {
 		determineAIAction(HUMAN_PLAYER);
 		
 		/* dull the cards they are trading in */

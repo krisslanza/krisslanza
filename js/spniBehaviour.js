@@ -44,6 +44,7 @@ var PLAYER_STRIPPING = "stripping";
 var PLAYER_STRIPPED = "stripped";
 
 var PLAYER_MUST_MASTURBATE = "must_masturbate";
+var PLAYER_MUST_MASTURBATE_FIRST = "must_masturbate_first";
 var PLAYER_START_MASTURBATING = "start_masturbating";
 var PLAYER_MASTURBATING = "masturbating";
 var PLAYER_HEAVY_MASTURBATING = "heavy_masturbating";
