@@ -73,7 +73,11 @@ function tickForfeitTimers (context) {
 					/* update the player label */
 					$gameClothingLabel.html("<b>'Finished' in "+timers[i]+" phases</b>");
 					
-					updateAllBehaviours(i, MALE_MASTURBATING, [NAME], [players[i].first]);
+					if (players[HUMAN_PLAYER].gender == MALE) {
+						updateAllBehaviours(i, MALE_MASTURBATING, [NAME], [players[i].first]);
+					} else {
+						updateAllBehaviours(i, FEMALE_MASTURBATING, [NAME], [players[i].first]);
+					}
 					updateAllGameVisuals();
 				}
 			} else {
