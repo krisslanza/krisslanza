@@ -9,6 +9,7 @@
     <last></last>           <!-- what's their last name? you can leave this blank -->
 	<label>Zoey</label> 	<!-- what would you like their name plate to say? -->
 	<gender>female</gender> <!-- what's their gender? -->
+	<size>medium</size>     <!-- Size of Naughty Bits (penis if male, boobs if female) -->
     <timer>15</timer>       <!-- how long do they... uh... take to 'finish'? -->
 	
 	<!-- Game Start Information -->
@@ -168,6 +169,21 @@
 					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
 				</state>
 			</case>
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="0-calm.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="0-awkward.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="0-shocked.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
 			
 			<!-- male player masturbating cases -->
 			<case tag="male_must_masturbate"> <!-- a male player has to masturbate -->
@@ -251,6 +267,21 @@
 			</case>
 			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="0-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="0-interested.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="0-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="0-shocked.png">
 					I'm not usually one for girls, but...I'm enjoying this!
 				</state>
 			</case>
@@ -400,8 +431,18 @@
 					Just fair warning, ~name~, I'm totally objectifying you right now.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="1-calm.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="1-awkward.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="1-shocked.png">
 					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
 				</state>
 			</case>
@@ -486,8 +527,18 @@
 					Is that a blush? I think you're blushing, ~name~! I bet you like this.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="1-interested.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="1-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="1-shocked.png">
 					I'm not usually one for girls, but...I'm enjoying this!
 				</state>
 			</case>
@@ -637,8 +688,18 @@
 					Just fair warning, ~name~, I'm totally objectifying you right now.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="2-calm.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="2-awkward.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="2-shocked.png">
 					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
 				</state>
 			</case>
@@ -723,8 +784,18 @@
 					Is that a blush? I think you're blushing, ~name~! I bet you like this.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="2-interested.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="2-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="2-shocked.png">
 					I'm not usually one for girls, but...I'm enjoying this!
 				</state>
 			</case>
@@ -874,8 +945,18 @@
 					Just fair warning, ~name~, I'm totally objectifying you right now.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="3-calm.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="3-awkward.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="3-shocked.png">
 					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
 				</state>
 			</case>
@@ -960,8 +1041,18 @@
 					Is that a blush? I think you're blushing, ~name~! I bet you like this.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="3-interested.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="3-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="3-shocked.png">
 					I'm not usually one for girls, but...I'm enjoying this!
 				</state>
 			</case>
@@ -1111,8 +1202,18 @@
 					Just fair warning, ~name~, I'm totally objectifying you right now.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="4-calm.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="4-awkward.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="4-shocked.png">
 					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
 				</state>
 			</case>
@@ -1197,8 +1298,18 @@
 					Is that a blush? I think you're blushing, ~name~! I bet you like this.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="4-interested.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="4-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="4-shocked.png">
 					I'm not usually one for girls, but...I'm enjoying this!
 				</state>
 			</case>
@@ -1348,8 +1459,18 @@
 					Just fair warning, ~name~, I'm totally objectifying you right now.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="5-calm.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="5-awkward.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="5-shocked.png">
 					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
 				</state>
 			</case>
@@ -1434,8 +1555,18 @@
 					Is that a blush? I think you're blushing, ~name~! I bet you like this.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="5-interested.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="5-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="5-shocked.png">
 					I'm not usually one for girls, but...I'm enjoying this!
 				</state>
 			</case>
@@ -1585,8 +1716,18 @@
 					Just fair warning, ~name~, I'm totally objectifying you right now.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="6-calm.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="6-awkward.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="6-shocked.png">
 					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
 				</state>
 			</case>
@@ -1671,8 +1812,18 @@
 					Is that a blush? I think you're blushing, ~name~! I bet you like this.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="6-interested.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="6-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="6-shocked.png">
 					I'm not usually one for girls, but...I'm enjoying this!
 				</state>
 			</case>
@@ -1822,8 +1973,18 @@
 					Just fair warning, ~name~, I'm totally objectifying you right now.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="7-calm.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="7-awkward.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="7-shocked.png">
 					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
 				</state>
 			</case>
@@ -1908,8 +2069,18 @@
 					Is that a blush? I think you're blushing, ~name~! I bet you like this.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="7-interested.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="7-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="7-shocked.png">
 					I'm not usually one for girls, but...I'm enjoying this!
 				</state>
 			</case>
@@ -2049,8 +2220,18 @@
 					Just fair warning, ~name~, I'm totally objectifying you right now.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="8-calm.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="8-awkward.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="8-shocked.png">
 					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
 				</state>
 			</case>
@@ -2135,8 +2316,18 @@
 					Is that a blush? I think you're blushing, ~name~! I bet you like this.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="8-interested.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="8-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="8-shocked.png">
 					I'm not usually one for girls, but...I'm enjoying this!
 				</state>
 			</case>
@@ -2254,8 +2445,18 @@
 					Just fair warning, ~name~, I'm totally objectifying you right now.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="9-calm.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="9-awkward.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="9-shocked.png">
 					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
 				</state>
 			</case>
@@ -2340,8 +2541,18 @@
 					Is that a blush? I think you're blushing, ~name~! I bet you like this.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="9-interested.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="9-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="9-shocked.png">
 					I'm not usually one for girls, but...I'm enjoying this!
 				</state>
 			</case>
@@ -2448,8 +2659,18 @@
 					Just fair warning, ~name~, I'm totally objectifying you right now.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="10-calm.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="10-awkward.png">
+					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="10-shocked.png">
 					Well, well. This game has apparently made somebody who shall remain nameless here excited. *cough*~name~*cough*.
 				</state>
 			</case>
@@ -2534,8 +2755,18 @@
 					Is that a blush? I think you're blushing, ~name~! I bet you like this.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="10-interested.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="10-horny.png">
+					I'm not usually one for girls, but...I'm enjoying this!
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="10-shocked.png">
 					I'm not usually one for girls, but...I'm enjoying this!
 				</state>
 			</case>

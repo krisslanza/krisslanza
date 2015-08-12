@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- This file contains the default opponent information and behaviour.
- This file is meant to be used as a template for new opponents.
+ This file contains unique opponent information for a default female,
+ allowing her to be a more immersive opponent to play against.
  -->
 <opponent>
 
@@ -10,6 +10,7 @@
     <last>Default</last>     <!-- Last Name -->
 	<label>Default</label>   <!-- Preferred Name (what they will be called in game) -->
 	<gender>none</gender>    <!-- Gender (male or female) -->
+	<size>medium</size>      <!-- Size of Naughty Bits (penis if male, boobs if female) -->
     <timer>11</timer>        <!-- Time (in game phases) to 'Finish' -->
 	
 	
@@ -170,9 +171,19 @@
 					Nice chest, ~name~.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="0-calm.png">
+					That's... smaller than I was expecting... not that anything is wrong with that, ~name~.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="0-awkward.png">
-					Well then... that was more than I was expecting ~name~...
+					Well then... shall we continue the game?
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="0-shocked.png">
+					That is massive! How do you even manage with that thing, ~name~?
 				</state>
 			</case>
 			<!-- End of Male Player Pre Stripping Cases -->
@@ -257,9 +268,19 @@
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="0-interested.png">
+					Those are nice, ~name~.
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="0-horny.png">
 					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="0-shocked.png">
+					How do you even manage with those things, ~name~. Is your back okay?
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
@@ -292,6 +313,14 @@
 				</state>
 			</case>
 			<!-- End of Female Masturbating Cases -->
+			
+			<!-- Start of Game Over Cases -->
+			<case tag="game_over_victory">
+				<state img="0-happy.png">
+					I WON!
+				</state>
+			</case>
+			<!-- End of Game Over Cases -->
 			
 		</stage>
 		<!-- End of Beginning Stage -->
@@ -413,9 +442,19 @@
 					Nice chest, ~name~.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="1-calm.png">
+					That's... smaller than I was expecting... not that anything is wrong with that, ~name~.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="1-awkward.png">
-					Well then... that was more than I was expecting ~name~...
+					Well then... shall we continue the game?
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="1-shocked.png">
+					That is massive! How do you even manage with that thing, ~name~?
 				</state>
 			</case>
 			<!-- End of Male Player Pre Stripping Cases -->
@@ -500,9 +539,19 @@
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="1-interested.png">
+					Those are nice, ~name~.
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="1-horny.png">
 					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="1-shocked.png">
+					How do you even manage with those things, ~name~. Is your back okay?
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
@@ -535,6 +584,14 @@
 				</state>
 			</case>
 			<!-- End of Female Masturbating Cases -->
+			
+			<!-- Start of Game Over Cases -->
+			<case tag="game_over_victory">
+				<state img="1-happy.png">
+					I WON!
+				</state>
+			</case>
+			<!-- End of Game Over Cases -->
 			
 		</stage>
 		<!-- End of First Undress Stage -->
@@ -656,9 +713,19 @@
 					Nice chest, ~name~.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="2-calm.png">
+					That's... smaller than I was expecting... not that anything is wrong with that, ~name~.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="2-awkward.png">
-					Well then... that was more than I was expecting ~name~...
+					Well then... shall we continue the game?
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="2-shocked.png">
+					That is massive! How do you even manage with that thing, ~name~?
 				</state>
 			</case>
 			<!-- End of Male Player Pre Stripping Cases -->
@@ -743,9 +810,19 @@
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="2-interested.png">
+					Those are nice, ~name~.
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="2-horny.png">
 					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="2-shocked.png">
+					How do you even manage with those things, ~name~. Is your back okay?
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
@@ -778,6 +855,14 @@
 				</state>
 			</case>
 			<!-- End of Female Masturbating Cases -->
+			
+			<!-- Start of Game Over Cases -->
+			<case tag="game_over_victory">
+				<state img="2-happy.png">
+					I WON!
+				</state>
+			</case>
+			<!-- End of Game Over Cases -->
 			
 		</stage>
 		<!-- End of Second Undress Stage -->
@@ -899,9 +984,19 @@
 					Nice chest, ~name~.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="3-calm.png">
+					That's... smaller than I was expecting... not that anything is wrong with that, ~name~.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="3-awkward.png">
-					Well then... that was more than I was expecting ~name~...
+					Well then... shall we continue the game?
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="3-shocked.png">
+					That is massive! How do you even manage with that thing, ~name~?
 				</state>
 			</case>
 			<!-- End of Male Player Pre Stripping Cases -->
@@ -986,9 +1081,19 @@
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="3-interested.png">
+					Those are nice, ~name~.
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="3-horny.png">
 					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="3-shocked.png">
+					How do you even manage with those things, ~name~. Is your back okay?
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
@@ -1021,6 +1126,14 @@
 				</state>
 			</case>
 			<!-- End of Female Masturbating Cases -->
+			
+			<!-- Start of Game Over Cases -->
+			<case tag="game_over_victory">
+				<state img="3-happy.png">
+					I WON!
+				</state>
+			</case>
+			<!-- End of Game Over Cases -->
 			
 		</stage>
 		<!-- End of Third Undress Stage -->
@@ -1142,9 +1255,19 @@
 					Nice chest, ~name~.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="4-calm.png">
+					That's... smaller than I was expecting... not that anything is wrong with that, ~name~.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="4-awkward.png">
-					Well then... that was more than I was expecting ~name~...
+					Well then... shall we continue the game?
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="4-shocked.png">
+					That is massive! How do you even manage with that thing, ~name~?
 				</state>
 			</case>
 			<!-- End of Male Player Pre Stripping Cases -->
@@ -1229,9 +1352,19 @@
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="4-interested.png">
+					Those are nice, ~name~.
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="4-horny.png">
 					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="4-shocked.png">
+					How do you even manage with those things, ~name~. Is your back okay?
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
@@ -1264,6 +1397,14 @@
 				</state>
 			</case>
 			<!-- End of Female Masturbating Cases -->
+			
+			<!-- Start of Game Over Cases -->
+			<case tag="game_over_victory">
+				<state img="4-happy.png">
+					I WON!
+				</state>
+			</case>
+			<!-- End of Game Over Cases -->
 			
 		</stage>
 		<!-- End of Fourth Undress Stage -->
@@ -1385,9 +1526,19 @@
 					Nice chest, ~name~.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="5-calm.png">
+					That's... smaller than I was expecting... not that anything is wrong with that, ~name~.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="5-awkward.png">
-					Well then... that was more than I was expecting ~name~...
+					Well then... shall we continue the game?
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="5-shocked.png">
+					That is massive! How do you even manage with that thing, ~name~?
 				</state>
 			</case>
 			<!-- End of Male Player Pre Stripping Cases -->
@@ -1472,9 +1623,19 @@
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="5-interested.png">
+					Those are nice, ~name~.
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="5-horny.png">
 					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="5-shocked.png">
+					How do you even manage with those things, ~name~. Is your back okay?
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
@@ -1507,6 +1668,14 @@
 				</state>
 			</case>
 			<!-- End of Female Masturbating Cases -->
+			
+			<!-- Start of Game Over Cases -->
+			<case tag="game_over_victory">
+				<state img="5-happy.png">
+					I WON!
+				</state>
+			</case>
+			<!-- End of Game Over Cases -->
 			
 		</stage>
 		<!-- End of Fifth Undress Stage -->
@@ -1628,9 +1797,19 @@
 					Nice chest, ~name~.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="6-calm.png">
+					That's... smaller than I was expecting... not that anything is wrong with that, ~name~.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="6-awkward.png">
-					Well then... that was more than I was expecting ~name~...
+					Well then... shall we continue the game?
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="6-shocked.png">
+					That is massive! How do you even manage with that thing, ~name~?
 				</state>
 			</case>
 			<!-- End of Male Player Pre Stripping Cases -->
@@ -1715,9 +1894,19 @@
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="6-interested.png">
+					Those are nice, ~name~.
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="6-horny.png">
 					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="6-shocked.png">
+					How do you even manage with those things, ~name~. Is your back okay?
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
@@ -1750,6 +1939,14 @@
 				</state>
 			</case>
 			<!-- End of Female Masturbating Cases -->
+			
+			<!-- Start of Game Over Cases -->
+			<case tag="game_over_victory">
+				<state img="6-happy.png">
+					I WON!
+				</state>
+			</case>
+			<!-- End of Game Over Cases -->
 			
 		</stage>
 		<!-- End of Sixth Undress Stage -->
@@ -1871,9 +2068,19 @@
 					Nice chest, ~name~.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="7-calm.png">
+					That's... smaller than I was expecting... not that anything is wrong with that, ~name~.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="7-awkward.png">
-					Well then... that was more than I was expecting ~name~...
+					Well then... shall we continue the game?
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="7-shocked.png">
+					That is massive! How do you even manage with that thing, ~name~?
 				</state>
 			</case>
 			<!-- End of Male Player Pre Stripping Cases -->
@@ -1958,9 +2165,19 @@
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="7-interested.png">
+					Those are nice, ~name~.
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="7-horny.png">
 					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="7-shocked.png">
+					How do you even manage with those things, ~name~. Is your back okay?
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
@@ -1993,6 +2210,14 @@
 				</state>
 			</case>
 			<!-- End of Female Masturbating Cases -->
+			
+			<!-- Start of Game Over Cases -->
+			<case tag="game_over_victory">
+				<state img="7-happy.png">
+					I WON!
+				</state>
+			</case>
+			<!-- End of Game Over Cases -->
 			
 		</stage>
 		<!-- End of Seventh Undress Stage -->
@@ -2034,6 +2259,11 @@
 			<case tag="must_masturbate"> <!-- this player lost the hand and has to masturbate -->
 				<state img="8-loss.png">
 					I guess I lost...
+				</state>
+			</case>
+			<case tag="must_masturbate_first"> <!-- this player lost the hand and has to masturbate -->
+				<state img="8-lost.png">
+					Y-You want me to do what?!
 				</state>
 			</case>
 			<case tag="start_masturbating"> <!-- this player has started masturbating -->
@@ -2104,9 +2334,19 @@
 					Nice chest, ~name~.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="8-calm.png">
+					That's... smaller than I was expecting... not that anything is wrong with that, ~name~.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="8-awkward.png">
-					Well then... that was more than I was expecting ~name~...
+					Well then... shall we continue the game?
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="8-shocked.png">
+					That is massive! How do you even manage with that thing, ~name~?
 				</state>
 			</case>
 			<!-- End of Male Player Pre Stripping Cases -->
@@ -2191,9 +2431,19 @@
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="8-interested.png">
+					Those are nice, ~name~.
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="8-horny.png">
 					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="8-shocked.png">
+					How do you even manage with those things, ~name~. Is your back okay?
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
@@ -2226,6 +2476,14 @@
 				</state>
 			</case>
 			<!-- End of Female Masturbating Cases -->
+			
+			<!-- Start of Game Over Cases -->
+			<case tag="game_over_victory">
+				<state img="8-happy.png">
+					I WON!
+				</state>
+			</case>
+			<!-- End of Game Over Cases -->
 			
 		</stage>
 		<!-- End of Naked Stage -->
@@ -2313,9 +2571,19 @@
 					Nice chest, ~name~.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="9-calm.png">
+					That's... smaller than I was expecting... not that anything is wrong with that, ~name~.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="9-awkward.png">
-					Well then... that was more than I was expecting ~name~...
+					Well then... shall we continue the game?
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="9-shocked.png">
+					That is massive! How do you even manage with that thing, ~name~?
 				</state>
 			</case>
 			<!-- End of Male Player Pre Stripping Cases -->
@@ -2400,9 +2668,19 @@
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="9-interested.png">
+					Those are nice, ~name~.
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="9-horny.png">
 					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="9-shocked.png">
+					How do you even manage with those things, ~name~. Is your back okay?
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
@@ -2512,9 +2790,19 @@
 					Nice chest, ~name~.
 				</state>
 			</case>
-			<case tag="male_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="10-calm.png">
+					That's... smaller than I was expecting... not that anything is wrong with that, ~name~.
+				</state>
+			</case>
+			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
 				<state img="10-awkward.png">
-					Well then... that was more than I was expecting ~name~...
+					Well then... shall we continue the game?
+				</state>
+			</case>
+			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
+				<state img="10-shocked.png">
+					That is massive! How do you even manage with that thing, ~name~?
 				</state>
 			</case>
 			<!-- End of Male Player Pre Stripping Cases -->
@@ -2599,9 +2887,19 @@
 					You look better without your ~clothing~, ~name~.
 				</state>
 			</case>
-			<case tag="female_chest_is_visible"> <!-- a female player's chest has become visible -->
+			<case tag="female_small_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="10-interested.png">
+					Those are nice, ~name~.
+				</state>
+			</case>
+			<case tag="female_medium_chest_is_visible"> <!-- a female player's chest has become visible -->
 				<state img="10-horny.png">
 					Nice tits, ~name~.
+				</state>
+			</case>
+			<case tag="female_large_chest_is_visible"> <!-- a female player's chest has become visible -->
+				<state img="10-shocked.png">
+					How do you even manage with those things, ~name~. Is your back okay?
 				</state>
 			</case>
 			<case tag="female_crotch_is_visible"> <!-- a female player's crotch has become visible -->
@@ -2634,6 +2932,14 @@
 				</state>
 			</case>
 			<!-- End of Female Masturbating Cases -->
+			
+			<!-- Start of Game Over Cases -->
+			<case tag="game_over_defeat">
+				<state img="10-calm.png">
+					Congrats, ~name~... I can't believe I lost...
+				</state>
+			</case>
+			<!-- End of Game Over Cases -->
 			
 		</stage>
 		<!-- End of Rest Stage -->

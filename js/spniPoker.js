@@ -98,6 +98,7 @@ function setupPoker () {
  * Composes a brand new deck of cards.
  ************************************************************/
 function composeDeck () {
+	inDeck = [];
 	var suit = "";
 	
 	for (var i = 0; i < 4; i++) {

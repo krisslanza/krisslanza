@@ -19,6 +19,11 @@ var HUMAN_PLAYER = 0;
 var MALE = "male";
 var FEMALE = "female"; 
 
+/* size constants */
+var LARGE_SIZE = "large";
+var MEDIUM_SIZE = "medium";
+var SMALL_SIZE = "small";
+
 /* game screens */
 $titleScreen = $('#title-screen');
 $selectScreen = $('#main-select-screen');
@@ -62,11 +67,12 @@ var players = [null, null, null, null, null];
  * state (array of PlayerState objects), their sequential states.
  * xml (jQuery object), the player's loaded XML file.
  ************************************************************/
-function createNewPlayer (folder, first, last, label, gender, clothing, out, forfeit, timer, current, stage, state, xml) {
+function createNewPlayer (folder, first, last, label, gender, size, clothing, out, forfeit, timer, current, stage, state, xml) {
     var newPlayerObject = {folder:folder,
                            first:first,
                            last:last,
                            label:label,
+						   size:size,
                            gender:gender,
                            clothing:clothing,
                            out:out,
@@ -89,7 +95,7 @@ function createNewPlayer (folder, first, last, label, gender, clothing, out, for
  ************************************************************/
 function initialSetup () {
     /* start by creating the human player object */
-    var humanPlayer = createNewPlayer("", "", "", "", MALE, [], false, "", 20, 0, 0, [], null);
+    var humanPlayer = createNewPlayer("", "", "", "", MALE, MEDIUM_SIZE, [], false, "", 20, 0, 0, [], null);
     players[HUMAN_PLAYER] = humanPlayer;
     
 	/* enable table opacity */
@@ -159,7 +165,7 @@ function restartGame () {
     console.log("restarting the game");
 	
 	/* start by creating the human player object */
-    var humanPlayer = createNewPlayer("", "", "", "", players[HUMAN_PLAYER].gender, players[HUMAN_PLAYER].clothing, false, "", 20, 0, 0, [], null);
+    var humanPlayer = createNewPlayer("", "", "", "", players[HUMAN_PLAYER].gender, players[HUMAN_PLAYER].size, players[HUMAN_PLAYER].clothing, false, "", 20, 0, 0, [], null);
 	
 	/* clean slate */
 	clearState();

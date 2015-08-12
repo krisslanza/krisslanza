@@ -64,7 +64,9 @@ var MALE_REMOVED_ACCESSORY = "male_removed_accessory";
 var MALE_REMOVED_MINOR = "male_removed_minor";
 var MALE_REMOVED_MAJOR = "male_removed_major";
 var MALE_CHEST_IS_VISIBLE = "male_chest_is_visible";
-var MALE_CROTCH_IS_VISIBLE = "male_crotch_is_visible";
+var MALE_SMALL_CROTCH_IS_VISIBLE = "male_small_crotch_is_visible";
+var MALE_MEDIUM_CROTCH_IS_VISIBLE = "male_medium_crotch_is_visible";
+var MALE_LARGE_CROTCH_IS_VISIBLE = "male_large_crotch_is_visible";
 
 var MALE_MUST_MASTURBATE = "male_must_masturbate";
 var MALE_START_MASTURBATING = "male_start_masturbating";
@@ -84,7 +86,9 @@ var FEMALE_CROTCH_WILL_BE_VISIBLE = "female_crotch_will_be_visible";
 var FEMALE_REMOVED_ACCESSORY = "female_removed_accessory";
 var FEMALE_REMOVED_MINOR = "female_removed_minor";
 var FEMALE_REMOVED_MAJOR = "female_removed_major";
-var FEMALE_CHEST_IS_VISIBLE = "female_chest_is_visible";
+var FEMALE_SMALL_CHEST_IS_VISIBLE = "female_small_chest_is_visible";
+var FEMALE_MEDIUM_CHEST_IS_VISIBLE = "female_medium_chest_is_visible";
+var FEMALE_LARGE_CHEST_IS_VISIBLE = "female_large_chest_is_visible";
 var FEMALE_CROTCH_IS_VISIBLE = "female_crotch_is_visible";
 
 var FEMALE_MUST_MASTURBATE = "female_must_masturbate";
@@ -114,9 +118,10 @@ function loadBehaviour (folder, callFunction, slot) {
             var last = $(xml).find('last').text();
             var label = $(xml).find('label').text();
             var gender = $(xml).find('gender').text();
+            var size = $(xml).find('size').text();
             var timer = $(xml).find('timer').text();
             
-            var newPlayer = createNewPlayer(folder, first, last, label, gender, [], false, "", Number(timer), 0, 0, [], xml);
+            var newPlayer = createNewPlayer(folder, first, last, label, gender, size, [], false, "", Number(timer), 0, 0, [], xml);
             
             loadOpponentWardrobe(newPlayer);
             

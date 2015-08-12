@@ -489,7 +489,9 @@ body.modal-open {
 }
  
 .title-label {
-	padding: 0 5px;
+	padding: 0px;
+	margin-top: 5px;
+	margin-bottom: 0px;
 	text-align: center;
 	font-size: 20px;
 	color: #F5F5F5;
@@ -502,7 +504,7 @@ body.modal-open {
  
 #player-name-field {
 	width: 200px;
-	height: 60px;
+	height: 58px;
 	font-size: 22px;
 	text-align: center;
 	margin: 5px 5px;
@@ -513,10 +515,12 @@ body.modal-open {
 	width: 60px;
 	height: 60px;
 	margin: 5px auto;
+	background-color: white;
 }
 
 .title-clothing-container {
-	margin: 20px auto;
+	margin: 0px auto;
+	margin-bottom: 10px;
 	table-layout: fixed;
 }
 
@@ -534,7 +538,7 @@ body.modal-open {
 	display: block;
 	width: 75px;
 	height: 75px;
-	margin: 5px 5px;
+	margin: 3px 3px;
 	opacity: 0.4;
 	background: white;
 }
@@ -543,13 +547,19 @@ body.modal-open {
 	height: 20px;
 	color: red;
 	text-align: center;
-	margin-bottom: 5px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000; 
 }
 
 .title-entrance-button {
 	display: block;
-	width: 325px;
-	height: 40px;
+	width: 160px;
+	height: 75px;
 	margin: 0 auto;
 	padding: 10px 10px 5px 10px;
 }
@@ -571,12 +581,21 @@ body.modal-open {
 	padding: 2px 5px;
 }
 
-.title-small-button {
+.title-credit-button {
 	display: block;
 	width: 100px;
-	height: 26px;
+	height: 28px;
 	font-size: 16px;
 	margin: 0 auto;
+}
+
+.title-next-button {
+	display: block;
+	width: 80px;
+	font-size: 22px;
+	height: 40px;
+	margin: 0 auto;
+	padding: 5px 10px 5px 10px;
 }
 
 /************************************************************

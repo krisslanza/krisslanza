@@ -32,16 +32,27 @@
 			<!-- Start of Opponent Visuals -->
 			<tr>
 				<td style="width:25%">
-					<div class="opponent-image-area">
-						<img id="title-image-1" class="opponent-image" src="opponents/lilith/start.png"/>
-					</div>
+					<table>
+					<!-- Start of Version Label -->
+					<tr><td>
+						<div class="bordered version-label">
+							Version beta9
+						</div>
+					</td></tr>
+					<!-- End of Version Label -->
+					<tr><td>
+						<div class="opponent-image-area">
+							<img id="title-image-1" class="opponent-image" src="opponents/lilith/start.png"/>
+						</div>
+					</td></tr>
+					</table>
 				</td>
 				
 				<!-- Start of Title Content Area -->
-				<td>
+				<td>		
 					<div class="main-title-container">
 					<table class="main-title-table">
-						<tr><td>
+						<tr><td colspan="6">
 							<table class="centred">
 							<tr>
 								<td class="title-label">What is your name?</td>
@@ -49,22 +60,28 @@
 								<td><input type="text" class="bordered" id="player-name-field"/></td>
 							</tr>
 							</table>
-						</td><td>
+						</td><td colspan="6">
 							<table class="centred">
 							<tr>
 								<td colspan="2" class="title-label">What is your gender?</td>
 							</tr><tr>
-								<td><input type="image" value="" class="bordered title-gender-image" id="male-gender-button" src="img/male.jpg" onclick="changePlayerGender('male')"></td>
-								<td><input type="image" value="" class="bordered title-gender-image" id="female-gender-button" src="img/female.jpg" onclick="changePlayerGender('female')" style="opacity:0.4;"></td>
+								<td><input type="image" value="" class="bordered title-gender-image" id="male-gender-button" src="img/male.png" onclick="changePlayerGender('male')"></td>
+								<td><input type="image" value="" class="bordered title-gender-image" id="female-gender-button" src="img/female.png" onclick="changePlayerGender('female')" style="opacity:0.4;"></td>
 							</tr>
 							</table>
-						</td></tr><tr><td colspan="2">
+						</td></tr><tr><td colspan="12">
+							<p class="title-label">What are you wearing? (Maximum: 8)</p>
+						</td></tr>
+						<tr><td colspan="12">
+							<!-- Start of Warning Label -->
+							<div id="title-warning-label">
+								Select 2 to 8 articles. At least 1 upper body and 1 lower body.
+							</div>
+							<!-- End of Warning Label -->
+						</td></tr><tr><td colspan="12">
 						
 							<!-- Start of Male Clothing Selection -->
 							<table id="male-clothing-container" class="title-clothing-container" hidden>
-								<tr><td colspan="10">
-									<p class="title-label">What are you wearing? (Maximum: 8)</p>
-								</td></tr>
 								<tr>
 									<td><input id="male-clothing-option-0" type="image" value="" class="bordered title-clothing-image" src="player/male/hat.png" onclick="selectClothing(0)"></td>
 									<td><input id="male-clothing-option-1" type="image" value="" class="bordered title-clothing-image" src="player/male/jacket.png" onclick="selectClothing(1)"></td>
@@ -91,9 +108,6 @@
 							
 							<!-- Start of Female Clothing Selection -->
 							<table id="female-clothing-container" class="title-clothing-container">
-								<tr><td colspan="10">
-									<p class="title-label">What are you wearing? (Maximum: 8)</p>
-								</td></tr>
 								<tr>
 									<td><input id="female-clothing-option-0" type="image" value="" class="bordered title-clothing-image" src="player/female/hat.png" onclick="selectClothing(0)"></td>
 									<td><input id="female-clothing-option-1" type="image" value="" class="bordered title-clothing-image" src="player/female/jacket.png" onclick="selectClothing(1)"></td>
@@ -118,43 +132,36 @@
 							</table>
 							<!-- End of Female Clothing Selection -->
 							
-						</td></tr><tr><td colspan="2">
-						
-							<table style="width:100%">
-								<!-- Start of Warning Label -->
-								<tr><td>
-								<div>
-									<div id="title-warning-label">
-										
-									</div>
-								</div>
-								</td></tr>
-								<!-- End of Warning Label -->
-							
-								<!-- Start of Title Button -->
-								<tr><td colspan="3">
-								<div>
-									<button class="bordered smooth-button smooth-button-red title-entrance-button" onclick="validateTitleScreen()">
-										<img class="title-entrance-image" src="img/enter.png"/>
-									</button>
-								</div>
-								</td></tr>
-								<!-- End of Title Button -->
-								
-								<!-- Start of Version Label -->
+						</td></tr><tr><td colspan="6">
+							<!-- Start of Male Size Selection -->
+							<table id="male-size-container" class="centred">
 								<tr>
-								<td><div class="bordered version-label">
-									Version beta8
-								</div></td>
-								<td>
-									<button class="bordered smooth-button title-small-button" onclick="showCreditModal()">
-										Credits
-									</button>
-								</td>
+									<td colspan="3" class="title-label">What's your size?</td>
+								</tr><tr>
+									<td><input type="image" value="" class="bordered title-gender-image" id="small-junk-button" src="img/male_small.png" onclick="changePlayerSize('small')" style="opacity:0.4;"></td>
+									<td><input type="image" value="" class="bordered title-gender-image" id="medium-junk-button" src="img/male_medium.png" onclick="changePlayerSize('medium')"></td>
+									<td><input type="image" value="" class="bordered title-gender-image" id="large-junk-button" src="img/male_large.png" onclick="changePlayerSize('large')" style="opacity:0.4;"></td>
 								</tr>
-								<!-- End of Version Label -->
 							</table>
-						
+							<!-- End of Male Size Selection -->
+							
+							<!-- Start of Female Size Selection -->
+							<table id="female-size-container" class="centred" hidden>
+								<tr>
+									<td colspan="3" class="title-label">What's your size?</td>
+								</tr><tr>
+									<td><input type="image" value="" class="bordered title-gender-image" id="small-boobs-button" src="img/female_small.png" onclick="changePlayerSize('small')" style="opacity:0.4;"></td>
+									<td><input type="image" value="" class="bordered title-gender-image" id="medium-boobs-button" src="img/female_medium.png" onclick="changePlayerSize('medium')"></td>
+									<td><input type="image" value="" class="bordered title-gender-image" id="large-boobs-button" src="img/female_large.png" onclick="changePlayerSize('large')" style="opacity:0.4;"></td>
+								</tr>
+							</table>
+							<!-- End of Female Size Selection -->
+						</td><td colspan="6">
+							<div>
+								<button class="bordered smooth-button smooth-button-red title-entrance-button" onclick="validateTitleScreen()">
+									<img class="title-entrance-image" src="img/enter.png"/>
+								</button>
+							</div>
 						</td></tr>
 					</table>
 					</div>
@@ -162,9 +169,20 @@
 				<!-- End of Title Content Area -->
 				
 				<td style="width:25%">
-					<div class="opponent-image-area">
-						<img id="title-image-4" class="opponent-image" src="opponents/zoey/start.png"/>
-					</div>
+					<table>
+					<!-- Start of Credits Button -->
+					<tr><td>
+						<button class="bordered smooth-button smooth-button-red title-credit-button" onclick="showCreditModal()">
+							Credits
+						</button>
+					</td></tr>
+					<!-- End of Credits Button -->
+					<tr><td>
+						<div class="opponent-image-area">
+							<img id="title-image-1" class="opponent-image" src="opponents/zoey/start.png"/>
+						</div>
+					</td></tr>
+					</table>
 				</td>
 			</tr>
 			<!-- End of Opponent Visuals -->
@@ -1388,7 +1406,7 @@
 				<tr><td style="width:100%">
 					<table class="credit-table">
 						<tr>
-							<td colspan="42"><h4 class="bordered credit-modal-label">Programmers</h4></td>
+							<td colspan="42"><h4 class="bordered credit-modal-label">Programming</h4></td>
 						</tr>
 						<tr>
 							<td>josephkantel</td>
@@ -1397,7 +1415,7 @@
 				</td></tr><tr><td>
 					<table class="credit-table" style="margin-top: 12px;">
 						<tr>
-							<td colspan="42"><h4 class="bordered credit-modal-label">Writers</h4></td>
+							<td colspan="42"><h4 class="bordered credit-modal-label">Dialogue</h4></td>
 						</tr>
 						<tr>
 							<td>undeadclown</td>
@@ -1407,7 +1425,7 @@
 				</td></tr><tr><td>
 					<table class="credit-table" style="margin-top: 12px;">
 						<tr>
-							<td colspan="42"><h4 class="bordered credit-modal-label">Kisekae Artists</h4></td>
+							<td colspan="42"><h4 class="bordered credit-modal-label">Artwork</h4></td>
 						</tr>
 						<tr>
 							<td>josephkantel</td>

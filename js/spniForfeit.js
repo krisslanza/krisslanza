@@ -115,6 +115,7 @@ function tickForfeitTimers (context) {
 					timers[i] = 1;
 				} else {
 					/* random chance they go into heavy masturbation */
+					// CHANGE THIS TO ACTIVATE ONLY IN THE LAST 4 TURNS
 					var randomChance = getRandomNumber(0, players[i].timer);
 					
 					if (randomChance > timers[i]-1) {

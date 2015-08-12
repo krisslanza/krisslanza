@@ -58,8 +58,7 @@ function getClothingTrigger (player, clothing, removed) {
 	var type = clothing.type;
 	var pos = clothing.position;
 	var gender = players[player].gender;
-	console.log(clothing);
-	console.log(type);
+	var size = players[player].size;
 
 	/* starting with important articles */
 	if (type == IMPORTANT_ARTICLE) {
@@ -72,7 +71,13 @@ function getClothingTrigger (player, clothing, removed) {
 				}
 			} else if (gender == FEMALE) {
 				if (removed) {
-					return FEMALE_CHEST_IS_VISIBLE;
+					if (size == LARGE_SIZE) {
+						return FEMALE_LARGE_CHEST_IS_VISIBLE;
+					} else if (size == SMALL_SIZE) {
+						return FEMALE_SMALL_CHEST_IS_VISIBLE;
+					} else {
+						return FEMALE_MEDIUM_CHEST_IS_VISIBLE;
+					}
 				} else {
 					return FEMALE_CHEST_WILL_BE_VISIBLE;
 				}
@@ -80,7 +85,13 @@ function getClothingTrigger (player, clothing, removed) {
 		} else if (pos == LOWER_ARTICLE) {
 			if (gender == MALE) {
 				if (removed) {
-					return MALE_CROTCH_IS_VISIBLE;
+					if (size == LARGE_SIZE) {
+						return MALE_LARGE_CROTCH_IS_VISIBLE;
+					} else if (size == SMALL_SIZE) {
+						return MALE_SMALL_CROTCH_IS_VISIBLE;
+					} else {
+						return MALE_MEDIUM_CROTCH_IS_VISIBLE;
+					}
 				} else {
 					return MALE_CROTCH_WILL_BE_VISIBLE;
 				}

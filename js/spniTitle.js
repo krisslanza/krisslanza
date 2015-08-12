@@ -8,8 +8,12 @@
  *****                   Title Screen UI Elements                 *****
  **********************************************************************/
  
+$titlePanels = [$("#title-panel-1"), $("#title-panel-2")];
 $nameField = $("#player-name-field");
 $genderButtons = [$("#male-gender-button"), $("#female-gender-button")];
+$playerSizeContainers = [$("#male-size-container"), $("#female-size-container")];
+$maleSizeButtons = [$("#small-junk-button"), $("#medium-junk-button"), $("#large-junk-button")];
+$femaleSizeButtons = [$("#small-boobs-button"), $("#medium-boobs-button"), $("#large-boobs-button")];
 $clothingTable = $("#title-clothing-table");
 $warningLabel = $("#title-warning-label");
 
@@ -100,7 +104,7 @@ function updateTitleClothing () {
 			$('#'+players[HUMAN_PLAYER].gender+'-clothing-option-'+i).css('opacity', '0.4');
 		}
 	}
-	$warningLabel.html("");
+	//$warningLabel.html("");
 }
 
 /************************************************************
@@ -138,11 +142,54 @@ function changePlayerGender (gender) {
 	if (gender == MALE) {
 		$genderButtons[0].css({opacity: 1});
 		$genderButtons[1].css({opacity: 0.4});
+		$playerSizeContainers[0].show();
+		$playerSizeContainers[1].hide();
 	} else if (gender == FEMALE) {
 		$genderButtons[0].css({opacity: 0.4});
 		$genderButtons[1].css({opacity: 1});
+		$playerSizeContainers[0].hide();
+		$playerSizeContainers[1].show();
 	}
 	loadClothing();
+}
+
+/************************************************************
+ * The player clicked on one of the size icons on the title 
+ * screen, or this was called by an internal source.
+ ************************************************************/
+function changePlayerSize (size) {
+	players[HUMAN_PLAYER].size = size;
+	
+	/* update visuals */
+	if (players[HUMAN_PLAYER].gender == MALE) {
+		if (size == SMALL_SIZE) {
+			$maleSizeButtons[0].css({opacity: 1});
+			$maleSizeButtons[1].css({opacity: 0.4});
+			$maleSizeButtons[2].css({opacity: 0.4});
+		} else if (size == LARGE_SIZE) {
+			$maleSizeButtons[0].css({opacity: 0.4});
+			$maleSizeButtons[1].css({opacity: 0.4});
+			$maleSizeButtons[2].css({opacity: 1});
+		} else {
+			$maleSizeButtons[0].css({opacity: 0.4});
+			$maleSizeButtons[1].css({opacity: 1});
+			$maleSizeButtons[2].css({opacity: 0.4});
+		}
+	} else if (players[HUMAN_PLAYER].gender == FEMALE) {
+		if (size == SMALL_SIZE) {
+			$femaleSizeButtons[0].css({opacity: 1});
+			$femaleSizeButtons[1].css({opacity: 0.4});
+			$femaleSizeButtons[2].css({opacity: 0.4});
+		} else if (size == LARGE_SIZE) {
+			$femaleSizeButtons[0].css({opacity: 0.4});
+			$femaleSizeButtons[1].css({opacity: 0.4});
+			$femaleSizeButtons[2].css({opacity: 1});
+		} else {
+			$femaleSizeButtons[0].css({opacity: 0.4});
+			$femaleSizeButtons[1].css({opacity: 1});
+			$femaleSizeButtons[2].css({opacity: 0.4});
+		}
+	}
 }
 
 /************************************************************
