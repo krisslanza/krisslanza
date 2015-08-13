@@ -247,7 +247,8 @@ function playerMustStrip (player) {
 		}
 
 		if (player != HUMAN_PLAYER) {
-			updateBehaviour(player, PLAYER_MUST_MASTURBATE, [NAME], [players[player].first]);
+			var trigger = determineForfeitSituation(player);
+			updateBehaviour(player, trigger, [NAME], [players[player].first]);
 		}
 	}
 	
@@ -459,12 +460,13 @@ function determineForfeitSituation (player) {
 			}
 		}
 	}
+	console.log("Check:"+out);
 	
 	/* return appropriate trigger */
 	if (out > 0) {
 		return PLAYER_START_MASTURBATING;
 	} else {
-		return PLAYER_START_MASTURBATING_FIRST;
+		return PLAYER_MUST_MASTURBATE_FIRST;
 	}
 }
 
@@ -506,14 +508,12 @@ function stripPlayer (player) {
 			$gameClothingLabel.html("<b>You're Masturbating...</b>");
 			setForfeitTimer(player);
 		} else {
-			var trigger = determineForfeitSituation(player);
-			
 			if (players[player].gender == MALE) {
 				updateAllBehaviours(player, MALE_START_MASTURBATING, [NAME], [players[player].first]);
 			} else if (players[player].gender == FEMALE) {
 				updateAllBehaviours(player, FEMALE_START_MASTURBATING, [NAME], [players[player].first]);
 			}
-			updateBehaviour(player, trigger, [NAME], [players[player].first]);
+			updateBehaviour(player, PLAYER_START_MASTURBATING, [NAME], [players[player].first]);
 			setForfeitTimer(player);
 		}
 		

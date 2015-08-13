@@ -2725,17 +2725,17 @@
 				</state>
 			</case>
 			<case tag="male_small_crotch_is_visible"> <!-- a male player's crotch has become visible -->
-				<state img="0-calm.png">
+				<state img="10-calm.png">
 					Oh, wow. You seem aroused. Is it because of me?
 				</state>
 			</case>
 			<case tag="male_medium_crotch_is_visible"> <!-- a male player's crotch has become visible -->
-				<state img="0-awkward.png">
+				<state img="10-awkward.png">
 					Oh, wow. You seem aroused. Is it because of me?
 				</state>
 			</case>
 			<case tag="male_large_crotch_is_visible"> <!-- a male player's crotch has become visible -->
-				<state img="0-shocked.png">
+				<state img="10-shocked.png">
 					Oh, wow. You seem aroused. Is it because of me?
 				</state>
 			</case>

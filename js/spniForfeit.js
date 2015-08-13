@@ -36,7 +36,7 @@ function setForfeitTimer (player) {
 	timers[player] = players[player].timer;
 	
 	// THE STAGE IS HARD SET RIGHT NOW
-	players[player].stage = 9;
+	players[player].stage += 1;
 }
  
 /************************************************************
@@ -141,7 +141,7 @@ function tickForfeitTimers (context) {
  ************************************************************/
 function finishMasturbation (player) {
 	// HARD SET STAGE
-	players[player].stage = 10;
+	players[player].stage += 1;
 
 	/* update other player dialogue */
 	if (players[player].gender == MALE) {
